@@ -1,0 +1,28 @@
+<map id="state_waiting_for_modem_run" name="state_waiting_for_modem_run">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,131,225,156"/>
+<area shape="rect" id="Node000002" href="$cloud_8c.html#a8c5558d4acba22c5498368953e56c49a" title=" " alt="" coords="334,105,434,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,130,320,121,321,127,226,136"/>
+<area shape="rect" id="Node000013" href="$group__network.html#ga731127276feb6cc724b0abc39331a3e8" title=" " alt="" coords="273,155,495,180"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="226,151,260,154,259,159,225,156"/>
+<area shape="rect" id="Node000003" href="$cloud_8c.html#a51cd47b6ba453c43654dd3c923d6abfe" title=" " alt="" coords="543,105,725,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="434,115,529,115,529,121,434,121"/>
+<area shape="rect" id="Node000004" href="$cloud_8c.html#aa26e071675c8f94bd18c4dbbb6c63bb0" title=" " alt="" coords="773,5,932,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="654,103,706,72,772,40,791,32,793,37,774,44,709,77,657,108"/>
+<area shape="rect" id="Node000006" href="$cloud_8c.html#ac3e7f5cd788004a96c9e78594caf2454" title="Confirm successful boot after FOTA update." alt="" coords="783,55,923,80"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="689,103,784,81,785,86,690,108"/>
+<area shape="rect" id="Node000007" href="$cloud_8c.html#ade737be2b17b11d005f3fb83e6282532" title=" " alt="" coords="1003,105,1131,131"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="726,115,989,115,989,121,726,121"/>
+<area shape="rect" id="Node000008" href="$cloud_8c.html#a8cbc717d3cc0d8f41e39bf25c03866ce" title="Handle FOTA download completion." alt="" coords="774,156,931,181"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="690,128,785,150,784,155,689,133"/>
+<area shape="rect" id="Node000011" href="$cloud_8c.html#af84d16e7434b6698c0d2066ff14fa34c" title=" " alt="" coords="774,206,931,246"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="658,129,775,192,789,198,787,203,772,196,656,133"/>
+<area shape="rect" id="Node000005" href="$cloud_8c.html#a12ddd808733c83b3f08dfd7a4c2a55bf" title=" " alt="" coords="993,5,1141,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="932,15,980,15,980,21,932,21"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="907,153,999,131,1000,136,908,158"/>
+<area shape="rect" id="Node000009" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="980,156,1155,181"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="932,166,966,166,966,171,932,171"/>
+<area shape="rect" id="Node000010" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="1203,156,1355,181"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1155,166,1189,166,1189,171,1155,171"/>
+<area shape="rect" id="Node000012" href="$cloud_8c.html#a7344c0632d89afdb1bfccce502a6566b" title=" " alt="" coords="989,206,1146,246"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="932,223,975,223,975,229,932,229"/>
+</map>

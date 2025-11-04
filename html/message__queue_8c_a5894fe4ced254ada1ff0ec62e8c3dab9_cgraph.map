@@ -1,0 +1,9 @@
+<map id="state_operational_run" name="state_operational_run">
+<area shape="rect" id="Node000001" title="Run function for OPERATIONAL state." alt="" coords="5,31,169,56"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#adca8ee032108f348cf8ea3936481854d" title="Get number of messages currently in queue." alt="" coords="227,5,363,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,31,213,25,214,31,170,36"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#a97890684bfa65f65e530be570155ef6e" title="Update cloud readiness status." alt="" coords="217,55,373,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,50,204,54,203,59,170,55"/>
+<area shape="rect" id="Node000004" href="$group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="421,55,540,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="374,65,407,65,407,70,374,70"/>
+</map>

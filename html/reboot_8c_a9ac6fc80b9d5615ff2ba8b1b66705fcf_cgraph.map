@@ -1,0 +1,5 @@
+<map id="handle_shutdown_ack" name="handle_shutdown_ack">
+<area shape="rect" id="Node000001" title="Handle shutdown acknowledgment message." alt="" coords="5,13,172,38"/>
+<area shape="rect" id="Node000002" href="$reboot_8c.html#af8dc2f56ec10b29d09795b6316eb91f0" title="Count enabled observers on a ZBUS channel." alt="" coords="220,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+</map>

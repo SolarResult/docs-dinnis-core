@@ -1,0 +1,5 @@
+<map id="save_energy_counters" name="save_energy_counters">
+<area shape="rect" id="Node000001" title="Save energy counters to persistent storage." alt="" coords="5,5,173,31"/>
+<area shape="rect" id="Node000002" href="$energy__pulse_8c.html#a18690cd2c0cd2e09ff7ab115a9294362" title="Save a single energy channel to persistent storage." alt="" coords="221,5,384,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,15,208,15,208,21,174,21"/>
+</map>

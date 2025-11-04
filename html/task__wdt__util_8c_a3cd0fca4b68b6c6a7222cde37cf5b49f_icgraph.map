@@ -1,0 +1,31 @@
+<map id="task_wdt_util_setup" name="task_wdt_util_setup">
+<area shape="rect" id="Node000001" title="Sets up a task watchdog channel for the calling thread." alt="" coords="425,153,577,179"/>
+<area shape="rect" id="Node000002" href="$cloud_8c.html#a1b7c3bb5881ac74afe9a7def0ccf7132" title=" " alt="" coords="235,5,342,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="481,144,437,93,408,67,376,44,341,30,343,25,379,40,411,63,441,90,485,141"/>
+<area shape="rect" id="Node000004" href="$energy__pulse_8c.html#a1329c6acbf8c68ee8b0ad7a7b5f3f62d" title="Main energy pulse thread." alt="" coords="209,55,368,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="470,147,427,120,376,94,344,83,346,78,378,89,429,115,473,143"/>
+<area shape="rect" id="Node000006" href="$led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="243,104,334,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="432,153,333,130,335,124,434,148"/>
+<area shape="rect" id="Node000008" href="$message__queue_8c.html#ab4b89d883393468f3d4629a61ed0b07a" title="Main message queue thread." alt="" coords="200,153,377,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="411,169,378,169,378,163,411,163"/>
+<area shape="rect" id="Node000010" href="$network_8c.html#ad426643c948e8f07ec615a11494b7bf6" title=" " alt="" coords="227,203,351,228"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="433,184,345,205,344,200,432,179"/>
+<area shape="rect" id="Node000012" href="$p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871" title="Main P1 DSMR module thread." alt="" coords="233,252,344,277"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="472,189,429,216,378,242,343,254,341,249,376,237,426,211,469,184"/>
+<area shape="rect" id="Node000014" href="$reboot_8c.html#ab3c48ab471428b42578bcab8e12ad7fe" title="Main reboot thread." alt="" coords="232,301,345,327"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="485,191,440,242,411,268,379,291,347,305,345,300,376,286,408,264,436,238,481,188"/>
+<area shape="rect" id="Node000003" href="$cloud_8c.html#a5c4c9483b84054c82b3a4e310438f3d6" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,21,152,21,152,15,222,15"/>
+<area shape="rect" id="Node000005" href="$energy__pulse_8c.html#ad1b60b3b5778d3bacbedbdaef9188276" title=" " alt="" coords="5,55,152,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,70,152,70,152,65,195,65"/>
+<area shape="rect" id="Node000007" href="$led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,104,152,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="229,119,152,119,152,114,229,114"/>
+<area shape="rect" id="Node000009" href="$message__queue_8c.html#a8466a00a75815de095e483573fba1617" title=" " alt="" coords="5,153,152,179"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="186,169,152,169,152,163,186,163"/>
+<area shape="rect" id="Node000011" href="$network_8c.html#ab0ec4bc246cd1492bfb243cb204a4195" title=" " alt="" coords="5,203,152,228"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="213,218,152,218,152,213,213,213"/>
+<area shape="rect" id="Node000013" href="$p__one_8c.html#aae55c0024ca46ea934d9c00320c2cff6" title=" " alt="" coords="5,252,152,277"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="219,267,152,267,152,262,219,262"/>
+<area shape="rect" id="Node000015" href="$reboot_8c.html#affd895492d6c5990a062df1f1b53cf41" title=" " alt="" coords="5,301,152,327"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="218,317,152,317,152,311,218,311"/>
+</map>

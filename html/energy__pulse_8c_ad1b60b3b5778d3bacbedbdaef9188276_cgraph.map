@@ -1,0 +1,26 @@
+<map id="K_THREAD_DEFINE" name="K_THREAD_DEFINE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,189,152,215"/>
+<area shape="rect" id="Node000002" href="$energy__pulse_8c.html#a1329c6acbf8c68ee8b0ad7a7b5f3f62d" title="Main energy pulse thread." alt="" coords="200,189,359,215"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,199,187,199,187,205,152,205"/>
+<area shape="rect" id="Node000003" href="$energy__pulse_8c.html#af2350211e61bd92164f28699163665b7" title="Initialize GPIO for both pulse input channels." alt="" coords="422,41,594,67"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,187,334,133,367,102,405,76,419,69,422,74,408,80,371,106,338,137,292,191"/>
+<area shape="rect" id="Node000006" href="$energy__pulse_8c.html#a392a7942dccb93cda5fad8e3a5944569" title="Initialize energy pulse data from persistent storage." alt="" coords="407,91,609,116"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="297,187,344,156,406,125,427,117,429,122,408,130,347,161,300,192"/>
+<area shape="rect" id="Node000007" href="$energy__pulse_8c.html#a3196f876a6eb90c89f874161b14ac3cd" title="Publish energy pulse data to ZBUS." alt="" coords="409,140,607,165"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="338,187,434,166,435,171,339,192"/>
+<area shape="rect" id="Node000008" href="$energy__pulse_8c.html#a9c9ba9582cab179bb2fe8c4de8f2fa74" title="Save energy counters to persistent storage." alt="" coords="424,189,592,215"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="359,199,410,199,410,205,359,205"/>
+<area shape="rect" id="Node000010" href="$group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650" title="Publish shutdown acknowledgment to ZBUS." alt="" coords="419,239,597,279"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="331,212,415,233,414,239,330,217"/>
+<area shape="rect" id="Node000011" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="437,304,579,329"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="297,213,344,251,375,271,408,289,430,297,428,302,406,294,372,276,341,255,293,217"/>
+<area shape="rect" id="Node000012" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="432,353,584,379"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="290,213,335,275,369,310,408,340,420,346,418,351,405,344,365,314,331,278,286,216"/>
+<area shape="rect" id="Node000004" href="$energy__pulse_8c.html#abefb7627ec666a33d47d4f9edce23080" title="GPIO callback for pulse counting." alt="" coords="662,5,815,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="589,39,648,29,649,35,590,44"/>
+<area shape="rect" id="Node000005" href="$energy__pulse_8c.html#a3baee71ff88d13304ea1b5ae214150cf" title="Initialize GPIO for pulse input." alt="" coords="671,79,806,104"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="588,64,658,76,658,81,587,69"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="701,80,693,70,697,60,713,54,739,52,771,56,783,65,780,70,769,61,739,57,714,59,701,64,698,70,705,77"/>
+<area shape="rect" id="Node000009" href="$energy__pulse_8c.html#a18690cd2c0cd2e09ff7ab115a9294362" title="Save a single energy channel to persistent storage." alt="" coords="657,189,820,215"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="592,199,644,199,644,205,592,205"/>
+</map>

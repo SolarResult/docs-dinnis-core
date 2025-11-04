@@ -1,0 +1,5 @@
+<map id="update_rolling_stats" name="update_rolling_stats">
+<area shape="rect" id="Node000001" title="Update rolling statistics with new P1 measurement." alt="" coords="5,13,160,38"/>
+<area shape="rect" id="Node000002" href="$p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="208,5,355,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,23,194,23,194,28,160,28"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="obis_sanity_check" name="obis_sanity_check">
+<area shape="rect" id="Node000001" title=" " alt="" coords="773,80,915,105"/>
+<area shape="rect" id="Node000002" href="$p__one_8c.html#adf651229e0437064c13cd3ea662d4275" title=" " alt="" coords="551,5,721,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="803,77,724,45,688,33,690,28,726,39,805,72"/>
+<area shape="rect" id="Node000006" href="$p__one_8c.html#a7ac55b733779cd983042c235b31d888c" title=" " alt="" coords="547,55,725,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="759,85,725,81,726,76,760,80"/>
+<area shape="rect" id="Node000007" href="$p__one_8c.html#a601f1052946a2e18cc5b6210a56fab42" title=" " alt="" coords="568,104,704,129"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="760,105,705,111,704,106,760,100"/>
+<area shape="rect" id="Node000008" href="$p__one_8c.html#a0abae554967d310f7df59822c43c8c1b" title=" " alt="" coords="551,153,721,179"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="803,113,726,143,686,156,684,151,724,138,801,108"/>
+<area shape="rect" id="Node000003" href="$p__one_8c.html#af67d831e95008e598ebb61378ac27b0d" title="Parse DSMR telegram and extract OBIS values." alt="" coords="359,80,499,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="571,37,548,45,457,82,455,77,546,39,569,32"/>
+<area shape="rect" id="Node000004" href="$p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871" title="Main P1 DSMR module thread." alt="" coords="200,80,311,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="345,95,311,95,311,90,345,90"/>
+<area shape="rect" id="Node000005" href="$p__one_8c.html#aae55c0024ca46ea934d9c00320c2cff6" title=" " alt="" coords="5,80,152,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="186,95,153,95,153,90,186,90"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="533,83,499,87,499,81,532,77"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="554,110,499,103,499,98,554,105"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="573,152,546,143,457,108,459,103,548,138,575,147"/>
+</map>

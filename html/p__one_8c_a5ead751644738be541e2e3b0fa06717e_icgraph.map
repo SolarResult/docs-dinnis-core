@@ -1,0 +1,9 @@
+<map id="reset_rolling_stats" name="reset_rolling_stats">
+<area shape="rect" id="Node000001" title="Reset rolling statistics." alt="" coords="535,5,677,31"/>
+<area shape="rect" id="Node000002" href="$p__one_8c.html#ae5671e126cb5ee63fb4f8ffc0877e94e" title="Publish P1 data with rolling statistics to P_ONE_CHAN." alt="" coords="359,5,487,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,21,487,21,487,15,521,15"/>
+<area shape="rect" id="Node000003" href="$p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871" title="Main P1 DSMR module thread." alt="" coords="200,5,311,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,21,311,21,311,15,345,15"/>
+<area shape="rect" id="Node000004" href="$p__one_8c.html#aae55c0024ca46ea934d9c00320c2cff6" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,21,153,21,153,15,186,15"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="K_THREAD_DEFINE" name="K_THREAD_DEFINE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,152,56"/>
+<area shape="rect" id="Node000002" href="$reboot_8c.html#ab3c48ab471428b42578bcab8e12ad7fe" title="Main reboot thread." alt="" coords="200,31,313,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,186,41,186,46,152,46"/>
+<area shape="rect" id="Node000003" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="366,5,509,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="313,33,352,27,352,33,314,38"/>
+<area shape="rect" id="Node000004" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,55,513,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="314,48,348,53,347,58,313,53"/>
+</map>

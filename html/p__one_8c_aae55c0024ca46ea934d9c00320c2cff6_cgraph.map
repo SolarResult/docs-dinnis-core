@@ -1,0 +1,49 @@
+<map id="K_THREAD_DEFINE" name="K_THREAD_DEFINE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,309,152,335"/>
+<area shape="rect" id="Node000002" href="$p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871" title="Main P1 DSMR module thread." alt="" coords="200,309,311,335"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,319,186,319,186,325,152,325"/>
+<area shape="rect" id="Node000003" href="$p__one_8c.html#aaf08ce1fb52c5004cb8c74fd57bb26ac" title="Acquire P1 telegram from DSMR smart meter." alt="" coords="360,128,512,153"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="259,308,292,239,321,198,357,163,365,157,368,162,360,167,325,202,297,242,264,310"/>
+<area shape="rect" id="Node000004" href="$p__one_8c.html#af67d831e95008e598ebb61378ac27b0d" title="Parse DSMR telegram and extract OBIS values." alt="" coords="366,177,506,203"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="273,307,405,209,408,213,276,311"/>
+<area shape="rect" id="Node000015" href="$p__one_8c.html#ae5671e126cb5ee63fb4f8ffc0877e94e" title="Publish P1 data with rolling statistics to P_ONE_CHAN." alt="" coords="372,309,500,335"/>
+<area shape="poly" id="edge19_Node000002_Node000015" title=" " alt="" coords="311,319,358,319,358,325,311,325"/>
+<area shape="rect" id="Node000018" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="365,359,507,384"/>
+<area shape="poly" id="edge22_Node000002_Node000018" title=" " alt="" coords="303,332,376,352,374,357,302,337"/>
+<area shape="rect" id="Node000019" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="360,408,512,433"/>
+<area shape="poly" id="edge23_Node000002_Node000019" title=" " alt="" coords="273,333,311,363,360,394,374,401,372,406,357,399,308,368,269,337"/>
+<area shape="rect" id="Node000020" href="$p__one_8c.html#ad7f010e865fea3a10a5b1f3db67cd9dc" title="UART asynchronous event handler." alt="" coords="362,457,510,483"/>
+<area shape="poly" id="edge24_Node000002_Node000020" title=" " alt="" coords="266,333,302,387,329,418,360,444,370,449,367,454,357,448,325,421,298,390,262,336"/>
+<area shape="rect" id="Node000021" href="$p__one_8c.html#a727fc9db3c54db192dd4a16af246e323" title="Update rolling statistics with new P1 measurement." alt="" coords="359,260,513,285"/>
+<area shape="poly" id="edge25_Node000002_Node000021" title=" " alt="" coords="302,307,374,287,376,292,303,312"/>
+<area shape="rect" id="Node000005" href="$p__one_8c.html#a9141f0cbd7aaa0321edf5cb44b9fbb86" title=" " alt="" coords="589,5,712,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="493,175,512,163,524,148,530,133,534,103,539,71,546,55,560,40,575,29,578,34,563,44,551,58,544,73,540,103,535,135,528,151,515,167,496,179"/>
+<area shape="rect" id="Node000006" href="$p__one_8c.html#adf651229e0437064c13cd3ea662d4275" title=" " alt="" coords="565,203,736,228"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="506,196,552,201,552,206,506,201"/>
+<area shape="rect" id="Node000009" href="$p__one_8c.html#a7ac55b733779cd983042c235b31d888c" title=" " alt="" coords="561,153,740,179"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="506,180,547,175,548,180,506,185"/>
+<area shape="rect" id="Node000011" href="$p__one_8c.html#a601f1052946a2e18cc5b6210a56fab42" title=" " alt="" coords="583,55,719,80"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="489,175,512,163,527,145,535,127,543,108,560,89,569,83,572,88,563,93,547,111,540,129,532,148,515,167,492,180"/>
+<area shape="rect" id="Node000013" href="$p__one_8c.html#a0abae554967d310f7df59822c43c8c1b" title=" " alt="" coords="565,104,736,129"/>
+<area shape="poly" id="edge15_Node000004_Node000013" title=" " alt="" coords="478,175,512,162,560,138,582,131,584,136,562,143,514,167,480,180"/>
+<area shape="rect" id="Node000014" href="$p__one_8c.html#aa4caa917f852a2ac25770d2e0035a8f1" title=" " alt="" coords="591,252,710,277"/>
+<area shape="poly" id="edge18_Node000004_Node000014" title=" " alt="" coords="468,200,562,237,590,246,588,251,560,242,466,205"/>
+<area shape="rect" id="Node000007" href="$p__one_8c.html#a568768b277942d10418a37d55cda5087" title=" " alt="" coords="801,153,942,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="708,200,800,179,801,184,709,205"/>
+<area shape="rect" id="Node000008" href="$p__one_8c.html#a3a68d14b48f95c29888d0c01d5b18b08" title=" " alt="" coords="788,203,955,228"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="736,213,774,213,774,218,736,218"/>
+<area shape="poly" id="edge9_Node000009_Node000007" title=" " alt="" coords="740,163,787,163,787,169,740,169"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="709,176,801,197,800,202,708,181"/>
+<area shape="rect" id="Node000010" href="$p__one_8c.html#a8db4f7ad06848ea8cff96e0213c8265d" title=" " alt="" coords="788,104,955,129"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="708,151,800,130,801,135,709,156"/>
+<area shape="poly" id="edge13_Node000011_Node000007" title=" " alt="" coords="716,78,741,89,757,102,766,114,775,127,789,138,804,146,801,151,787,143,771,130,762,117,753,105,739,94,714,83"/>
+<area shape="rect" id="Node000012" href="$p__one_8c.html#a4b694c8ea4bd25231472b458e8e47152" title=" " alt="" coords="805,55,938,80"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="719,65,791,65,791,70,719,70"/>
+<area shape="poly" id="edge16_Node000013_Node000007" title=" " alt="" coords="709,127,801,148,800,153,708,132"/>
+<area shape="poly" id="edge17_Node000013_Node000010" title=" " alt="" coords="736,114,774,114,774,119,736,119"/>
+<area shape="rect" id="Node000016" href="$p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="577,302,724,342"/>
+<area shape="poly" id="edge20_Node000015_Node000016" title=" " alt="" coords="500,319,564,319,564,325,500,325"/>
+<area shape="rect" id="Node000017" href="$p__one_8c.html#a5ead751644738be541e2e3b0fa06717e" title="Reset rolling statistics." alt="" coords="579,367,722,392"/>
+<area shape="poly" id="edge21_Node000015_Node000017" title=" " alt="" coords="485,332,590,360,588,366,484,337"/>
+<area shape="poly" id="edge26_Node000021_Node000016" title=" " alt="" coords="493,283,565,300,563,305,491,288"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="network_is_disconnected" name="network_is_disconnected">
+<area shape="rect" id="Node000001" title=" " alt="" coords="631,104,817,129"/>
+<area shape="rect" id="Node000002" href="$led_8c.html#ad09d1fe94d25960cb32d31b096e56d88" title="Process network status message." alt="" coords="411,5,578,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="689,99,639,71,582,44,548,33,550,28,584,40,642,67,692,94"/>
+<area shape="rect" id="Node000005" href="$network_8c.html#af2fe784e67615588190c5b60da861903" title=" " alt="" coords="416,55,573,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="650,104,554,83,555,77,651,98"/>
+<area shape="rect" id="Node000007" href="$network_8c.html#a1ba768e9105613fd4e678dea38895fa9" title=" " alt="" coords="407,104,583,129"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="617,119,583,119,583,114,617,114"/>
+<area shape="rect" id="Node000008" href="$cloud_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title=" " alt="" coords="413,153,577,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="651,135,555,156,554,151,650,130"/>
+<area shape="rect" id="Node000009" href="$network_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title=" " alt="" coords="413,203,577,228"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="692,139,642,167,584,194,550,205,548,200,582,189,639,162,689,134"/>
+<area shape="rect" id="Node000003" href="$led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="234,5,325,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,21,325,21,325,15,398,15"/>
+<area shape="rect" id="Node000004" href="$led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="220,21,152,21,152,15,220,15"/>
+<area shape="rect" id="Node000006" href="$network_8c.html#a0937a2b9f19359a45da0136863c9eb3e" title=" " alt="" coords="200,104,359,129"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="426,86,336,107,335,101,425,80"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="425,153,335,132,336,127,426,148"/>
+</map>

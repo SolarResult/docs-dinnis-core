@@ -1,0 +1,5 @@
+<map id="app_thread" name="app_thread">
+<area shape="rect" id="Node000001" title="Main application thread." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="148,5,291,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,15,134,15,134,21,100,21"/>
+</map>

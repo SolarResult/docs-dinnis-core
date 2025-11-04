@@ -1,0 +1,9 @@
+<map id="disconnect_from_cloud" name="disconnect_from_cloud">
+<area shape="rect" id="Node000001" title=" " alt="" coords="489,42,661,67"/>
+<area shape="rect" id="Node000002" href="$cloud_8c.html#a6202a03cc1155dcb9df523b3012d827d" title=" " alt="" coords="269,5,441,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="475,44,440,39,441,34,476,39"/>
+<area shape="rect" id="Node000004" href="$cloud_8c.html#a9ffe09af50f6975fa60560ab45d70cb5" title=" " alt="" coords="268,70,441,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="476,70,442,74,441,69,475,65"/>
+<area shape="rect" id="Node000003" href="$cloud_8c.html#a26d4bdb0f913821d08499ae4d88cad17" title=" " alt="" coords="5,13,220,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,28,220,28,220,23,255,23"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="handle_reboot_request" name="handle_reboot_request">
+<area shape="rect" id="Node000001" title="Handle reboot request message." alt="" coords="217,5,388,31"/>
+<area shape="rect" id="Node000002" href="$reboot_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for operational state." alt="" coords="5,5,169,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,21,170,21,170,15,204,15"/>
+</map>

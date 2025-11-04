@@ -1,0 +1,5 @@
+<map id="ledblink_handler" name="ledblink_handler">
+<area shape="rect" id="Node000001" title="LED blink work handler." alt="" coords="268,5,399,31"/>
+<area shape="rect" id="Node000002" href="$led_8c.html#a25a6f9b64bf80b8969dfdc6c988138b7" title=" " alt="" coords="5,5,220,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,21,220,21,220,15,254,15"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="setup_pulse_gpio" name="setup_pulse_gpio">
+<area shape="rect" id="Node000001" title="Initialize GPIO for pulse input." alt="" coords="627,29,761,55"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="730,20,720,11,694,8,673,10,662,15,659,20,665,28,661,31,654,21,658,11,671,5,694,3,722,6,733,16"/>
+<area shape="rect" id="Node000002" href="$energy__pulse_8c.html#af2350211e61bd92164f28699163665b7" title="Initialize GPIO for both pulse input channels." alt="" coords="407,29,579,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="613,45,579,45,579,39,613,39"/>
+<area shape="rect" id="Node000003" href="$energy__pulse_8c.html#a1329c6acbf8c68ee8b0ad7a7b5f3f62d" title="Main energy pulse thread." alt="" coords="200,29,359,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,45,359,45,359,39,393,39"/>
+<area shape="rect" id="Node000004" href="$energy__pulse_8c.html#ad1b60b3b5778d3bacbedbdaef9188276" title=" " alt="" coords="5,29,152,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,45,153,45,153,39,186,39"/>
+</map>

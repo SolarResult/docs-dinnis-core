@@ -1,0 +1,11 @@
+<map id="zbus_chan_enabled_obs_count" name="zbus_chan_enabled_obs_count">
+<area shape="rect" id="Node000001" title="Count enabled observers on a ZBUS channel." alt="" coords="483,23,661,63"/>
+<area shape="rect" id="Node000002" href="$reboot_8c.html#a9ac6fc80b9d5615ff2ba8b1b66705fcf" title="Handle shutdown acknowledgment message." alt="" coords="268,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,34,434,30,435,25,469,29"/>
+<area shape="rect" id="Node000004" href="$reboot_8c.html#a338dbced1d8ae74f6d2dd4149ab11248" title="Reboot work function." alt="" coords="290,55,413,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="470,57,413,63,413,58,469,52"/>
+<area shape="rect" id="Node000003" href="$reboot_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for operational state." alt="" coords="31,5,195,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,21,195,21,195,15,254,15"/>
+<area shape="rect" id="Node000005" href="$reboot_8c.html#afe0ba1226861366a580b91d90e5e9747" title=" " alt="" coords="5,55,220,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="276,70,220,70,220,65,276,65"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="modules/message_queue/message_queue_zbus.h" name="modules/message_queue/message_queue_zbus.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="78,5,266,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,88,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,48,78,88,75,84,140,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="137,167,207,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,46,155,80,152,99,153,118,164,153,159,155,148,119,147,99,150,79,161,45"/>
+<area shape="rect" id="Node000004" href="$energy__pulse__zbus_8h.html" title=" " alt="" coords="298,93,457,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="222,43,335,86,333,91,220,48"/>
+<area shape="rect" id="Node000007" href="$p__one__zbus_8h.html" title=" " alt="" coords="163,93,274,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="186,44,207,80,202,83,181,47"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="273,167,396,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="373,120,351,156,346,154,368,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="420,167,567,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="397,116,464,157,461,162,395,121"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="213,120,189,157,185,154,209,118"/>
+</map>

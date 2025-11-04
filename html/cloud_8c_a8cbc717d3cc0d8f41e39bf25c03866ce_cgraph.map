@@ -1,0 +1,9 @@
+<map id="on_fota_downloaded" name="on_fota_downloaded">
+<area shape="rect" id="Node000001" title="Handle FOTA download completion." alt="" coords="5,31,163,56"/>
+<area shape="rect" id="Node000002" href="$cloud_8c.html#ade737be2b17b11d005f3fb83e6282532" title=" " alt="" coords="234,5,362,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,31,220,24,221,30,163,37"/>
+<area shape="rect" id="Node000003" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="211,55,385,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,49,197,53,197,59,163,55"/>
+<area shape="rect" id="Node000004" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="433,55,585,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="385,65,419,65,419,70,385,70"/>
+</map>

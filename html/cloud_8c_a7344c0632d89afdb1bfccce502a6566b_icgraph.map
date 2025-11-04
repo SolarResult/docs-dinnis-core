@@ -1,0 +1,15 @@
+<map id="private_cloud_status_to_str" name="private_cloud_status_to_str">
+<area shape="rect" id="Node000001" title=" " alt="" coords="972,35,1129,75"/>
+<area shape="rect" id="Node000002" href="$cloud_8c.html#af84d16e7434b6698c0d2066ff14fa34c" title=" " alt="" coords="767,35,924,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="958,57,924,57,924,52,958,52"/>
+<area shape="rect" id="Node000003" href="$cloud_8c.html#a6202a03cc1155dcb9df523b3012d827d" title=" " alt="" coords="541,5,713,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="752,45,713,40,714,34,753,40"/>
+<area shape="rect" id="Node000005" href="$cloud_8c.html#a51cd47b6ba453c43654dd3c923d6abfe" title=" " alt="" coords="536,70,719,95"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="753,69,719,74,718,68,752,64"/>
+<area shape="rect" id="Node000004" href="$cloud_8c.html#a26d4bdb0f913821d08499ae4d88cad17" title=" " alt="" coords="273,13,488,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="528,28,488,28,488,23,528,23"/>
+<area shape="rect" id="Node000006" href="$cloud_8c.html#a8c5558d4acba22c5498368953e56c49a" title=" " alt="" coords="331,70,431,95"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="522,85,431,85,431,80,522,80"/>
+<area shape="rect" id="Node000007" href="$cloud_8c.html#a4ef6cfa904372b4907c150e7f825347b" title=" " alt="" coords="5,70,225,95"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="317,85,226,85,226,80,317,80"/>
+</map>

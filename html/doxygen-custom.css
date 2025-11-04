@@ -1,0 +1,74 @@
+/**
+ * @file doxygen-custom.css
+ * @brief SolarResult Dinnis Core - Custom Doxygen Styling
+ * 
+ * Custom CSS overrides for Doxygen Awesome theme (Dark Mode Only).
+ * Applies SolarResult brand colors and styling preferences.
+ * 
+ * Copyright (c) 2025 SolarResult B.V.
+ */
+
+/* ============================================================================
+ * Dark Theme Color Overrides - SolarResult Branding
+ * ============================================================================ */
+html {
+    /* SolarResult Orange - Primary Brand Color */
+    --primary-color: #fd9540 !important;
+    --primary-dark-color: #fdb574 !important;
+    --primary-light-color: #c86007 !important;
+    
+    /* Content Width */
+    --content-maxwidth: 1200px;
+}
+
+/* ============================================================================
+ * SolarResult Orange Branding
+ * ============================================================================ */
+
+/* Project Title - SolarResult Orange */
+#projectname {
+    font-weight: 600 !important;
+    color: var(--primary-color) !important;
+}
+
+/* Links - SolarResult Orange (High Specificity!) */
+a,
+a:link,
+a:visited,
+.contents a,
+.contents a:visited,
+#nav-tree a,
+#nav-tree a:visited,
+.memitem a,
+.memitem a:visited {
+    color: var(--primary-color) !important;
+}
+
+a:hover,
+.contents a:hover,
+#nav-tree a:hover,
+.memitem a:hover {
+    color: var(--primary-dark-color) !important;
+}
+
+/* Table Headers - Branded */
+.memberdecls th,
+.fieldtable th,
+.directory .levels,
+.directory .levels span {
+    background-color: var(--primary-light-color) !important;
+    color: white !important;
+}
+
+/* Note/Warning Boxes - Branded Accent */
+dl.note,
+dl.warning,
+dl.attention {
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+dl.note dt,
+dl.warning dt {
+    color: var(--primary-color) !important;
+    font-weight: bold !important;
+}

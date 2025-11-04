@@ -1,0 +1,7 @@
+<map id="queue_combined_message" name="queue_combined_message">
+<area shape="rect" id="Node000001" title="Queue a combined energy message with FIFO drop&#45;oldest strategy." alt="" coords="483,5,681,31"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#a6150572ae890b0b64b8deb007fe3b402" title="Combine collected data and queue the result." alt="" coords="243,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,21,435,21,435,15,469,15"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#a4ffe60323dfa7ef4c85510e2c7e135c1" title="Run function for COLLECTING_DATA state." alt="" coords="5,5,195,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,21,195,21,195,15,229,15"/>
+</map>

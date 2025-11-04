@@ -1,0 +1,12 @@
+<map id="obis_fixed_point_to_milli" name="obis_fixed_point_to_milli">
+<area shape="rect" id="Node000001" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="561,23,708,63"/>
+<area shape="rect" id="Node000002" href="$p__one_8c.html#ae5671e126cb5ee63fb4f8ffc0877e94e" title="Publish P1 data with rolling statistics to P_ONE_CHAN." alt="" coords="372,5,500,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="547,35,500,29,501,24,548,30"/>
+<area shape="rect" id="Node000005" href="$p__one_8c.html#a727fc9db3c54db192dd4a16af246e323" title="Update rolling statistics with new P1 measurement." alt="" coords="359,55,513,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="548,56,514,61,513,55,547,51"/>
+<area shape="rect" id="Node000003" href="$p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871" title="Main P1 DSMR module thread." alt="" coords="200,31,311,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,31,312,38,311,33,358,26"/>
+<area shape="rect" id="Node000004" href="$p__one_8c.html#aae55c0024ca46ea934d9c00320c2cff6" title=" " alt="" coords="5,31,152,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,46,153,46,153,41,186,41"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="345,58,311,53,311,48,346,53"/>
+</map>

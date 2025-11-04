@@ -1,0 +1,5 @@
+<map id="reboot_request_publish" name="reboot_request_publish">
+<area shape="rect" id="Node000001" title="Publish reboot request to ZBUS." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="228,5,380,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

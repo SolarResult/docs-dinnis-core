@@ -1,0 +1,12 @@
+<map id="state_operational_entry" name="state_operational_entry">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,70,183,95"/>
+<area shape="rect" id="Node000002" href="$network_8c.html#ad5f0b19336759f93e92b49468aa2d818" title=" " alt="" coords="231,5,377,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,67,217,46,218,52,142,73"/>
+<area shape="rect" id="Node000003" href="$network_8c.html#aed12310685a6ef6ae9b8b0cb24227fd9" title=" " alt="" coords="237,70,371,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,80,223,80,223,85,183,85"/>
+<area shape="rect" id="Node000004" href="$network_8c.html#a4fea152205e6b87e6931de3f5cacd814" title=" " alt="" coords="425,95,601,121"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="155,93,231,104,324,109,412,109,412,114,323,114,230,109,154,98"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,88,412,93,411,98,372,93"/>
+<area shape="rect" id="Node000005" href="$network_8c.html#a07b1f840ca1e37d4090ab8621d8ad41c" title=" " alt="" coords="649,95,816,121"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="602,105,635,105,635,111,602,111"/>
+</map>

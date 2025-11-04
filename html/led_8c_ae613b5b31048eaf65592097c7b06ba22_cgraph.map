@@ -1,0 +1,11 @@
+<map id="acquiring_timeout_handler" name="acquiring_timeout_handler">
+<area shape="rect" id="Node000001" title="Acquiring timeout handler." alt="" coords="5,31,201,56"/>
+<area shape="rect" id="Node000002" href="$led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="249,31,397,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,41,236,41,236,46,202,46"/>
+<area shape="rect" id="Node000003" href="$led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="457,5,596,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,31,443,26,443,31,398,37"/>
+<area shape="rect" id="Node000005" href="$led_8c.html#a14a710a391b5d39b26baab06d0a5c120" title="Determine LED status based on current system state." alt="" coords="445,55,608,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="398,49,432,54,432,59,397,55"/>
+<area shape="rect" id="Node000004" href="$led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="656,5,764,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="596,15,642,15,642,21,596,21"/>
+</map>

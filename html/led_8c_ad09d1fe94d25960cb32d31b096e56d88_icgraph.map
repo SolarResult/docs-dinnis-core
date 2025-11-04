@@ -1,0 +1,7 @@
+<map id="process_network_msg" name="process_network_msg">
+<area shape="rect" id="Node000001" title="Process network status message." alt="" coords="339,5,505,31"/>
+<area shape="rect" id="Node000002" href="$led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="200,5,291,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,21,291,21,291,15,325,15"/>
+<area shape="rect" id="Node000003" href="$led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,21,152,21,152,15,186,15"/>
+</map>

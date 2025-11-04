@@ -1,0 +1,7 @@
+<map id="state_collecting_data_run" name="state_collecting_data_run">
+<area shape="rect" id="Node000001" title="Run function for COLLECTING_DATA state." alt="" coords="5,5,195,31"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#a6150572ae890b0b64b8deb007fe3b402" title="Combine collected data and queue the result." alt="" coords="243,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#af7e68654facf8babc9920ba337d98b3f" title="Queue a combined energy message with FIFO drop&#45;oldest strategy." alt="" coords="483,5,681,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,15,469,15,469,21,435,21"/>
+</map>

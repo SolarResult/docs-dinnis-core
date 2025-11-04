@@ -1,0 +1,9 @@
+<map id="ZBUS_CHAN_DEFINE" name="ZBUS_CHAN_DEFINE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,164,80"/>
+<area shape="rect" id="Node000002" href="$energy__pulse_8c.html#abefb7627ec666a33d47d4f9edce23080" title="GPIO callback for pulse counting." alt="" coords="215,5,368,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,52,223,31,225,37,139,57"/>
+<area shape="rect" id="Node000003" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="220,55,363,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,65,206,65,206,70,164,70"/>
+<area shape="rect" id="Node000004" href="$app_8c.html#a19084703653c2a15bf7091510af4ea13" title=" " alt="" coords="212,104,371,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="139,77,225,98,223,103,138,83"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="combined_energy_msg" name="combined_energy_msg">
+<area shape="rect" id="Node000001" title="Combined energy message structure." alt="" coords="39,101,212,127"/>
+<area shape="rect" id="Node000002" href="$structp__one__msg.html" title="P_ONE module message structure." alt="" coords="5,5,101,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,40,119,99,114,103,69,43"/>
+<area shape="rect" id="Node000003" href="$structenergy__pulse__msg.html" title="Energy pulse message." alt="" coords="125,5,269,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,44,167,79,142,103,139,99,163,76,184,41"/>
+</map>
