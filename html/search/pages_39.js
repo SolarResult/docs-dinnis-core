@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔌_20hardware_20ondersteuning_0',['🔌 Hardware Ondersteuning',['../index.html#autotoc_md300',1,'']]]
+  ['🔧_20fase_202_3a_20per_20device_20provisioneren_0',['🔧 Fase 2: Per Device Provisioneren',['../provisioning.html#autotoc_md340',1,'']]]
 ];

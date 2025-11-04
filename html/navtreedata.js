@@ -306,313 +306,265 @@ var NAVTREE =
       ] ],
       [ "Zie Ook", "timing_doc.html#autotoc_md283", null ]
     ] ],
-    [ "Development Guide", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html", [
-      [ "📋 Overzicht", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md325", null ],
-      [ "🛠️ Environment Setup", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md327", [
-        [ "Prerequisites", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md328", null ],
-        [ "Toolchain Verificatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md329", null ]
-      ] ],
-      [ "⚙️ West Configuratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md331", [
-        [ "Eerste Keer Setup", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md332", null ],
-        [ "Verificatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md333", null ]
-      ] ],
-      [ "🏗️ Build Instructies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md335", [
-        [ "Standard Build", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md336", null ],
-        [ "Clean Build", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md337", null ],
-        [ "Debug Build", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md338", null ],
-        [ "Build voor Specifiek Board", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md339", null ]
-      ] ],
-      [ "📦 Flash Instructies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md341", [
-        [ "Via West", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md342", null ],
-        [ "Via nrfjprog (Direct)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md343", null ],
-        [ "Flash met Custom Runner", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md344", null ]
-      ] ],
-      [ "🐛 Debug Procedures", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md346", [
-        [ "Serial Console", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md347", null ],
-        [ "GDB Debugging", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md348", null ],
-        [ "RTT (Real-Time Transfer) Logging", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md349", null ]
-      ] ],
-      [ "📊 Build Targets", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md351", [
-        [ "Beschikbare Targets", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md352", null ],
-        [ "Size Analysis", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md353", null ]
-      ] ],
-      [ "🔧 Custom Board Definitie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md355", null ],
-      [ "🧪 Testing", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md357", [
-        [ "Unit Tests", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md358", null ],
-        [ "Integration Tests", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md359", null ]
-      ] ],
-      [ "📝 Build Troubleshooting", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md361", [
-        [ "\"West command not found\"", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md362", null ],
-        [ "\"Board not found\"", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md363", null ],
-        [ "\"Build cache corrupt\"", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md364", null ],
-        [ "\"Out of Flash/RAM\"", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md365", null ]
-      ] ],
-      [ "🚀 Advanced Topics", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md367", [
-        [ "Multi-Image Builds (MCUboot + App)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md368", null ],
-        [ "FOTA Image Generatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md369", null ],
-        [ "Custom Overlays", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md370", null ]
-      ] ],
-      [ "📚 Zie Ook", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2development-guide.html#autotoc_md372", null ]
-    ] ],
     [ "Provisioning and Onboarding", "provisioning.html", [
-      [ "📋 Overzicht", "provisioning.html#autotoc_md375", null ],
-      [ "🛠️ Fase 1: Eenmalige Setup", "provisioning.html#autotoc_md377", [
-        [ "1.1 Development Environment", "provisioning.html#autotoc_md378", null ],
-        [ "1.2 nRF Connect Environment Activeren", "provisioning.html#autotoc_md379", null ],
-        [ "1.3 Modem Firmware Downloaden", "provisioning.html#autotoc_md381", [
-          [ "Download Modem Firmware v2.0.3", "provisioning.html#autotoc_md382", null ],
-          [ "Download PTI Modem Firmware v2.3.8", "provisioning.html#autotoc_md383", null ]
+      [ "📋 Overzicht", "provisioning.html#autotoc_md324", null ],
+      [ "🛠️ Fase 1: Eenmalige Setup", "provisioning.html#autotoc_md326", [
+        [ "1.1 Development Environment", "provisioning.html#autotoc_md327", null ],
+        [ "1.2 nRF Connect Environment Activeren", "provisioning.html#autotoc_md328", null ],
+        [ "1.3 Modem Firmware Downloaden", "provisioning.html#autotoc_md330", [
+          [ "Download Modem Firmware v2.0.3", "provisioning.html#autotoc_md331", null ],
+          [ "Download PTI Modem Firmware v2.3.8", "provisioning.html#autotoc_md332", null ]
         ] ],
-        [ "1.4 Modem Shell (MoSh) Bouwen", "provisioning.html#autotoc_md385", null ],
-        [ "1.5 Certificaten Genereren", "provisioning.html#autotoc_md387", null ],
-        [ "1.6 IMEI Lijst Verkrijgen", "provisioning.html#autotoc_md389", null ]
+        [ "1.4 Modem Shell (MoSh) Bouwen", "provisioning.html#autotoc_md334", null ],
+        [ "1.5 Certificaten Genereren", "provisioning.html#autotoc_md336", null ],
+        [ "1.6 IMEI Lijst Verkrijgen", "provisioning.html#autotoc_md338", null ]
       ] ],
-      [ "🔧 Fase 2: Per Device Provisioneren", "provisioning.html#autotoc_md391", [
-        [ "2.1 IMEI Programmeren", "provisioning.html#autotoc_md392", [
-          [ "Stap 1: Flash PTI Modem Firmware", "provisioning.html#autotoc_md393", null ],
-          [ "Stap 2: Device Recoveren", "provisioning.html#autotoc_md394", null ],
-          [ "Stap 3: Flash Modem Shell", "provisioning.html#autotoc_md395", null ],
-          [ "Stap 4: IMEI Schrijven via RTT", "provisioning.html#autotoc_md396", null ]
+      [ "🔧 Fase 2: Per Device Provisioneren", "provisioning.html#autotoc_md340", [
+        [ "2.1 IMEI Programmeren", "provisioning.html#autotoc_md341", [
+          [ "Stap 1: Flash PTI Modem Firmware", "provisioning.html#autotoc_md342", null ],
+          [ "Stap 2: Device Recoveren", "provisioning.html#autotoc_md343", null ],
+          [ "Stap 3: Flash Modem Shell", "provisioning.html#autotoc_md344", null ],
+          [ "Stap 4: IMEI Schrijven via RTT", "provisioning.html#autotoc_md345", null ]
         ] ],
-        [ "2.2 Certificaten Installeren", "provisioning.html#autotoc_md398", [
-          [ "Stap 1: Flash Productie Modem Firmware", "provisioning.html#autotoc_md399", null ],
-          [ "Stap 2: Certificaten Programmeren", "provisioning.html#autotoc_md400", null ]
+        [ "2.2 Certificaten Installeren", "provisioning.html#autotoc_md347", [
+          [ "Stap 1: Flash Productie Modem Firmware", "provisioning.html#autotoc_md348", null ],
+          [ "Stap 2: Certificaten Programmeren", "provisioning.html#autotoc_md349", null ]
         ] ],
-        [ "2.3 User Applicatie Flashen", "provisioning.html#autotoc_md402", [
-          [ "Build de Dinnis Application", "provisioning.html#autotoc_md403", null ],
-          [ "Flash naar Device", "provisioning.html#autotoc_md404", null ]
+        [ "2.3 User Applicatie Flashen", "provisioning.html#autotoc_md351", [
+          [ "Build de Dinnis Application", "provisioning.html#autotoc_md352", null ],
+          [ "Flash naar Device", "provisioning.html#autotoc_md353", null ]
         ] ]
       ] ],
-      [ "☁️ Fase 3: Bulk Onboarding naar nRF Cloud", "provisioning.html#autotoc_md406", [
-        [ "3.1 Alle Devices Onboarden", "provisioning.html#autotoc_md407", [
-          [ "nRF Cloud API Key", "provisioning.html#autotoc_md408", null ],
-          [ "Voer Onboarding Uit", "provisioning.html#autotoc_md409", null ]
+      [ "☁️ Fase 3: Bulk Onboarding naar nRF Cloud", "provisioning.html#autotoc_md355", [
+        [ "3.1 Alle Devices Onboarden", "provisioning.html#autotoc_md356", [
+          [ "nRF Cloud API Key", "provisioning.html#autotoc_md357", null ],
+          [ "Voer Onboarding Uit", "provisioning.html#autotoc_md358", null ]
         ] ]
       ] ],
-      [ "📚 Referenties", "provisioning.html#autotoc_md411", null ],
-      [ "✅ Checklist", "provisioning.html#autotoc_md413", [
-        [ "Eenmalige Setup", "provisioning.html#autotoc_md414", null ],
-        [ "Per Device", "provisioning.html#autotoc_md415", null ],
-        [ "Bulk Onboarding", "provisioning.html#autotoc_md416", null ]
+      [ "📚 Referenties", "provisioning.html#autotoc_md360", null ],
+      [ "✅ Checklist", "provisioning.html#autotoc_md362", [
+        [ "Eenmalige Setup", "provisioning.html#autotoc_md363", null ],
+        [ "Per Device", "provisioning.html#autotoc_md364", null ],
+        [ "Bulk Onboarding", "provisioning.html#autotoc_md365", null ]
       ] ]
     ] ],
     [ "Best Practices - Praktische Richtlijnen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html", [
-      [ "Error Handling en Return Values", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md419", [
-        [ "Error Variable Declaratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md420", null ],
-        [ "Return Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md421", null ],
-        [ "Return Value Conventies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md422", null ],
-        [ "Logging Bij Errors", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md423", null ],
-        [ "Void vs Int Return", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md424", null ],
-        [ "Assertions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md425", null ]
+      [ "Error Handling en Return Values", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md368", [
+        [ "Error Variable Declaratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md369", null ],
+        [ "Return Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md370", null ],
+        [ "Return Value Conventies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md371", null ],
+        [ "Logging Bij Errors", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md372", null ],
+        [ "Void vs Int Return", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md373", null ],
+        [ "Assertions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md374", null ]
       ] ],
-      [ "ZBUS Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md427", [
-        [ "MSG_SUBSCRIBER Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md428", null ],
-        [ "LISTENER Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md429", null ],
-        [ "Publishing Messages", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md430", null ],
-        [ "Message Processing in Thread", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md431", null ]
+      [ "ZBUS Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md376", [
+        [ "MSG_SUBSCRIBER Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md377", null ],
+        [ "LISTENER Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md378", null ],
+        [ "Publishing Messages", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md379", null ],
+        [ "Message Processing in Thread", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md380", null ]
       ] ],
-      [ "State Machine Patterns (SMF)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md433", [
-        [ "State Machine Setup", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md434", null ],
-        [ "State Handler Functions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md435", null ],
-        [ "State Transitions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md436", null ]
+      [ "State Machine Patterns (SMF)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md382", [
+        [ "State Machine Setup", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md383", null ],
+        [ "State Handler Functions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md384", null ],
+        [ "State Transitions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md385", null ]
       ] ],
-      [ "Resource Management", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md438", [
-        [ "K_NO_WAIT voor Immediate Scheduling", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md439", null ],
-        [ "Mutex Usage", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md440", null ],
-        [ "Work Queue Handlers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md441", null ]
+      [ "Resource Management", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md387", [
+        [ "K_NO_WAIT voor Immediate Scheduling", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md388", null ],
+        [ "Mutex Usage", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md389", null ],
+        [ "Work Queue Handlers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md390", null ]
       ] ],
-      [ "Task Watchdog", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md443", [
-        [ "Configuratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md444", null ],
-        [ "Module Setup Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md445", null ],
-        [ "Timing Berekening", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md446", null ],
-        [ "Checklist voor Nieuwe Module", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md447", null ]
+      [ "Task Watchdog", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md392", [
+        [ "Configuratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md393", null ],
+        [ "Module Setup Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md394", null ],
+        [ "Timing Berekening", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md395", null ],
+        [ "Checklist voor Nieuwe Module", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md396", null ]
       ] ],
-      [ "Hardware Interaction", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md449", [
-        [ "Device Readiness Checks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md450", null ],
-        [ "GPIO Callbacks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md451", null ],
-        [ "LED Control Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md452", null ]
+      [ "Hardware Interaction", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md398", [
+        [ "Device Readiness Checks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md399", null ],
+        [ "GPIO Callbacks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md400", null ],
+        [ "LED Control Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md401", null ]
       ] ],
-      [ "Undefined Behavior en Portability", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md454", [
-        [ "Evaluatievolgorde", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md455", null ],
-        [ "Type Aannames", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md456", null ],
-        [ "Pointer Arithmetic", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md457", null ]
+      [ "Undefined Behavior en Portability", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md403", [
+        [ "Evaluatievolgorde", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md404", null ],
+        [ "Type Aannames", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md405", null ],
+        [ "Pointer Arithmetic", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md406", null ]
       ] ],
-      [ "Common Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md459", [
-        [ "Thread Loop met ZBUS + SMF", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md460", null ],
-        [ "Periodic Work Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md461", null ],
-        [ "Callback Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md462", null ]
+      [ "Common Patterns", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md408", [
+        [ "Thread Loop met ZBUS + SMF", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md409", null ],
+        [ "Periodic Work Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md410", null ],
+        [ "Callback Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md411", null ]
       ] ],
-      [ "Performance en Optimization", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md464", [
-        [ "Memory Usage", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md465", null ],
-        [ "Logging Levels", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md466", null ]
+      [ "Performance en Optimization", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md413", [
+        [ "Memory Usage", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md414", null ],
+        [ "Logging Levels", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md415", null ]
       ] ],
-      [ "Security en Safety", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md468", [
-        [ "Input Validation", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md469", null ],
-        [ "Buffer Overflow Prevention", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md470", null ]
+      [ "Security en Safety", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md417", [
+        [ "Input Validation", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md418", null ],
+        [ "Buffer Overflow Prevention", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md419", null ]
       ] ]
     ] ],
     [ "Code Structure - Organisatie en Volgorde", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html", [
-      [ "Toelichting", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md474", null ],
-      [ "Include Guards en Headers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md475", [
-        [ "Header Files (.h)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md476", null ],
-        [ "Include Order (in .c files)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md477", null ]
+      [ "Toelichting", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md423", null ],
+      [ "Include Guards en Headers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md424", [
+        [ "Header Files (.h)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md425", null ],
+        [ "Include Order (in .c files)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md426", null ]
       ] ],
-      [ "Forward Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md479", [
-        [ "Wanneer Gebruiken", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md480", null ],
-        [ "State Machine Forward Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md481", null ],
-        [ "Volgorde", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md482", null ]
+      [ "Forward Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md428", [
+        [ "Wanneer Gebruiken", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md429", null ],
+        [ "State Machine Forward Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md430", null ],
+        [ "Volgorde", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md431", null ]
       ] ],
-      [ "Sectie Headers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md484", [
-        [ "Standaard Secties (in volgorde)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md485", null ]
+      [ "Sectie Headers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md433", [
+        [ "Standaard Secties (in volgorde)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md434", null ]
       ] ],
-      [ "File Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md487", [
-        [ "Source File (.c) Template", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md488", null ],
-        [ "Header File (.h) Template", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md489", null ]
+      [ "File Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md436", [
+        [ "Source File (.c) Template", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md437", null ],
+        [ "Header File (.h) Template", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md438", null ]
       ] ],
-      [ "ZBUS Conventies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md491", [
-        [ "Channel Naming", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md492", null ],
-        [ "Message Structs", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md493", null ],
-        [ "Channel Declarations vs Definitions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md494", null ]
+      [ "ZBUS Conventies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md440", [
+        [ "Channel Naming", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md441", null ],
+        [ "Message Structs", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md442", null ],
+        [ "Channel Declarations vs Definitions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md443", null ]
       ] ],
-      [ "Module Initialisatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md496", [
-        [ "SYS_INIT Gebruik", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md497", null ],
-        [ "Kconfig Integratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md498", null ]
+      [ "Module Initialisatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md445", [
+        [ "SYS_INIT Gebruik", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md446", null ],
+        [ "Kconfig Integratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md447", null ]
       ] ],
-      [ "CMakeLists.txt voor Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md500", [
-        [ "Standaard Pattern (Altijd Compileren)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md501", null ],
-        [ "Conditionele Compilatie Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md502", null ],
-        [ "Multiple Source Files", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md503", null ],
-        [ "Header Visibility", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md504", null ],
-        [ "Integration in Parent CMakeLists", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md505", null ]
+      [ "CMakeLists.txt voor Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md449", [
+        [ "Standaard Pattern (Altijd Compileren)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md450", null ],
+        [ "Conditionele Compilatie Pattern", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md451", null ],
+        [ "Multiple Source Files", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md452", null ],
+        [ "Header Visibility", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md453", null ],
+        [ "Integration in Parent CMakeLists", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md454", null ]
       ] ],
-      [ "Module Checklist", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md507", [
-        [ "Bestanden Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md508", null ],
-        [ "Code Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md509", null ],
-        [ "ZBUS Integratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md510", null ],
-        [ "Module Initialisatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md511", null ],
-        [ "CMakeLists.txt", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md512", null ],
-        [ "Kconfig", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md513", null ],
-        [ "Task Watchdog (indien module eigen thread heeft)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md514", null ],
-        [ "Testing", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md515", null ],
-        [ "Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md516", null ]
+      [ "Module Checklist", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md456", [
+        [ "Bestanden Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md457", null ],
+        [ "Code Structuur", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md458", null ],
+        [ "ZBUS Integratie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md459", null ],
+        [ "Module Initialisatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md460", null ],
+        [ "CMakeLists.txt", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md461", null ],
+        [ "Kconfig", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md462", null ],
+        [ "Task Watchdog (indien module eigen thread heeft)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md463", null ],
+        [ "Testing", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md464", null ],
+        [ "Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md465", null ]
       ] ],
-      [ "Referentie Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md518", null ]
+      [ "Referentie Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2structure.html#autotoc_md467", null ]
     ] ],
     [ "Code Style - Formattering Regels", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html", [
-      [ "Indentatie en Formattering", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md522", [
-        [ "Spaties (GEEN Tabs)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md523", null ],
-        [ "Lege Regels", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md524", null ],
-        [ "Brace Style", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md525", null ],
-        [ "Line Length", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md526", null ]
+      [ "Indentatie en Formattering", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md471", [
+        [ "Spaties (GEEN Tabs)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md472", null ],
+        [ "Lege Regels", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md473", null ],
+        [ "Brace Style", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md474", null ],
+        [ "Line Length", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md475", null ]
       ] ],
-      [ "Naming Conventions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md528", [
-        [ "Functies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md529", null ],
-        [ "Variabelen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md530", null ],
-        [ "Constanten en Defines", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md531", null ],
-        [ "Macro's", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md532", null ],
-        [ "Enums", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md533", null ],
-        [ "Structs", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md534", null ],
-        [ "Pointers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md535", null ]
+      [ "Naming Conventions", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md477", [
+        [ "Functies", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md478", null ],
+        [ "Variabelen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md479", null ],
+        [ "Constanten en Defines", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md480", null ],
+        [ "Macro's", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md481", null ],
+        [ "Enums", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md482", null ],
+        [ "Structs", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md483", null ],
+        [ "Pointers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md484", null ]
       ] ],
-      [ "Comments en Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md537", [
-        [ "Comment Style", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md538", null ],
-        [ "Doxygen Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md539", null ]
+      [ "Comments en Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md486", [
+        [ "Comment Style", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md487", null ],
+        [ "Doxygen Documentatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md488", null ]
       ] ],
-      [ "Variable Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md541", [
-        [ "Initialization", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md542", null ],
-        [ "Scope en Static", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md543", null ],
-        [ "Arrays en Buffers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md544", null ],
-        [ "sizeof Operator", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md545", null ]
+      [ "Variable Declarations", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md490", [
+        [ "Initialization", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md491", null ],
+        [ "Scope en Static", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md492", null ],
+        [ "Arrays en Buffers", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md493", null ],
+        [ "sizeof Operator", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md494", null ]
       ] ],
-      [ "Magic Numbers en Constants", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md547", [
-        [ "enum vs define", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md548", null ],
-        [ "Gebruik Named Constants", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md549", null ],
-        [ "Uitzonderingen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md550", null ]
+      [ "Magic Numbers en Constants", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md496", [
+        [ "enum vs define", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md497", null ],
+        [ "Gebruik Named Constants", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md498", null ],
+        [ "Uitzonderingen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md499", null ]
       ] ],
-      [ "NULL Checks en Validatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md552", [
-        [ "Pointer Validatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md553", null ],
-        [ "Bool Checks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md554", null ]
+      [ "NULL Checks en Validatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md501", [
+        [ "Pointer Validatie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md502", null ],
+        [ "Bool Checks", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md503", null ]
       ] ],
-      [ "ARG_UNUSED Macro", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md556", null ]
+      [ "ARG_UNUSED Macro", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2style.html#autotoc_md505", null ]
     ] ],
     [ "Module Documentatie Richtlijnen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html", [
-      [ "Bestandsnaam Conventie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md559", null ],
-      [ "Documentatie Niveau", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md561", null ],
-      [ "✅ Wat ER WEL in moet", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md563", [
-        [ "1. Specificaties", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md564", null ],
-        [ "2. Implementatie Design Rationale", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md565", null ],
-        [ "3. Edge Cases", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md566", null ],
-        [ "4. Argumentaties", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md567", null ],
-        [ "5. Afwegingen (Trade-offs)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md568", null ],
-        [ "6. Intended Behaviour", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md569", null ],
-        [ "7. Timing Uitleg", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md570", null ],
-        [ "8. Timing Diagrammen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md571", null ],
-        [ "9. State Machine Transities", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md572", null ],
-        [ "10. Afhankelijkheden van Andere Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md573", null ],
-        [ "11. ZBUS Kanalen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md574", null ]
+      [ "Bestandsnaam Conventie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md508", null ],
+      [ "Documentatie Niveau", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md510", null ],
+      [ "✅ Wat ER WEL in moet", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md512", [
+        [ "1. Specificaties", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md513", null ],
+        [ "2. Implementatie Design Rationale", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md514", null ],
+        [ "3. Edge Cases", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md515", null ],
+        [ "4. Argumentaties", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md516", null ],
+        [ "5. Afwegingen (Trade-offs)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md517", null ],
+        [ "6. Intended Behaviour", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md518", null ],
+        [ "7. Timing Uitleg", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md519", null ],
+        [ "8. Timing Diagrammen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md520", null ],
+        [ "9. State Machine Transities", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md521", null ],
+        [ "10. Afhankelijkheden van Andere Modules", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md522", null ],
+        [ "11. ZBUS Kanalen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md523", null ]
       ] ],
-      [ "❗ Wat ER NIET in moet", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md576", [
-        [ "1. Code Implementatie Voorbeelden", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md577", null ],
-        [ "2. Herhalingen van Blokken Code", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md578", null ],
-        [ "3. Historische Referenties en Voor/Na Vergelijkingen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md579", null ]
+      [ "❗ Wat ER NIET in moet", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md525", [
+        [ "1. Code Implementatie Voorbeelden", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md526", null ],
+        [ "2. Herhalingen van Blokken Code", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md527", null ],
+        [ "3. Historische Referenties en Voor/Na Vergelijkingen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md528", null ]
       ] ],
-      [ "4. Code Verificatie en Synchronisatie (KRITIEK! ⚠️)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md581", [
-        [ "Principe: NOOIT iets verzinnen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md582", null ],
-        [ "Bij het schrijven of bewerken van documentatie:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md583", [
-          [ "✅ VERPLICHTE STAPPEN:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md584", null ],
-          [ "❗ VERBODEN:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md585", null ]
+      [ "4. Code Verificatie en Synchronisatie (KRITIEK! ⚠️)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md530", [
+        [ "Principe: NOOIT iets verzinnen", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md531", null ],
+        [ "Bij het schrijven of bewerken van documentatie:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md532", [
+          [ "✅ VERPLICHTE STAPPEN:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md533", null ],
+          [ "❗ VERBODEN:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md534", null ]
         ] ],
-        [ "Voorbeelden van FOUTEN door niet te verifiëren:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md586", [
-          [ "❗ FOUT (verzonnen content):", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md587", null ],
-          [ "✅ CORRECT (geverifieerd):", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md588", null ]
+        [ "Voorbeelden van FOUTEN door niet te verifiëren:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md535", [
+          [ "❗ FOUT (verzonnen content):", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md536", null ],
+          [ "✅ CORRECT (geverifieerd):", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md537", null ]
         ] ],
-        [ "Checklist voor elke documentatie wijziging:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md589", null ],
-        [ "Waarom is dit zo belangrijk?", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md590", null ]
+        [ "Checklist voor elke documentatie wijziging:", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md538", null ],
+        [ "Waarom is dit zo belangrijk?", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md539", null ]
       ] ],
-      [ "Samenvatting", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md592", null ],
-      [ "5. AI Agent Documentatie Verificatie Protocol", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md594", [
-        [ "5.1 Waarom dit Protocol?", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md595", null ],
-        [ "5.2 Fundamenteel Principe: Code-First Investigation", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md597", null ],
-        [ "5.3 Systematische Verificatie Strategie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md599", [
-          [ "Fase 1: Build Code Inventory (Objectieve Waarheid)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md600", null ],
-          [ "Fase 2: Documentation Claims Extraction", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md602", null ],
-          [ "Fase 3: Systematische Verificatie Per Claim Type", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md604", [
-            [ "3.1 Architectuur Pattern Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md605", null ],
-            [ "3.2 Communication Pattern Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md607", null ],
-            [ "3.3 Configuration &amp; Constants Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md609", null ],
-            [ "3.4 Timing &amp; Behavior Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md611", null ]
+      [ "Samenvatting", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md541", null ],
+      [ "5. AI Agent Documentatie Verificatie Protocol", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md543", [
+        [ "5.1 Waarom dit Protocol?", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md544", null ],
+        [ "5.2 Fundamenteel Principe: Code-First Investigation", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md546", null ],
+        [ "5.3 Systematische Verificatie Strategie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md548", [
+          [ "Fase 1: Build Code Inventory (Objectieve Waarheid)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md549", null ],
+          [ "Fase 2: Documentation Claims Extraction", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md551", null ],
+          [ "Fase 3: Systematische Verificatie Per Claim Type", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md553", [
+            [ "3.1 Architectuur Pattern Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md554", null ],
+            [ "3.2 Communication Pattern Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md556", null ],
+            [ "3.3 Configuration &amp; Constants Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md558", null ],
+            [ "3.4 Timing &amp; Behavior Claims", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md560", null ]
           ] ],
-          [ "Fase 4: Documentatie Anti-Patterns (Red Flags)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md613", [
-            [ "4.1 Taalgebruik Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md614", null ],
-            [ "4.2 Structurele Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md615", null ],
-            [ "4.3 Feature Consistency Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md616", null ]
+          [ "Fase 4: Documentatie Anti-Patterns (Red Flags)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md562", [
+            [ "4.1 Taalgebruik Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md563", null ],
+            [ "4.2 Structurele Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md564", null ],
+            [ "4.3 Feature Consistency Red Flags", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md565", null ]
           ] ]
         ] ],
-        [ "5.4 Verification Workflow (5 Fasen)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md618", null ],
-        [ "5.5 Practical Tools &amp; Commands", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md620", [
-          [ "Code Analysis Commands (Voorbeelden)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md621", null ],
-          [ "Git History Commands (Context)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md622", null ],
-          [ "Verification Shortcuts", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md623", null ]
+        [ "5.4 Verification Workflow (5 Fasen)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md567", null ],
+        [ "5.5 Practical Tools &amp; Commands", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md569", [
+          [ "Code Analysis Commands (Voorbeelden)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md570", null ],
+          [ "Git History Commands (Context)", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md571", null ],
+          [ "Verification Shortcuts", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md572", null ]
         ] ],
-        [ "5.6 Checklist: Voor Documentatie Review Sessie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md625", null ],
-        [ "5.7 Key Insights &amp; Lessons Learned", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md627", null ],
-        [ "5.8 Samenvatting Protocol", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md629", null ]
+        [ "5.6 Checklist: Voor Documentatie Review Sessie", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md574", null ],
+        [ "5.7 Key Insights &amp; Lessons Learned", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md576", null ],
+        [ "5.8 Samenvatting Protocol", "md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md578", null ]
       ] ]
     ] ],
     [ "Doxygen Documentatie Guidelines", "doxygen_guidelines.html", [
-      [ "📋 Filosofie", "doxygen_guidelines.html#autotoc_md631", null ],
-      [ "📚 Documentatie Types", "doxygen_guidelines.html#autotoc_md633", null ],
-      [ "🏗️ Project Layout", "doxygen_guidelines.html#autotoc_md635", null ],
-      [ "⚙️ Doxyfile Configuratie", "doxygen_guidelines.html#autotoc_md637", null ],
-      [ "🎨 Styling &amp; Branding", "doxygen_guidelines.html#autotoc_md639", [
-        [ "Custom CSS (<span class=\"tt\">docs/doxygen-custom.css</span>)", "doxygen_guidelines.html#autotoc_md640", null ],
-        [ "Header HTML (<span class=\"tt\">docs/header.html</span>)", "doxygen_guidelines.html#autotoc_md641", null ]
+      [ "📋 Filosofie", "doxygen_guidelines.html#autotoc_md580", null ],
+      [ "📚 Documentatie Types", "doxygen_guidelines.html#autotoc_md582", null ],
+      [ "🏗️ Project Layout", "doxygen_guidelines.html#autotoc_md584", null ],
+      [ "⚙️ Doxyfile Configuratie", "doxygen_guidelines.html#autotoc_md586", null ],
+      [ "🎨 Styling &amp; Branding", "doxygen_guidelines.html#autotoc_md588", [
+        [ "Custom CSS (<span class=\"tt\">docs/doxygen-custom.css</span>)", "doxygen_guidelines.html#autotoc_md589", null ],
+        [ "Header HTML (<span class=\"tt\">docs/header.html</span>)", "doxygen_guidelines.html#autotoc_md590", null ]
       ] ],
-      [ "📝 Module Documentatie", "doxygen_guidelines.html#autotoc_md643", [
-        [ "Structuur van <span class=\"tt\">&lt;module&gt;_doc.md</span>", "doxygen_guidelines.html#autotoc_md644", null ]
+      [ "📝 Module Documentatie", "doxygen_guidelines.html#autotoc_md592", [
+        [ "Structuur van <span class=\"tt\">&lt;module&gt;_doc.md</span>", "doxygen_guidelines.html#autotoc_md593", null ]
       ] ],
-      [ "🔗 Cross-Referencing", "doxygen_guidelines.html#autotoc_md646", [
-        [ "Module Groepen Definiëren", "doxygen_guidelines.html#autotoc_md647", null ]
+      [ "🔗 Cross-Referencing", "doxygen_guidelines.html#autotoc_md595", [
+        [ "Module Groepen Definiëren", "doxygen_guidelines.html#autotoc_md596", null ]
       ] ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
@@ -642,9 +594,9 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "globals_func_q.html",
-"md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2best-practices.html#autotoc_md459",
-"network_8c.html#aed12310685a6ef6ae9b8b0cb24227fd9",
-"reboot_8c.html#a97a701546dbe400b8a6683136d04c93a"
+"md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md539",
+"p__one_8c.html#a1132e9da6b8a296d2ad5e21e5ba46871",
+"structcloud__msg.html#aecd1bcb98f0885735fe11b2ccc3de136"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -46,7 +46,6 @@
   <td id="projectlogo"><img alt="Logo" src="solar_result_white.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SolarResult Dinnis Core
-   &#160;<span id="projectnumber">v1.0.0-unstable</span>
    </div>
    <div id="projectbrief">Dinnis Rev1.0.0 Firmware - IoT Gateway for DSMR P1 Smart Meters</div>
   </td>
@@ -115,7 +114,7 @@ $(function(){initNavTree('doxygen_guidelines.html','',''); });
 <div class="textblock"><p><a class="anchor" id="md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2doxygen"></a></p>
 <p>Dit document beschrijft hoe we Doxygen gebruiken voor API documentatie in SolarResult Dinnis Core.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md631"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md580"></a>
 📋 Filosofie</h1>
 <p>Onze documentatie is geschreven voor <b>embedded developers</b> met sterke technische achtergrond:</p><ul>
 <li>Begrijpen low-level concepten (memory layout, CPU cycles, state machines)</li>
@@ -126,7 +125,7 @@ $(function(){initNavTree('doxygen_guidelines.html','',''); });
 <p><b>Kernprincipe:</b> Module documentatie = <span class="tt">&lt;module&gt;_doc.md</span></p>
 <p>Voor de inhoud van module documentatie, zie Documentation Guidelines.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md633"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md582"></a>
 📚 Documentatie Types</h1>
 <p>We onderscheiden twee types documentatie met duidelijke naamgeving:</p>
 <table class="markdownTable">
@@ -158,7 +157,7 @@ $(function(){initNavTree('doxygen_guidelines.html','',''); });
 <div class="line">| 📄 **Source Files** | @ref p_one.c |</div>
 <div class="line">| 📄 **Header Files** | @ref p_one.h |</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md635"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md584"></a>
 🏗️ Project Layout</h1>
 <div class="fragment"><div class="line">dinnis-core/</div>
 <div class="line">├── Doxyfile                          # Doxygen configuratie</div>
@@ -190,7 +189,7 @@ $(function(){initNavTree('doxygen_guidelines.html','',''); });
 <li>✅ <b><span class="tt">&lt;module&gt;_doc.md</span></b> → Doxygen module documentatie</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md637"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md586"></a>
 ⚙️ Doxyfile Configuratie</h1>
 <p><b>Key Settings:</b></p>
 <div class="fragment"><div class="line"># Input sources</div>
@@ -222,9 +221,9 @@ $(function(){initNavTree('doxygen_guidelines.html','',''); });
 <div class="line">EXTRACT_PRIVATE = YES</div>
 <div class="line">EXTRACT_STATIC = YES</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md639"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md588"></a>
 🎨 Styling &amp; Branding</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md640"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md589"></a>
 Custom CSS (<span class="tt">docs/doxygen-custom.css</span>)</h2>
 <p><b>SolarResult Orange:</b> </p><div class="fragment"><div class="line">html {</div>
 <div class="line">    --primary-color: #fd9540;</div>
@@ -236,7 +235,7 @@ Custom CSS (<span class="tt">docs/doxygen-custom.css</span>)</h2>
 <li>SolarResult orange als accent kleur</li>
 <li>Doxygen Awesome CSS als basis</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md641"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md590"></a>
 Header HTML (<span class="tt">docs/header.html</span>)</h2>
 <ul>
 <li>Dark mode by default</li>
@@ -244,7 +243,7 @@ Header HTML (<span class="tt">docs/header.html</span>)</h2>
 <li>Doxygen Awesome plugins enabled</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md643"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md592"></a>
 📝 Module Documentatie</h1>
 <p>Voor de volledige inhoud en structuur van <span class="tt">&lt;module&gt;_doc.md</span> bestanden, zie Documentation Guidelines.</p>
 <p><b>Kern:</b></p><ul>
@@ -252,7 +251,7 @@ Header HTML (<span class="tt">docs/header.html</span>)</h2>
 <li>Bevat: Design rationale, specificaties, state machines, timing, trade-offs</li>
 <li>Bevat NIET: Code voorbeelden, herhalingen van code blocks</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md644"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md593"></a>
 Structuur van <span class="tt">&lt;module&gt;_doc.md</span></h2>
 <p><b>Verplichte elementen:</b></p>
 <div class="fragment"><div class="line"># &lt;Module&gt; - Documentatie {#module_doc}</div>
@@ -310,9 +309,9 @@ Structuur van <span class="tt">&lt;module&gt;_doc.md</span></h2>
 <div class="line">| 📄 **Header Files** | @ref network_zbus.h - ZBUS definities |</div>
 <div class="line">| 🔧 **Shell Commands** | @ref network_shell.c - CLI commando&#39;s |</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md646"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md595"></a>
 🔗 Cross-Referencing</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md647"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md596"></a>
 Module Groepen Definiëren</h2>
 <p><b>In header file (bijvoorbeeld <span class="tt">p_one.h</span>):</b> </p><div class="fragment"><div class="line"></div>
 </div><!-- fragment --><p><b> </b></p>

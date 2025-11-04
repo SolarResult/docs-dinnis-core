@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📞_20contact_0',['📞 Contact',['../index.html#autotoc_md319',1,'']]]
+  ['📥_20normal_20data_20collection_20elke_2030_20seconden_0',['📥 Normal Data Collection (elke 30 seconden)',['../index.html#autotoc_md293',1,'']]]
 ];

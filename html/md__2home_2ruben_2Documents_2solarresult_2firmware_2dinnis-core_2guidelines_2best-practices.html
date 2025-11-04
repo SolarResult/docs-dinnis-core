@@ -46,7 +46,6 @@
   <td id="projectlogo"><img alt="Logo" src="solar_result_white.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SolarResult Dinnis Core
-   &#160;<span id="projectnumber">v1.0.0-unstable</span>
    </div>
    <div id="projectbrief">Dinnis Rev1.0.0 Firmware - IoT Gateway for DSMR P1 Smart Meters</div>
   </td>
@@ -112,12 +111,12 @@ $(function(){initNavTree('md__2home_2ruben_2Documents_2solarresult_2firmware_2di
   <div class="headertitle"><div class="title">Best Practices - Praktische Richtlijnen </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md417"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md366"></a></p>
 <p>Dit document bevat best practices en veelvoorkomende patronen voor het Dinnis Core firmware project.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md419"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md368"></a>
 Error Handling en Return Values</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md369"></a>
 Error Variable Declaratie</h2>
 <p><b>Declareer <span class="tt">err</span> variabele waar nodig, niet altijd bovenin:</b></p>
 <div class="fragment"><div class="line"><span class="comment">/* Correct - declareer waar je het gebruikt */</span></div>
@@ -158,7 +157,7 @@ Error Variable Declaratie</h2>
 <div class="line">    err = some_function();</div>
 <div class="line">    <span class="comment">/* ... */</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md370"></a>
 Return Patterns</h2>
 <p><b>1. Direct returnen bij simpele checks:</b> </p><div class="fragment"><div class="line"><span class="comment">/* Correct */</span></div>
 <div class="line"><span class="keywordflow">if</span> (!device_is_ready(dev)) {</div>
@@ -223,7 +222,7 @@ Return Patterns</h2>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> err;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md422"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md371"></a>
 Return Value Conventies</h2>
 <p><b>Success:</b></p><ul>
 <li><span class="tt">return 0;</span> voor success (Zephyr/POSIX conventie)</li>
@@ -242,7 +241,7 @@ Return Value Conventies</h2>
 <div class="line">    <span class="keywordflow">return</span> &amp;valid_data;</div>
 <div class="line">}</div>
 <div class="ttc" id="amessage__queue_8c_html_afe1b4b4eb80224902d335e63ace502af"><div class="ttname"><a href="message__queue_8c.html#afe1b4b4eb80224902d335e63ace502af">data</a></div><div class="ttdeci">struct p_one_msg data</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00151">message_queue.c:151</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md423"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md372"></a>
 Logging Bij Errors</h2>
 <p><b>Altijd loggen waar error ontstaat:</b> </p><div class="fragment"><div class="line"><span class="comment">/* Correct */</span></div>
 <div class="line"><span class="keywordtype">int</span> err = device_init();</div>
@@ -261,7 +260,7 @@ Logging Bij Errors</h2>
 <li><span class="tt">LOG_WRN()</span> - Voor herstelbare situaties of degraded mode</li>
 <li><span class="tt">LOG_DBG()</span> - Voor debug informatie tijdens development</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md424"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md373"></a>
 Void vs Int Return</h2>
 <p><b>Gebruik <span class="tt">void</span> wanneer:</b></p><ul>
 <li>Functie kan niet falen (pure computation, void callbacks)</li>
@@ -291,7 +290,7 @@ Void vs Int Return</h2>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="ap__one_8c_html_a354b99b030bdfe136490f848c05d4788"><div class="ttname"><a href="p__one_8c.html#a354b99b030bdfe136490f848c05d4788">value</a></div><div class="ttdeci">obis_fixed_point_t value</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00254">p_one.c:254</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md425"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md374"></a>
 Assertions</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Build-time assertions */</span></div>
 <div class="line"><a class="code hl_function" href="p__one_8c.html#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT</a>(CONFIG_X &gt; CONFIG_Y, <span class="stringliteral">&quot;X must be greater than Y&quot;</span>);</div>
@@ -300,9 +299,9 @@ Assertions</h2>
 <div class="line">__ASSERT(ptr != NULL, <span class="stringliteral">&quot;Pointer must not be NULL&quot;</span>);</div>
 <div class="ttc" id="ap__one_8c_html_a3f48fcbc19fe59b24bda25731cea5c00"><div class="ttname"><a href="p__one_8c.html#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT</a></div><div class="ttdeci">BUILD_ASSERT(((8191 *(unsigned long)(1000 *1000/(DT_PROP(DT_NODELABEL(uart3), current_speed)/10)+1) *1.1)/1000)&lt;(CONFIG_APP_P_ONE_MODULE_WATCHDOG_TIMEOUT_SECONDS *1000), &quot;UART timeout must be less than watchdog timeout&quot;)</div></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md427"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md376"></a>
 ZBUS Patterns</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md428"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md377"></a>
 MSG_SUBSCRIBER Pattern</h2>
 <p>Voor modules die op meerdere channels luisteren:</p>
 <div class="fragment"><div class="line"><span class="comment">/* Register zbus msg subscriber */</span></div>
@@ -324,7 +323,7 @@ MSG_SUBSCRIBER Pattern</h2>
 <div class="ttc" id="acloud_8c_html_a3b5933d01a8c2ba7a93b5e6aa71593b8"><div class="ttname"><a href="cloud_8c.html#a3b5933d01a8c2ba7a93b5e6aa71593b8">CHANNEL_LIST</a></div><div class="ttdeci">#define CHANNEL_LIST(X)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00064">cloud.c:64</a></div></div>
 <div class="ttc" id="acloud_8c_html_a848ed8b7e0fb0c3ef37659dd114b7a48"><div class="ttname"><a href="cloud_8c.html#a848ed8b7e0fb0c3ef37659dd114b7a48">ADD_OBSERVERS</a></div><div class="ttdeci">#define ADD_OBSERVERS(_chan, _type)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00073">cloud.c:73</a></div></div>
 <div class="ttc" id="acloud_8c_html_ade047e15067f565b91685b93e16656da"><div class="ttname"><a href="cloud_8c.html#ade047e15067f565b91685b93e16656da">ZBUS_MSG_SUBSCRIBER_DEFINE</a></div><div class="ttdeci">ZBUS_MSG_SUBSCRIBER_DEFINE(cloud_subscriber)</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md429"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
 LISTENER Pattern</h2>
 <p>Voor modules die op eigen channel luisteren:</p>
 <div class="fragment"><div class="line"><span class="comment">/* Forward declaration of callback */</span></div>
@@ -337,7 +336,7 @@ LISTENER Pattern</h2>
 <div class="line"><a class="code hl_function" href="app_8c.html#a19084703653c2a15bf7091510af4ea13">ZBUS_CHAN_DEFINE</a>(MODULE_CHAN, <span class="keyword">struct</span> module_msg, NULL, NULL,</div>
 <div class="line">                 ZBUS_OBSERVERS(module_listener), ZBUS_MSG_INIT(0));</div>
 <div class="ttc" id="aapp_8c_html_a19084703653c2a15bf7091510af4ea13"><div class="ttname"><a href="app_8c.html#a19084703653c2a15bf7091510af4ea13">ZBUS_CHAN_DEFINE</a></div><div class="ttdeci">ZBUS_CHAN_DEFINE(TRIGGER_CHAN, struct trigger_msg, NULL, NULL, ZBUS_OBSERVERS_EMPTY, ZBUS_MSG_INIT(0))</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md430"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
 Publishing Messages</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> publish_status(<span class="keywordtype">void</span>)</div>
@@ -354,7 +353,7 @@ Publishing Messages</h2>
 <div class="line">        LOG_ERR(<span class="stringliteral">&quot;Failed to publish status: %d&quot;</span>, err);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md431"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md380"></a>
 Message Processing in Thread</h2>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> module_thread(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
@@ -388,9 +387,9 @@ Message Processing in Thread</h2>
 <li>Best practice zelfs als alle threads gelijke priority hebben</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md382"></a>
 State Machine Patterns (SMF)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md383"></a>
 State Machine Setup</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Forward declarations */</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> state_init_entry(<span class="keywordtype">void</span> *o);</div>
@@ -431,7 +430,7 @@ State Machine Setup</h2>
 <div class="line">    <span class="comment">/* ... other state data ... */</span></div>
 <div class="line">};</div>
 <div class="ttc" id="acloud_8c_html_a17e333794ae761cd55ec6fd6fc0f1bac"><div class="ttname"><a href="cloud_8c.html#a17e333794ae761cd55ec6fd6fc0f1bac">MAX_MSG_SIZE</a></div><div class="ttdeci">#define MAX_MSG_SIZE</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00070">cloud.c:70</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md435"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md384"></a>
 State Handler Functions</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> state_init_entry(<span class="keywordtype">void</span> *o)</div>
@@ -462,7 +461,7 @@ State Handler Functions</h2>
 <div class="ttc" id="agroup__network_html_gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e"><div class="ttname"><a href="group__network.html#gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e">NETWORK_CONNECTED</a></div><div class="ttdeci">@ NETWORK_CONNECTED</div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00039">network_zbus.h:39</a></div></div>
 <div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00042">network_zbus.h:42</a></div></div>
 <div class="ttc" id="astructnetwork__msg_html_a12c53526894a0b0352613e1498b976cf"><div class="ttname"><a href="structnetwork__msg.html#a12c53526894a0b0352613e1498b976cf">network_msg::status</a></div><div class="ttdeci">enum network_status status</div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00047">network_zbus.h:47</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md436"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md385"></a>
 State Transitions</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Set new state */</span></div>
 <div class="line">smf_set_state(SMF_CTX(state_obj), &amp;<a class="code hl_variable" href="cloud_8c.html#a693d2ea076d2873522108af791cbf451">states</a>[STATE_RUNNING]);</div>
@@ -470,16 +469,16 @@ State Transitions</h2>
 <div class="line"><span class="comment">/* Set state with custom initial state */</span></div>
 <div class="line">smf_set_state(SMF_CTX(state_obj), &amp;<a class="code hl_variable" href="cloud_8c.html#a693d2ea076d2873522108af791cbf451">states</a>[STATE_PARENT_WITH_INITIAL]);</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md387"></a>
 Resource Management</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md439"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md388"></a>
 K_NO_WAIT voor Immediate Scheduling</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Correct - immediate scheduling */</span></div>
 <div class="line">k_work_schedule(&amp;work, K_NO_WAIT);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* Vermijd - arbitraire delay */</span></div>
 <div class="line">k_work_schedule(&amp;work, K_MSEC(1));</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md440"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md389"></a>
 Mutex Usage</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Correct - kort lock, schedule buiten lock */</span></div>
 <div class="line">k_mutex_lock(&amp;mutex, K_FOREVER);</div>
@@ -493,7 +492,7 @@ Mutex Usage</h2>
 <div class="line">k_mutex_lock(&amp;mutex, K_FOREVER);</div>
 <div class="line">k_work_schedule(&amp;work, K_NO_WAIT);  <span class="comment">/* ❗ Gevaarlijk */</span></div>
 <div class="line">k_mutex_unlock(&amp;mutex);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md390"></a>
 Work Queue Handlers</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> timer_work_fn(<span class="keyword">struct</span> k_work *work)</div>
@@ -513,9 +512,9 @@ Work Queue Handlers</h2>
 <div class="line">k_work_schedule(&amp;timer_work, K_NO_WAIT);</div>
 <div class="ttc" id="acloud_8c_html_a26d4bdb0f913821d08499ae4d88cad17"><div class="ttname"><a href="cloud_8c.html#a26d4bdb0f913821d08499ae4d88cad17">K_WORK_DELAYABLE_DEFINE</a></div><div class="ttdeci">static K_WORK_DELAYABLE_DEFINE(cloud_readiness_check_work, cloud_readiness_check_work_fn)</div></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md443"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md392"></a>
 Task Watchdog</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md393"></a>
 Configuratie</h2>
 <p><b>Global watchdog configuratie in <span class="tt">application/prj.conf</span>:</b> </p><div class="fragment"><div class="line"># Hardware Watchdog</div>
 <div class="line">CONFIG_WATCHDOG=y</div>
@@ -534,7 +533,7 @@ Configuratie</h2>
 <li>p_one</li>
 <li>reboot</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md394"></a>
 Module Setup Pattern</h2>
 <p><b>Elke module met een thread implementeert:</b></p>
 <div class="fragment"><div class="line"><span class="comment">/* Includes */</span></div>
@@ -631,7 +630,7 @@ Module Setup Pattern</h2>
 <div class="ttc" id="aapp_8c_html_ad3667701d9e14f8b5fc4e3ee0131a27b"><div class="ttname"><a href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b">task_wdt_callback</a></div><div class="ttdeci">static void task_wdt_callback(int channel_id, void *user_data)</div><div class="ttdoc">Watchdog timeout callback.</div><div class="ttdef"><b>Definition</b> <a href="app_8c_source.html#l00063">app.c:63</a></div></div>
 <div class="ttc" id="atask__wdt__util_8c_html_a3cd0fca4b68b6c6a7222cde37cf5b49f"><div class="ttname"><a href="task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f">task_wdt_util_setup</a></div><div class="ttdeci">int task_wdt_util_setup(uint32_t timeout_ms, task_wdt_callback_t callback, void *user_data)</div><div class="ttdoc">Sets up a task watchdog channel for the calling thread.</div><div class="ttdef"><b>Definition</b> <a href="task__wdt__util_8c_source.html#l00016">task_wdt_util.c:16</a></div></div>
 <div class="ttc" id="atask__wdt__util_8h_html"><div class="ttname"><a href="task__wdt__util_8h.html">task_wdt_util.h</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md395"></a>
 Timing Berekening</h2>
 <p><b>De watchdog moet VOOR timeout gevoed worden:</b></p>
 <div class="fragment"><div class="line">zbus_wait_timeout = watchdog_timeout - msg_processing_time</div>
@@ -649,7 +648,7 @@ Timing Berekening</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* Zbus wait: 660 - 60 = 600 seconden (10 minuten) */</span></div>
 <div class="line"><span class="keyword">const</span> k_timeout_t zbus_wait_ms = K_MSEC(wdt_timeout_ms - msg_processing_ms);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md447"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md396"></a>
 Checklist voor Nieuwe Module</h2>
 <p>Wanneer je een nieuwe module met eigen thread toevoegt:</p>
 <ul class="check">
@@ -683,9 +682,9 @@ Checklist voor Nieuwe Module</h2>
 <li class="unchecked">Test dat thread wakker wordt bij timeout (log <span class="tt">-ENOMSG</span>)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md398"></a>
 Hardware Interaction</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md399"></a>
 Device Readiness Checks</h2>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> module_init(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
@@ -704,7 +703,7 @@ Device Readiness Checks</h2>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md451"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md400"></a>
 GPIO Callbacks</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> gpio_callback(<span class="keyword">const</span> <span class="keyword">struct</span> device *dev, <span class="keyword">struct</span> gpio_callback *cb, uint32_t pins)</div>
@@ -726,7 +725,7 @@ GPIO Callbacks</h2>
 <div class="line">    gpio_init_callback(&amp;gpio_cb_data, gpio_callback, BIT(PIN_NUMBER));</div>
 <div class="line">    <span class="keywordflow">return</span> gpio_add_callback(gpio_dev, &amp;gpio_cb_data);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md452"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md401"></a>
 LED Control Patterns</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Expliciet aan/uitzetten */</span></div>
 <div class="line"><span class="keywordflow">if</span> (brightness_red &gt; 0) {</div>
@@ -738,9 +737,9 @@ LED Control Patterns</h2>
 <div class="line"><span class="comment">/* Niet alleen op brightness=0 vertrouwen */</span></div>
 <div class="ttc" id="aled_8c_html_a16989d704b66afb755235dc52390910e"><div class="ttname"><a href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a></div><div class="ttdeci">static const struct device * led_pwm</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00182">led.c:182</a></div></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md403"></a>
 Undefined Behavior en Portability</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md404"></a>
 Evaluatievolgorde</h2>
 <p><b>Schrijf NOOIT code die afhankelijk is van evaluatievolgorde of side-effects:</b></p>
 <div class="fragment"><div class="line"><span class="comment">/* FOUT - undefined behavior! */</span></div>
@@ -762,7 +761,7 @@ Evaluatievolgorde</h2>
 <li>Side-effects in functie-argumenten waar volgorde belangrijk is</li>
 <li>Modificatie en lezen van dezelfde variabele zonder sequence point</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md405"></a>
 Type Aannames</h2>
 <p><b>Maak geen aannames over type groottes:</b></p>
 <div class="fragment"><div class="line"><span class="comment">/* FOUT - aanname over grootte */</span></div>
@@ -782,7 +781,7 @@ Type Aannames</h2>
 <li>Test code op verschillende platformen als mogelijk</li>
 <li>Documenteer platform-specifieke aannames</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md406"></a>
 Pointer Arithmetic</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Wees voorzichtig met pointer arithmetic */</span></div>
 <div class="line"><span class="keywordtype">int</span> array[10];</div>
@@ -796,9 +795,9 @@ Pointer Arithmetic</h2>
 <div class="line"><span class="comment">/* FOUT - undefined als p buiten array */</span></div>
 <div class="line">*(p + 100) = 0;  <span class="comment">/* ❗ Undefined behavior */</span></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md408"></a>
 Common Patterns</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md409"></a>
 Thread Loop met ZBUS + SMF</h2>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> module_thread(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
@@ -828,7 +827,7 @@ Thread Loop met ZBUS + SMF</h2>
 <div class="line"><a class="code hl_function" href="app_8c.html#a0357560df82a39e9c631c79d57b612b2">K_THREAD_DEFINE</a>(module_thread_id, CONFIG_MODULE_THREAD_STACK_SIZE, module_thread,</div>
 <div class="line">                NULL, NULL, NULL, K_LOWEST_APPLICATION_THREAD_PRIO, 0, 0);</div>
 <div class="ttc" id="aapp_8c_html_a0357560df82a39e9c631c79d57b612b2"><div class="ttname"><a href="app_8c.html#a0357560df82a39e9c631c79d57b612b2">K_THREAD_DEFINE</a></div><div class="ttdeci">K_THREAD_DEFINE(app_thread_id, CONFIG_APP_MODULE_THREAD_STACK_SIZE, app_thread, NULL, NULL, NULL, CONFIG_APP_THREAD_PRIORITY_APP, 0, 0)</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md410"></a>
 Periodic Work Pattern</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Forward declaration */</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> periodic_work_fn(<span class="keyword">struct</span> k_work *work);</div>
@@ -858,7 +857,7 @@ Periodic Work Pattern</h2>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md411"></a>
 Callback Pattern</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Forward declaration */</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> hardware_callback(<span class="keyword">const</span> <span class="keyword">struct</span> device *dev, <span class="keywordtype">void</span> *user_data);</div>
@@ -879,9 +878,9 @@ Callback Pattern</h2>
 <div class="line">    k_work_submit(&amp;processing_work);</div>
 <div class="line">}</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md413"></a>
 Performance en Optimization</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md414"></a>
 Memory Usage</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Gebruik stack voor kleine, tijdelijke buffers */</span></div>
 <div class="line">uint8_t temp_buf[64];</div>
@@ -897,7 +896,7 @@ Memory Usage</h2>
 <div class="line">}</div>
 <div class="line"><span class="comment">/* ... use buffer ... */</span></div>
 <div class="line">k_free(large_buf);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md415"></a>
 Logging Levels</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Production - alleen errors en belangrijke info */</span></div>
 <div class="line">LOG_ERR(<span class="stringliteral">&quot;Critical error: %d&quot;</span>, err);</div>
@@ -910,9 +909,9 @@ Logging Levels</h2>
 <div class="line"><span class="comment">/* Verbose debugging - alleen tijdelijk */</span></div>
 <div class="line">LOG_DBG(<span class="stringliteral">&quot;Buffer content: %02x %02x %02x&quot;</span>, buf[0], buf[1], buf[2]);</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md417"></a>
 Security en Safety</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md418"></a>
 Input Validation</h2>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> process_data(<span class="keyword">const</span> uint8_t *<a class="code hl_variable" href="message__queue_8c.html#afe1b4b4eb80224902d335e63ace502af">data</a>, <span class="keywordtype">size_t</span> len)</div>
 <div class="line">{</div>
@@ -930,7 +929,7 @@ Input Validation</h2>
 <div class="line">    <span class="comment">/* Process validated data */</span></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md419"></a>
 Buffer Overflow Prevention</h2>
 <div class="fragment"><div class="line"><span class="comment">/* Gebruik size-limited functies */</span></div>
 <div class="line">strncpy(dest, src, <span class="keyword">sizeof</span>(dest) - 1);</div>

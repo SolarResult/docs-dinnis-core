@@ -46,7 +46,6 @@
   <td id="projectlogo"><img alt="Logo" src="solar_result_white.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SolarResult Dinnis Core
-   &#160;<span id="projectnumber">v1.0.0-unstable</span>
    </div>
    <div id="projectbrief">Dinnis Rev1.0.0 Firmware - IoT Gateway for DSMR P1 Smart Meters</div>
   </td>
@@ -114,7 +113,7 @@ $(function(){initNavTree('provisioning.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2docs_2Provisioning_01and_01onboarding"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md375"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md324"></a>
 📋 Overzicht</h1>
 <p>Dit document beschrijft het volledige proces voor het provisioneren en onboarden van Dinnis devices naar nRF Cloud. Het proces bestaat uit drie hoofdfasen:</p>
 <ol type="1">
@@ -122,14 +121,14 @@ $(function(){initNavTree('provisioning.html','',''); });
 <li><b>Per device</b>: IMEI programmeren, certificaten installeren, applicatie flashen</li>
 <li><b>Bulk onboarding</b>: Alle devices registreren in nRF Cloud</li>
 </ol>
-<p><b>ℹ️ Voor algemene development setup en build instructies, zie <span class="tt"><a class="el" href="development-guide_8md.html">development-guide.md</a></span></b></p>
+<p><b>ℹ️ Voor algemene development setup en build instructies, zie <span class="tt">development-guide.md</span></b></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md377"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md326"></a>
 🛠️ Fase 1: Eenmalige Setup</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md327"></a>
 1.1 Development Environment</h2>
 <p><b>Complete setup instructies (toolchain, west, VS Code) vind je in:</b></p>
-<p>📖 <b><span class="tt"><a class="el" href="development-guide_8md.html">development-guide.md</a></span></b> - Development Guide</p>
+<p>📖 <b><span class="tt">development-guide.md</span></b> - Development Guide</p>
 <p><b>Quick check of environment correct is:</b> </p><div class="fragment"><div class="line"># Check nrfutil</div>
 <div class="line">nrfutil --version</div>
 <div class="line"> </div>
@@ -138,7 +137,7 @@ $(function(){initNavTree('provisioning.html','',''); });
 <div class="line"> </div>
 <div class="line"># Check toolchain</div>
 <div class="line">nrfutil toolchain-manager list</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md328"></a>
 1.2 nRF Connect Environment Activeren</h2>
 <p><b>Methode 1 (Aanbevolen)</b>: Via VS Code <br  />
  Druk op <span class="tt">Ctrl+Shift+P</span> en selecteer <b>&gt;nRF Connect: Create Shell Terminal</b></p>
@@ -149,14 +148,14 @@ $(function(){initNavTree('provisioning.html','',''); });
 </div><!-- fragment --><p><b>⚠️ Belangrijk:</b> Alle volgende commando's moeten uitgevoerd worden binnen nRF Connect environment!</p>
 <p>⚠️ <b>Belangrijk</b>: Alle <span class="tt">west</span> commando's moeten binnen deze environment uitgevoerd worden!</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md381"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md330"></a>
 1.3 Modem Firmware Downloaden</h2>
 <p>⚠️ <b>Let op</b>: Deze commando's NIET in de nRF environment uitvoeren!</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md382"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md331"></a>
 Download Modem Firmware v2.0.3</h3>
 <div class="fragment"><div class="line">curl -L -O --output-dir utils/nrf-mfw/nrf91x1/ \</div>
 <div class="line">    https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/sip/nrf91x1-sip/nrf91x1-lte-modem-firmware/mfw_nrf91x1_2.0.3.zip</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md383"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md332"></a>
 Download PTI Modem Firmware v2.3.8</h3>
 <div class="fragment"><div class="line">curl -L -O --output-dir utils/nrf-mfw/nrf91x1/ \</div>
 <div class="line">    https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/sip/nrf91x1-sip/nrf91x1-lte-pti-modem-firmware/mfw-pti_nrf91x1_2.3.8.zip</div>
@@ -165,7 +164,7 @@ Download PTI Modem Firmware v2.3.8</h3>
 <li><b>PTI MFW</b>: <span class="tt">2.3.8</span> (alleen voor IMEI programmeren)</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md385"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md334"></a>
 1.4 Modem Shell (MoSh) Bouwen</h2>
 <p>✅ <b>Actie</b>: Zorg dat je in de nRF Connect environment bent!</p>
 <p>Build de Modem Shell applicatie:</p>
@@ -176,7 +175,7 @@ Download PTI Modem Firmware v2.3.8</h3>
 <div class="line">    -- -DEXTRA_CONF_FILE=overlay-rtt.conf</div>
 </div><!-- fragment --><p>📝 <b>Note</b>: We gebruiken de Development Kit board definitie omdat MoSh niet device-specifiek is.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md387"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
 1.5 Certificaten Genereren</h2>
 <p>Genereer de CA certificaten voor SolarResult R&amp;D devices:</p>
 <div class="fragment"><div class="line">create_ca_cert \</div>
@@ -207,27 +206,27 @@ Download PTI Modem Firmware v2.3.8</h3>
 <li><span class="tt">solarresult-rd-XXXXX_prv.pem</span> (Private key)</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md389"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md338"></a>
 1.6 IMEI Lijst Verkrijgen</h2>
 <p>📋 <b>Actie</b>: Verkrijg een lijst met beschikbare IMEIs via het <b>nRF Cloud Online Portal</b>.</p>
 <p>Deze IMEIs worden gebruikt voor device identificatie en moeten per device geprogrammeerd worden.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md391"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md340"></a>
 🔧 Fase 2: Per Device Provisioneren</h1>
 <p>Voor elk individueel device moeten de volgende stappen doorlopen worden:</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md392"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
 2.1 IMEI Programmeren</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md393"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md342"></a>
 Stap 1: Flash PTI Modem Firmware</h3>
 <div class="fragment"><div class="line">nrfutil device program --firmware utils/nrf-mfw/nrf91x1/mfw-pti_nrf91x1_2.3.8.zip</div>
 </div><!-- fragment --><p>⚠️ <b>Waarom PTI firmware?</b> De PTI (Product Test Interface) versie stelt het programmeren van IMEI mogelijk.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md394"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md343"></a>
 Stap 2: Device Recoveren</h3>
 <div class="fragment"><div class="line">nrfjprog --recover</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md395"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md344"></a>
 Stap 3: Flash Modem Shell</h3>
 <div class="fragment"><div class="line">west flash --build-dir build_mosh</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md396"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md345"></a>
 Stap 4: IMEI Schrijven via RTT</h3>
 <p>Verbind met RTT en voer het volgende commando uit:</p>
 <div class="fragment"><div class="line">at &#39;AT%IMEIWRITE=0,&quot;35829984xxxxxxc&quot;&#39;</div>
@@ -235,12 +234,12 @@ Stap 4: IMEI Schrijven via RTT</h3>
 <div class="fragment"><div class="line">at AT%IMEIWRITE=0,\&quot;35829984xxxxxxc\&quot;</div>
 </div><!-- fragment --><p>✅ <b>Verificatie</b>: Het device heeft nu een uniek IMEI.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md398"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md347"></a>
 2.2 Certificaten Installeren</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md399"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md348"></a>
 Stap 1: Flash Productie Modem Firmware</h3>
 <div class="fragment"><div class="line">nrfutil device program --firmware utils/nrf-mfw/nrf91x1/mfw_nrf91x1_2.0.3.zip</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md400"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md349"></a>
 Stap 2: Certificaten Programmeren</h3>
 <div class="fragment"><div class="line">device_credentials_installer \</div>
 <div class="line">    --rtt \</div>
@@ -281,29 +280,29 @@ Stap 2: Certificaten Programmeren</h3>
 <li><span class="tt">devinfo.csv</span>: Device informatie voor nRF Cloud</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md402"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md351"></a>
 2.3 User Applicatie Flashen</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md403"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md352"></a>
 Build de Dinnis Application</h3>
 <div class="fragment"><div class="line">west build --pristine \</div>
 <div class="line">    --build-dir build \</div>
 <div class="line">    --board dinnis_rev1_0_0/nrf9161/ns \</div>
 <div class="line">    application \</div>
 <div class="line">    -- -DBOARD_ROOT=..</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md404"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md353"></a>
 Flash naar Device</h3>
 <div class="fragment"><div class="line">west flash --build-dir build</div>
 </div><!-- fragment --><p>✅ <b>Klaar!</b> Het device is nu volledig geprovisioneerd en klaar voor onboarding.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md406"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md355"></a>
 ☁️ Fase 3: Bulk Onboarding naar nRF Cloud</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md407"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md356"></a>
 3.1 Alle Devices Onboarden</h2>
 <p>⚠️ <b>Eenmalig</b>: Dit proces hoeft maar één keer uitgevoerd te worden voor alle devices!</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md408"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md357"></a>
 nRF Cloud API Key</h3>
 <p>📋 <b>API Key</b>: <span class="tt">b52dccf446b05357d3434bd88fe7bf2695462ef9</span></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md409"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md358"></a>
 Voer Onboarding Uit</h3>
 <div class="fragment"><div class="line">nrf_cloud_onboard \</div>
 <div class="line">    --api-key b52dccf446b05357d3434bd88fe7bf2695462ef9 \</div>
@@ -326,7 +325,7 @@ Voer Onboarding Uit</h3>
 <p><b>Output</b>: <span class="tt">onboard_results.csv</span> bevat de status van elke onboarding actie.</p>
 <p>✅ <b>Gefeliciteerd!</b> Alle devices zijn nu actief in nRF Cloud en klaar voor gebruik.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md411"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md360"></a>
 📚 Referenties</h1>
 <ul>
 <li><b>Modem Firmware</b>: <a href="https://www.nordicsemi.com/Products/nRF9161/Download">Nordic Downloads</a></li>
@@ -334,9 +333,9 @@ Voer Onboarding Uit</h3>
 <li><b>nrfcloud-utils Documentatie</b>: <a href="https://pypi.org/project/nrfcloud-utils/">PyPI nrfcloud-utils</a></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md413"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md362"></a>
 ✅ Checklist</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md414"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md363"></a>
 Eenmalige Setup</h2>
 <ul class="check">
 <li class="unchecked">VS Code extensions geïnstalleerd</li>
@@ -359,7 +358,7 @@ Eenmalige Setup</h2>
 <ul class="check">
 <li class="unchecked">IMEI lijst verkregen</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md415"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md364"></a>
 Per Device</h2>
 <ul class="check">
 <li class="unchecked">PTI modem firmware geflasht</li>
@@ -382,7 +381,7 @@ Per Device</h2>
 <ul class="check">
 <li class="unchecked">User applicatie geflasht</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md416"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md365"></a>
 Bulk Onboarding</h2>
 <ul class="check">
 <li class="unchecked">API key verkregen</li>
