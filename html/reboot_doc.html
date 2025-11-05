@@ -113,7 +113,7 @@ $(function(){initNavTree('reboot_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2reboot_2reboot__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md236"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -128,14 +128,14 @@ $(function(){initNavTree('reboot_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>ZBUS Channel</b>  </td><td class="markdownTableBodyNone"><a class="el" href="reboot__zbus_8c.html">reboot_zbus.c</a> - Channel helper functies  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md234"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md238"></a>
 Overzicht</h1>
 <p>De Reboot module implementeert graceful shutdown en reboot functionaliteit. Het coördineert een gecontroleerde shutdown waarbij alle modules de kans krijgen om data op te slaan en verbindingen netjes af te sluiten voordat het systeem herstart.</p>
 <p>Dit voorkomt data loss en half-open connecties bij system reboot.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md236"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md240"></a>
 Waarom? (Probleem &amp; Motivatie)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md237"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md241"></a>
 Graceful Shutdown</h2>
 <p><b>Probleem zonder coördinatie</b>: </p><div class="fragment"><div class="line">sys_reboot() aangeroepen</div>
 <div class="line">    │</div>
@@ -159,7 +159,7 @@ Graceful Shutdown</h2>
 <li>Snellere reconnect (geen TCP timeout aan server kant)</li>
 <li>Geen flash corruptie risico</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md238"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
 Reboot Reason Tracking</h2>
 <p><b>Use Case</b>: Troubleshooting in productie </p><div class="fragment"><div class="line">Klant: &quot;Apparaat heeft gerebooted, waarom?&quot;</div>
 <div class="line"> </div>
@@ -170,9 +170,9 @@ Reboot Reason Tracking</h2>
 <div class="line">- REBOOT_REASON_ERROR → Critical error, check error logs 🔴</div>
 </div><!-- fragment --><p><b>Voordeel</b>: Root cause analysis voor onverwachte reboots.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md240"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md244"></a>
 Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md241"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md245"></a>
 Reboot Types</h2>
 <p><b>REBOOT_TYPE_FOTA</b> (Firmware Over-The-Air update reboot):</p><ul>
 <li>Publish REBOOT_REQUEST naar alle modules</li>
@@ -186,7 +186,7 @@ Reboot Types</h2>
 <li>sys_reboot() call</li>
 <li>Gebruikt bij recoverable errors die reboot vereisen</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md246"></a>
 Reboot Redenen</h2>
 <p>Verschillende reboot redenen worden getrackt voor diagnostics:</p><ul>
 <li>UNKNOWN: Default na boot</li>
@@ -196,7 +196,7 @@ Reboot Redenen</h2>
 <li>ERROR: Critical error</li>
 <li>NETWORK: Network recovery</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md243"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md247"></a>
 ZBUS Protocol</h2>
 <p><b>Single Channel: REBOOT_CHAN</b></p>
 <p>De module gebruikt <b>één ZBUS channel</b> (<span class="tt">REBOOT_CHAN</span>) voor alle communicatie met verschillende message types:</p>
@@ -221,7 +221,7 @@ ZBUS Protocol</h2>
 </ul>
 </li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md244"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md248"></a>
 Shutdown Sequence</h2>
 <div class="fragment"><div class="line">┌─────────────┐</div>
 <div class="line">│ Reboot      │  1. Reboot trigger (FOTA done, error, etc.)</div>
@@ -270,9 +270,9 @@ Shutdown Sequence</h2>
 <div class="line">                   │ sys_reboot()│  6. System reboot</div>
 <div class="line">                   └─────────────┘</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md246"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md250"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md247"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md251"></a>
 State Machine</h2>
 <p>De module heeft een <b>minimale state machine</b> met slechts één state:</p>
 <div class="fragment"><div class="line">┌──────────────┐</div>
@@ -299,7 +299,7 @@ State Machine</h2>
 <li>All ACKs ontvangen → reschedule work voor immediate execution (3s)</li>
 <li>Work handler → <span class="tt">sys_reboot()</span> (blocking call, no return)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md248"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md252"></a>
 Acknowledgement Tracking</h2>
 <p><b>Completion Check</b>: Module gebruikt ZBUS observer enable/disable mechanisme voor ACK tracking.</p>
 <p><b>Logic</b>:</p><ol type="1">
@@ -320,7 +320,7 @@ Acknowledgement Tracking</h2>
 <li>Als count == 1 → reschedule reboot work voor 3 seconden later</li>
 <li>Timeout mechanisme: Werk is al scheduled met max delay, forceert reboot als niet alle ACKs</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md249"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md253"></a>
 Timeout Mechanisme</h2>
 <p><b>Configuratie via Kconfig:</b></p><ul>
 <li><span class="tt">CONFIG_APP_REBOOT_MODULE_ERROR_TIMEOUT_SECONDS</span> - Timeout voor reboot (gebruikt voor zowel FOTA als ERROR types)</li>
@@ -342,7 +342,7 @@ Timeout Mechanisme</h2>
 <li>⚠️ Risk: Module data loss als shutdown niet af is binnen timeout</li>
 <li>Balance: Timeout configureerbaar via Kconfig (default geschikt voor meeste scenarios)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md250"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md254"></a>
 Work Queue Pattern</h2>
 <p><b>Probleem</b>: sys_reboot() is blocking call, mag niet in ZBUS callback uitvoeren (deadlock risk).</p>
 <p><b>Oplossing</b>: Schedule reboot via dedicated work queue item.</p>
@@ -353,9 +353,9 @@ Work Queue Pattern</h2>
 <li>Delay parameter (delay_ms) kan via k_work_schedule() timing</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md252"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md256"></a>
 Shutdown Betrouwbaarheid</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md253"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md257"></a>
 Graceful Shutdown Gedrag</h2>
 <p><b>Normale situatie</b> (alle modules healthy):</p><ul>
 <li>Shutdown request → alle modules ACK binnen 2s</li>
@@ -386,7 +386,7 @@ Graceful Shutdown Gedrag</h2>
 <li>TCP reconnect time: ~60s → ~5s (server timeout vs clean disconnect)</li>
 <li>Flash corruption events: 3 → 0 </li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md255"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md259"></a>
 Toekomstige Uitbreidingen</h2>
 <ul>
 <li>⏳ <b>Persistent reboot count</b> - Track total reboots in Settings</li>
@@ -396,7 +396,7 @@ Toekomstige Uitbreidingen</h2>
 <li>⏳ <b>Reboot analytics</b> - Send reason + uptime naar cloud voor remote monitoring</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md257"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md261"></a>
 Module Shutdown Implementatie Vereisten</h1>
 <p><b>Wat modules moeten doen bij shutdown</b>:</p>
 <ol type="1">
@@ -466,7 +466,7 @@ Module Shutdown Implementatie Vereisten</h1>
 <li class="unchecked">Test: shutdown completes binnen Kconfig timeout</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md260"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md264"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="reboot_8c.html">reboot.c</a> - Implementatie</li>

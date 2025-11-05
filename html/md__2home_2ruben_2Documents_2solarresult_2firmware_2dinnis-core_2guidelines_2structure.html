@@ -111,19 +111,19 @@ $(function(){initNavTree('md__2home_2ruben_2Documents_2solarresult_2firmware_2di
   <div class="headertitle"><div class="title">Code Structure - Organisatie en Volgorde </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md425"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md429"></a></p>
 <p>Dit document beschrijft hoe code gestructureerd en georganiseerd moet worden in het Dinnis Core firmware project.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md427"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md431"></a>
 Toelichting</h1>
 <p>Er zijn in dit document codevoorbeelden te vinden met commentaar in de code. Als een specifiek stukje commentaar is voorzien van de tekst "DESCRIPTION" dan dient deze enkel als uitleg over de relevante code, en dient dit commentaar niet letterlijk te worden overgenomen in de uiteindelijke code die jij schrijft. Bijvoorbeeld:</p>
 <div class="fragment"><div class="line"><span class="comment">/* DESCRIPTION Includes */</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 </div><!-- fragment --><p>Hier dient <span class="tt">/* Includes */</span> niet overgenomen te worden, omdat er <span class="tt">DESCRIPTION</span> bij staat.</p>
 <p>Andere commentaren dienen juist wel overgenomen te worden.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md428"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md432"></a>
 Include Guards en Headers</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md429"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
 Header Files (.h)</h2>
 <p><b>Altijd include guards gebruiken:</b></p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -162,7 +162,7 @@ Header Files (.h)</h2>
 <div class="line"><span class="preprocessor">#define LED_H_</span></div>
 <div class="line"><span class="comment">// ... LED status enums (geen ZBUS channel)</span></div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">/* LED_H_ */</span><span class="preprocessor"></span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md430"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
 Include Order (in .c files)</h2>
 <p><b>Strikte volgorde voor overzicht:</b></p>
 <p><b>Verplichte comment headers:</b> </p><div class="fragment"><div class="line"><span class="comment">/* Standard C library includes (indien nodig) */</span></div>
@@ -193,9 +193,9 @@ Include Order (in .c files)</h2>
 <li>Nordic/external libraries sectie alleen toevoegen indien nodig</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md432"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md436"></a>
 Forward Declarations</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md437"></a>
 Wanneer Gebruiken</h2>
 <p>Forward declarations zijn nodig voor:</p><ul>
 <li>Callback functies gebruikt in struct/macro definities</li>
@@ -214,7 +214,7 @@ Wanneer Gebruiken</h2>
 <div class="line">    <span class="comment">/* DESCRIPTION implementation */</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aapp_8c_html_a741988180fb21aef6f753e5f09e4b887"><div class="ttname"><a href="app_8c.html#a741988180fb21aef6f753e5f09e4b887">ZBUS_LISTENER_DEFINE</a></div><div class="ttdeci">ZBUS_LISTENER_DEFINE(zbus_monitor, zbus_monitor_callback)</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
 State Machine Forward Declarations</h2>
 <div class="fragment"><div class="line"><span class="comment">/* DESCRIPTION Forward declarations - groepeer bij elkaar */</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> state_init_entry(<span class="keywordtype">void</span> *o);</div>
@@ -230,7 +230,7 @@ State Machine Forward Declarations</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* DESCRIPTION Implementaties komen later in &quot;State Machine Handlers&quot; sectie */</span></div>
 <div class="ttc" id="acloud_8c_html_a693d2ea076d2873522108af791cbf451"><div class="ttname"><a href="cloud_8c.html#a693d2ea076d2873522108af791cbf451">states</a></div><div class="ttdeci">static const struct smf_state states[]</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00172">cloud.c:172</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md435"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md439"></a>
 Volgorde</h2>
 <ol type="1">
 <li>Forward declarations eerst (indien nodig)</li>
@@ -238,7 +238,7 @@ Volgorde</h2>
 <li>Implementaties komen in logische sectie later</li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md437"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
 Sectie Headers</h1>
 <p>Gebruik consistente sectie banners voor code organisatie:</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -246,7 +246,7 @@ Sectie Headers</h1>
 <div class="line"><span class="comment"> * Section Name</span></div>
 <div class="line"><span class="comment"> * =================================================================================</span></div>
 <div class="line"><span class="comment"> */</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md442"></a>
 Standaard Secties (in volgorde)</h2>
 <p>De volgorde volgt een "top-down" principe: eerst declaraties en definities, dan resources, dan implementaties.</p>
 <ol type="1">
@@ -270,9 +270,9 @@ Standaard Secties (in volgorde)</h2>
 <li>Thread en init onderaan (gebruiken alles wat eerder gedefinieerd is)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md440"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
 File Structuur</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
 Source File (.c) Template</h2>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * Module Name</span></div>
@@ -532,10 +532,10 @@ Source File (.c) Template</h2>
 <div class="ttc" id="acloud_8c_html_a3b5933d01a8c2ba7a93b5e6aa71593b8"><div class="ttname"><a href="cloud_8c.html#a3b5933d01a8c2ba7a93b5e6aa71593b8">CHANNEL_LIST</a></div><div class="ttdeci">#define CHANNEL_LIST(X)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00064">cloud.c:64</a></div></div>
 <div class="ttc" id="acloud_8c_html_a848ed8b7e0fb0c3ef37659dd114b7a48"><div class="ttname"><a href="cloud_8c.html#a848ed8b7e0fb0c3ef37659dd114b7a48">ADD_OBSERVERS</a></div><div class="ttdeci">#define ADD_OBSERVERS(_chan, _type)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00073">cloud.c:73</a></div></div>
 <div class="ttc" id="acloud_8c_html_ade047e15067f565b91685b93e16656da"><div class="ttname"><a href="cloud_8c.html#ade047e15067f565b91685b93e16656da">ZBUS_MSG_SUBSCRIBER_DEFINE</a></div><div class="ttdeci">ZBUS_MSG_SUBSCRIBER_DEFINE(cloud_subscriber)</div></div>
-<div class="ttc" id="amessage__queue_8c_html_afe1b4b4eb80224902d335e63ace502af"><div class="ttname"><a href="message__queue_8c.html#afe1b4b4eb80224902d335e63ace502af">data</a></div><div class="ttdeci">struct p_one_msg data</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00151">message_queue.c:151</a></div></div>
+<div class="ttc" id="amessage__queue_8c_html_afe1b4b4eb80224902d335e63ace502af"><div class="ttname"><a href="message__queue_8c.html#afe1b4b4eb80224902d335e63ace502af">data</a></div><div class="ttdeci">struct p_one_msg data</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00157">message_queue.c:157</a></div></div>
 <div class="ttc" id="anetwork_8c_html_ac5f69bbbe9688f09884d4334a0c8d074"><div class="ttname"><a href="network_8c.html#ac5f69bbbe9688f09884d4334a0c8d074">K_SEM_DEFINE</a></div><div class="ttdeci">K_SEM_DEFINE(nrf_modem_initialized, 0, 1)</div></div>
 <div class="ttc" id="ap__one_8c_html_a3f48fcbc19fe59b24bda25731cea5c00"><div class="ttname"><a href="p__one_8c.html#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT</a></div><div class="ttdeci">BUILD_ASSERT(((8191 *(unsigned long)(1000 *1000/(DT_PROP(DT_NODELABEL(uart3), current_speed)/10)+1) *1.1)/1000)&lt;(CONFIG_APP_P_ONE_MODULE_WATCHDOG_TIMEOUT_SECONDS *1000), &quot;UART timeout must be less than watchdog timeout&quot;)</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md442"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
 Header File (.h) Template</h2>
 <p><b>Voor ZBUS headers (*_zbus.h):</b> </p><div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * Copyright (c) 2025 SolarResult B.V.</span></div>
@@ -574,23 +574,23 @@ Header File (.h) Template</h2>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">/* MODULE_NAME_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md448"></a>
 ZBUS Conventies</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
 Channel Naming</h2>
 <ul>
 <li>Format: <span class="tt">MODULE_CHAN</span> of <span class="tt">MODULE_NAME_CHAN</span></li>
 <li>Uppercase met underscores</li>
 <li>Voorbeelden: <span class="tt">LED_CHAN</span>, <span class="tt">NETWORK_CHAN</span>, <span class="tt">TRIGGER_CHAN</span></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
 Message Structs</h2>
 <ul>
 <li><b>Altijd in header file</b> (<span class="tt">*.h</span>), niet in <span class="tt">.c</span> file</li>
 <li>Naam: <span class="tt">struct module_msg</span></li>
 <li>Documenteer elk veld</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md447"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md451"></a>
 Channel Declarations vs Definitions</h2>
 <p><b>In header file (<span class="tt">.h</span>):</b> </p><div class="fragment"><div class="line"><span class="comment">/* Declare channel for other modules to use */</span></div>
 <div class="line"><a class="code hl_function" href="group__app.html#ga22efa7ab8a139bb9deec0761182f5b41">ZBUS_CHAN_DECLARE</a>(LED_CHAN);</div>
@@ -604,9 +604,9 @@ Channel Declarations vs Definitions</h2>
 <div class="line"><a class="code hl_function" href="app_8c.html#a19084703653c2a15bf7091510af4ea13">ZBUS_CHAN_DEFINE</a>(LED_CHAN, <span class="keyword">struct</span> led_msg, NULL, NULL, </div>
 <div class="line">                 ZBUS_OBSERVERS(led_listener), ZBUS_MSG_INIT(0));</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
 Module Initialisatie</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
 SYS_INIT Gebruik</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> module_init(<span class="keywordtype">void</span>)</div>
@@ -627,7 +627,7 @@ SYS_INIT Gebruik</h2>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_function" href="app_8c.html#ac59c4a1d8445ae57c02ba7c20d6dced5">SYS_INIT</a>(module_init, APPLICATION, CONFIG_MODULE_INIT_PRIORITY);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md451"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
 Kconfig Integratie</h2>
 <p>Elke module moet een Kconfig file hebben:</p>
 <div class="fragment"><div class="line"> Copyright (c) 2025 SolarResult B.V.</div>
@@ -653,9 +653,9 @@ Kconfig Integratie</h2>
 <div class="line"> </div>
 <div class="line">endif  MODULE_NAME</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
 CMakeLists.txt voor Modules</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
 Standaard Pattern (Altijd Compileren)</h2>
 <p><b>Voor core modules die altijd gecompileerd moeten worden:</b></p>
 <div class="fragment"><div class="line"># Copyright (c) 2025 SolarResult B.V.</div>
@@ -672,7 +672,7 @@ Standaard Pattern (Altijd Compileren)</h2>
 <li>Geen conditionals - module wordt altijd gecompileerd</li>
 </ul>
 <p><b>Voorbeelden:</b> <span class="tt">led</span>, <span class="tt">p_one</span>, <span class="tt">timing</span> modules</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
 Conditionele Compilatie Pattern</h2>
 <p><b>Voor optionele modules die via Kconfig uit te schakelen zijn:</b></p>
 <div class="fragment"><div class="line"># Copyright (c) 2025 SolarResult B.V.</div>
@@ -690,7 +690,7 @@ Conditionele Compilatie Pattern</h2>
 <li>Er is een <span class="tt">CONFIG_APP_MODULE_NAME</span> option in Kconfig</li>
 </ul>
 <p><b>Let op:</b> Als andere modules de header van deze module nodig hebben, compileer dan altijd zonder conditie!</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
 Multiple Source Files</h2>
 <p><b>Voor modules met meerdere bronbestanden:</b></p>
 <div class="fragment"><div class="line"># Copyright (c) 2025 SolarResult B.V.</div>
@@ -702,7 +702,7 @@ Multiple Source Files</h2>
 <div class="line">)</div>
 <div class="line"> </div>
 <div class="line">target_include_directories(app PRIVATE .)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
 Header Visibility</h2>
 <p><b>De <span class="tt">target_include_directories(app PRIVATE .)</span> regel:</b></p>
 <ul>
@@ -711,7 +711,7 @@ Header Visibility</h2>
 <li><b>Altijd toevoegen</b>, zelfs voor modules zonder public headers (consistency)</li>
 <li>Gebruik <span class="tt">.</span> (huidige directory), niet <span class="tt">${CMAKE_CURRENT_SOURCE_DIR}</span></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
 Integration in Parent CMakeLists</h2>
 <p><b>In <span class="tt">application/src/modules/CMakeLists.txt</span>:</b></p>
 <div class="fragment"><div class="line"># Add module subdirectories</div>
@@ -732,10 +732,10 @@ Integration in Parent CMakeLists</h2>
 <li>System modules laatste (reboot)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
 Module Checklist</h1>
 <p>Bij het toevoegen van een nieuwe module, doorloop deze checklist:</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
 Bestanden Structuur</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">module_name.c</span> - Source file met correcte file header (copyright)</li>
@@ -755,7 +755,7 @@ Bestanden Structuur</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">Kconfig.module_name</span> - Configuratie opties (optioneel, indien configureerbaar)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
 Code Structuur</h2>
 <ul class="check">
 <li class="unchecked">Include guards correct in header files</li>
@@ -772,7 +772,7 @@ Code Structuur</h2>
 <ul class="check">
 <li class="unchecked">File template gevolgd (zie File Structuur sectie)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md463"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
 ZBUS Integratie</h2>
 <ul class="check">
 <li class="unchecked">ZBUS channels correct gedeclareerd (in .h) en gedefinieerd (in .c)</li>
@@ -789,7 +789,7 @@ ZBUS Integratie</h2>
 <ul class="check">
 <li class="unchecked">CHANNEL_LIST macro gebruikt (indien meerdere channels)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
 Module Initialisatie</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt"><a class="el" href="app_8c.html#ac59c4a1d8445ae57c02ba7c20d6dced5">SYS_INIT()</a></span> gebruikt voor module init (indien nodig)</li>
@@ -803,7 +803,7 @@ Module Initialisatie</h2>
 <ul class="check">
 <li class="unchecked">Thread stack size geconfigureerd in Kconfig</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
 CMakeLists.txt</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">target_sources(app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/module_name.c)</span> toegevoegd</li>
@@ -817,7 +817,7 @@ CMakeLists.txt</h2>
 <ul class="check">
 <li class="unchecked">Module toegevoegd aan parent <span class="tt">CMakeLists.txt</span> (<span class="tt">add_subdirectory(module_name)</span>)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
 Kconfig</h2>
 <ul class="check">
 <li class="unchecked">Module Kconfig bestand aangemaakt (indien configureerbaar)</li>
@@ -834,7 +834,7 @@ Kconfig</h2>
 <ul class="check">
 <li class="unchecked">Module Kconfig gesourced in parent Kconfig (<span class="tt">source "src/modules/module_name/Kconfig.module_name"</span>)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md471"></a>
 Task Watchdog (indien module eigen thread heeft)</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">CONFIG_TASK_WDT_CHANNELS</span> verhoogd in <span class="tt">application/prj.conf</span></li>
@@ -857,7 +857,7 @@ Task Watchdog (indien module eigen thread heeft)</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">zbus_wait_ms</span> correct berekend (wdt_timeout - processing_time)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md472"></a>
 Testing</h2>
 <ul class="check">
 <li class="unchecked">Module compileert zonder errors</li>
@@ -877,7 +877,7 @@ Testing</h2>
 <ul class="check">
 <li class="unchecked">Thread draait en feed watchdog (indien van toepassing)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md473"></a>
 Documentatie</h2>
 <ul class="check">
 <li class="unchecked"><span class="tt">@defgroup</span> in header: titel = <span class="tt">&lt;Module&gt; - API Referentie</span></li>
@@ -904,7 +904,7 @@ Documentatie</h2>
 <li class="unchecked">Inline comments waar nodig (niet overdrijven)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md471"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md475"></a>
 Referentie Modules</h1>
 <p>Goed gestructureerde modules om als voorbeeld te gebruiken:</p>
 <ul>

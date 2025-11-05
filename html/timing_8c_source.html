@@ -243,7 +243,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    ARG_UNUSED(work);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtiming__event__msg.html">timing_event_msg</a> msg = {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        .timestamp = k_uptime_get(),</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        .uptime_ms = k_uptime_get(),</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    };</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">int</span> err = zbus_chan_pub(&amp;DATA_ACQUISITION_TRIGGER_CHAN, &amp;msg, K_SECONDS(1));</div>
@@ -251,7 +251,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">if</span> (err) {</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        LOG_ERR(<span class="stringliteral">&quot;Failed to publish acquisition trigger: %d&quot;</span>, err);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        LOG_DBG(<span class="stringliteral">&quot;Published acquisition trigger (ts: %lld)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa">timestamp</a>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        LOG_DBG(<span class="stringliteral">&quot;Published acquisition trigger (uptime: %lld ms)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf">uptime_ms</a>);</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
 </div>
@@ -262,7 +262,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    ARG_UNUSED(work);</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtiming__event__msg.html">timing_event_msg</a> msg = {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        .timestamp = k_uptime_get(),</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        .uptime_ms = k_uptime_get(),</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    };</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">int</span> err = zbus_chan_pub(&amp;DATA_PUBLISH_REQUEST_CHAN, &amp;msg, K_SECONDS(1));</div>
@@ -270,7 +270,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (err) {</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        LOG_ERR(<span class="stringliteral">&quot;Failed to publish publish request: %d&quot;</span>, err);</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        LOG_DBG(<span class="stringliteral">&quot;Published publish request (ts: %lld)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa">timestamp</a>);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        LOG_DBG(<span class="stringliteral">&quot;Published publish request (uptime: %lld ms)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf">uptime_ms</a>);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}</div>
 </div>
@@ -281,7 +281,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    ARG_UNUSED(work);</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtiming__event__msg.html">timing_event_msg</a> msg = {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        .timestamp = k_uptime_get(),</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        .uptime_ms = k_uptime_get(),</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    };</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">int</span> err = zbus_chan_pub(&amp;DATA_SEND_REQUEST_CHAN, &amp;msg, K_SECONDS(1));</div>
@@ -289,7 +289,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">if</span> (err) {</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        LOG_ERR(<span class="stringliteral">&quot;Failed to publish send request: %d&quot;</span>, err);</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        LOG_DBG(<span class="stringliteral">&quot;Published send request (ts: %lld)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa">timestamp</a>);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        LOG_DBG(<span class="stringliteral">&quot;Published send request (uptime: %lld ms)&quot;</span>, msg.<a class="code hl_variable" href="structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf">uptime_ms</a>);</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
 </div>
@@ -352,7 +352,7 @@ $(function(){initNavTree('timing_8c_source.html','',''); });
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="timing_8c.html#ab24a8814f8db63d3f40f16d3d34482fe">  273</a></span><a class="code hl_function" href="timing_8c.html#ab24a8814f8db63d3f40f16d3d34482fe">SYS_INIT</a>(<a class="code hl_function" href="timing_8c.html#ab4b7083c78562b70b73e2b935fbbffe6">timing_module_init</a>, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);</div>
 <div class="ttc" id="astructtiming__event__msg_html"><div class="ttname"><a href="structtiming__event__msg.html">timing_event_msg</a></div><div class="ttdoc">Timing event message structure.</div><div class="ttdef"><b>Definition</b> <a href="timing__zbus_8h_source.html#l00030">timing_zbus.h:30</a></div></div>
-<div class="ttc" id="astructtiming__event__msg_html_a638e9b093a875c26e11543cd8be176aa"><div class="ttname"><a href="structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa">timing_event_msg::timestamp</a></div><div class="ttdeci">int64_t timestamp</div><div class="ttdef"><b>Definition</b> <a href="timing__zbus_8h_source.html#l00031">timing_zbus.h:31</a></div></div>
+<div class="ttc" id="astructtiming__event__msg_html_a53b286f3f9b80c87f2004a50d7d03bdf"><div class="ttname"><a href="structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf">timing_event_msg::uptime_ms</a></div><div class="ttdeci">int64_t uptime_ms</div><div class="ttdef"><b>Definition</b> <a href="timing__zbus_8h_source.html#l00031">timing_zbus.h:31</a></div></div>
 <div class="ttc" id="atiming_8c_html_a2a67d7eee4ef3f5719f9546c5bc6dcb7"><div class="ttname"><a href="timing_8c.html#a2a67d7eee4ef3f5719f9546c5bc6dcb7">fast_acquisition_timer_expiry_fn</a></div><div class="ttdeci">static void fast_acquisition_timer_expiry_fn(struct k_timer *timer)</div><div class="ttdoc">Fast acquisition timer expiry handler.</div><div class="ttdef"><b>Definition</b> <a href="#l00097">timing.c:97</a></div></div>
 <div class="ttc" id="atiming_8c_html_a4f94fd6ce5c080eb1fcd817cb5568607"><div class="ttname"><a href="timing_8c.html#a4f94fd6ce5c080eb1fcd817cb5568607">K_WORK_DEFINE</a></div><div class="ttdeci">K_WORK_DEFINE(fast_acquisition_work, fast_acquisition_work_fn)</div></div>
 <div class="ttc" id="atiming_8c_html_a6d00fb15046470d15e5fdd4440139827"><div class="ttname"><a href="timing_8c.html#a6d00fb15046470d15e5fdd4440139827">send_work_fn</a></div><div class="ttdeci">static void send_work_fn(struct k_work *work)</div><div class="ttdoc">Send work handler.</div><div class="ttdef"><b>Definition</b> <a href="#l00194">timing.c:194</a></div></div>

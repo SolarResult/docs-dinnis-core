@@ -39,7 +39,7 @@
 <area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="525,65,596,65,596,70,525,70"/>
 <area shape="poly" id="edge15_Node000012_Node000006" title=" " alt="" coords="514,127,606,148,605,153,513,132"/>
 <area shape="poly" id="edge16_Node000012_Node000009" title=" " alt="" coords="542,114,580,114,580,119,542,119"/>
-<area shape="rect" id="Node000015" href="$p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="383,302,529,342"/>
+<area shape="rect" id="Node000015" href="$p__one_8c.html#a267802186855e575a4712519ee8e0ccf" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="383,302,529,342"/>
 <area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="306,319,369,319,369,325,306,325"/>
 <area shape="rect" id="Node000016" href="$p__one_8c.html#a5ead751644738be541e2e3b0fa06717e" title="Reset rolling statistics." alt="" coords="385,367,527,392"/>
 <area shape="poly" id="edge20_Node000014_Node000016" title=" " alt="" coords="290,332,395,360,394,366,289,337"/>

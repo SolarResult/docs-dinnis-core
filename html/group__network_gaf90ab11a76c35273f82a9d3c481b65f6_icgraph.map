@@ -1,13 +1,15 @@
 <map id="network_is_connected" name="network_is_connected">
-<area shape="rect" id="Node000001" title=" " alt="" coords="631,80,797,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="631,104,797,129"/>
 <area shape="rect" id="Node000002" href="$led_8c.html#ad09d1fe94d25960cb32d31b096e56d88" title="Process network status message." alt="" coords="411,5,578,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="667,77,582,46,541,33,543,28,584,41,669,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="680,99,634,72,582,46,546,33,548,28,584,41,637,67,683,94"/>
 <area shape="rect" id="Node000005" href="$cloud_8c.html#a1ba768e9105613fd4e678dea38895fa9" title=" " alt="" coords="407,55,583,80"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="616,84,583,80,583,75,617,79"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="643,104,551,83,553,77,644,98"/>
 <area shape="rect" id="Node000007" href="$network_8c.html#a1ba768e9105613fd4e678dea38895fa9" title=" " alt="" coords="407,104,583,129"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="617,106,583,110,583,104,616,101"/>
-<area shape="rect" id="Node000008" href="$network_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title=" " alt="" coords="413,153,577,179"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="670,113,584,145,546,156,544,151,582,139,668,108"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="617,119,583,119,583,114,617,114"/>
+<area shape="rect" id="Node000008" href="$message__queue_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for OPERATIONAL state." alt="" coords="413,153,577,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="644,135,553,156,551,151,643,130"/>
+<area shape="rect" id="Node000009" href="$network_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title=" " alt="" coords="413,203,577,228"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="684,139,638,167,584,194,551,205,549,200,582,189,635,162,682,134"/>
 <area shape="rect" id="Node000003" href="$led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="234,5,325,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,21,325,21,325,15,398,15"/>
 <area shape="rect" id="Node000004" href="$led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,5,152,31"/>

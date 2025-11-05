@@ -1,4 +1,4 @@
 var structtiming__event__msg =
 [
-    [ "timestamp", "structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa", null ]
+    [ "uptime_ms", "structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf", null ]
 ];

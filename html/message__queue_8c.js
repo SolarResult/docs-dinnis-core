@@ -6,6 +6,7 @@ var message__queue_8c =
     [ "COLLECTION_TIMEOUT_MS", "message__queue_8c.html#a7ebddf689a7814bf99a483ee93342257", null ],
     [ "MAX_MSG_SIZE", "message__queue_8c.html#a17e333794ae761cd55ec6fd6fc0f1bac", null ],
     [ "MAX_MSGS_PER_CYCLE", "message__queue_8c.html#a2c8e46d63c3681faca97c3341bd2af97", null ],
+    [ "TIME_RESYNC_INTERVAL_MS", "message__queue_8c.html#a1ef2a6d3dd301f109fc0d273f1a3605c", null ],
     [ "message_queue_state", "message__queue_8c.html#ac36eaccb444831fdf2690af621237d3e", [
       [ "STATE_OPERATIONAL", "message__queue_8c.html#ac36eaccb444831fdf2690af621237d3eae76ec4894110475b8ecfcce46d09066d", null ],
       [ "STATE_COLLECTING_DATA", "message__queue_8c.html#ac36eaccb444831fdf2690af621237d3ea6561237aff059c64168a20b3c1ed6e66", null ],
@@ -28,12 +29,16 @@ var message__queue_8c =
     [ "state_operational_entry", "message__queue_8c.html#a1960ea4ac2008ab8f4cab1059ab651ac", null ],
     [ "state_operational_run", "message__queue_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9", null ],
     [ "state_send_msg_attempt_entry", "message__queue_8c.html#a38cb2a08ca66bebc3fa27058d4cfd91f", null ],
+    [ "sync_time", "message__queue_8c.html#afce6fe5cf4d8a9bab120bf9ed2bb7571", null ],
     [ "task_wdt_callback", "message__queue_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b", null ],
+    [ "time_needs_resync", "message__queue_8c.html#a783d99eacfd7ec5f415842d7a928e52f", null ],
     [ "update_cloud_status", "message__queue_8c.html#a97890684bfa65f65e530be570155ef6e", null ],
+    [ "uptime_to_unix_epoch", "message__queue_8c.html#ac00cd01a7154d3dd81f1350d4f45f671", null ],
     [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#a59a0d14215c57cca3cc579702c365566", null ],
     [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#a4de0aa1fcbf51a587a3ab462c1326ecb", null ],
     [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#ac86772b6559cbc5ca3de13e0a2091fb1", null ],
     [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#a2e9a50628d2d7e871721c130837b3943", null ],
+    [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#a6db0aaf3f527f3a02b1a6fcd62f57293", null ],
     [ "ZBUS_CHAN_ADD_OBS", "message__queue_8c.html#a67ac4f6e77aa428626bd119ed894eaeb", null ],
     [ "ZBUS_MSG_SUBSCRIBER_DEFINE", "message__queue_8c.html#a0e845823aaacc286f3e8c0aaf560c98b", null ],
     [ "collected_p1", "message__queue_8c.html#a2d5e02455d1f14bb83db9571fdf67bd2", null ],
@@ -42,5 +47,9 @@ var message__queue_8c =
     [ "data", "message__queue_8c.html#afe1b4b4eb80224902d335e63ace502af", null ],
     [ "has_data", "message__queue_8c.html#a6a0e977ab733be8d10cfdeabb12314b4", null ],
     [ "is_cloud_ready", "message__queue_8c.html#a6f1182cd9184295f68d09c18dc04ba36", null ],
-    [ "states", "message__queue_8c.html#a693d2ea076d2873522108af791cbf451", null ]
+    [ "last_sync_uptime_ms", "message__queue_8c.html#aa45ad6c345c6e5d5f777f2e625e76d3d", null ],
+    [ "states", "message__queue_8c.html#a693d2ea076d2873522108af791cbf451", null ],
+    [ "time_sync_state", "message__queue_8c.html#a24f289b5acdd69f6969843364b8f96ac", null ],
+    [ "time_synced", "message__queue_8c.html#af833b67b3ae9804347e263aecbc92b84", null ],
+    [ "unix_epoch_offset_ms", "message__queue_8c.html#a8f26a2e900c06ab2ba63387db37c70dc", null ]
 ];

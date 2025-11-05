@@ -225,9 +225,9 @@ ZBUS Interfaces</h2>
 </ul>
 <p><b>Published Channels</b>:</p><ul>
 <li><span class="tt">ENERGY_PULSE_CHAN</span> - Publiceert energie data met:<ul>
-<li>timestamp: Unix timestamp in milliseconds</li>
-<li>ch1_wh: Channel 1 totaal in Watt-hour (uint32_t)</li>
-<li>ch2_wh: Channel 2 totaal in Watt-hour (uint32_t)</li>
+<li>uptime_ms: System uptime timestamp in milliseconds (converted to epoch by Message Queue)</li>
+<li>ch1_wh: Channel 1 totaal in Watt-hour (int32_t)</li>
+<li>ch2_wh: Channel 2 totaal in Watt-hour (int32_t)</li>
 </ul>
 </li>
 </ul>

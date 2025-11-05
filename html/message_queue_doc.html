@@ -231,19 +231,26 @@ ZBUS Interfaces</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
 Message Format</h2>
 <p><b>Combined Energy Message bevat</b>:</p><ul>
-<li><span class="tt">timestamp</span>: Combined message timestamp (k_uptime_get(), milliseconds)</li>
+<li><span class="tt">uptime_ms</span>: System uptime when combined (k_uptime_get(), milliseconds) - converted to epoch when sending</li>
 <li><span class="tt">has_p1_data</span>: Flag of P1 data beschikbaar is</li>
-<li><span class="tt">p1_data</span>: Volledige <span class="tt">struct <a class="el" href="structp__one__msg.html" title="P_ONE module message structure.">p_one_msg</a></span> (energie, vermogen, gas)</li>
+<li><span class="tt">p1_data</span>: Volledige <span class="tt">struct <a class="el" href="structp__one__msg.html" title="P_ONE module message structure.">p_one_msg</a></span> (energie, vermogen, gas)<ul>
+<li>P1 timestamps zijn <b>Unix epoch milliseconds</b> (van meter OBIS 0-0:1.0.0)</li>
+</ul>
+</li>
 <li><span class="tt">has_pulse_data</span>: Flag of Pulse data beschikbaar is <br  />
 </li>
-<li><span class="tt">pulse_data</span>: Volledige <span class="tt">struct <a class="el" href="structenergy__pulse__msg.html" title="Energy pulse message.">energy_pulse_msg</a></span> (2 kanalen)</li>
+<li><span class="tt">pulse_data</span>: Volledige <span class="tt">struct <a class="el" href="structenergy__pulse__msg.html" title="Energy pulse message.">energy_pulse_msg</a></span> (2 kanalen)<ul>
+<li>Pulse timestamp is <b>system uptime</b> (<span class="tt">uptime_ms</span>) - converted to epoch when sending</li>
+</ul>
+</li>
 </ul>
 <p><b>Data Types</b> (zoals gedefinieerd in bron modules):</p><ul>
 <li>P1 energie velden: <span class="tt">int64_t</span> (Wh - Watt-hour)</li>
 <li>P1 vermogen velden: <span class="tt">int32_t</span> (W - Watt)</li>
 <li>P1 gas: <span class="tt">int32_t</span> (dm³ = liters)</li>
 <li>Pulse counters: <span class="tt">uint64_t</span> (Wh - Watt-hour)</li>
-<li>Timestamps: <span class="tt">int64_t</span> (milliseconds sinds epoch)</li>
+<li>System uptime: <span class="tt">int64_t uptime_ms</span> (milliseconds since boot)</li>
+<li>P1 timestamps: <span class="tt">int64_t timestamp_epoch_ms</span> (milliseconds since Unix epoch)</li>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
@@ -307,7 +314,7 @@ Queue Management</h2>
 <div class="line">              CONFIG_APP_MESSAGE_QUEUE_MODULE_QUEUE_SIZE,  <span class="comment">// default: 144</span></div>
 <div class="line">              1);  <span class="comment">// alignment</span></div>
 <div class="ttc" id="amessage__queue_8c_html_ae9820326512114f9d391c41364a4a7f3"><div class="ttname"><a href="message__queue_8c.html#ae9820326512114f9d391c41364a4a7f3">K_MSGQ_DEFINE</a></div><div class="ttdeci">K_MSGQ_DEFINE(combined_energy_msgq, sizeof(struct combined_energy_msg), CONFIG_APP_MESSAGE_QUEUE_MODULE_QUEUE_SIZE, 1)</div></div>
-<div class="ttc" id="astructcombined__energy__msg_html"><div class="ttname"><a href="structcombined__energy__msg.html">combined_energy_msg</a></div><div class="ttdoc">Combined energy message structure.</div><div class="ttdef"><b>Definition</b> <a href="message__queue__zbus_8h_source.html#l00036">message_queue_zbus.h:36</a></div></div>
+<div class="ttc" id="astructcombined__energy__msg_html"><div class="ttname"><a href="structcombined__energy__msg.html">combined_energy_msg</a></div><div class="ttdoc">Combined energy message structure.</div><div class="ttdef"><b>Definition</b> <a href="message__queue__zbus_8h_source.html#l00039">message_queue_zbus.h:39</a></div></div>
 </div><!-- fragment --><p><b>Properties</b>:</p><ul>
 <li>Thread-safe enqueueing/dequeueing (Zephyr kernel garanties)</li>
 <li>Fixed capacity: 144 berichten (configureerbaar via Kconfig)</li>
@@ -370,17 +377,93 @@ Verzend Logica</h2>
 </li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+Timestamp Strategy</h2>
+<p><b>Design Problem</b>: Device kan data acquisitie doen <b>zonder netwerk verbinding</b>. Tijdens acquisitie hebben we geen Unix epoch tijd (geen NTP/date_time sync).</p>
+<p><b>Solution</b>: Two-stage timestamp approach:</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+1. Acquisitie: Uptime Timestamps</h3>
+<p><b>Tijdens data collectie</b> (P1, Pulse modules):</p><ul>
+<li>Timestamp = <span class="tt">k_uptime_get()</span> (system uptime milliseconds)</li>
+<li>Stored in <span class="tt"><a class="el" href="structcombined__energy__msg.html#affe80cb3bbd8ce6236f13501df5e06f7">combined_energy_msg.uptime_ms</a></span></li>
+<li><b>Rationale</b>: Uptime is altijd beschikbaar, ook zonder netwerk</li>
+<li><b>Field naming</b>: <span class="tt">uptime_ms</span> suffix maakt duidelijk dat het systeem uptime is</li>
+</ul>
+<p><b>P1 Exception - Meter Epoch Timestamps</b>:</p><ul>
+<li>P1 DSMR meter heeft <b>eigen klok</b> (OBIS 0-0:1.0.0)</li>
+<li>P1 timestamp = Unix epoch seconds FROM METER (niet system uptime!)</li>
+<li>Stored intern als <span class="tt">timestamp_epoch_localtime_s</span> (seconds)</li>
+<li>Converted to milliseconds bij output: <span class="tt">timestamp_epoch_ms</span></li>
+<li>Peak timestamps: <span class="tt">power_consumed_max_timestamp_epoch_ms</span>, <span class="tt">power_delivered_max_timestamp_epoch_ms</span></li>
+<li><b>Rationale</b>: Meter synchroniseert tijd via DSO (Distribution System Operator), accurater dan device RTC</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+2. Verzending: Unix Epoch Conversion</h3>
+<p><b>Wanneer cloud verzending</b> (in <span class="tt"><a class="el" href="message__queue_8c.html#a16e0c8c199c4c428750fd989c79f437b" title="Build nRF Cloud JSON object from combined energy message.">build_combined_energy_json()</a></span>):</p><ul>
+<li><b>IF</b> time_synced (via <span class="tt">date_time</span> library):<ul>
+<li>Uptime → Unix epoch via offset calculation</li>
+<li>P1 meter timestamps blijven epoch (al correct)</li>
+<li>Add <span class="tt">ts_sync: true</span> flag to JSON</li>
+</ul>
+</li>
+<li><b>ELSE</b> niet gesynced:<ul>
+<li>Timestamp = 0 (indicates invalid/unknown time)</li>
+<li>Add <span class="tt">ts_sync: false</span> flag to JSON</li>
+<li><b>Backend</b> weet dat timestamps invalid zijn</li>
+</ul>
+</li>
+</ul>
+<p><b>Time Sync State Tracking</b>: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>{</div>
+<div class="line">    <span class="keywordtype">bool</span> <a class="code hl_variable" href="message__queue_8c.html#af833b67b3ae9804347e263aecbc92b84">time_synced</a>;              <span class="comment">// Are we synchronized?</span></div>
+<div class="line">    int64_t <a class="code hl_variable" href="message__queue_8c.html#a8f26a2e900c06ab2ba63387db37c70dc">unix_epoch_offset_ms</a>;  <span class="comment">// Offset between uptime and Unix epoch</span></div>
+<div class="line">    int64_t <a class="code hl_variable" href="message__queue_8c.html#aa45ad6c345c6e5d5f777f2e625e76d3d">last_sync_uptime_ms</a>;   <span class="comment">// When did we last sync?</span></div>
+<div class="line">} <a class="code hl_variable" href="message__queue_8c.html#a24f289b5acdd69f6969843364b8f96ac">time_sync_state</a>;</div>
+<div class="ttc" id="amessage__queue_8c_html_a24f289b5acdd69f6969843364b8f96ac"><div class="ttname"><a href="message__queue_8c.html#a24f289b5acdd69f6969843364b8f96ac">time_sync_state</a></div><div class="ttdeci">static struct @011026170075000275243377367261353301102270032142 time_sync_state</div></div>
+<div class="ttc" id="amessage__queue_8c_html_a8f26a2e900c06ab2ba63387db37c70dc"><div class="ttname"><a href="message__queue_8c.html#a8f26a2e900c06ab2ba63387db37c70dc">unix_epoch_offset_ms</a></div><div class="ttdeci">int64_t unix_epoch_offset_ms</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00187">message_queue.c:187</a></div></div>
+<div class="ttc" id="amessage__queue_8c_html_aa45ad6c345c6e5d5f777f2e625e76d3d"><div class="ttname"><a href="message__queue_8c.html#aa45ad6c345c6e5d5f777f2e625e76d3d">last_sync_uptime_ms</a></div><div class="ttdeci">int64_t last_sync_uptime_ms</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00188">message_queue.c:188</a></div></div>
+<div class="ttc" id="amessage__queue_8c_html_af833b67b3ae9804347e263aecbc92b84"><div class="ttname"><a href="message__queue_8c.html#af833b67b3ae9804347e263aecbc92b84">time_synced</a></div><div class="ttdeci">bool time_synced</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00186">message_queue.c:186</a></div></div>
+</div><!-- fragment --><p><b>Sync Triggers</b>:</p><ol type="1">
+<li><b>Initial sync</b>: On <span class="tt">NETWORK_EVER_CONNECTED</span> message (first connection)</li>
+<li><b>Periodic re-sync</b>: Every 6 hours (TIME_RESYNC_INTERVAL_MS)<ul>
+<li><b>Rationale</b>: RC oscillator drift compensation (±250 ppm = max ±21.6s/day)</li>
+<li>Triggered on <span class="tt">NETWORK_CONNECTED</span> if interval elapsed</li>
+</ul>
+</li>
+</ol>
+<p><b>Conversion Logic</b>: </p><div class="fragment"><div class="line">int64_t <a class="code hl_function" href="message__queue_8c.html#ac00cd01a7154d3dd81f1350d4f45f671">uptime_to_unix_epoch</a>(int64_t uptime_ms) {</div>
+<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="message__queue_8c.html#a24f289b5acdd69f6969843364b8f96ac">time_sync_state</a>.time_synced) {</div>
+<div class="line">        <span class="keywordflow">return</span> 0;  <span class="comment">// Not synced yet</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> uptime_ms + <a class="code hl_variable" href="message__queue_8c.html#a24f289b5acdd69f6969843364b8f96ac">time_sync_state</a>.unix_epoch_offset_ms;</div>
+<div class="line">}</div>
+<div class="ttc" id="amessage__queue_8c_html_ac00cd01a7154d3dd81f1350d4f45f671"><div class="ttname"><a href="message__queue_8c.html#ac00cd01a7154d3dd81f1350d4f45f671">uptime_to_unix_epoch</a></div><div class="ttdeci">static int64_t uptime_to_unix_epoch(int64_t uptime_ms)</div><div class="ttdoc">Convert uptime to Unix epoch timestamp.</div><div class="ttdef"><b>Definition</b> <a href="message__queue_8c_source.html#l00201">message_queue.c:201</a></div></div>
+</div><!-- fragment --><p><b>Field Naming Convention</b>:</p><ul>
+<li><span class="tt">uptime_ms</span>: System uptime milliseconds (k_uptime_get)</li>
+<li><span class="tt">timestamp_epoch_ms</span>: Unix epoch milliseconds (converted or from P1)</li>
+<li><span class="tt">timestamp_epoch_s</span>: Unix epoch seconds (P1 internal storage)</li>
+<li>Suffix clearly indicates unit AND time base</li>
+</ul>
+<p><b>Benefits</b>:</p><ul>
+<li>✅ Data acquisitie onafhankelijk van netwerkstatus</li>
+<li>✅ Buffering werkt offline</li>
+<li>✅ Accurate timestamps zodra tijd gesynchroniseerd is</li>
+<li>✅ Backend kan invalid timestamps detecteren (<span class="tt">ts_sync: false</span>)</li>
+<li>✅ Drift compensatie via periodic re-sync</li>
+<li>✅ P1 meter timestamps behouden originele nauwkeurigheid</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
 Cloud Message Format</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
 External Interface Contract</h2>
 <p>De Message Queue module produceert JSON berichten die naar nRF Cloud gestuurd worden via MQTT. Dit is een <b>externe interface</b> - de cloud/backend moet dit formaat begrijpen voor data processing.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
 Message Structure</h2>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;appId&quot;: &quot;DINNIS&quot;,</div>
 <div class="line">  &quot;messageType&quot;: &quot;DATA&quot;,</div>
 <div class="line">  &quot;ts&quot;: &lt;unix_epoch_milliseconds&gt;,</div>
+<div class="line">  &quot;ts_sync&quot;: &lt;boolean&gt;,</div>
 <div class="line">  &quot;data&quot;: {</div>
 <div class="line">    &quot;p1&quot;: {</div>
 <div class="line">      &quot;ts&quot;: &lt;unix_epoch_milliseconds&gt;,</div>
@@ -405,28 +488,29 @@ Message Structure</h2>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
 Field Definitions</h2>
 <p><b>Root Level:</b></p><ul>
 <li><span class="tt">appId</span>: Application identifier - <span class="tt">"DINNIS"</span> (device name)</li>
 <li><span class="tt">messageType</span>: Message type - <span class="tt">"DATA"</span> (telemetry data)</li>
 <li><span class="tt">ts</span>: Message creation timestamp (milliseconds since Unix epoch)</li>
+<li><span class="tt">ts_sync</span>: Time synchronization status - <span class="tt">true</span> if timestamps valid, <span class="tt">false</span> if not synced (ts = 0)</li>
 </ul>
 <p><b>P1 DSMR Data</b> (optional - alleen aanwezig als P1 data ontvangen):</p><ul>
-<li><span class="tt">ts</span>: P1 data acquisition timestamp</li>
+<li><span class="tt">ts</span>: P1 data acquisition timestamp (from meter OBIS 0-0:1.0.0, Unix epoch ms)</li>
 <li><span class="tt">ec1</span>/<span class="tt">ec2</span>: Energy Consumed tariff 1/2 (Wh) - cumulative counters</li>
 <li><span class="tt">ed1</span>/<span class="tt">ed2</span>: Energy Delivered tariff 1/2 (Wh) - cumulative counters (solar/generation)</li>
 <li><span class="tt">gdm3</span>: Gas consumption (dm³ = liters) - 1 dm³ = 0.001 m³ = 1 liter</li>
 <li><span class="tt">pca</span>/<span class="tt">pcx</span>/<span class="tt">pcn</span>: Power Consumed Average/Maximum/Minimum (W)</li>
-<li><span class="tt">pcxts</span>: Timestamp when maximum power consumption occurred</li>
+<li><span class="tt">pcxts</span>: Timestamp when maximum power consumption occurred (from P1 meter, Unix epoch ms)</li>
 <li><span class="tt">pda</span>/<span class="tt">pdx</span>/<span class="tt">pdn</span>: Power Delivered Average/Maximum/Minimum (W)</li>
-<li><span class="tt">pdxts</span>: Timestamp when maximum power delivery occurred</li>
+<li><span class="tt">pdxts</span>: Timestamp when maximum power delivery occurred (from P1 meter, Unix epoch ms)</li>
 </ul>
 <p><b>Pulse Counter Data</b> (optional - alleen aanwezig als Pulse data ontvangen):</p><ul>
-<li><span class="tt">ts</span>: Pulse data acquisition timestamp</li>
+<li><span class="tt">ts</span>: Pulse data acquisition timestamp (converted from system uptime to Unix epoch ms)</li>
 <li><span class="tt">ch1</span>/<span class="tt">ch2</span>: Pulse counts for channel 1 and 2 - cumulative counters (uint64_t)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md152"></a>
 Design Rationale: Short Key Names</h2>
 <p><b>Probleem</b>: LTE-M bandbreedte is beperkt en kostbaar.</p>
 <p><b>Design Keuze</b>: Gebruik 2-5 character key names in plaats van descriptieve namen.</p>
@@ -442,7 +526,7 @@ Design Rationale: Short Key Names</h2>
 <li>Maandelijks: ~870 KB (vs ~1.74 MB)</li>
 </ul>
 <p><b>Trade-off</b>: Leesbaarheid vs bandbreedte. Documentatie compenseert voor afkortingen.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
 Message Presence Scenarios</h2>
 <p>De <span class="tt">data</span> sectie kan P1 en/of Pulse data bevatten, afhankelijk van welke data ontvangen werd:</p>
 <table class="markdownTable">
@@ -458,7 +542,7 @@ Message Presence Scenarios</h2>
 <td class="markdownTableBodyNone">Empty  </td><td class="markdownTableBodyNone">❗  </td><td class="markdownTableBodyNone">❗  </td><td class="markdownTableBodyNone">Geen data ontvangen (error conditie)  </td></tr>
 </table>
 <p><b>Rationale</b>: Module stuurt altijd een bericht, ook als slechts één data source beschikbaar is. Dit voorkomt data loss en geeft visibility in data acquisition problemen.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
 Transport Details</h2>
 <ul>
 <li><b>Protocol</b>: MQTT over TLS</li>
@@ -467,14 +551,14 @@ Transport Details</h2>
 <li><b>Encoding</b>: UTF-8 JSON</li>
 <li><b>Max Message Size</b>: ~512 bytes (ruim binnen MQTT packet limits)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
 Gas Unit Clarification</h2>
 <p><b>Belangrijk</b>: <span class="tt">gdm3</span> gebruikt <b>kubieke decimeters</b> (dm³):</p><ul>
 <li>1 dm³ = 1 liter = 0.001 m³</li>
 </ul>
 <p><b>Voorbeeld</b>: Waarde <span class="tt">1500</span> betekent 1500 dm³ = 1500 liter = 1.5 m³ gas verbruik.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
 Queue Overflow Gedrag</h1>
 <p><b>Probleem</b>: Queue kan vol raken bij langdurige cloud outage (&gt; 24 uur).</p>
 <p><b>Design Keuze</b>: FIFO drop (First In, First Out) - oudste bericht wordt gedropped.</p>
@@ -497,7 +581,7 @@ Queue Overflow Gedrag</h1>
 <li>Overflow verwachting: &lt; 0.1% van de tijd (alleen bij multi-day outages)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
 Configuratie</h1>
 <p>Alle configuratie via Kconfig (<span class="tt">Kconfig.message_queue</span>):</p>
 <table class="markdownTable">
@@ -519,7 +603,7 @@ Configuratie</h1>
 <li><span class="tt">MAX_MSGS_PER_CYCLE</span> = 10 (max berichten per send cyclus)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
 Toekomstige Uitbreidingen</h1>
 <ul>
 <li>⏳ <b>Persistent queue</b> - Flash backed queue voor reboot safety (NVS storage)</li>
@@ -530,7 +614,7 @@ Toekomstige Uitbreidingen</h1>
 <li>⏳ <b>Send batch size tuning</b> - Configureerbare <span class="tt">MAX_MSGS_PER_CYCLE</span> via Kconfig</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="message__queue_8c.html">message_queue.c</a> - Implementatie</li>

@@ -139,6 +139,7 @@ $(function(){initNavTree('functions_vars.html','',''); });
 <li>energy_consumed_wh_tariff2&#160;:&#160;<a class="el" href="structp__one__msg.html#ae6a3181581575838ed01d72b1f5f1053">p_one_msg</a></li>
 <li>energy_delivered_wh_tariff1&#160;:&#160;<a class="el" href="structp__one__msg.html#a708cd525fbc51e289dd4d070cb038c60">p_one_msg</a></li>
 <li>energy_delivered_wh_tariff2&#160;:&#160;<a class="el" href="structp__one__msg.html#ab02fbd8039fbc65dffdadcce8822ee45">p_one_msg</a></li>
+<li>ever_connected&#160;:&#160;<a class="el" href="structnetwork__state__object.html#ae8171f56691274b10288cc77a18dfcd4">network_state_object</a></li>
 </ul>
 
 
@@ -169,7 +170,7 @@ $(function(){initNavTree('functions_vars.html','',''); });
 <h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>min_display_time_ms&#160;:&#160;<a class="el" href="structled__pattern.html#a31e9a758235b30113614cb13d5c5b089">led_pattern</a></li>
 <li>modem_initialized&#160;:&#160;<a class="el" href="structled__module__state.html#a96c69af15fffffcf65a56e73d1d26d32">led_module_state</a></li>
-<li>msg_buf&#160;:&#160;<a class="el" href="structcloud__state__object.html#a64d9df740ecd32208a8dc5d8d516fef6">cloud_state_object</a>, <a class="el" href="structmessage__queue__state__object.html#a4ea23a3dfb07603f4fd98a8f7fba5c01">message_queue_state_object</a>, <a class="el" href="structnetwork__state__object.html#aa7dcf18354410250009aac7e935c2aa8">network_state_object</a>, <a class="el" href="structreboot__state__object.html#ab97ae6e70890c60575453dfdb923b3f6">reboot_state_object</a></li>
+<li>msg_buf&#160;:&#160;<a class="el" href="structcloud__state__object.html#a64d9df740ecd32208a8dc5d8d516fef6">cloud_state_object</a>, <a class="el" href="structmessage__queue__state__object.html#a95eb0336e8e3b8a7360f4f75feae7ce1">message_queue_state_object</a>, <a class="el" href="structnetwork__state__object.html#aa7dcf18354410250009aac7e935c2aa8">network_state_object</a>, <a class="el" href="structreboot__state__object.html#ab97ae6e70890c60575453dfdb923b3f6">reboot_state_object</a></li>
 </ul>
 
 
@@ -190,11 +191,11 @@ $(function(){initNavTree('functions_vars.html','',''); });
 <li>period_off&#160;:&#160;<a class="el" href="structled__pattern.html#a7f52c7f63b84950327997bd0129ba0b0">led_pattern</a></li>
 <li>period_on&#160;:&#160;<a class="el" href="structled__pattern.html#a192764f69983c8a84564d01193021cad">led_pattern</a></li>
 <li>power_consumed_avg_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a8dba508eda2087b72feecf747cdcee31">p_one_msg</a></li>
-<li>power_consumed_max_timestamp&#160;:&#160;<a class="el" href="structp__one__msg.html#ac50c3a3fe6fe3c902fe1a3cc6b789ad2">p_one_msg</a></li>
+<li>power_consumed_max_timestamp_epoch_ms&#160;:&#160;<a class="el" href="structp__one__msg.html#acfecbec6ba3087478cd7ced937818ae4">p_one_msg</a></li>
 <li>power_consumed_max_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a92f0129dc1e0cb50161399b48b3851fb">p_one_msg</a></li>
 <li>power_consumed_min_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a755ea3d6c34c824e79c1d8dbbc02a399">p_one_msg</a></li>
 <li>power_delivered_avg_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a22d29c34c96864d73d4b30e1414ebe8f">p_one_msg</a></li>
-<li>power_delivered_max_timestamp&#160;:&#160;<a class="el" href="structp__one__msg.html#a72c1f8a63d408ae80b4700987b91d45a">p_one_msg</a></li>
+<li>power_delivered_max_timestamp_epoch_ms&#160;:&#160;<a class="el" href="structp__one__msg.html#a9119f0ef08b1dab878c50443781cc381">p_one_msg</a></li>
 <li>power_delivered_max_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a6f1366300cc0e446cf6614ac77092022">p_one_msg</a></li>
 <li>power_delivered_min_w&#160;:&#160;<a class="el" href="structp__one__msg.html#a655de424813911e392f282c571cebb65">p_one_msg</a></li>
 <li>progress&#160;:&#160;<a class="el" href="structfota__msg.html#a4a594bea069210b36f5934a24afc5083">fota_msg</a></li>
@@ -217,10 +218,15 @@ $(function(){initNavTree('functions_vars.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>timestamp&#160;:&#160;<a class="el" href="structcombined__energy__msg.html#a670bd51e43c72457335199c847debd55">combined_energy_msg</a>, <a class="el" href="structenergy__pulse__msg.html#a8bcc62c1f5f9111e577c1f635642a6c0">energy_pulse_msg</a>, <a class="el" href="structp__one__msg.html#aeea5b8aa68cd2ab4c2d9bf717f8cb9a7">p_one_msg</a>, <a class="el" href="structtiming__event__msg.html#a638e9b093a875c26e11543cd8be176aa">timing_event_msg</a></li>
+<li>timestamp_epoch_ms&#160;:&#160;<a class="el" href="structp__one__msg.html#a39957345869334b31430953dfa8711f6">p_one_msg</a></li>
 <li>timestamp_ms&#160;:&#160;<a class="el" href="structtrigger__msg.html#a5970866476d4261b95badb080179fe98">trigger_msg</a></li>
 <li>total_bytes_received&#160;:&#160;<a class="el" href="structuart__user__data.html#afae12da94b25f73f59e42a035b5e704f">uart_user_data</a></li>
 <li>type&#160;:&#160;<a class="el" href="structcloud__msg.html#adb240aa91f90ca0c44cd629b2a9a909d">cloud_msg</a>, <a class="el" href="structnetwork__msg.html#ae4b2e11d1b474338a6e275e7a5e7ceff">network_msg</a>, <a class="el" href="structreboot__msg.html#aafca4dc5a95a82d2aba264d64e50e986">reboot_msg</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_u" name="index_u"></a>- u -</h3><ul>
+<li>uptime_ms&#160;:&#160;<a class="el" href="structcombined__energy__msg.html#affe80cb3bbd8ce6236f13501df5e06f7">combined_energy_msg</a>, <a class="el" href="structenergy__pulse__msg.html#a8a7fa1d4c2edb0ca12c98b153e650885">energy_pulse_msg</a>, <a class="el" href="structtiming__event__msg.html#a53b286f3f9b80c87f2004a50d7d03bdf">timing_event_msg</a></li>
 </ul>
 
 

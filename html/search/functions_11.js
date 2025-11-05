@@ -31,5 +31,6 @@ var searchData=
   ['state_5fsend_5fmsg_5fattempt_5fentry_28',['state_send_msg_attempt_entry',['../message__queue_8c.html#a38cb2a08ca66bebc3fa27058d4cfd91f',1,'message_queue.c']]],
   ['state_5fwaiting_5ffor_5fmodem_5fentry_29',['state_waiting_for_modem_entry',['../cloud_8c.html#a9dad5d07be4f2e362fea68a56d4eebdf',1,'cloud.c']]],
   ['state_5fwaiting_5ffor_5fmodem_5frun_30',['state_waiting_for_modem_run',['../cloud_8c.html#a4ef6cfa904372b4907c150e7f825347b',1,'cloud.c']]],
-  ['sys_5finit_31',['SYS_INIT',['../app_8c.html#ac59c4a1d8445ae57c02ba7c20d6dced5',1,'SYS_INIT(watchdog_init, POST_KERNEL, CONFIG_APPLICATION_INIT_PRIORITY):&#160;app.c'],['../led_8c.html#aa191d41e412c90cbed1c529fb2415d23',1,'SYS_INIT(led_init, APPLICATION, CONFIG_LED_MODULE_INIT_PRIORITY):&#160;led.c'],['../timing_8c.html#ab24a8814f8db63d3f40f16d3d34482fe',1,'SYS_INIT(timing_module_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY):&#160;timing.c']]]
+  ['sync_5ftime_31',['sync_time',['../message__queue_8c.html#afce6fe5cf4d8a9bab120bf9ed2bb7571',1,'message_queue.c']]],
+  ['sys_5finit_32',['SYS_INIT',['../app_8c.html#ac59c4a1d8445ae57c02ba7c20d6dced5',1,'SYS_INIT(watchdog_init, POST_KERNEL, CONFIG_APPLICATION_INIT_PRIORITY):&#160;app.c'],['../led_8c.html#aa191d41e412c90cbed1c529fb2415d23',1,'SYS_INIT(led_init, APPLICATION, CONFIG_LED_MODULE_INIT_PRIORITY):&#160;led.c'],['../timing_8c.html#ab24a8814f8db63d3f40f16d3d34482fe',1,'SYS_INIT(timing_module_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY):&#160;timing.c']]]
 ];

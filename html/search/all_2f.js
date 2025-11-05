@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['📊_20call_20graphs_0',['📊 Call Graphs',['../index.html#autotoc_md316',1,'']]],
-  ['📊_20data_20verwerking_1',['📊 Data Verwerking',['../index.html#autotoc_md305',1,'']]],
-  ['📊_20publish_20statistics_20elke_2010_20minuten_2',['📊 Publish Statistics (elke 10 minuten)',['../index.html#autotoc_md298',1,'']]]
+  ['📊_20call_20graphs_0',['📊 Call Graphs',['../index.html#autotoc_md320',1,'']]],
+  ['📊_20data_20verwerking_1',['📊 Data Verwerking',['../index.html#autotoc_md309',1,'']]],
+  ['📊_20publish_20statistics_20elke_2010_20minuten_2',['📊 Publish Statistics (elke 10 minuten)',['../index.html#autotoc_md302',1,'']]]
 ];

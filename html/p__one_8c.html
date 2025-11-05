@@ -290,8 +290,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ad6df5354373f52af3c7417002098ad47" id="r_ad6df5354373f52af3c7417002098ad47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6df5354373f52af3c7417002098ad47">K_SEM_DEFINE</a> (p_one_uart_rx_sem, 0, 1)</td></tr>
 <tr class="memitem:af67d831e95008e598ebb61378ac27b0d" id="r_af67d831e95008e598ebb61378ac27b0d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af67d831e95008e598ebb61378ac27b0d">p_one_parse_data</a> (void)</td></tr>
 <tr class="memdesc:af67d831e95008e598ebb61378ac27b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse DSMR telegram and extract OBIS values.  <br /></td></tr>
-<tr class="memitem:a25177287547d8c49377f0af372a4371c" id="r_a25177287547d8c49377f0af372a4371c"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25177287547d8c49377f0af372a4371c">obis_fixed_point_to_milli</a> (<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a> fixed_point)</td></tr>
-<tr class="memdesc:a25177287547d8c49377f0af372a4371c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert OBIS fixed-point value to milli-units (int32_t, no FPU)  <br /></td></tr>
+<tr class="memitem:a267802186855e575a4712519ee8e0ccf" id="r_a267802186855e575a4712519ee8e0ccf"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a267802186855e575a4712519ee8e0ccf">obis_fixed_point_to_thousandths</a> (<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a> fixed_point)</td></tr>
+<tr class="memdesc:a267802186855e575a4712519ee8e0ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert OBIS fixed-point value to integer (scale by 1/1000)  <br /></td></tr>
 <tr class="memitem:a5ead751644738be541e2e3b0fa06717e" id="r_a5ead751644738be541e2e3b0fa06717e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ead751644738be541e2e3b0fa06717e">reset_rolling_stats</a> (void)</td></tr>
 <tr class="memdesc:a5ead751644738be541e2e3b0fa06717e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset rolling statistics.  <br /></td></tr>
 <tr class="memitem:a727fc9db3c54db192dd4a16af246e323" id="r_a727fc9db3c54db192dd4a16af246e323"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a727fc9db3c54db192dd4a16af246e323">update_rolling_stats</a> (void)</td></tr>
@@ -326,7 +326,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a225d537524678c83d06f5fbbbbc3588f" id="r_a225d537524678c83d06f5fbbbbc3588f"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a225d537524678c83d06f5fbbbbc3588f">p_one_uart_rx_buf</a> [(8191)]</td></tr>
 <tr class="memitem:a7b0373e49b58adb922ac65db0b93723e" id="r_a7b0373e49b58adb922ac65db0b93723e"><td class="memItemLeft" align="right" valign="top">static struct uart_user_data&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b0373e49b58adb922ac65db0b93723e">uart_user_data</a> = { 0 }</td></tr>
 <tr class="memitem:"><td class="memItemLeft anon">struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:aeb83b1a6c92e4bbe38536458742aa3c7" id="r_aeb83b1a6c92e4bbe38536458742aa3c7"><td class="memItemLeft anon">&#160;&#160;&#160;uint64_t&#160;&#160;&#160;<a class="el" href="#adce3db4a08464cc552b9e53d5f03f38b">timestamp_epoch_localtime</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a25560765a05888fd97336803b245cb3a" id="r_a25560765a05888fd97336803b245cb3a"><td class="memItemLeft anon">&#160;&#160;&#160;uint64_t&#160;&#160;&#160;<a class="el" href="#a500a814c4ba7e3b133d22985ff11fbb4">timestamp_epoch_localtime_s</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a7ba37b18177790779b04fd4cce9d2047" id="r_a7ba37b18177790779b04fd4cce9d2047"><td class="memItemLeft anon">&#160;&#160;&#160;<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a>&#160;&#160;&#160;<a class="el" href="#a39c830d028a84b0f15b1a4339e18c8eb">kwh1_consumed</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a8e34e0bf3096a41d9532178f9df24268" id="r_a8e34e0bf3096a41d9532178f9df24268"><td class="memItemLeft anon">&#160;&#160;&#160;<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a>&#160;&#160;&#160;<a class="el" href="#aad130f4573214af37c5092022edd4300">kwh1_produced</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a0c59ce28b025b6ad94fa4dd1c93081bf" id="r_a0c59ce28b025b6ad94fa4dd1c93081bf"><td class="memItemLeft anon">&#160;&#160;&#160;<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a>&#160;&#160;&#160;<a class="el" href="#abb38bde838971302a6e3073226a9d3a0">kwh2_consumed</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
@@ -341,7 +341,7 @@ Variables</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft anon">&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:af7164731609879bfdffedb5cbe98ab70" id="r_af7164731609879bfdffedb5cbe98ab70"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a>&#160;&#160;&#160;<a class="el" href="#a7e7e64519cd1d2808973b023502f739e">device_type</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:ae7a95e7fb6605b2c868d5809c5cd82ef" id="r_ae7a95e7fb6605b2c868d5809c5cd82ef"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;char&#160;&#160;&#160;<a class="el" href="#a449d38793eeb964a12dd964f677d2e1e">equipment_id</a> [96+1]&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:a12ea7867c3936f47d863a4e79615ce2f" id="r_a12ea7867c3936f47d863a4e79615ce2f"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint64_t&#160;&#160;&#160;<a class="el" href="#adce3db4a08464cc552b9e53d5f03f38b">timestamp_epoch_localtime</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:ada7f6427456c59a82bc6dab12ad94b14" id="r_ada7f6427456c59a82bc6dab12ad94b14"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint64_t&#160;&#160;&#160;<a class="el" href="#a500a814c4ba7e3b133d22985ff11fbb4">timestamp_epoch_localtime_s</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:af6bb9551434874bd5b463546f07b5c7d" id="r_af6bb9551434874bd5b463546f07b5c7d"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a>&#160;&#160;&#160;<a class="el" href="#a354b99b030bdfe136490f848c05d4788">value</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:af65162b750858014814e43401616dc89" id="r_af65162b750858014814e43401616dc89"><td class="memItemLeft anonEnd" valign="top">&#160;&#160;&#160;}&#160;&#160;&#160;<a class="el" href="#a5aa34290626f586c5691223e602b3561">mbus</a> [4]</td></tr>
 <tr class="memitem:a646d58b4fb2e460bb3daa1f6ee4f4d11" id="r_a646d58b4fb2e460bb3daa1f6ee4f4d11"><td class="memItemLeft anonEnd" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a646d58b4fb2e460bb3daa1f6ee4f4d11">p1_extra_data</a></td></tr>
@@ -349,11 +349,11 @@ Variables</h2></td></tr>
 <tr class="memitem:a1ceae6c5a3390a4e72a9aa07d5371004" id="r_a1ceae6c5a3390a4e72a9aa07d5371004"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#a5781cf7810fefc08ac7a8d383509ccb9">consumed_sum_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a84baff16a3224ffc0193c6118ec15f18" id="r_a84baff16a3224ffc0193c6118ec15f18"><td class="memItemLeft anon">&#160;&#160;&#160;int32_t&#160;&#160;&#160;<a class="el" href="#a5b4ec0542d3dd94cc26b67d8f6d5e41e">consumed_max_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:afe9f89785dee0f8b6e50b0c7bf2437a6" id="r_afe9f89785dee0f8b6e50b0c7bf2437a6"><td class="memItemLeft anon">&#160;&#160;&#160;int32_t&#160;&#160;&#160;<a class="el" href="#ac40508c3b7ede297d05f83a267170290">consumed_min_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:ad27b740918d96311b3853c4afae81974" id="r_ad27b740918d96311b3853c4afae81974"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#a477121f9dad55c767b885ea05a415f37">consumed_max_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:addeaafd2e8fc95bb6ddc2be3a86dd6e3" id="r_addeaafd2e8fc95bb6ddc2be3a86dd6e3"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#aad01f60ac95c95787d889999b9171b16">consumed_max_timestamp_epoch_s</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:aa8bf1b81bca1f6d98527140d6ffd237f" id="r_aa8bf1b81bca1f6d98527140d6ffd237f"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#a0bf5351b9161a924a41502e4abf97353">delivered_sum_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:aea5c98c93782e4bd7ba70d50f02d4da9" id="r_aea5c98c93782e4bd7ba70d50f02d4da9"><td class="memItemLeft anon">&#160;&#160;&#160;int32_t&#160;&#160;&#160;<a class="el" href="#adcb172fbe419ef6c19587acf014a2ce7">delivered_max_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a50b23c3852155c674dd01b57e0021b3b" id="r_a50b23c3852155c674dd01b57e0021b3b"><td class="memItemLeft anon">&#160;&#160;&#160;int32_t&#160;&#160;&#160;<a class="el" href="#a438a799e1cd080d4fc99983291e36252">delivered_min_w</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:af1f3296ef4f34920b3350b2ab21b4b33" id="r_af1f3296ef4f34920b3350b2ab21b4b33"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#a0d7ca50cdd451f7cbbc1891befc29e04">delivered_max_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a0d3e80668d7d038c52ec13208d884a2e" id="r_a0d3e80668d7d038c52ec13208d884a2e"><td class="memItemLeft anon">&#160;&#160;&#160;int64_t&#160;&#160;&#160;<a class="el" href="#a46be9be2f9a2db133be5a9ce13996487">delivered_max_timestamp_epoch_s</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a7328f8ab0527c6087506d0059350a96a" id="r_a7328f8ab0527c6087506d0059350a96a"><td class="memItemLeft anon">&#160;&#160;&#160;uint32_t&#160;&#160;&#160;<a class="el" href="#a1090838c106af7b7afaaec0ee969e174">sample_count</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:a575496b266a9a42106abdab40afc6c73" id="r_a575496b266a9a42106abdab40afc6c73"><td class="memItemLeft anonEnd" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a></td></tr>
 <tr class="memitem:a179d20128bf2d1fa928919f6ca906361" id="r_a179d20128bf2d1fa928919f6ca906361"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a179d20128bf2d1fa928919f6ca906361">crc16_lut</a> []</td></tr>
@@ -478,7 +478,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00078">78</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -496,7 +496,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00079">79</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -514,7 +514,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00075">75</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -532,7 +532,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00076">76</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -550,7 +550,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00087">87</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -568,7 +568,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00082">82</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00770">parse_crc_safe()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00783">parse_crc_safe()</a>.</p>
 
 </div>
 </div>
@@ -586,7 +586,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00081">81</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>, and <a class="el" href="p__one_8c_source.html#l00770">parse_crc_safe()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>, and <a class="el" href="p__one_8c_source.html#l00783">parse_crc_safe()</a>.</p>
 
 </div>
 </div>
@@ -604,7 +604,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00072">72</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -622,7 +622,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00073">73</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -640,7 +640,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00084">84</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -658,7 +658,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00085">85</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -674,7 +674,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -718,7 +718,7 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00153">153</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -807,7 +807,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00090">90</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>.</p>
 
 </div>
 </div>
@@ -825,7 +825,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00059">59</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>.</p>
 
 </div>
 </div>
@@ -898,7 +898,7 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00047">47</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT()</a>, and <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT()</a>, and <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>.</p>
 
 </div>
 </div>
@@ -932,7 +932,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00069">69</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>.</p>
 
 </div>
 </div>
@@ -1080,11 +1080,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00760">760</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00773">773</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00727">crc16_lut</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00740">crc16_lut</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1182,7 +1182,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1230,7 +1230,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="719,65,791,65,791,70,719,70"/>
 <area shape="poly" title=" " alt="" coords="709,127,801,148,800,153,708,132"/>
 <area shape="poly" title=" " alt="" coords="736,114,774,114,774,119,736,119"/>
-<area shape="rect" href="p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="577,302,724,342"/>
+<area shape="rect" href="p__one_8c.html#a267802186855e575a4712519ee8e0ccf" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="577,302,724,342"/>
 <area shape="poly" title=" " alt="" coords="500,319,564,319,564,325,500,325"/>
 <area shape="rect" href="p__one_8c.html#a5ead751644738be541e2e3b0fa06717e" title="Reset rolling statistics." alt="" coords="579,367,722,392"/>
 <area shape="poly" title=" " alt="" coords="485,332,590,360,588,366,484,337"/>
@@ -1261,8 +1261,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a25177287547d8c49377f0af372a4371c" name="a25177287547d8c49377f0af372a4371c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25177287547d8c49377f0af372a4371c">&#9670;&#160;</a></span>obis_fixed_point_to_milli()</h2>
+<a id="a267802186855e575a4712519ee8e0ccf" name="a267802186855e575a4712519ee8e0ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a267802186855e575a4712519ee8e0ccf">&#9670;&#160;</a></span>obis_fixed_point_to_thousandths()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1271,7 +1271,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t obis_fixed_point_to_milli </td>
+          <td class="memname">int32_t obis_fixed_point_to_thousandths </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structobis__fixed__point__t.html">obis_fixed_point_t</a></td>          <td class="paramname"><span class="paramname"><em>fixed_point</em></span></td><td>)</td>
           <td></td>
@@ -1284,32 +1284,33 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Convert OBIS fixed-point value to milli-units (int32_t, no FPU) </p>
-<p>Generic conversion from OBIS F9.3.3 or F5.3.3 format to milli-units. Works for any unit: kWh→mWh, kW→mW, etc.</p>
-<p>OBIS format: whole + frac (6 decimal precision, stored as 1e-6) Conversion: whole * 1000 + frac / 1000 = milli-units</p>
+<p>Convert OBIS fixed-point value to integer (scale by 1/1000) </p>
+<p>Converts OBIS fixed-point representation to integer by scaling down by factor 1000. Effectively converts base units to "one thousandth-s" or removes the decimal point for values with 3 decimal places.</p>
+<p>OBIS format: whole + frac (6 decimal precision, stored as 1e-6) Conversion: whole * 1000 + frac / 1000 = value scaled by 1/1000</p>
 <p>Examples:</p><ul>
-<li>123.456789 kWh → 123456 mWh (energy)</li>
-<li>5.678123 kW → 5678 mW (power)</li>
+<li>123.456789 kWh → 123456 Wh</li>
+<li>5.678123 kW → 5678 W</li>
+<li>0.045 m³ → 45 dm³</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fixed_point</td><td>OBIS fixed-point value (whole + frac with 6 decimals) </td></tr>
+    <tr><td class="paramname">fixed_point</td><td>OBIS fixed-point value with 6 decimal precision </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int32_t Value in milli-units (mWh, mW, etc.) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int32_t Integer value scaled by 1/1000 (no FPU needed) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00308">308</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00310">310</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00407">publish_p1_data()</a>, and <a class="el" href="p__one_8c_source.html#l00353">update_rolling_stats()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00415">publish_p1_data()</a>, and <a class="el" href="p__one_8c_source.html#l00358">update_rolling_stats()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="p__one_8c_a25177287547d8c49377f0af372a4371c_icgraph.png" border="0" usemap="#ap__one_8c_a25177287547d8c49377f0af372a4371c_icgraph" loading="lazy" alt=""/></div>
-<map name="ap__one_8c_a25177287547d8c49377f0af372a4371c_icgraph" id="ap__one_8c_a25177287547d8c49377f0af372a4371c_icgraph">
-<area shape="rect" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="561,23,708,63"/>
+<div class="center"><img src="p__one_8c_a267802186855e575a4712519ee8e0ccf_icgraph.png" border="0" usemap="#ap__one_8c_a267802186855e575a4712519ee8e0ccf_icgraph" loading="lazy" alt=""/></div>
+<map name="ap__one_8c_a267802186855e575a4712519ee8e0ccf_icgraph" id="ap__one_8c_a267802186855e575a4712519ee8e0ccf_icgraph">
+<area shape="rect" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="561,23,708,63"/>
 <area shape="rect" href="p__one_8c.html#ae5671e126cb5ee63fb4f8ffc0877e94e" title="Publish P1 data with rolling statistics to P_ONE_CHAN." alt="" coords="372,5,500,31"/>
 <area shape="poly" title=" " alt="" coords="547,35,500,29,501,24,548,30"/>
 <area shape="rect" href="p__one_8c.html#a727fc9db3c54db192dd4a16af246e323" title="Update rolling statistics with new P1 measurement." alt="" coords="359,55,513,80"/>
@@ -1361,11 +1362,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00604">604</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00617">617</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00468">obis_sanity_check()</a>, <a class="el" href="p__one_8c_source.html#l00484">raw_parse_fixed_point()</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00481">obis_sanity_check()</a>, <a class="el" href="p__one_8c_source.html#l00497">raw_parse_fixed_point()</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1437,11 +1438,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00671">671</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00684">684</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00096">F8_2_2</a>, <a class="el" href="p__one_8c_source.html#l00097">F8_3_3</a>, <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00468">obis_sanity_check()</a>, <a class="el" href="p__one_8c_source.html#l00090">OBIS_TIMESTAMP_LENGTH</a>, <a class="el" href="p__one_8c_source.html#l00484">raw_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00559">raw_parse_timestamp()</a>, <a class="el" href="p__one_8c_source.html#l00103">TST</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00096">F8_2_2</a>, <a class="el" href="p__one_8c_source.html#l00097">F8_3_3</a>, <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00481">obis_sanity_check()</a>, <a class="el" href="p__one_8c_source.html#l00090">OBIS_TIMESTAMP_LENGTH</a>, <a class="el" href="p__one_8c_source.html#l00497">raw_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00572">raw_parse_timestamp()</a>, <a class="el" href="p__one_8c_source.html#l00103">TST</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1515,11 +1516,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00627">627</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00640">640</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00468">obis_sanity_check()</a>, and <a class="el" href="p__one_8c_source.html#l00525">raw_parse_string()</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00481">obis_sanity_check()</a>, and <a class="el" href="p__one_8c_source.html#l00538">raw_parse_string()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1586,11 +1587,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00649">649</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00662">662</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00468">obis_sanity_check()</a>, and <a class="el" href="p__one_8c_source.html#l00559">raw_parse_timestamp()</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00481">obis_sanity_check()</a>, and <a class="el" href="p__one_8c_source.html#l00572">raw_parse_timestamp()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1652,11 +1653,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00468">468</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00481">481</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00148">OBIS_CODE_CNT</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00604">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00627">obis_parse_string()</a>, and <a class="el" href="p__one_8c_source.html#l00649">obis_parse_timestamp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00617">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00640">obis_parse_string()</a>, and <a class="el" href="p__one_8c_source.html#l00662">obis_parse_timestamp()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1712,11 +1713,11 @@ Here is the caller graph for this function:</div>
 <p>Asserts Data Request pin, enables UART RX, waits for telegram, then deasserts Data Request. Uses async UART with semaphore synchronization.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -ETIMEDOUT if no response, -EIO on UART error </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00820">820</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00833">833</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00216">p_one_data_request</a>, <a class="el" href="p__one_8c_source.html#l00059">P_ONE_DATA_REQUEST_RESPONSE_TIMEOUT_MSEC</a>, <a class="el" href="p__one_8c_source.html#l00047">P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</a>, <a class="el" href="p__one_8c_source.html#l00223">p_one_uart_rx_buf</a>, <a class="el" href="p__one_8c_source.html#l00165">uart_user_data::total_bytes_received</a>, <a class="el" href="p__one_8c_source.html#l00220">uart_dev</a>, and <a class="el" href="p__one_8c_source.html#l00069">UART_RX_BUF_SIZE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1758,11 +1759,11 @@ Here is the caller graph for this function:</div>
 <p>Parse DSMR telegram and extract OBIS values. </p>
 <p>Validates header, footer, and CRC16. Extracts energy, power, and M-Bus values into p1_data and p1_extra_data structures. </p>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00896">896</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00909">909</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00760">crc16_calculate()</a>, <a class="el" href="p__one_8c_source.html#l00078">DSMR_CHAR_FOOTER</a>, <a class="el" href="p__one_8c_source.html#l00079">DSMR_CHAR_FOOTER_OFFSET_FROM_END</a>, <a class="el" href="p__one_8c_source.html#l00075">DSMR_CHAR_HEADER</a>, <a class="el" href="p__one_8c_source.html#l00076">DSMR_CHAR_HEADER_OFFSET</a>, <a class="el" href="p__one_8c_source.html#l00087">DSMR_MIN_LEN</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH1_CONSUMED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH1_PRODUCED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH2_CONSUMED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH2_PRODUCED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_P1_DATETIMESTAMP</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_P1_VERSION</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_POWER_DELIVERED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_POWER_RECEIVED</a>, <a class="el" href="p__one_8c_source.html#l00081">DSMR_STR_CRC_OFFSET_FROM_END</a>, <a class="el" href="p__one_8c_source.html#l00072">DSMR_STR_LINE_END</a>, <a class="el" href="p__one_8c_source.html#l00073">DSMR_STR_LINE_END_LEN</a>, <a class="el" href="p__one_8c_source.html#l00084">DSMR_STR_START_OF_DATA</a>, <a class="el" href="p__one_8c_source.html#l00085">DSMR_STR_START_OF_DATA_LEN</a>, <a class="el" href="#ad02ddd54a0735a79a70e40f1d6f05c70">MAX_LINE_BUFFER_SIZE</a>, <a class="el" href="p__one_8c_source.html#l00153">OBIS_FIND</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00604">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00627">obis_parse_string()</a>, <a class="el" href="p__one_8c_source.html#l00649">obis_parse_timestamp()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, <a class="el" href="#a646d58b4fb2e460bb3daa1f6ee4f4d11">p1_extra_data</a>, <a class="el" href="p__one_8c_source.html#l00223">p_one_uart_rx_buf</a>, <a class="el" href="p__one_8c_source.html#l00770">parse_crc_safe()</a>, and <a class="el" href="p__one_8c_source.html#l00165">uart_user_data::total_bytes_received</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00773">crc16_calculate()</a>, <a class="el" href="p__one_8c_source.html#l00078">DSMR_CHAR_FOOTER</a>, <a class="el" href="p__one_8c_source.html#l00079">DSMR_CHAR_FOOTER_OFFSET_FROM_END</a>, <a class="el" href="p__one_8c_source.html#l00075">DSMR_CHAR_HEADER</a>, <a class="el" href="p__one_8c_source.html#l00076">DSMR_CHAR_HEADER_OFFSET</a>, <a class="el" href="p__one_8c_source.html#l00087">DSMR_MIN_LEN</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH1_CONSUMED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH1_PRODUCED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH2_CONSUMED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_KWH2_PRODUCED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH1_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH2_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH3_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_DEVICE_TYPE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_EQUIPMENT_ID</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_MBUS_CH4_VALUE</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_P1_DATETIMESTAMP</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_P1_VERSION</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_POWER_DELIVERED</a>, <a class="el" href="p__one_8c_source.html#l00148">DSMR_OBIS_POWER_RECEIVED</a>, <a class="el" href="p__one_8c_source.html#l00081">DSMR_STR_CRC_OFFSET_FROM_END</a>, <a class="el" href="p__one_8c_source.html#l00072">DSMR_STR_LINE_END</a>, <a class="el" href="p__one_8c_source.html#l00073">DSMR_STR_LINE_END_LEN</a>, <a class="el" href="p__one_8c_source.html#l00084">DSMR_STR_START_OF_DATA</a>, <a class="el" href="p__one_8c_source.html#l00085">DSMR_STR_START_OF_DATA_LEN</a>, <a class="el" href="#ad02ddd54a0735a79a70e40f1d6f05c70">MAX_LINE_BUFFER_SIZE</a>, <a class="el" href="p__one_8c_source.html#l00153">OBIS_FIND</a>, <a class="el" href="p__one_8c_source.html#l00142">obis_lut</a>, <a class="el" href="p__one_8c_source.html#l00617">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00640">obis_parse_string()</a>, <a class="el" href="p__one_8c_source.html#l00662">obis_parse_timestamp()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, <a class="el" href="#a646d58b4fb2e460bb3daa1f6ee4f4d11">p1_extra_data</a>, <a class="el" href="p__one_8c_source.html#l00223">p_one_uart_rx_buf</a>, <a class="el" href="p__one_8c_source.html#l00783">parse_crc_safe()</a>, and <a class="el" href="p__one_8c_source.html#l00165">uart_user_data::total_bytes_received</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1837,9 +1838,9 @@ Here is the caller graph for this function:</div>
 <p>Main P1 DSMR module thread. </p>
 <p>Handles DATA_ACQUISITION_TRIGGER_CHAN (acquire + parse + update stats) and DATA_PUBLISH_REQUEST_CHAN (publish + reset stats) events. </p>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01292">1292</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01305">1305</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="cloud_8c_source.html#l00070">MAX_MSG_SIZE</a>, <a class="el" href="timing__zbus_8h_source.html#l00021">MSG_TO_TIMING_EVENT_MSG_PTR</a>, <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>, <a class="el" href="p__one_8c_source.html#l00216">p_one_data_request</a>, <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>, <a class="el" href="p__one_8c_source.html#l00407">publish_p1_data()</a>, <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, <a class="el" href="timing__zbus_8h_source.html#l00031">timing_event_msg::timestamp</a>, <a class="el" href="p__one_8c_source.html#l00220">uart_dev</a>, <a class="el" href="p__one_8c_source.html#l01213">uart_event_handler()</a>, and <a class="el" href="p__one_8c_source.html#l00353">update_rolling_stats()</a>.</p>
+<p class="reference">References <a class="el" href="cloud_8c_source.html#l00070">MAX_MSG_SIZE</a>, <a class="el" href="timing__zbus_8h_source.html#l00021">MSG_TO_TIMING_EVENT_MSG_PTR</a>, <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>, <a class="el" href="p__one_8c_source.html#l00216">p_one_data_request</a>, <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>, <a class="el" href="p__one_8c_source.html#l00415">publish_p1_data()</a>, <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, <a class="el" href="p__one_8c_source.html#l00220">uart_dev</a>, <a class="el" href="p__one_8c_source.html#l01226">uart_event_handler()</a>, <a class="el" href="p__one_8c_source.html#l00358">update_rolling_stats()</a>, and <a class="el" href="timing__zbus_8h_source.html#l00031">timing_event_msg::uptime_ms</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#aae55c0024ca46ea934d9c00320c2cff6">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -1887,7 +1888,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="525,65,596,65,596,70,525,70"/>
 <area shape="poly" title=" " alt="" coords="514,127,606,148,605,153,513,132"/>
 <area shape="poly" title=" " alt="" coords="542,114,580,114,580,119,542,119"/>
-<area shape="rect" href="p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="383,302,529,342"/>
+<area shape="rect" href="p__one_8c.html#a267802186855e575a4712519ee8e0ccf" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="383,302,529,342"/>
 <area shape="poly" title=" " alt="" coords="306,319,369,319,369,325,306,325"/>
 <area shape="rect" href="p__one_8c.html#a5ead751644738be541e2e3b0fa06717e" title="Reset rolling statistics." alt="" coords="385,367,527,392"/>
 <area shape="poly" title=" " alt="" coords="290,332,395,360,394,366,289,337"/>
@@ -1939,11 +1940,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00770">770</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00783">783</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00082">DSMR_STR_CRC_LEN</a>, and <a class="el" href="p__one_8c_source.html#l00081">DSMR_STR_CRC_OFFSET_FROM_END</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1985,20 +1986,20 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Publish P1 data with rolling statistics to P_ONE_CHAN. </p>
-<p>Called on DATA_PUBLISH_REQUEST_CHAN event. Converts OBIS fixed-point values to int32_t Wh/W (no FPU needed!). </p>
+<p>Called on DATA_PUBLISH_REQUEST_CHAN event. Converts OBIS fixed-point values to int32_t Wh/W (no FPU needed!). Uses P1 meter's own epoch timestamp from OBIS 0-0:1.0.0. </p>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00407">407</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00415">415</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one__zbus_8h_source.html#l00039">p_one_msg::energy_consumed_wh_tariff1</a>, <a class="el" href="p__one__zbus_8h_source.html#l00040">p_one_msg::energy_consumed_wh_tariff2</a>, <a class="el" href="p__one__zbus_8h_source.html#l00043">p_one_msg::energy_delivered_wh_tariff1</a>, <a class="el" href="p__one__zbus_8h_source.html#l00044">p_one_msg::energy_delivered_wh_tariff2</a>, <a class="el" href="p__one_8c_source.html#l00308">obis_fixed_point_to_milli()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, <a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a>, <a class="el" href="p__one__zbus_8h_source.html#l00051">p_one_msg::power_consumed_avg_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00053">p_one_msg::power_consumed_max_timestamp</a>, <a class="el" href="p__one__zbus_8h_source.html#l00052">p_one_msg::power_consumed_max_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00054">p_one_msg::power_consumed_min_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00058">p_one_msg::power_delivered_avg_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00060">p_one_msg::power_delivered_max_timestamp</a>, <a class="el" href="p__one__zbus_8h_source.html#l00059">p_one_msg::power_delivered_max_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00061">p_one_msg::power_delivered_min_w</a>, <a class="el" href="p__one_8c_source.html#l00326">reset_rolling_stats()</a>, and <a class="el" href="p__one__zbus_8h_source.html#l00036">p_one_msg::timestamp</a>.</p>
+<p class="reference">References <a class="el" href="p__one__zbus_8h_source.html#l00041">p_one_msg::energy_consumed_wh_tariff1</a>, <a class="el" href="p__one__zbus_8h_source.html#l00042">p_one_msg::energy_consumed_wh_tariff2</a>, <a class="el" href="p__one__zbus_8h_source.html#l00045">p_one_msg::energy_delivered_wh_tariff1</a>, <a class="el" href="p__one__zbus_8h_source.html#l00046">p_one_msg::energy_delivered_wh_tariff2</a>, <a class="el" href="p__one_8c_source.html#l00310">obis_fixed_point_to_thousandths()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, <a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a>, <a class="el" href="p__one__zbus_8h_source.html#l00053">p_one_msg::power_consumed_avg_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00055">p_one_msg::power_consumed_max_timestamp_epoch_ms</a>, <a class="el" href="p__one__zbus_8h_source.html#l00054">p_one_msg::power_consumed_max_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00056">p_one_msg::power_consumed_min_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00060">p_one_msg::power_delivered_avg_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00062">p_one_msg::power_delivered_max_timestamp_epoch_ms</a>, <a class="el" href="p__one__zbus_8h_source.html#l00061">p_one_msg::power_delivered_max_w</a>, <a class="el" href="p__one__zbus_8h_source.html#l00063">p_one_msg::power_delivered_min_w</a>, <a class="el" href="p__one_8c_source.html#l00329">reset_rolling_stats()</a>, and <a class="el" href="p__one__zbus_8h_source.html#l00038">p_one_msg::timestamp_epoch_ms</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="p__one_8c_ae5671e126cb5ee63fb4f8ffc0877e94e_cgraph.png" border="0" usemap="#ap__one_8c_ae5671e126cb5ee63fb4f8ffc0877e94e_cgraph" loading="lazy" alt=""/></div>
 <map name="ap__one_8c_ae5671e126cb5ee63fb4f8ffc0877e94e_cgraph" id="ap__one_8c_ae5671e126cb5ee63fb4f8ffc0877e94e_cgraph">
 <area shape="rect" title="Publish P1 data with rolling statistics to P_ONE_CHAN." alt="" coords="5,42,133,67"/>
-<area shape="rect" href="p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="181,5,328,45"/>
+<area shape="rect" href="p__one_8c.html#a267802186855e575a4712519ee8e0ccf" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="181,5,328,45"/>
 <area shape="poly" title=" " alt="" coords="133,42,167,36,168,42,134,47"/>
 <area shape="rect" href="p__one_8c.html#a5ead751644738be541e2e3b0fa06717e" title="Reset rolling statistics." alt="" coords="183,70,326,95"/>
 <area shape="poly" title=" " alt="" coords="134,62,170,67,169,72,133,67"/>
@@ -2051,11 +2052,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00484">484</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00497">497</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00094">F3_0_0</a>, <a class="el" href="p__one_8c_source.html#l00095">F5_3_3</a>, <a class="el" href="p__one_8c_source.html#l00096">F8_2_2</a>, <a class="el" href="p__one_8c_source.html#l00097">F8_3_3</a>, <a class="el" href="p__one_8c_source.html#l00098">F9_3_3</a>, <a class="el" href="p__one_8c_source.html#l00099">Fn_3_3</a>, <a class="el" href="p__one_8c_source.html#l00160">obis_fixed_point_t::frac</a>, and <a class="el" href="p__one_8c_source.html#l00159">obis_fixed_point_t::whole</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00604">obis_parse_fixed_point()</a>, and <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00617">obis_parse_fixed_point()</a>, and <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2115,11 +2116,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00525">525</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00538">538</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00100">S2</a>, <a class="el" href="p__one_8c_source.html#l00101">S4</a>, and <a class="el" href="p__one_8c_source.html#l00102">S96</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00627">obis_parse_string()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00640">obis_parse_string()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2171,11 +2172,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00559">559</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00572">572</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="p__one_8c_source.html#l00103">TST</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>, and <a class="el" href="p__one_8c_source.html#l00649">obis_parse_timestamp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>, and <a class="el" href="p__one_8c_source.html#l00662">obis_parse_timestamp()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2224,11 +2225,11 @@ Here is the caller graph for this function:</div>
 <p>Reset rolling statistics. </p>
 <p>Called after publishing stats to P_ONE_CHAN. </p>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00326">326</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00329">329</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 <p class="reference">References <a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00407">publish_p1_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00415">publish_p1_data()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2282,7 +2283,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01265">1265</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01278">1278</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
 </div>
 </div>
@@ -2328,11 +2329,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01213">1213</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l01226">1226</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="message__queue_8c_source.html#l00151">data</a>.</p>
+<p class="reference">References <a class="el" href="message__queue_8c_source.html#l00157">data</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2373,20 +2374,21 @@ Here is the caller graph for this function:</div>
 
 <p>Update rolling statistics with new P1 measurement. </p>
 <p>Uses instantaneous power from OBIS 1-0:1.7.0 (delivered/consumed) and 1-0:2.7.0 (received/produced).</p>
-<p>Tracks consumed and delivered separately for peak shaving and DEV analysis. Called after each successful P1 data acquisition and parsing. Uses int32_t arithmetic to avoid FPU usage. </p>
+<p>Tracks consumed and delivered separately for peak shaving and DEV analysis. Called after each successful P1 data acquisition and parsing. Uses int32_t arithmetic to avoid FPU usage.</p>
+<p>Note: Uses P1 meter's own epoch timestamp for peak timing (from OBIS 0-0:1.0.0). </p>
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00353">353</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00358">358</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">References <a class="el" href="p__one_8c_source.html#l00308">obis_fixed_point_to_milli()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, and <a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a>.</p>
+<p class="reference">References <a class="el" href="p__one_8c_source.html#l00310">obis_fixed_point_to_thousandths()</a>, <a class="el" href="#abe68327d2d5d3c2727cfbc2af65e1f79">p1_data</a>, and <a class="el" href="#a575496b266a9a42106abdab40afc6c73">p1_stats</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="p__one_8c_a727fc9db3c54db192dd4a16af246e323_cgraph.png" border="0" usemap="#ap__one_8c_a727fc9db3c54db192dd4a16af246e323_cgraph" loading="lazy" alt=""/></div>
 <map name="ap__one_8c_a727fc9db3c54db192dd4a16af246e323_cgraph" id="ap__one_8c_a727fc9db3c54db192dd4a16af246e323_cgraph">
 <area shape="rect" title="Update rolling statistics with new P1 measurement." alt="" coords="5,13,160,38"/>
-<area shape="rect" href="p__one_8c.html#a25177287547d8c49377f0af372a4371c" title="Convert OBIS fixed&#45;point value to milli&#45;units (int32_t, no FPU)" alt="" coords="208,5,355,45"/>
+<area shape="rect" href="p__one_8c.html#a267802186855e575a4712519ee8e0ccf" title="Convert OBIS fixed&#45;point value to integer (scale by 1/1000)" alt="" coords="208,5,355,45"/>
 <area shape="poly" title=" " alt="" coords="160,23,194,23,194,28,160,28"/>
 </map>
 </div>
@@ -2530,14 +2532,14 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a477121f9dad55c767b885ea05a415f37" name="a477121f9dad55c767b885ea05a415f37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a477121f9dad55c767b885ea05a415f37">&#9670;&#160;</a></span>consumed_max_timestamp</h2>
+<a id="aad01f60ac95c95787d889999b9171b16" name="aad01f60ac95c95787d889999b9171b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad01f60ac95c95787d889999b9171b16">&#9670;&#160;</a></span>consumed_max_timestamp_epoch_s</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int64_t consumed_max_timestamp</td>
+          <td class="memname">int64_t consumed_max_timestamp_epoch_s</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2614,20 +2616,20 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00727">727</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00740">740</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00760">crc16_calculate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00773">crc16_calculate()</a>.</p>
 
 </div>
 </div>
-<a id="a0d7ca50cdd451f7cbbc1891befc29e04" name="a0d7ca50cdd451f7cbbc1891befc29e04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d7ca50cdd451f7cbbc1891befc29e04">&#9670;&#160;</a></span>delivered_max_timestamp</h2>
+<a id="a46be9be2f9a2db133be5a9ce13996487" name="a46be9be2f9a2db133be5a9ce13996487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46be9be2f9a2db133be5a9ce13996487">&#9670;&#160;</a></span>delivered_max_timestamp_epoch_s</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int64_t delivered_max_timestamp</td>
+          <td class="memname">int64_t delivered_max_timestamp_epoch_s</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2834,7 +2836,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00142">142</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00604">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00671">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00627">obis_parse_string()</a>, <a class="el" href="p__one_8c_source.html#l00649">obis_parse_timestamp()</a>, and <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00617">obis_parse_fixed_point()</a>, <a class="el" href="p__one_8c_source.html#l00684">obis_parse_mbus_value()</a>, <a class="el" href="p__one_8c_source.html#l00640">obis_parse_string()</a>, <a class="el" href="p__one_8c_source.html#l00662">obis_parse_timestamp()</a>, and <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -2850,7 +2852,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>, <a class="el" href="p__one_8c_source.html#l00407">publish_p1_data()</a>, and <a class="el" href="p__one_8c_source.html#l00353">update_rolling_stats()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>, <a class="el" href="p__one_8c_source.html#l00415">publish_p1_data()</a>, and <a class="el" href="p__one_8c_source.html#l00358">update_rolling_stats()</a>.</p>
 
 </div>
 </div>
@@ -2866,7 +2868,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -2882,7 +2884,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00407">publish_p1_data()</a>, <a class="el" href="p__one_8c_source.html#l00326">reset_rolling_stats()</a>, and <a class="el" href="p__one_8c_source.html#l00353">update_rolling_stats()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00415">publish_p1_data()</a>, <a class="el" href="p__one_8c_source.html#l00329">reset_rolling_stats()</a>, and <a class="el" href="p__one_8c_source.html#l00358">update_rolling_stats()</a>.</p>
 
 </div>
 </div>
@@ -2902,7 +2904,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00216">216</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 
 </div>
 </div>
@@ -2928,7 +2930,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00223">223</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l00896">p_one_parse_data()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l00909">p_one_parse_data()</a>.</p>
 
 </div>
 </div>
@@ -2980,14 +2982,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="adce3db4a08464cc552b9e53d5f03f38b" name="adce3db4a08464cc552b9e53d5f03f38b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce3db4a08464cc552b9e53d5f03f38b">&#9670;&#160;</a></span>timestamp_epoch_localtime</h2>
+<a id="a500a814c4ba7e3b133d22985ff11fbb4" name="a500a814c4ba7e3b133d22985ff11fbb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500a814c4ba7e3b133d22985ff11fbb4">&#9670;&#160;</a></span>timestamp_epoch_localtime_s</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t timestamp_epoch_localtime</td>
+          <td class="memname">uint64_t timestamp_epoch_localtime_s</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3018,7 +3020,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00220">220</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00820">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="p__one_8c_source.html#l00833">p_one_acquire_data()</a>, and <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>.</p>
 
 </div>
 </div>
@@ -3060,7 +3062,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="p__one_8c_source.html#l00254">254</a> of file <a class="el" href="p__one_8c_source.html">p_one.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="energy__pulse_8c_source.html#l00310">energy_pulse_settings_set()</a>, and <a class="el" href="energy__pulse_8c_source.html#l00373">save_energy_channel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="energy__pulse_8c_source.html#l00304">energy_pulse_settings_set()</a>, and <a class="el" href="energy__pulse_8c_source.html#l00367">save_energy_channel()</a>.</p>
 
 </div>
 </div>

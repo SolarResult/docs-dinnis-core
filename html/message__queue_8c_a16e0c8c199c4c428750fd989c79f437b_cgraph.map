@@ -1,0 +1,5 @@
+<map id="build_combined_energy_json" name="build_combined_energy_json">
+<area shape="rect" id="Node000001" title="Build nRF Cloud JSON object from combined energy message." alt="" coords="5,5,216,31"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#ac00cd01a7154d3dd81f1350d4f45f671" title="Convert uptime to Unix epoch timestamp." alt="" coords="264,5,433,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,15,250,15,250,21,216,21"/>
+</map>

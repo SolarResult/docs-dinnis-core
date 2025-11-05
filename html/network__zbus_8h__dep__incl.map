@@ -1,11 +1,13 @@
 <map id="modules/network/network_zbus.h" name="modules/network/network_zbus.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="266,5,458,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="355,5,547,45"/>
 <area shape="rect" id="Node000002" href="$cloud_8c.html" title=" " alt="" coords="5,101,172,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,52,126,103,124,98,288,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="359,51,138,103,136,98,358,46"/>
 <area shape="rect" id="Node000003" href="$led_8c.html" title=" " alt="" coords="196,101,333,126"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="332,57,280,102,276,98,328,53"/>
-<area shape="rect" id="Node000004" href="$network_8c.html" title=" " alt="" coords="358,101,561,126"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="396,53,448,98,444,102,392,57"/>
-<area shape="rect" id="Node000005" href="$network__shell_8c.html" title=" " alt="" coords="585,93,777,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="446,46,612,91,610,96,445,52"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="399,53,291,103,288,98,397,49"/>
+<area shape="rect" id="Node000004" href="$message__queue_8c.html" title=" " alt="" coords="357,93,545,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="454,59,454,93,449,93,449,59"/>
+<area shape="rect" id="Node000005" href="$network_8c.html" title=" " alt="" coords="570,101,773,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="513,48,643,98,641,103,511,53"/>
+<area shape="rect" id="Node000006" href="$network__shell_8c.html" title=" " alt="" coords="797,93,989,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="561,45,797,91,796,96,560,50"/>
 </map>

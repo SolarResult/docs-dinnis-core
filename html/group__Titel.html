@@ -125,7 +125,7 @@ $(function(){initNavTree('group__Titel.html','',''); });
 <li>Design documentatie heet "P1 - Documentatie"</li>
 <li>Duidelijk onderscheid tussen beide types!</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md601"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md605"></a>
 Links naar API Elementen</h2>
 <p><b>Binnen <span class="tt">&lt;module&gt;_doc.md</span> kun je linken naar:</b></p><ul>
 <li>Modules: <span class="tt">@ref p_one</span></li>
@@ -135,7 +135,7 @@ Links naar API Elementen</h2>
 <li>Andere doc pages: <span class="tt">@ref p_one_doc</span></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md603"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md607"></a>
 📚 Related Pages</h1>
 <p>Alle <span class="tt">guidelines/*.md</span> bestanden worden als <b>Related Pages</b> getoond:</p><ul>
 <li>Best Practices</li>
@@ -145,7 +145,7 @@ Links naar API Elementen</h2>
 <li><a class="el" href="doxygen_guidelines.html">Doxygen Guidelines</a> (dit document)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md605"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md609"></a>
 🛠️ Build System</h1>
 <p><b>Script:</b> <span class="tt">scripts/build-docs.sh</span></p>
 <div class="fragment"><div class="line"># HTML docs</div>
@@ -179,7 +179,7 @@ Links naar API Elementen</h2>
 </ul>
 <p>Zie <span class="tt">scripts/build-docs.sh</span> voor details.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md607"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md611"></a>
 ✅ Checklist: Nieuwe Module Documenteren</h1>
 <ol type="1">
 <li><b>Header file (bijvoorbeeld <span class="tt">p_one.h</span>):</b><ul class="check">
@@ -254,13 +254,13 @@ Links naar API Elementen</h2>
 </li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md609"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md613"></a>
 🚨 Common Pitfalls</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md610"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md614"></a>
 ❗ Anchor Mismatch</h2>
 <p><b>Probleem:</b> <span class="tt">{#p_one_readme}</span> maar bestand heet <span class="tt"><a class="el" href="p__one__doc_8md.html">p_one_doc.md</a></span></p>
 <p><b>Fix:</b> Anchor moet matchen met bestandsnaam (zonder <span class="tt">.md</span>): </p><div class="fragment"><div class="line"># P1 - Documentatie {#p_one_doc}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md611"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md615"></a>
 ❗ Inconsistente Titel Formaten</h2>
 <p><b>Probleem:</b> Titel zonder " - Documentatie" of " - API Referentie" suffix</p>
 <p><b>Fix:</b> Gebruik consistente titels:</p><ul>
@@ -268,7 +268,7 @@ Links naar API Elementen</h2>
 <li>✅ API reference: <span class="tt">@defgroup p_one P1 - API Referentie</span></li>
 <li>❗ Oude stijl: <span class="tt"># P1 Module {#p_one_doc}</span> of <span class="tt">@defgroup p_one P1 Module</span></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md612"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md616"></a>
 ❗ Broken Links</h2>
 <p><b>Probleem:</b> &lsquo;warning: unable to resolve reference to 'module_name&rsquo;`</p>
 <p><b>Oorzaak:</b> <span class="tt">@defgroup module_name</span> ontbreekt of naam komt niet overeen.</p>
@@ -278,14 +278,14 @@ Links naar API Elementen</h2>
 <div class="line"><span class="comment">// In p_one_doc.md</span></div>
 <div class="line">@ref p_one  <span class="comment">// ✅ GOED</span></div>
 <div class="line">@ref P1     <span class="comment">// ❗ FOUT</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md613"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md617"></a>
 ❗ Missing @ingroup</h2>
 <p><b>Probleem:</b> <span class="tt">&lt;module&gt;_doc.md</span> verschijnt niet onder module in Doxygen.</p>
 <p><b>Fix:</b> Voeg <span class="tt">@ingroup module_name</span> toe aan doc bestand: </p><div class="fragment"><div class="line"># P1 DSMR Module {#p_one_doc}</div>
 <div class="line"> </div>
 <div class="line">@ingroup p_one</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md615"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md619"></a>
 📚 Resources</h1>
 <p><b>Officiële Documentatie:</b></p><ul>
 <li><a href="https://www.doxygen.nl/manual/">Doxygen Manual</a></li>
@@ -303,14 +303,14 @@ Links naar API Elementen</h2>
 <div class="line"><span class="comment">// In p_one_doc.md</span></div>
 <div class="line">@ref p_one  <span class="comment">// ✅ GOED</span></div>
 <div class="line">@ref P1     <span class="comment">// ❗ FOUT</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md616"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md620"></a>
 ❗ Missing @ingroup</h2>
 <p><b>Probleem:</b> <span class="tt">&lt;module&gt;_doc.md</span> verschijnt niet onder module in Doxygen.</p>
 <p><b>Fix:</b> Voeg <span class="tt">@ingroup module_name</span> toe aan doc bestand: </p><div class="fragment"><div class="line"># P1 DSMR Module {#p_one_doc}</div>
 <div class="line"> </div>
 <div class="line">@ingroup p_one</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md618"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md622"></a>
 📚 Resources</h1>
 <p><b>Officiële Documentatie:</b></p><ul>
 <li><a href="https://www.doxygen.nl/manual/">Doxygen Manual</a></li>
