@@ -113,7 +113,7 @@ $(function(){initNavTree('timing_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2timing_2timing__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md258"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md262"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -126,14 +126,14 @@ $(function(){initNavTree('timing_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="timing__zbus_8h.html">timing_zbus.h</a> - Public API en data structures  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md260"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md264"></a>
 Overzicht</h1>
 <p>De Timing module is de centrale timing coordinator die periodieke events publiceert voor gecoördineerde data acquisitie, publishing en cloud verzending in het systeem.</p>
 <p>Het zorgt voor drift-vrije timing door gebruik van Zephyr k_timer in periodic mode, en voorkomt race conditions door intelligente offset mechanismes.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md262"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md266"></a>
 Waarom? (Probleem &amp; Motivatie)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md263"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md267"></a>
 Gecoördineerde Timing</h2>
 <p><b>Probleem zonder centrale timing</b>: </p><div class="fragment"><div class="line">P1 module: eigen timer (30s) → drift +0.5s per uur</div>
 <div class="line">Pulse module: eigen timer (30s) → drift -0.3s per uur</div>
@@ -144,7 +144,7 @@ Gecoördineerde Timing</h2>
 <div class="line">- Publishing gebeurt terwijl acquisitie nog bezig is (race condition)</div>
 <div class="line">- Cloud verzending mist laatste data sample</div>
 </div><!-- fragment --><p><b>Oplossing</b>: Eén timing bron publiceert events naar alle modules. Geen drift omdat alle modules dezelfde timer gebruiken.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md264"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md268"></a>
 Offset Mechanisme</h2>
 <p><b>Probleem</b>: Acquisitie en publishing kunnen botsen: </p><div class="fragment"><div class="line">Timeline zonder offset:</div>
 <div class="line">t=600s:  ACQ_TRIGGER → P1 start UART read (duurt ~5s)</div>
@@ -156,9 +156,9 @@ Offset Mechanisme</h2>
 <div class="line">t=600s:  ACQ_TRIGGER → Start nieuwe cycle</div>
 </div><!-- fragment --><p><b>Voordeel</b>: 15s buffer tussen laatste acquisitie en publish zorgt dat data altijd compleet is.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md266"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md270"></a>
 Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md267"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md271"></a>
 ZBUS Channels (Published)</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -171,7 +171,7 @@ ZBUS Channels (Published)</h2>
 <td class="markdownTableBodyNone"><span class="tt">DATA_SEND_REQUEST_CHAN</span>  </td><td class="markdownTableBodyNone">1800s (30min)  </td><td class="markdownTableBodyNone">0s  </td><td class="markdownTableBodyNone">Message Queue  </td><td class="markdownTableBodyNone">Cloud verzending  </td></tr>
 </table>
 <p><b>Message type</b>: <span class="tt">struct <a class="el" href="structtiming__event__msg.html" title="Timing event message structure.">timing_event_msg</a> { int64_t timestamp; }</span></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md268"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md272"></a>
 Complete System Timeline</h2>
 <div class="fragment"><div class="line">Timeline (seconds):</div>
 <div class="line">0     30    60    90    ...   570   585 600   630   ...   1185 1200  ...   1800</div>
@@ -190,7 +190,7 @@ Complete System Timeline</h2>
 <div class="line">                                                                        SEND_REQUEST</div>
 <div class="line">                                                                          t=1800s</div>
 <div class="line">                                                                     MsgQ: Send to cloud</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md269"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md273"></a>
 Use Case: Typische Dag</h2>
 <p><b>Scenario</b>: Monitoring van een woning met zonnepanelen</p>
 <div class="fragment"><div class="line">Acquisitie (elke 30s):</div>
@@ -206,9 +206,9 @@ Use Case: Typische Dag</h2>
 <div class="line">- Message Queue stuurt gebufferde data (3 × 10-min samples)</div>
 <div class="line">- Batch verzending bespaart data &amp; power</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md271"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md275"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md272"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md276"></a>
 Architectuur</h2>
 <p><b>Design Principe</b>: Interrupt/Thread Separation</p><ul>
 <li><b>Interrupt context</b>: Lightweight timer callbacks (&lt; 10 µs)</li>
@@ -243,7 +243,7 @@ Architectuur</h2>
 <li>❗ ZBUS publish in interrupt context kan blokkeren (mutex wait)</li>
 <li>✅ Work queue handler mag blokkeren, geen timing impact</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md273"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md277"></a>
 Timer Configuratie</h2>
 <p><b>Fast interval timer</b> (ACQ_TRIGGER):</p><ul>
 <li>k_timer periodic mode met 30s interval</li>
@@ -256,10 +256,10 @@ Timer Configuratie</h2>
 <li>Rationale offset: geeft modules tijd om laatste sample te nemen voor publish</li>
 </ul>
 <p><b>Drift-Free Guarantee</b>: Zephyr k_timer periodic mode compenseert voor callback execution time, geen cumulatieve drift over tijd.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md274"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md278"></a>
 State Machine</h2>
 <p>De module heeft <b>géén state machine</b> - het is een pure timing generator. State tracking gebeurt in subscribers (P1, Message Queue, etc.).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md275"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md279"></a>
 Configuratie (Kconfig)</h2>
 <div class="fragment"><div class="line">CONFIG_APP_TIMING_MODULE_FAST_INTERVAL_SECONDS=30</div>
 <div class="line">CONFIG_APP_TIMING_MODULE_SLOW_INTERVAL_SECONDS=600</div>
@@ -275,9 +275,9 @@ Configuratie (Kconfig)</h2>
 <div class="line"># Langere buffer (30s offset)</div>
 <div class="line">CONFIG_APP_TIMING_MODULE_PUBLISH_OFFSET_SECONDS=30</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md277"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md281"></a>
 Resultaten &amp; Impact</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md278"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md282"></a>
 Geheugen &amp; Performance</h2>
 <ul>
 <li><b>RAM</b>: ~600 bytes (3× k_timer, 3× k_work, thread stack)</li>
@@ -285,7 +285,7 @@ Geheugen &amp; Performance</h2>
 <li><b>CPU overhead</b>: &lt; 10 µs per timer event (interrupt)</li>
 <li><b>ZBUS publish</b>: ~50 µs per event (work queue handler)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md279"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md283"></a>
 Timing Accuracy</h2>
 <p><b>Metingen</b> (gemeten met logic analyzer):</p><ul>
 <li>Jitter: &lt; 1 ms (k_timer hardware backed)</li>
@@ -302,14 +302,14 @@ Timing Accuracy</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">CPU overhead  </td><td class="markdownTableBodyNone">10 µs  </td><td class="markdownTableBodyNone">100 µs  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md280"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md284"></a>
 Betrouwbaarheid</h2>
 <ul>
 <li><b>No missed events</b>: Work queue heeft voldoende diepte (8 items)</li>
 <li><b>Watchdog safe</b>: Timer callbacks &lt; 10 µs, geen watchdog trigger</li>
 <li><b>Reboot safe</b>: Timers herstarten na reboot, geen state loss</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md281"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md285"></a>
 Toekomstige Uitbreidingen</h2>
 <ul>
 <li>⏳ <b>Dynamic interval adjustment</b> - Runtime aanpassen van intervallen (bijv. sneller bij veel opwek)</li>
@@ -317,7 +317,7 @@ Toekomstige Uitbreidingen</h2>
 <li>⏳ <b>Adaptive offset</b> - Automatisch offset aanpassen op basis van gemeten acquisitie tijd</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md283"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md287"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="timing_8c.html">timing.c</a> - Implementatie</li>

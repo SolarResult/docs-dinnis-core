@@ -113,7 +113,7 @@ $(function(){initNavTree('network_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2network_2network__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -126,13 +126,13 @@ $(function(){initNavTree('network_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="network__zbus_8h.html">network_zbus.h</a> - Public API en ZBUS definities  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
 Overzicht</h1>
 <p>De Network module beheert de LTE-M/NB-IoT modem connectie voor de Nordic nRF9161 en implementeert een state machine voor robuuste netwerk connectiviteit. De module integreert met Zephyr's Connection Manager en publiceert network status updates via ZBUS.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
 Waarom? (Design Rationale)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
 Event-Driven Network Management</h2>
 <p><b>Probleem</b>: Modem connectie is asynchroon en kan op elk moment wijzigen (signal loss, handover, operator switch).</p>
 <p><b>Design Keuze</b>: Event-driven architectuur met Zephyr NET Management callbacks.</p>
@@ -142,7 +142,7 @@ Event-Driven Network Management</h2>
 <li>State machine reageert op ZBUS events (niet direct in callbacks)</li>
 </ul>
 <p><b>Voordeel</b>: Callbacks zijn lightweight (&lt; 100µs), state transitions in thread context.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
 Modem Initialization Hook</h2>
 <p><b>Probleem</b>: Modem library init is asynchroon - andere modules moeten wachten.</p>
 <p><b>Design Keuze</b>: <span class="tt">NRF_MODEM_LIB_ON_INIT</span> hook + semaphore synchronisatie.</p>
@@ -160,9 +160,9 @@ Modem Initialization Hook</h2>
 </ol>
 <p><b>Voordeel</b>: Gegarandeerde synchronisatie, timeout protection (120s default).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md169"></a>
 Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
 Network Status Flow</h2>
 <div class="fragment"><div class="line">Boot</div>
 <div class="line">  │</div>
@@ -189,7 +189,7 @@ Network Status Flow</h2>
 <div class="line">  │</div>
 <div class="line">  └─► NET_EVENT_CONN_IF_FATAL_ERROR</div>
 <div class="line">      └─► Reboot request (TODO)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md171"></a>
 ZBUS Interfaces</h2>
 <p><b>Published Channel</b>:</p><ul>
 <li><span class="tt">NETWORK_CHAN</span> (struct <a class="el" href="structnetwork__msg.html">network_msg</a>)<ul>
@@ -207,7 +207,7 @@ ZBUS Interfaces</h2>
 <li><span class="tt">NETWORK_CHAN</span> (observes zelf voor state machine)</li>
 </ul>
 <p><b>No other subscriptions</b> - Module is event-driven via NET Management callbacks.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
 Network Status Enums</h2>
 <div class="fragment"><div class="line"><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__network.html#ga1d388be7b8bc84c14c1c37a93d4e4c55">network_status</a> {</div>
 <div class="line">    <a class="code hl_enumvalue" href="group__network.html#gga1d388be7b8bc84c14c1c37a93d4e4c55af039d9a03ff6276357796b908f7cc493">NETWORK_MODEM_INIT</a>,     <span class="comment">/* Modem initialized, not yet connected */</span></div>
@@ -219,9 +219,9 @@ Network Status Enums</h2>
 <div class="ttc" id="agroup__network_html_gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e"><div class="ttname"><a href="group__network.html#gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e">NETWORK_CONNECTED</a></div><div class="ttdeci">@ NETWORK_CONNECTED</div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00039">network_zbus.h:39</a></div></div>
 <div class="ttc" id="agroup__network_html_gga1d388be7b8bc84c14c1c37a93d4e4c55af039d9a03ff6276357796b908f7cc493"><div class="ttname"><a href="group__network.html#gga1d388be7b8bc84c14c1c37a93d4e4c55af039d9a03ff6276357796b908f7cc493">NETWORK_MODEM_INIT</a></div><div class="ttdeci">@ NETWORK_MODEM_INIT</div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00033">network_zbus.h:33</a></div></div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md174"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md171"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md175"></a>
 State Machine</h2>
 <p>De module gebruikt een <b>hierarchische state machine</b> met 3 states:</p>
 <div class="fragment"><div class="line">                  ┌─────────────────────┐</div>
@@ -256,7 +256,7 @@ State Machine</h2>
 <li><b>Self-Publishing Pattern</b>: Module publiceert op NETWORK_CHAN én observeert het zelf voor state transitions.</li>
 <li><b>Parent State</b>: OPERATIONAL is parent voor beide child states, bevat common initialization logic.</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md176"></a>
 Zephyr Connection Manager Integration</h2>
 <p><b>Connection Manager API</b>: </p><div class="fragment"><div class="line">conn_mgr_all_if_connect(<span class="keyword">true</span>);  <span class="comment">/* Auto-connect enabled */</span></div>
 </div><!-- fragment --><p><b>NET Management Events</b> (subscribed):</p><ul>
@@ -283,7 +283,7 @@ Zephyr Connection Manager Integration</h2>
 <div class="line">    │</div>
 <div class="line">    ▼</div>
 <div class="line">State machine processes → smf_run_state()</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md173"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md177"></a>
 Modem Initialization Details</h2>
 <p><b>Timeout Configuration</b>:</p><ul>
 <li>Default: 120 seconds (<span class="tt">CONFIG_APP_NETWORK_MODULE_MODEM_INIT_TIMEOUT_SECONDS</span>)</li>
@@ -302,7 +302,7 @@ Modem Initialization Details</h2>
 <li>Publishes <span class="tt">NETWORK_MODEM_INIT</span></li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md175"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
 Configuratie</h1>
 <p>Via Kconfig (<span class="tt">Kconfig.network</span>):</p>
 <table class="markdownTable">
@@ -318,7 +318,7 @@ Configuratie</h1>
 <td class="markdownTableBodyNone"><span class="tt">CONFIG_APP_NETWORK_MODULE_MODEM_INIT_TIMEOUT_SECONDS</span>  </td><td class="markdownTableBodyNone">120  </td><td class="markdownTableBodyNone">Modem init timeout (2 min)  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md177"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md181"></a>
 Toekomstige Uitbreidingen</h1>
 <ul>
 <li>⏳ <b>LTE LC (Link Control) handler</b> - Cell info, TAU, operator details</li>
@@ -329,7 +329,7 @@ Toekomstige Uitbreidingen</h1>
 <li>⏳ <b>Fatal error recovery</b> - Auto-recovery bij NET_EVENT_CONN_IF_FATAL_ERROR</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md183"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="network_8c.html">network.c</a> - Implementatie</li>

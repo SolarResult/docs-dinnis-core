@@ -160,29 +160,36 @@ LED Status Patronen</h2>
 <p>De LED module gebruikt een <b>priority-based systeem</b>: wanneer meerdere condities tegelijk actief zijn, wordt het patroon met de hoogste prioriteit getoond.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Priority  </th><th class="markdownTableHeadNone">Status  </th><th class="markdownTableHeadNone">Kleur  </th><th class="markdownTableHeadNone">RGB (0-100)  </th><th class="markdownTableHeadNone">Patroon  </th><th class="markdownTableHeadNone">Betekenis  </th></tr>
+<th class="markdownTableHeadNone">Priority  </th><th class="markdownTableHeadNone">Status  </th><th class="markdownTableHeadNone">Kleur  </th><th class="markdownTableHeadNone">RGB (0-100)  </th><th class="markdownTableHeadNone">Patroon  </th><th class="markdownTableHeadNone">Min Display  </th><th class="markdownTableHeadNone">Betekenis  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>6</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_FOTA</span>  </td><td class="markdownTableBodyNone">🟢 Groen  </td><td class="markdownTableBodyNone">(0,100,0)  </td><td class="markdownTableBodyNone">4 Hz blink (250ms)  </td><td class="markdownTableBodyNone">FOTA firmware download actief  </td></tr>
+<td class="markdownTableBodyNone"><b>8</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_FOTA</span>  </td><td class="markdownTableBodyNone">� Warm Wit  </td><td class="markdownTableBodyNone">(100,80,40)  </td><td class="markdownTableBodyNone">2 Hz blink, 50% DC  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">FOTA firmware download actief  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>5</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_NETWORK_ERROR</span>  </td><td class="markdownTableBodyNone">🔴 Rood  </td><td class="markdownTableBodyNone">(100,0,0)  </td><td class="markdownTableBodyNone">2 Hz blink (500ms)  </td><td class="markdownTableBodyNone">Netwerk disconnected  </td></tr>
+<td class="markdownTableBodyNone"><b>7</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_FOTA_ERROR</span>  </td><td class="markdownTableBodyNone">🔴 Rood  </td><td class="markdownTableBodyNone">(100,0,0)  </td><td class="markdownTableBodyNone">1 Hz blink, 50% DC  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">FOTA download error  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>5</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_FOTA_ERROR</span>  </td><td class="markdownTableBodyNone">🔴 Rood  </td><td class="markdownTableBodyNone">(100,0,0)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">FOTA download error (kritiek)  </td></tr>
+<td class="markdownTableBodyNone"><b>6</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_WAIT</span>  </td><td class="markdownTableBodyNone">⚪ Wit  </td><td class="markdownTableBodyNone">(100,100,100)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Boot/modem initialisatie  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>4</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_CLOUD_ERROR</span>  </td><td class="markdownTableBodyNone">🟠 Oranje  </td><td class="markdownTableBodyNone">(100,50,0)  </td><td class="markdownTableBodyNone">1 Hz blink (1000ms)  </td><td class="markdownTableBodyNone">Cloud niet ready  </td></tr>
+<td class="markdownTableBodyNone"><b>5</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_CONNECTING</span>  </td><td class="markdownTableBodyNone">⚪ Wit  </td><td class="markdownTableBodyNone">(100,100,100)  </td><td class="markdownTableBodyNone">1 Hz blink, 50% DC  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Netwerk verbinden/reconnecting (max 120s)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>3</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_ACQUIRING</span>  </td><td class="markdownTableBodyNone">🔵 Blauw  </td><td class="markdownTableBodyNone">(0,0,100)  </td><td class="markdownTableBodyNone">5 Hz blink (200ms)  </td><td class="markdownTableBodyNone">Data acquisitie van P1 meter  </td></tr>
+<td class="markdownTableBodyNone"><b>4</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_NETWORK_ERROR</span>  </td><td class="markdownTableBodyNone">🔴 Rood  </td><td class="markdownTableBodyNone">(100,0,0)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">2s  </td><td class="markdownTableBodyNone">Netwerk connection timeout (&gt;120s)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>2</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_CLOUD_TX</span>  </td><td class="markdownTableBodyNone">🟢 Groen  </td><td class="markdownTableBodyNone">(0,100,0)  </td><td class="markdownTableBodyNone">10 Hz blink (100ms)  </td><td class="markdownTableBodyNone">Cloud data transmissie (⚠️ disabled in code)  </td></tr>
+<td class="markdownTableBodyNone"><b>3</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_CLOUD_ERROR</span>  </td><td class="markdownTableBodyNone">🟠 Oranje  </td><td class="markdownTableBodyNone">(100,50,0)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">2s  </td><td class="markdownTableBodyNone">Cloud niet ready  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>1</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_IDLE</span>  </td><td class="markdownTableBodyNone">🟢 Groen  </td><td class="markdownTableBodyNone">(0,100,0)  </td><td class="markdownTableBodyNone">1 Hz blink (1000ms)  </td><td class="markdownTableBodyNone">Normal operation - standby  </td></tr>
+<td class="markdownTableBodyNone"><b>2</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_ACQUIRING</span>  </td><td class="markdownTableBodyNone">🔵 Blauw  </td><td class="markdownTableBodyNone">(0,0,100)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">2s  </td><td class="markdownTableBodyNone">Data acquisitie van P1 meter  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>0</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_WAIT</span>  </td><td class="markdownTableBodyNone">🟡 Warm Wit  </td><td class="markdownTableBodyNone">(100,20,20)  </td><td class="markdownTableBodyNone">Constant ON  </td><td class="markdownTableBodyNone">Boot/initialisatie fase  </td></tr>
+<td class="markdownTableBodyNone"><b>1</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_CLOUD_TX</span>  </td><td class="markdownTableBodyNone">� Blauw  </td><td class="markdownTableBodyNone">(0,0,100)  </td><td class="markdownTableBodyNone">4 Hz blink, 50% DC  </td><td class="markdownTableBodyNone">2s  </td><td class="markdownTableBodyNone">Cloud data transmissie  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>0</b>  </td><td class="markdownTableBodyNone"><span class="tt">LED_STATUS_IDLE</span>  </td><td class="markdownTableBodyNone">🟢 Groen  </td><td class="markdownTableBodyNone">(0,100,0)  </td><td class="markdownTableBodyNone">0.5 Hz blink, 25% DC  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Normal operation - standby  </td></tr>
 </table>
+<p><b>Belangrijke Features</b>:</p><ul>
+<li><b>Asymmetrische duty cycles</b>: IDLE gebruikt 25% DC (500ms aan, 1500ms uit) voor subtiele indicatie</li>
+<li><b>Minimum display time</b>: States met "Min Display 2s" blijven minimaal 2 seconden zichtbaar, ook als de state snel wisselt</li>
+<li><b>Network state machine</b>: Onderscheidt tussen "connecting" (normaal) en "error" (persistent probleem)</li>
+</ul>
 <p><b>Priority Logic Voorbeeld</b>:</p><ul>
-<li>Network OK + Cloud ready + Geen activiteit → <span class="tt">LED_STATUS_IDLE</span> (priority 1) - Groen slow blink</li>
-<li>FOTA download start → <span class="tt">LED_STATUS_FOTA</span> (priority 6) - Overschrijft alles, groen fast blink</li>
-<li>FOTA error → <span class="tt">LED_STATUS_FOTA_ERROR</span> (priority 5) - Rood constant</li>
-<li>Na FOTA completion → Terug naar <span class="tt">LED_STATUS_IDLE</span> (priority 1)</li>
+<li>Network OK + Cloud ready + Geen activiteit → <span class="tt">LED_STATUS_IDLE</span> (priority 0) - Groen 0.5Hz blink</li>
+<li>FOTA download start → <span class="tt">LED_STATUS_FOTA</span> (priority 8) - Overschrijft alles, warm wit 2Hz blink</li>
+<li>FOTA error → <span class="tt">LED_STATUS_FOTA_ERROR</span> (priority 7) - Rood 1Hz blink</li>
+<li>Na FOTA completion → Terug naar <span class="tt">LED_STATUS_IDLE</span> (priority 0)</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
 ZBUS Interfaces</h2>
@@ -213,15 +220,32 @@ Typische Scenario's</h2>
 <div class="line">Cloud ready!</div>
 <div class="line">  ↓</div>
 <div class="line">LED = GROEN slow blink (LED_STATUS_IDLE - priority 1)</div>
-</div><!-- fragment --><p><b>Data Acquisitie</b>: </p><div class="fragment"><div class="line">LED = GROEN slow blink (idle)</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
+Typische Scenario's</h2>
+<p><b>Boot Sequence (Happy Path)</b>: </p><div class="fragment"><div class="line">Power ON</div>
 <div class="line">  ↓</div>
-<div class="line">P1 trigger ontvangen</div>
+<div class="line">LED = WIT constant (LED_STATUS_WAIT)</div>
+<div class="line">Modem initialiseert (2-5 seconden)</div>
 <div class="line">  ↓</div>
-<div class="line">LED = BLAUW fast blink (LED_STATUS_ACQUIRING - priority 3)</div>
+<div class="line">LED = WIT knipperend 1Hz (LED_STATUS_CONNECTING)</div>
+<div class="line">Verbinden met LTE netwerk (10-30 seconden)</div>
 <div class="line">  ↓</div>
-<div class="line">Data gelezen (~2 seconden)</div>
+<div class="line">LED = ORANJE constant (LED_STATUS_CLOUD_ERROR)</div>
+<div class="line">Verbinden met nRF Cloud (5-10 seconden)</div>
 <div class="line">  ↓</div>
-<div class="line">LED = GROEN slow blink (terug naar idle)</div>
+<div class="line">LED = GROEN 0.5Hz blink, 25% DC (LED_STATUS_IDLE)</div>
+<div class="line">Normal operation - klaar voor data acquisitie</div>
+</div><!-- fragment --><p><b>Data Acquisitie</b>: </p><div class="fragment"><div class="line">LED = GROEN 0.5Hz blink (idle)</div>
+<div class="line">  ↓</div>
+<div class="line">P1 trigger ontvangen (TRIGGER_CHAN)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = BLAUW constant (LED_STATUS_ACQUIRING, min 2s)</div>
+<div class="line">P1 meter data inlezen (~2-12 seconden)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = BLAUW 4Hz blink (LED_STATUS_CLOUD_TX, min 2s)</div>
+<div class="line">Data uploaden naar cloud (~1-3 seconden)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = GROEN 0.5Hz blink (terug naar idle)</div>
 </div><!-- fragment --><p><b>Cloud Data Transmissie</b>: </p><div class="fragment"><div class="line">LED = GROEN slow blink (idle)</div>
 <div class="line">  ↓</div>
 <div class="line">Cloud TX start</div>
@@ -231,15 +255,49 @@ Typische Scenario's</h2>
 <div class="line">TX compleet</div>
 <div class="line">  ↓</div>
 <div class="line">LED = GROEN slow blink (terug naar idle)</div>
-</div><!-- fragment --><p><b>FOTA Update</b>: </p><div class="fragment"><div class="line">LED = GROEN slow blink (idle)</div>
+</div><!-- fragment --><p><b>FOTA Update</b>: </p><div class="fragment"><div class="line">LED = GROEN 0.5Hz blink (idle)</div>
 <div class="line">  ↓</div>
-<div class="line">FOTA download start</div>
+<div class="line">FOTA download start (FOTA_CHAN: DOWNLOADING)</div>
 <div class="line">  ↓</div>
-<div class="line">LED = GROEN 4Hz blink (LED_STATUS_FOTA - priority 6, hoogste!)</div>
+<div class="line">LED = WARM WIT 2Hz blink (LED_STATUS_FOTA, hoogste prioriteit!)</div>
+<div class="line">Firmware downloaden (minuten, afhankelijk van grootte)</div>
 <div class="line">  ↓</div>
-<div class="line">Download compleet → reboot</div>
+<div class="line">Download compleet → Device reboot</div>
 <div class="line">  ↓</div>
-<div class="line">Na reboot: LED = WARM WIT → ... → GROEN slow blink</div>
+<div class="line">Na reboot: WIT → WIT knipperend → ORANJE → GROEN</div>
+</div><!-- fragment --><p><b>Network Disconnect &amp; Reconnect</b>: </p><div class="fragment"><div class="line">LED = GROEN 0.5Hz blink (operationeel)</div>
+<div class="line">  ↓</div>
+<div class="line">Network connection verloren (handover, coverage gap)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = WIT knipperend 1Hz (LED_STATUS_CONNECTING, reconnecting)</div>
+<div class="line">LTE module probeert reconnect (max 120 seconden timeout)</div>
+<div class="line">  ↓</div>
+<div class="line">Scenario A: Reconnect succesvol binnen 120s</div>
+<div class="line">  ↓</div>
+<div class="line">LED = ORANJE constant (cloud reconnect)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = GROEN 0.5Hz blink (terug naar normaal)</div>
+<div class="line"> </div>
+<div class="line">Scenario B: Reconnect timeout (&gt;120s)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = ROOD constant (LED_STATUS_NETWORK_ERROR, min 2s)</div>
+<div class="line">Blijft rood tot connectie hersteld</div>
+<div class="line">  ↓</div>
+<div class="line">Connectie hersteld</div>
+<div class="line">  ↓</div>
+<div class="line">LED = ORANJE → GROEN (terug naar normaal)</div>
+</div><!-- fragment --><p><b>Boot met Network Probleem</b>: </p><div class="fragment"><div class="line">Power ON → WIT constant (modem init)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = WIT knipperend (connecting, 120s timeout)</div>
+<div class="line">  ↓</div>
+<div class="line">Geen netwerk gevonden (geen SIM, geen coverage)</div>
+<div class="line">  ↓</div>
+<div class="line">LED = ROOD constant (LED_STATUS_NETWORK_ERROR)</div>
+<div class="line">Blijft rood tot gebruiker probleem oplost</div>
+<div class="line">  ↓</div>
+<div class="line">(Gebruiker insert SIM / move naar coverage)</div>
+<div class="line">  ↓</div>
+<div class="line">Connectie succesvol → ORANJE → GROEN</div>
 </div><!-- fragment --><p><b>Error Situatie</b>: </p><div class="fragment"><div class="line">LED = GROEN slow blink (operationeel)</div>
 <div class="line">  ↓</div>
 <div class="line">Network connection verloren</div>
@@ -250,9 +308,45 @@ Typische Scenario's</h2>
 <div class="line">  ↓</div>
 <div class="line">LED = GROEN slow blink (terug naar idle)</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+Network State Machine</h2>
+<p>De LED module implementeert een state machine voor intelligente netwerk status tracking:</p>
+<div class="fragment"><div class="line">┌─────────────────────────────────────────────────────────────────────┐</div>
+<div class="line">│                    NETWORK STATE MACHINE                             │</div>
+<div class="line">└─────────────────────────────────────────────────────────────────────┘</div>
+<div class="line"> </div>
+<div class="line">NEVER_CONNECTED</div>
+<div class="line">  ↓ (modem init)</div>
+<div class="line">CONNECTING (first attempt)</div>
+<div class="line">  ↓ (success)         ↓ (timeout 120s)</div>
+<div class="line">CONNECTED  ←────→  ERROR</div>
+<div class="line">     ↓ (disconnect)</div>
+<div class="line">RECONNECTING (max 120s)</div>
+<div class="line">  ↓ (success)         ↓ (timeout 120s)</div>
+<div class="line">CONNECTED             ERROR</div>
+</div><!-- fragment --><p><b>State Descriptions</b>:</p><ul>
+<li><b><span class="tt">NETWORK_STATE_NEVER_CONNECTED</span></b>: Initial state na power-on</li>
+<li><b><span class="tt">NETWORK_STATE_CONNECTING</span></b>: Eerste connectie poging actief</li>
+<li><b><span class="tt">NETWORK_STATE_CONNECTED</span></b>: LTE netwerk verbonden</li>
+<li><b><span class="tt">NETWORK_STATE_RECONNECTING</span></b>: Tijdelijk geen connectie, reconnecting (had eerder connectie)</li>
+<li><b><span class="tt">NETWORK_STATE_ERROR</span></b>: Persistent probleem (&gt;120s geen connectie)</li>
+</ul>
+<p><b>LED Mapping</b>:</p><ul>
+<li>NEVER_CONNECTED / CONNECTING / RECONNECTING → <span class="tt">LED_STATUS_CONNECTING</span> (wit knipperend)</li>
+<li>CONNECTED → Verder in decision tree (check cloud, etc.)</li>
+<li>ERROR → <span class="tt">LED_STATUS_NETWORK_ERROR</span> (rood constant)</li>
+</ul>
+<p><b>Key Feature</b>: Onderscheid tussen "connecting" (normaal gedrag) en "error" (persistent probleem requiring user action).</p>
+<p><b>Timeout Tracking</b>:</p><ul>
+<li>Bij disconnect wordt <span class="tt">disconnect_timestamp</span> opgeslagen</li>
+<li>Bij elke <span class="tt">NETWORK_DISCONNECTED</span> event wordt timeout gecheckt</li>
+<li>Na 120s zonder connectie: <span class="tt">RECONNECTING</span> → <span class="tt">ERROR</span></li>
+<li>Bij succesvolle reconnect: <span class="tt">ERROR</span> → <span class="tt">CONNECTED</span> (direct, geen timeout)</li>
+</ul>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
 Hardware Interface</h2>
 <p><b>RGB LED connectie</b>: </p><div class="fragment"><div class="line">Device Tree (DT):</div>
 <div class="line">  leds {</div>
@@ -274,63 +368,94 @@ Hardware Interface</h2>
 <li>Warm Wit: (100, 20, 20) - rood met hints groen/blauw</li>
 <li>Oranje: (100, 50, 0) - rood + half groen</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 Pattern Implementation</h2>
+<p><b>Asymmetrische Duty Cycles</b>:</p><ul>
+<li><span class="tt">period_on</span>: LED aan tijd (ms)</li>
+<li><span class="tt">period_off</span>: LED uit tijd (ms)</li>
+<li>Voorbeelden:<ul>
+<li>50% DC: <span class="tt">period_on=500, period_off=500</span> (1Hz)</li>
+<li>25% DC: <span class="tt">period_on=500, period_off=1500</span> (0.5Hz, gebruikt voor IDLE)</li>
+</ul>
+</li>
+<li>Constant aan: <span class="tt">period_on=0, period_off=0</span></li>
+<li>Constant uit: niet gebruikt</li>
+</ul>
 <p><b>Constant pattern</b>:</p><ul>
 <li>RGB waardes worden eenmalig ingesteld via <span class="tt">set_led_color(red, green, blue)</span></li>
 <li>LED blijft aan, geen timer nodig</li>
-<li>Gebruikt voor: <span class="tt">LED_STATUS_WAIT</span> (warm wit constant), <span class="tt">LED_STATUS_FOTA_ERROR</span> (rood constant)</li>
+<li>Gebruikt voor: <span class="tt">LED_STATUS_WAIT</span> (wit constant), <span class="tt">LED_STATUS_ACQUIRING</span> (blauw constant), error states (rood/oranje constant)</li>
 </ul>
 <p><b>Blink pattern</b> (via <span class="tt">k_work_delayable</span>):</p><ul>
-<li><span class="tt">k_work_delayable</span> work item met specifieke periode (100ms - 1000ms)</li>
+<li><span class="tt">k_work_delayable</span> work item met asymmetrische timing</li>
 <li>Work handler togglet ON/OFF state</li>
-<li>ON phase: RGB waardes actief (bijv. 0,100,0 voor groen)</li>
-<li>OFF phase: (0,0,0) - LED uit</li>
-<li>Period halvering: blink period / 2 voor on/off timing</li>
-<li>Gebruikt voor: alle andere statussen</li>
+<li>ON phase: RGB waardes actief, schedule <span class="tt">period_on</span> ms</li>
+<li>OFF phase: (0,0,0) - LED uit, schedule <span class="tt">period_off</span> ms</li>
+<li>Gebruikt voor: IDLE (0.5Hz 25% DC), CONNECTING (1Hz 50% DC), CLOUD_TX (4Hz 50% DC), FOTA (2Hz 50% DC), etc.</li>
 </ul>
 <p><b>Implementatie Details</b>: </p><div class="fragment"><div class="line"><span class="comment">/* Brightness range: 0-100 (niet 0-255!) */</span></div>
 <div class="line">led_set_brightness(<a class="code hl_variable" href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a>, <a class="code hl_enumvalue" href="led_8c.html#a8785874f85756c2b2671417c4bed203aa20c3f7e3db2eca4ce0fe784975373384">LED_COLOR_RED</a>, 100);   <span class="comment">/* Full red */</span></div>
 <div class="line">led_set_brightness(<a class="code hl_variable" href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a>, <a class="code hl_enumvalue" href="led_8c.html#a8785874f85756c2b2671417c4bed203aae996fe9a5d49e8bb266dd657d129b549">LED_COLOR_GRN</a>, 50);    <span class="comment">/* Half green */</span></div>
 <div class="line">led_set_brightness(<a class="code hl_variable" href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a>, <a class="code hl_enumvalue" href="led_8c.html#a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134">LED_COLOR_BLU</a>, 0);     <span class="comment">/* Blue off */</span></div>
-<div class="ttc" id="aled_8c_html_a16989d704b66afb755235dc52390910e"><div class="ttname"><a href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a></div><div class="ttdeci">static const struct device * led_pwm</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00182">led.c:182</a></div></div>
+<div class="ttc" id="aled_8c_html_a16989d704b66afb755235dc52390910e"><div class="ttname"><a href="led_8c.html#a16989d704b66afb755235dc52390910e">led_pwm</a></div><div class="ttdeci">static const struct device * led_pwm</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00232">led.c:232</a></div></div>
 <div class="ttc" id="aled_8c_html_a8785874f85756c2b2671417c4bed203aa20c3f7e3db2eca4ce0fe784975373384"><div class="ttname"><a href="led_8c.html#a8785874f85756c2b2671417c4bed203aa20c3f7e3db2eca4ce0fe784975373384">LED_COLOR_RED</a></div><div class="ttdeci">@ LED_COLOR_RED</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00042">led.c:42</a></div></div>
 <div class="ttc" id="aled_8c_html_a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134"><div class="ttname"><a href="led_8c.html#a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134">LED_COLOR_BLU</a></div><div class="ttdeci">@ LED_COLOR_BLU</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00044">led.c:44</a></div></div>
 <div class="ttc" id="aled_8c_html_a8785874f85756c2b2671417c4bed203aae996fe9a5d49e8bb266dd657d129b549"><div class="ttname"><a href="led_8c.html#a8785874f85756c2b2671417c4bed203aae996fe9a5d49e8bb266dd657d129b549">LED_COLOR_GRN</a></div><div class="ttdeci">@ LED_COLOR_GRN</div><div class="ttdef"><b>Definition</b> <a href="led_8c_source.html#l00043">led.c:43</a></div></div>
 </div><!-- fragment --><p><b>Blink Frequenties</b>:</p><ul>
-<li>100ms (10 Hz) - <span class="tt">LED_STATUS_CLOUD_TX</span> - Zeer snel, cloud data TX</li>
-<li>200ms (5 Hz) - <span class="tt">LED_STATUS_ACQUIRING</span> - Snel, data acquisitie</li>
-<li>250ms (4 Hz) - <span class="tt">LED_STATUS_FOTA</span> - FOTA download</li>
-<li>500ms (2 Hz) - <span class="tt">LED_STATUS_NETWORK_ERROR</span> - Medium, netwerk error</li>
-<li>1000ms (1 Hz) - <span class="tt">LED_STATUS_IDLE</span>, <span class="tt">LED_STATUS_CLOUD_ERROR</span> - Langzaam, idle/error</li>
+<li>0.5 Hz (2000ms) - <span class="tt">LED_STATUS_IDLE</span> - 25% DC (500ms aan, 1500ms uit)</li>
+<li>1 Hz (1000ms) - <span class="tt">LED_STATUS_CONNECTING</span>, <span class="tt">LED_STATUS_FOTA_ERROR</span> - 50% DC</li>
+<li>2 Hz (500ms) - <span class="tt">LED_STATUS_FOTA</span> - 50% DC (warm wit blink)</li>
+<li>4 Hz (250ms) - <span class="tt">LED_STATUS_CLOUD_TX</span> - 50% DC (blauw snel blink)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+Minimum Display Time</h2>
+<p><b>Probleem</b>: Snelle state changes (bijv. acquisitie &lt;100ms) zijn niet zichtbaar voor gebruiker.</p>
+<p><b>Oplossing</b>: <span class="tt">min_display_time_ms</span> per pattern:</p><ul>
+<li>States met <span class="tt">min_display_time_ms &gt; 0</span> blijven minimaal X ms zichtbaar</li>
+<li>Als nieuwe state arriveert tijdens minimum tijd, wordt deze <b>opgeslagen</b> als <span class="tt">pending_status</span></li>
+<li>Na minimum tijd verloopt: wissel naar pending state (indien gewijzigd)</li>
+<li>Voorkomt "gemiste" states bij snelle transitions</li>
+</ul>
+<p><b>Geïmplementeerd voor</b>:</p><ul>
+<li><span class="tt">LED_STATUS_ACQUIRING</span>: 2000ms (P1 acquisitie kan &lt;100ms duren)</li>
+<li>`LED_STATUS_CLOUD_TX`: 2000ms (Upload kan &lt;100ms duren)</li>
+<li>`LED_STATUS_CLOUD_ERROR`: 2000ms (Zichtbaar error indicatie)</li>
+<li>`LED_STATUS_NETWORK_ERROR`: 2000ms (Zichtbaar error indicatie)</li>
+</ul>
+<p>**Smart Handling**:</p><ul>
+<li>Alleen **laatste** pending state wordt onthouden (geen queue)</li>
+<li>Voorkomt "achterloop" van oude states bij snelle changes</li>
+<li>System blijft "live" (geen vertraging in actuele state)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 State Management</h2>
-<p><b>Module state tracking</b>:</p><ul>
+<p>**Module state tracking**:</p><ul>
 <li>Current LED status (enum <a class="el" href="group__led.html#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5" title="LED status priorities.">led_status_priority</a>)</li>
+<li>Pending LED status (voor minimum display time)</li>
 <li>Active LED pattern (pointer naar led_patterns[])</li>
 <li>Blink work item (k_work_delayable)</li>
-<li>Network status tracking:<ul>
-<li>modem_initialized (bool)</li>
-<li>network_connected (bool)</li>
+<li>Minimum display timeout (k_work_delayable)</li>
+<li>Network state machine:<ul>
+<li>net_state (enum <a class="el" href="led_8c.html#aa206fed80157f2ec09b8c258631f2ca0">network_state</a>) - NEVER_CONNECTED / CONNECTING / CONNECTED / RECONNECTING / ERROR</li>
+<li>disconnect_timestamp (int64_t) - Voor 120s timeout tracking</li>
 </ul>
 </li>
-<li>Cloud status tracking:<ul>
-<li>cloud_ready (bool)</li>
-</ul>
-</li>
-<li>FOTA status tracking:<ul>
-<li>fota_active (bool) - download in progress</li>
-<li>fota_error (bool) - download failed</li>
+<li>Booleans:<ul>
+<li>modem_initialized</li>
+<li>network_connected</li>
+<li>cloud_ready</li>
+<li>fota_active</li>
+<li>fota_error</li>
+<li>acquiring</li>
+<li>min_display_active</li>
 </ul>
 </li>
 <li>Acquisition tracking:<ul>
-<li>acquiring (bool) - P1 data acquisition active</li>
 <li>acquiring_timeout (k_work_delayable) - 10 second timeout</li>
 </ul>
 </li>
 </ul>
-<p><b>Update flow bij status change</b>: </p><div class="fragment"><div class="line">ZBUS message ontvangen (network/cloud/fota/trigger)</div>
+<p>**Update flow bij status change**: </p><div class="fragment"><div class="line">ZBUS message ontvangen (network/cloud/fota/trigger)</div>
 <div class="line">    │</div>
 <div class="line">    ▼</div>
 <div class="line">Update interne state variabelen</div>
@@ -358,11 +483,11 @@ State Management</h2>
 <div class="line">    ├─► Cancel oude k_work_delayable (indien blink pattern)</div>
 <div class="line">    ├─► Configureer nieuwe RGB waardes (set_led_color)</div>
 <div class="line">    └─► Schedule nieuwe k_work_delayable (indien blink pattern)</div>
-</div><!-- fragment --><p><b>Note</b>: <span class="tt">LED_STATUS_CLOUD_TX</span> is in code gedefinieerd maar <b>niet actief</b> (commented out in determine_led_status). Feature voor toekomstige implementatie.</p>
+</div><!-- fragment --><p>**Note**: `LED_STATUS_CLOUD_TX` is in code gedefinieerd maar **niet actief** (commented out in determine_led_status). Feature voor toekomstige implementatie.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 LED Feedback Waarde</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
 User Experience Benefits</h2>
 <p><b>Installatie fase</b>:</p><ul>
 <li><b>WARM WIT constant</b>: Device boot - duidelijk dat het aan gaat (RGB: 100,20,20)</li>
@@ -396,7 +521,7 @@ User Experience Benefits</h2>
 <div class="line"> </div>
 <div class="line">Scenario 6: LED = BLAUW fast blink (blijft hangen)</div>
 <div class="line">→ P1 acquisition hangt → Check P1 meter connection, UART</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
 Remote Support Voordelen</h2>
 <p><b>Telefoon diagnostiek</b>:</p><ul>
 <li>Support: "Welke kleur zie je?"</li>
@@ -408,7 +533,7 @@ Remote Support Voordelen</h2>
 <li>Kleur + knipperpatroon → direct probleem lokalisatie</li>
 <li>90% van problemen diagnosticeerbaar via LED alleen</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
 Future Uitbreidingen</h2>
 <ul>
 <li>⏳ <b>Brightness control</b> - Kconfig optie voor dimmen (slaapkamer gebruik)</li>
@@ -430,7 +555,7 @@ Future Uitbreidingen</h2>
 <div class="line">├─ GROEN slow blink → Normal operation ✅</div>
 <div class="line">└─ LED uit → Power issue, LED hardware defect, of LED disabled</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="led_8c.html">led.c</a> - Implementatie</li>

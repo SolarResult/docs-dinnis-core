@@ -8,5 +8,7 @@ var app_8c =
     [ "task_wdt_callback", "app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b", null ],
     [ "watchdog_init", "app_8c.html#a77f632fe498946ff94d869ff8acdd21c", null ],
     [ "ZBUS_CHAN_DEFINE", "app_8c.html#a19084703653c2a15bf7091510af4ea13", null ],
+    [ "ZBUS_LISTENER_DEFINE", "app_8c.html#a741988180fb21aef6f753e5f09e4b887", null ],
+    [ "zbus_monitor_callback", "app_8c.html#a352aace31a2eb50b0782d2b53680fa29", null ],
     [ "hw_wdt_dev", "app_8c.html#a5da63552532df2c76add9942e6fbeec1", null ]
 ];

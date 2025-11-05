@@ -147,6 +147,9 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a0ab258b722731474493f07e1cbd1750d" id="r_a0ab258b722731474493f07e1cbd1750d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ab258b722731474493f07e1cbd1750d">LOG_MODULE_REGISTER</a> (app, CONFIG_APP_MODULE_LOG_LEVEL)</td></tr>
 <tr class="memitem:a19084703653c2a15bf7091510af4ea13" id="r_a19084703653c2a15bf7091510af4ea13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19084703653c2a15bf7091510af4ea13">ZBUS_CHAN_DEFINE</a> (TRIGGER_CHAN, struct <a class="el" href="structtrigger__msg.html">trigger_msg</a>, NULL, NULL, ZBUS_OBSERVERS_EMPTY, ZBUS_MSG_INIT(0))</td></tr>
+<tr class="memitem:a352aace31a2eb50b0782d2b53680fa29" id="r_a352aace31a2eb50b0782d2b53680fa29"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a352aace31a2eb50b0782d2b53680fa29">zbus_monitor_callback</a> (const struct zbus_channel *chan)</td></tr>
+<tr class="memdesc:a352aace31a2eb50b0782d2b53680fa29"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZBUS listener callback - logs all channel activity.  <br /></td></tr>
+<tr class="memitem:a741988180fb21aef6f753e5f09e4b887" id="r_a741988180fb21aef6f753e5f09e4b887"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a741988180fb21aef6f753e5f09e4b887">ZBUS_LISTENER_DEFINE</a> (zbus_monitor, <a class="el" href="#a352aace31a2eb50b0782d2b53680fa29">zbus_monitor_callback</a>)</td></tr>
 <tr class="memitem:ad3667701d9e14f8b5fc4e3ee0131a27b" id="r_ad3667701d9e14f8b5fc4e3ee0131a27b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3667701d9e14f8b5fc4e3ee0131a27b">task_wdt_callback</a> (int channel_id, void *user_data)</td></tr>
 <tr class="memdesc:ad3667701d9e14f8b5fc4e3ee0131a27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Watchdog timeout callback.  <br /></td></tr>
 <tr class="memitem:ae496c10120b952a0ac8e42a33b0e9a75" id="r_ae496c10120b952a0ac8e42a33b0e9a75"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae496c10120b952a0ac8e42a33b0e9a75">app_thread</a> (void)</td></tr>
@@ -204,9 +207,9 @@ Variables</h2></td></tr>
 <p>Main application thread. </p>
 <p>Simple watchdog feeding loop - no business logic. </p>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00081">81</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00097">97</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00063">task_wdt_callback()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a0357560df82a39e9c631c79d57b612b2">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -286,7 +289,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00081">app_thread()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00097">app_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -347,7 +350,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00125">watchdog_init()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00141">watchdog_init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -397,9 +400,9 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00063">63</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00079">79</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00081">app_thread()</a>, <a class="el" href="cloud_8c_source.html#l00883">cloud_thread()</a>, <a class="el" href="energy__pulse_8c_source.html#l00471">energy_pulse_thread()</a>, <a class="el" href="led_8c_source.html#l00482">led_thread()</a>, <a class="el" href="message__queue_8c_source.html#l00908">message_queue_thread()</a>, <a class="el" href="network_8c_source.html#l00385">network_thread()</a>, <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>, <a class="el" href="reboot_8c_source.html#l00332">reboot_thread()</a>, <a class="el" href="led_8c_source.html#l00139">task_wdt_callback()</a>, and <a class="el" href="energy__pulse_8c.html#adc6936992c86b4d791dc8428cd1f1183">ZBUS_CHAN_DEFINE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00097">app_thread()</a>, <a class="el" href="cloud_8c_source.html#l00883">cloud_thread()</a>, <a class="el" href="energy__pulse_8c_source.html#l00471">energy_pulse_thread()</a>, <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="message__queue_8c_source.html#l00908">message_queue_thread()</a>, <a class="el" href="network_8c_source.html#l00385">network_thread()</a>, <a class="el" href="p__one_8c_source.html#l01292">p_one_thread()</a>, <a class="el" href="reboot_8c_source.html#l00332">reboot_thread()</a>, <a class="el" href="led_8c_source.html#l00178">task_wdt_callback()</a>, and <a class="el" href="energy__pulse_8c.html#adc6936992c86b4d791dc8428cd1f1183">ZBUS_CHAN_DEFINE()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -473,7 +476,7 @@ Here is the caller graph for this function:</div>
 <p>Initialize hardware watchdog. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, negative errno on error </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00125">125</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00141">141</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
 <p class="reference">References <a class="el" href="app_8c_source.html#l00039">hw_wdt_dev</a>.</p>
 
@@ -548,6 +551,87 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a741988180fb21aef6f753e5f09e4b887" name="a741988180fb21aef6f753e5f09e4b887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741988180fb21aef6f753e5f09e4b887">&#9670;&#160;</a></span>ZBUS_LISTENER_DEFINE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ZBUS_LISTENER_DEFINE </td>
+          <td>(</td>
+          <td class="paramtype">zbus_monitor</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a352aace31a2eb50b0782d2b53680fa29">zbus_monitor_callback</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="app_8c_source.html#l00059">zbus_monitor_callback()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="app_8c_a741988180fb21aef6f753e5f09e4b887_cgraph.png" border="0" usemap="#aapp_8c_a741988180fb21aef6f753e5f09e4b887_cgraph" loading="lazy" alt=""/></div>
+<map name="aapp_8c_a741988180fb21aef6f753e5f09e4b887_cgraph" id="aapp_8c_a741988180fb21aef6f753e5f09e4b887_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,31"/>
+<area shape="rect" href="app_8c.html#a352aace31a2eb50b0782d2b53680fa29" title="ZBUS listener callback &#45; logs all channel activity." alt="" coords="236,5,407,31"/>
+<area shape="poly" title=" " alt="" coords="188,15,222,15,222,21,188,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a352aace31a2eb50b0782d2b53680fa29" name="a352aace31a2eb50b0782d2b53680fa29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352aace31a2eb50b0782d2b53680fa29">&#9670;&#160;</a></span>zbus_monitor_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zbus_monitor_callback </td>
+          <td>(</td>
+          <td class="paramtype">const struct zbus_channel *</td>          <td class="paramname"><span class="paramname"><em>chan</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ZBUS listener callback - logs all channel activity. </p>
+<p>This listener observes ALL channels and logs every publish event. Useful for debugging and understanding system-wide message flow.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chan</td><td>The channel that was published to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00059">59</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#a741988180fb21aef6f753e5f09e4b887">ZBUS_LISTENER_DEFINE()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="app_8c_a352aace31a2eb50b0782d2b53680fa29_icgraph.png" border="0" usemap="#aapp_8c_a352aace31a2eb50b0782d2b53680fa29_icgraph" loading="lazy" alt=""/></div>
+<map name="aapp_8c_a352aace31a2eb50b0782d2b53680fa29_icgraph" id="aapp_8c_a352aace31a2eb50b0782d2b53680fa29_icgraph">
+<area shape="rect" title="ZBUS listener callback &#45; logs all channel activity." alt="" coords="236,5,407,31"/>
+<area shape="rect" href="app_8c.html#a741988180fb21aef6f753e5f09e4b887" title=" " alt="" coords="5,5,188,31"/>
+<area shape="poly" title=" " alt="" coords="222,21,188,21,188,15,222,15"/>
+</map>
+</div>
+
+</div>
+</div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
 <a id="a5da63552532df2c76add9942e6fbeec1" name="a5da63552532df2c76add9942e6fbeec1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5da63552532df2c76add9942e6fbeec1">&#9670;&#160;</a></span>hw_wdt_dev</h2>
@@ -571,7 +655,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00039">39</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00125">watchdog_init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00141">watchdog_init()</a>.</p>
 
 </div>
 </div>

@@ -11,16 +11,24 @@ var led_8c =
       [ "LED_COLOR_GRN", "led_8c.html#a8785874f85756c2b2671417c4bed203aae996fe9a5d49e8bb266dd657d129b549", null ],
       [ "LED_COLOR_BLU", "led_8c.html#a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134", null ]
     ] ],
+    [ "network_state", "led_8c.html#aa206fed80157f2ec09b8c258631f2ca0", [
+      [ "NETWORK_STATE_NEVER_CONNECTED", "led_8c.html#aa206fed80157f2ec09b8c258631f2ca0a54f917ccee970b8b343757fa6afc9d8c", null ],
+      [ "NETWORK_STATE_CONNECTING", "led_8c.html#aa206fed80157f2ec09b8c258631f2ca0a46c9916eeca5a43241117e9f639b9291", null ],
+      [ "NETWORK_STATE_CONNECTED", "led_8c.html#aa206fed80157f2ec09b8c258631f2ca0a5b47c6e9161d1459fff9c7087acd6b65", null ],
+      [ "NETWORK_STATE_ERROR", "led_8c.html#aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7", null ]
+    ] ],
     [ "acquiring_timeout_handler", "led_8c.html#ae613b5b31048eaf65592097c7b06ba22", null ],
     [ "apply_led_pattern", "led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0", null ],
     [ "BUILD_ASSERT", "led_8c.html#a594fa21d5414cf92769b88318aae5eb8", null ],
     [ "determine_led_status", "led_8c.html#a14a710a391b5d39b26baab06d0a5c120", null ],
     [ "K_THREAD_DEFINE", "led_8c.html#a35d73a63d1b0b2489149fa82e345c43e", null ],
     [ "K_WORK_DELAYABLE_DEFINE", "led_8c.html#a25a6f9b64bf80b8969dfdc6c988138b7", null ],
+    [ "K_WORK_DELAYABLE_DEFINE", "led_8c.html#aa930483accfc13b7d56d7e2d55a7b25c", null ],
     [ "led_init", "led_8c.html#a3a6f82cfafae0db798b1e958d75189bf", null ],
     [ "led_thread", "led_8c.html#a0a682841982ef69386fb7d358ce5b1a6", null ],
     [ "ledblink_handler", "led_8c.html#a46fc132b34af140f29fecf3f938c616c", null ],
     [ "LOG_MODULE_REGISTER", "led_8c.html#a9479feab736800fbeb156d38dbc83c94", null ],
+    [ "min_display_timeout_handler", "led_8c.html#a740f3c8edd1420560cb1c2de21b4e61d", null ],
     [ "process_cloud_msg", "led_8c.html#a02aff220c118271ed22cef5a1276921c", null ],
     [ "process_fota_msg", "led_8c.html#a2d4ae4630b56180f0e16b1462da1f642", null ],
     [ "process_network_msg", "led_8c.html#ad09d1fe94d25960cb32d31b096e56d88", null ],
@@ -37,5 +45,8 @@ var led_8c =
     [ "current_status", "led_8c.html#ab796659729178e206a0820f98e2e8c14", null ],
     [ "led_on_state", "led_8c.html#a663946c0b14ca7c06872cb885a70fbb0", null ],
     [ "led_patterns", "led_8c.html#a39ee5beae1e39538c248b40b8aaa23ef", null ],
-    [ "led_pwm", "led_8c.html#a16989d704b66afb755235dc52390910e", null ]
+    [ "led_pwm", "led_8c.html#a16989d704b66afb755235dc52390910e", null ],
+    [ "led_status_names", "led_8c.html#ad83297d67ac268d0d67481607a85b1bb", null ],
+    [ "min_display_active", "led_8c.html#abe2066a80ad65e86eb3fb178613eaf65", null ],
+    [ "pending_status", "led_8c.html#a0371d46af554b5871e8764ea8b8d9e29", null ]
 ];

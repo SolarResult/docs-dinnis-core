@@ -112,15 +112,15 @@ $(function(){initNavTree('index.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md284"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md288"></a>
 📋 Overzicht</h1>
 <p>Welkom bij de API documentatie van <b>SolarResult Dinnis Core</b> - de embedded firmware voor de Dinnis Rev1.0.0 slimme meter gateway.</p>
 <p>Deze firmware draait op een <b>Nordic nRF9161</b> microcontroller en is gebouwd met <b>Zephyr RTOS v4.2.0</b> en <b>nRF Connect SDK v3.1.1</b>. Het apparaat leest energiedata van P1 DSMR slimme meters en puls-tellers, en verstuurt deze naar nRF Cloud.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md286"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md290"></a>
 🏗️ Architectuur</h1>
 <p>De firmware is opgebouwd uit modulaire componenten die communiceren via <b>ZBUS</b> (Zephyr Bus). Elke module heeft zijn eigen thread en state machine voor robuuste operatie.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md287"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md291"></a>
 Kernmodules</h2>
 <p>Klik op een module voor de volledige documentatie inclusief design rationale, implementatie details en use cases.</p>
 <table class="markdownTable">
@@ -146,9 +146,9 @@ Kernmodules</h2>
 <td class="markdownTableBodyNone"><a class="el" href="app_doc.html">Application</a>  </td><td class="markdownTableBodyNone">Main application entry point  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md289"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md293"></a>
 🔄 Data Flow &amp; Module Interacties</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md290"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md294"></a>
 Visueel Overzicht</h2>
 <div class="fragment"><div class="line">                 ┌───────────────────────────────────────────────────┐</div>
 <div class="line">                 │              ZBUS Message Bus                     │</div>
@@ -184,7 +184,7 @@ Visueel Overzicht</h2>
 <div class="line">     │   FOTA_CHAN                           REBOOT_CHAN   │ Reboot  │</div>
 <div class="line">     └◀────────────────────────────────────────────────────┤ Module  │</div>
 <div class="line">                                                            └─────────┘</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md291"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md295"></a>
 ZBUS Channel Overzicht</h2>
 <p>De firmware modules communiceren via <b>11 ZBUS channels</b>. Hieronder een compleet overzicht:</p>
 <table class="markdownTable">
@@ -213,9 +213,9 @@ ZBUS Channel Overzicht</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>PRIV_CLOUD_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">int</span>  </td><td class="markdownTableBodyNone">Cloud  </td><td class="markdownTableBodyNone">Cloud (self)  </td><td class="markdownTableBodyNone">Interne async callback → state machine communicatie  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md292"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md296"></a>
 Message Flow Scenarios</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md293"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md297"></a>
 📥 Normal Data Collection (elke 30 seconden)</h3>
 <ol type="1">
 <li><b>Timing</b> publiceert <span class="tt">DATA_ACQUISITION_TRIGGER_CHAN</span></li>
@@ -224,7 +224,7 @@ Message Flow Scenarios</h2>
 <li><b>P1</b> publiceert <span class="tt">P_ONE_CHAN</span> naar Message Queue</li>
 <li><b>Message Queue</b> buffert data voor volgende publish cycle</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md294"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md298"></a>
 📊 Publish Statistics (elke 10 minuten)</h3>
 <ol type="1">
 <li><b>Timing</b> publiceert <span class="tt">DATA_PUBLISH_REQUEST_CHAN</span></li>
@@ -233,7 +233,7 @@ Message Flow Scenarios</h2>
 <li><b>Message Queue</b> combineert P1 + Pulse data, queued message met timestamp</li>
 <li>Data blijft in queue tot <span class="tt">DATA_SEND_REQUEST_CHAN</span></li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md295"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
 ☁️ Cloud Transmission (elke 30 minuten)</h3>
 <ol type="1">
 <li><b>Timing</b> publiceert <span class="tt">DATA_SEND_REQUEST_CHAN</span></li>
@@ -242,7 +242,7 @@ Message Flow Scenarios</h2>
 <li>Bij failure: messages blijven in queue voor volgende cycle</li>
 <li>Queue gebruikt drop-oldest strategie bij overflow (FIFO)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md296"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
 🔄 Startup Sequence</h3>
 <ol type="1">
 <li><b>Network</b> initialiseert modem, wacht op <span class="tt">L4_CONNECTED</span> event</li>
@@ -252,7 +252,7 @@ Message Flow Scenarios</h2>
 <li><b>Message Queue</b> start sending queued data (indien aanwezig)</li>
 <li><b>LED</b> toont CLOUD_CONNECTED pattern (groene pulse)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md297"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
 🛑 Graceful Shutdown</h3>
 <ol type="1">
 <li><b>Cloud</b> ontvangt FOTA complete → publiceert <span class="tt">REBOOT_CHAN</span> met <span class="tt">REBOOT_REQ</span></li>
@@ -262,9 +262,9 @@ Message Flow Scenarios</h2>
 <li><b>Reboot</b> roept <span class="tt">sys_reboot()</span> aan via work queue (non-blocking)</li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
 ⚙️ Belangrijke Features</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
 🔌 Hardware Ondersteuning</h2>
 <ul>
 <li><b>Nordic nRF9161</b> - Cellular IoT SiP met Arm Cortex-M33</li>
@@ -274,7 +274,7 @@ Message Flow Scenarios</h2>
 <li><b>RGB LED</b> voor status indicatie</li>
 <li><b>Hardware Watchdog</b> voor robuustheid</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
 📊 Data Verwerking</h2>
 <ul>
 <li><b>DSMR 5.0 / ESMR 5.0</b> parser met CRC validatie</li>
@@ -283,7 +283,7 @@ Message Flow Scenarios</h2>
 <li><b>Timestamp synchronisatie</b> met slimme meter</li>
 <li><b>Queue-based buffering</b> voor betrouwbare data delivery</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
 ☁️ Cloud Integratie</h2>
 <ul>
 <li><b>nRF Cloud MQTT</b> met TLS/DTLS</li>
@@ -291,7 +291,7 @@ Message Flow Scenarios</h2>
 <li><b>Message queueing</b> tijdens offline perioden</li>
 <li><b>Device shadow</b> synchronisatie</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
 🛡️ Robustness Features</h2>
 <ul>
 <li><b>State machines</b> (SMF) voor gedetermineerd gedrag</li>
@@ -301,9 +301,9 @@ Message Flow Scenarios</h2>
 <li><b>Error recovery</b> met automatic retry</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
 🚀 Aan de Slag</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
 Build Systeem</h2>
 <p>De firmware gebruikt <b>West</b> (Zephyr's meta-tool) als build systeem:</p>
 <div class="fragment"><div class="line"># Configureer build</div>
@@ -313,16 +313,16 @@ Build Systeem</h2>
 <div class="line"> </div>
 <div class="line"># Build firmware</div>
 <div class="line">west build application</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
 Custom Board Definition</h2>
 <p>De Dinnis Rev1.0.0 board definitie bevindt zich in: </p><div class="fragment"><div class="line">boards/solarresult/dinnis_rev1_0_0/</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
 Configuratie</h2>
 <p>Belangrijke Kconfig opties zijn gedocumenteerd in elke module's README.md.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
 📚 Documentatie Structuur</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
 📄 API Referentie</h2>
 <ul>
 <li><b>Files</b> - Alle source en header files met inline documentatie</li>
@@ -330,13 +330,13 @@ Configuratie</h2>
 <li><b>Functions</b> - Functie prototypes met parameters en return values</li>
 <li><b>Variables</b> - Globale variabelen en constanten</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
 📊 Call Graphs</h2>
 <p>Voor elke functie zijn er gedetailleerde grafieken:</p><ul>
 <li><b>Call Graph</b> - Welke functies roept deze functie aan?</li>
 <li><b>Caller Graph</b> - Welke functies roepen deze functie aan?</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
 📁 Module README's</h2>
 <p>Elke module heeft een <span class="tt">README.md</span> met:</p><ul>
 <li><b>Waarom?</b> - Probleem, motivatie en design rationale</li>
@@ -345,14 +345,14 @@ Configuratie</h2>
 <li><b>Resultaat</b> - Impact cijfers en verificatie</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
 🔗 Belangrijke Links</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
 📚 Handleidingen</h2>
 <ul>
 <li><a class="el" href="provisioning.html">Provisioning and Onboarding</a> - Complete stap-voor-stap gids voor het provisioneren van devices</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
 🌐 Externe Resources</h2>
 <ul>
 <li><b>Project Repository</b>: <a href="https://github.com/SolarResult">GitHub - SolarResult/fw-dinnis-core</a></li>
@@ -361,7 +361,7 @@ Configuratie</h2>
 <li><b>nRF Cloud</b>: <a href="https://nrfcloud.com/">nRF Cloud Portal</a></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md323"></a>
 📞 Contact</h1>
 <p><b>SolarResult B.V.</b> <br  />
  Slimme energie monitoring oplossingen</p>
@@ -370,7 +370,7 @@ Configuratie</h2>
 <li>📧 Email: <a href="#" onclick="location.href='mai'+'lto:'+'inf'+'o@'+'sol'+'ar'+'res'+'ul'+'t.n'+'l'; return false;">info@<span class="obfuscator">.nosp@m.</span>sola<span class="obfuscator">.nosp@m.</span>rresu<span class="obfuscator">.nosp@m.</span>lt.n<span class="obfuscator">.nosp@m.</span>l</a></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md325"></a>
 📄 Licentie</h1>
 <p>Copyright © 2025 SolarResult B.V. <br  />
  Alle rechten voorbehouden.</p>

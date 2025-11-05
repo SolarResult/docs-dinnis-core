@@ -120,19 +120,21 @@ Enumerations</h2></td></tr>
 <tr class="memitem:gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5" id="r_gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5">led_status_priority</a> { <br />
 &#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a> = 0
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea">LED_STATUS_IDLE</a> = 1
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db">LED_STATUS_CONNECTING</a> = 1
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9">LED_STATUS_CLOUD_TX</a> = 2
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea">LED_STATUS_IDLE</a> = 2
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83">LED_STATUS_ACQUIRING</a> = 3
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9">LED_STATUS_CLOUD_TX</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446">LED_STATUS_CLOUD_ERROR</a> = 4
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83">LED_STATUS_ACQUIRING</a> = 4
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516">LED_STATUS_FOTA_ERROR</a>
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446">LED_STATUS_CLOUD_ERROR</a> = 5
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450">LED_STATUS_NETWORK_ERROR</a> = 5
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450">LED_STATUS_NETWORK_ERROR</a> = 6
 , <br />
-&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff">LED_STATUS_FOTA</a>
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516">LED_STATUS_FOTA_ERROR</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff">LED_STATUS_FOTA</a> = 8
 <br />
  }</td></tr>
 <tr class="memdesc:gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED status priorities.  <a href="#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5">More...</a><br /></td></tr>
@@ -158,12 +160,13 @@ Enumerations</h2></td></tr>
 <p>Note: LED module is a consumer-only module that determines its status internally based on network, cloud, and trigger channel messages. It does not publish any messages or provide a channel. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea"></a>LED_STATUS_WAIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db"></a>LED_STATUS_CONNECTING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea"></a>LED_STATUS_IDLE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9"></a>LED_STATUS_CLOUD_TX&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83"></a>LED_STATUS_ACQUIRING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446"></a>LED_STATUS_CLOUD_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516"></a>LED_STATUS_FOTA_ERROR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450"></a>LED_STATUS_NETWORK_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516"></a>LED_STATUS_FOTA_ERROR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff" name="ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff"></a>LED_STATUS_FOTA&#160;</td><td class="fielddoc"></td></tr>
 </table>
 

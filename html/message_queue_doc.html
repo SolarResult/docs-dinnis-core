@@ -113,7 +113,7 @@ $(function(){initNavTree('message_queue_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2message__queue_2message__queue__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -126,13 +126,13 @@ $(function(){initNavTree('message_queue_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="message__queue__zbus_8h.html">message_queue_zbus.h</a> - Public API en ZBUS definities  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
 Overzicht</h1>
 <p>De Message Queue module combineert energie metingen van P1 (DSMR slimme meter) en Pulse (puls-tellers) modules in een gecoördineerde collectie window, buffert deze voor cloud verzending, en implementeert een state machine voor robuuste delivery. Werkt nauw samen met de Timing Module voor gecoördineerde data acquisitie en verzending.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
 Waarom? (Design Rationale)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
 Gecoördineerde Data Collectie</h2>
 <p><b>Probleem</b>: P1 en Pulse modules publiceren asynchroon. We willen deze data synchroon combineren voor cloud verzending.</p>
 <p><b>Design Keuze</b>: Collection window met 1000ms timeout, getriggerd door Timing Module.</p>
@@ -144,7 +144,7 @@ Gecoördineerde Data Collectie</h2>
 <li>Voorkomt race conditions en data mismatch</li>
 </ul>
 <p><b>Result</b>: Gegarandeerd gesynchroniseerde metingen in één cloud bericht.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md132"></a>
 Delivery Garanties via Buffering</h2>
 <p><b>Probleem</b>: Cloud kan tijdelijk unavailable zijn (verbinding opbouwen, netwerk instabiel, LTE-M outages).</p>
 <p><b>Design Keuze</b>: Zephyr Message Queue met 144 berichten capaciteit + FIFO drop strategie.</p>
@@ -157,9 +157,9 @@ Delivery Garanties via Buffering</h2>
 </ul>
 <p><b>Trade-off</b>: RAM usage vs data reliability. Queue size configureerbaar via Kconfig (<span class="tt">CONFIG_APP_MESSAGE_QUEUE_MODULE_QUEUE_SIZE</span>).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md134"></a>
 Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
 Gecoördineerde Data Collectie Flow</h2>
 <div class="fragment"><div class="line">Timing Module</div>
 <div class="line">    │</div>
@@ -216,7 +216,7 @@ Gecoördineerde Data Collectie Flow</h2>
 <div class="line">│              nRF Cloud SDK                          │</div>
 <div class="line">│         (nrf_cloud_send via MQTT)                   │</div>
 <div class="line">└─────────────────────────────────────────────────────┘</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md132"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
 ZBUS Interfaces</h2>
 <p><b>Subscribed Channels</b>:</p><ul>
 <li><span class="tt">CLOUD_CHAN</span> - Cloud connection status tracking (cloud_is_ready)</li>
@@ -228,7 +228,7 @@ ZBUS Interfaces</h2>
 <p><b>Published Channels</b>:</p><ul>
 <li>Geen - verzendt direct naar nRF Cloud SDK via <span class="tt">nrf_cloud_send()</span></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
 Message Format</h2>
 <p><b>Combined Energy Message bevat</b>:</p><ul>
 <li><span class="tt">timestamp</span>: Combined message timestamp (k_uptime_get(), milliseconds)</li>
@@ -246,9 +246,9 @@ Message Format</h2>
 <li>Timestamps: <span class="tt">int64_t</span> (milliseconds sinds epoch)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
 State Machine</h2>
 <p>De module gebruikt een hierarchische state machine met <b>3 states</b>:</p>
 <div class="fragment"><div class="line">           ┌────────────────────┐</div>
@@ -300,7 +300,7 @@ State Machine</h2>
 <li><b>Cloud Ready Check</b>: Send state wordt alleen bereikt als cloud ready is. Voorkomt nutteloos poging en queue drain.</li>
 <li><b>Never Block</b>: SEND_MSG_ATTEMPT draait in <span class="tt">entry()</span> functie, returnt altijd naar OPERATIONAL. Voorkomt blocking op cloud/network problemen.</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
 Queue Management</h2>
 <p><b>Zephyr Message Queue (K_MSGQ_DEFINE)</b>: </p><div class="fragment"><div class="line"><a class="code hl_function" href="message__queue_8c.html#ae9820326512114f9d391c41364a4a7f3">K_MSGQ_DEFINE</a>(combined_energy_msgq, </div>
 <div class="line">              <span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structcombined__energy__msg.html">combined_energy_msg</a>),</div>
@@ -334,7 +334,7 @@ Queue Management</h2>
 <li>Goed gedocumenteerd en getest</li>
 <li>Integratie met Zephyr tracing/debugging tools</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
 Verzend Logica</h2>
 <p><b>Immediate Send Strategie</b> (geen batching threshold):</p>
 <p>De module verzendt <b>direct</b> wanneer <span class="tt">DATA_SEND_REQUEST</span> ontvangen wordt EN cloud ready is. Er is <b>geen</b> wacht-threshold (zoals "wacht tot 3 berichten in queue").</p>
@@ -370,12 +370,12 @@ Verzend Logica</h2>
 </li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
 Cloud Message Format</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
 External Interface Contract</h2>
 <p>De Message Queue module produceert JSON berichten die naar nRF Cloud gestuurd worden via MQTT. Dit is een <b>externe interface</b> - de cloud/backend moet dit formaat begrijpen voor data processing.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
 Message Structure</h2>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;appId&quot;: &quot;DINNIS&quot;,</div>
@@ -405,7 +405,7 @@ Message Structure</h2>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
 Field Definitions</h2>
 <p><b>Root Level:</b></p><ul>
 <li><span class="tt">appId</span>: Application identifier - <span class="tt">"DINNIS"</span> (device name)</li>
@@ -426,7 +426,7 @@ Field Definitions</h2>
 <li><span class="tt">ts</span>: Pulse data acquisition timestamp</li>
 <li><span class="tt">ch1</span>/<span class="tt">ch2</span>: Pulse counts for channel 1 and 2 - cumulative counters (uint64_t)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
 Design Rationale: Short Key Names</h2>
 <p><b>Probleem</b>: LTE-M bandbreedte is beperkt en kostbaar.</p>
 <p><b>Design Keuze</b>: Gebruik 2-5 character key names in plaats van descriptieve namen.</p>
@@ -442,7 +442,7 @@ Design Rationale: Short Key Names</h2>
 <li>Maandelijks: ~870 KB (vs ~1.74 MB)</li>
 </ul>
 <p><b>Trade-off</b>: Leesbaarheid vs bandbreedte. Documentatie compenseert voor afkortingen.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
 Message Presence Scenarios</h2>
 <p>De <span class="tt">data</span> sectie kan P1 en/of Pulse data bevatten, afhankelijk van welke data ontvangen werd:</p>
 <table class="markdownTable">
@@ -458,7 +458,7 @@ Message Presence Scenarios</h2>
 <td class="markdownTableBodyNone">Empty  </td><td class="markdownTableBodyNone">❗  </td><td class="markdownTableBodyNone">❗  </td><td class="markdownTableBodyNone">Geen data ontvangen (error conditie)  </td></tr>
 </table>
 <p><b>Rationale</b>: Module stuurt altijd een bericht, ook als slechts één data source beschikbaar is. Dit voorkomt data loss en geeft visibility in data acquisition problemen.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
 Transport Details</h2>
 <ul>
 <li><b>Protocol</b>: MQTT over TLS</li>
@@ -467,14 +467,14 @@ Transport Details</h2>
 <li><b>Encoding</b>: UTF-8 JSON</li>
 <li><b>Max Message Size</b>: ~512 bytes (ruim binnen MQTT packet limits)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
 Gas Unit Clarification</h2>
 <p><b>Belangrijk</b>: <span class="tt">gdm3</span> gebruikt <b>kubieke decimeters</b> (dm³):</p><ul>
 <li>1 dm³ = 1 liter = 0.001 m³</li>
 </ul>
 <p><b>Voorbeeld</b>: Waarde <span class="tt">1500</span> betekent 1500 dm³ = 1500 liter = 1.5 m³ gas verbruik.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
 Queue Overflow Gedrag</h1>
 <p><b>Probleem</b>: Queue kan vol raken bij langdurige cloud outage (&gt; 24 uur).</p>
 <p><b>Design Keuze</b>: FIFO drop (First In, First Out) - oudste bericht wordt gedropped.</p>
@@ -497,7 +497,7 @@ Queue Overflow Gedrag</h1>
 <li>Overflow verwachting: &lt; 0.1% van de tijd (alleen bij multi-day outages)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
 Configuratie</h1>
 <p>Alle configuratie via Kconfig (<span class="tt">Kconfig.message_queue</span>):</p>
 <table class="markdownTable">
@@ -519,7 +519,7 @@ Configuratie</h1>
 <li><span class="tt">MAX_MSGS_PER_CYCLE</span> = 10 (max berichten per send cyclus)</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
 Toekomstige Uitbreidingen</h1>
 <ul>
 <li>⏳ <b>Persistent queue</b> - Flash backed queue voor reboot safety (NVS storage)</li>
@@ -530,7 +530,7 @@ Toekomstige Uitbreidingen</h1>
 <li>⏳ <b>Send batch size tuning</b> - Configureerbare <span class="tt">MAX_MSGS_PER_CYCLE</span> via Kconfig</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="message__queue_8c.html">message_queue.c</a> - Implementatie</li>

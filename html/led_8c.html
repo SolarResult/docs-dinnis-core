@@ -193,6 +193,16 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134">LED_COLOR_BLU</a> = DT_NODE_CHILD_IDX(DT_CHILD( DT_COMPAT_GET_ANY_STATUS_OKAY(pwm_leds) , blue_led))
 <br />
  }</td></tr>
+<tr class="memitem:aa206fed80157f2ec09b8c258631f2ca0" id="r_aa206fed80157f2ec09b8c258631f2ca0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0">network_state</a> { <br />
+&#160;&#160;<a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0a54f917ccee970b8b343757fa6afc9d8c">NETWORK_STATE_NEVER_CONNECTED</a>
+, <br />
+&#160;&#160;<a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0a46c9916eeca5a43241117e9f639b9291">NETWORK_STATE_CONNECTING</a>
+, <br />
+&#160;&#160;<a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0a5b47c6e9161d1459fff9c7087acd6b65">NETWORK_STATE_CONNECTED</a>
+, <br />
+&#160;&#160;<a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7">NETWORK_STATE_ERROR</a>
+<br />
+ }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -208,9 +218,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:a46fc132b34af140f29fecf3f938c616c"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED blink work handler.  <br /></td></tr>
 <tr class="memitem:ae613b5b31048eaf65592097c7b06ba22" id="r_ae613b5b31048eaf65592097c7b06ba22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae613b5b31048eaf65592097c7b06ba22">acquiring_timeout_handler</a> (struct k_work *work)</td></tr>
 <tr class="memdesc:ae613b5b31048eaf65592097c7b06ba22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquiring timeout handler.  <br /></td></tr>
+<tr class="memitem:a740f3c8edd1420560cb1c2de21b4e61d" id="r_a740f3c8edd1420560cb1c2de21b4e61d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a740f3c8edd1420560cb1c2de21b4e61d">min_display_timeout_handler</a> (struct k_work *work)</td></tr>
+<tr class="memdesc:a740f3c8edd1420560cb1c2de21b4e61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum display time timeout handler.  <br /></td></tr>
 <tr class="memitem:ad1dd4a0bbe33effd0dfa3cdc2ce2584e" id="r_ad1dd4a0bbe33effd0dfa3cdc2ce2584e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1dd4a0bbe33effd0dfa3cdc2ce2584e">update_led_pattern</a> (struct <a class="el" href="structled__module__state.html">led_module_state</a> *state)</td></tr>
 <tr class="memdesc:ad1dd4a0bbe33effd0dfa3cdc2ce2584e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update LED pattern based on current system state.  <br /></td></tr>
 <tr class="memitem:a25a6f9b64bf80b8969dfdc6c988138b7" id="r_a25a6f9b64bf80b8969dfdc6c988138b7"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a6f9b64bf80b8969dfdc6c988138b7">K_WORK_DELAYABLE_DEFINE</a> (work_ledblink, <a class="el" href="#a46fc132b34af140f29fecf3f938c616c">ledblink_handler</a>)</td></tr>
+<tr class="memitem:aa930483accfc13b7d56d7e2d55a7b25c" id="r_aa930483accfc13b7d56d7e2d55a7b25c"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa930483accfc13b7d56d7e2d55a7b25c">K_WORK_DELAYABLE_DEFINE</a> (work_min_display_timeout, <a class="el" href="#a740f3c8edd1420560cb1c2de21b4e61d">min_display_timeout_handler</a>)</td></tr>
 <tr class="memitem:a672d2a127bddf4b2c21225cbe7e602a2" id="r_a672d2a127bddf4b2c21225cbe7e602a2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672d2a127bddf4b2c21225cbe7e602a2">set_led_color</a> (uint8_t red, uint8_t green, uint8_t blue)</td></tr>
 <tr class="memdesc:a672d2a127bddf4b2c21225cbe7e602a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set LED hardware to specific colors.  <br /></td></tr>
 <tr class="memitem:a9ea5c5c308aac2a915ad8c9e3c1417f0" id="r_a9ea5c5c308aac2a915ad8c9e3c1417f0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ea5c5c308aac2a915ad8c9e3c1417f0">apply_led_pattern</a> (const struct <a class="el" href="structled__pattern.html">led_pattern</a> *pattern)</td></tr>
@@ -234,10 +247,13 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ad83297d67ac268d0d67481607a85b1bb" id="r_ad83297d67ac268d0d67481607a85b1bb"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad83297d67ac268d0d67481607a85b1bb">led_status_names</a> []</td></tr>
 <tr class="memitem:a39ee5beae1e39538c248b40b8aaa23ef" id="r_a39ee5beae1e39538c248b40b8aaa23ef"><td class="memItemLeft" align="right" valign="top">static const struct <a class="el" href="structled__pattern.html">led_pattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39ee5beae1e39538c248b40b8aaa23ef">led_patterns</a> []</td></tr>
 <tr class="memitem:a16989d704b66afb755235dc52390910e" id="r_a16989d704b66afb755235dc52390910e"><td class="memItemLeft" align="right" valign="top">static const struct device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16989d704b66afb755235dc52390910e">led_pwm</a> = DEVICE_DT_GET( DT_COMPAT_GET_ANY_STATUS_OKAY(pwm_leds) )</td></tr>
 <tr class="memitem:a663946c0b14ca7c06872cb885a70fbb0" id="r_a663946c0b14ca7c06872cb885a70fbb0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a663946c0b14ca7c06872cb885a70fbb0">led_on_state</a> = false</td></tr>
 <tr class="memitem:ab796659729178e206a0820f98e2e8c14" id="r_ab796659729178e206a0820f98e2e8c14"><td class="memItemLeft" align="right" valign="top">static enum <a class="el" href="group__led.html#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5">led_status_priority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab796659729178e206a0820f98e2e8c14">current_status</a> = <a class="el" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a></td></tr>
+<tr class="memitem:a0371d46af554b5871e8764ea8b8d9e29" id="r_a0371d46af554b5871e8764ea8b8d9e29"><td class="memItemLeft" align="right" valign="top">static enum <a class="el" href="group__led.html#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5">led_status_priority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0371d46af554b5871e8764ea8b8d9e29">pending_status</a> = <a class="el" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a></td></tr>
+<tr class="memitem:abe2066a80ad65e86eb3fb178613eaf65" id="r_abe2066a80ad65e86eb3fb178613eaf65"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe2066a80ad65e86eb3fb178613eaf65">min_display_active</a> = false</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a848ed8b7e0fb0c3ef37659dd114b7a48" name="a848ed8b7e0fb0c3ef37659dd114b7a48"></a>
@@ -261,7 +277,7 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="cloud_8c.html#ac9283cac5c939b94ce902cdf54042b7b">ZBUS_CHAN_ADD_OBS</a>(_chan, led_subscriber, 0);</div>
 <div class="ttc" id="acloud_8c_html_ac9283cac5c939b94ce902cdf54042b7b"><div class="ttname"><a href="cloud_8c.html#ac9283cac5c939b94ce902cdf54042b7b">ZBUS_CHAN_ADD_OBS</a></div><div class="ttdeci">ZBUS_CHAN_ADD_OBS(NETWORK_CHAN, cloud_subscriber, 0)</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00127">127</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00166">166</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -288,7 +304,7 @@ Variables</h2></td></tr>
 <div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00042">network_zbus.h:42</a></div></div>
 <div class="ttc" id="astructtrigger__msg_html"><div class="ttname"><a href="structtrigger__msg.html">trigger_msg</a></div><div class="ttdoc">Trigger channel message type.</div><div class="ttdef"><b>Definition</b> <a href="trigger__zbus_8h_source.html#l00032">trigger_zbus.h:32</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00117">117</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00156">156</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -320,7 +336,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00124">124</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00163">163</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -343,6 +359,28 @@ Variables</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00041">41</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+
+</div>
+</div>
+<a id="aa206fed80157f2ec09b8c258631f2ca0" name="aa206fed80157f2ec09b8c258631f2ca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa206fed80157f2ec09b8c258631f2ca0">&#9670;&#160;</a></span>network_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#aa206fed80157f2ec09b8c258631f2ca0">network_state</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa206fed80157f2ec09b8c258631f2ca0a54f917ccee970b8b343757fa6afc9d8c" name="aa206fed80157f2ec09b8c258631f2ca0a54f917ccee970b8b343757fa6afc9d8c"></a>NETWORK_STATE_NEVER_CONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa206fed80157f2ec09b8c258631f2ca0a46c9916eeca5a43241117e9f639b9291" name="aa206fed80157f2ec09b8c258631f2ca0a46c9916eeca5a43241117e9f639b9291"></a>NETWORK_STATE_CONNECTING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa206fed80157f2ec09b8c258631f2ca0a5b47c6e9161d1459fff9c7087acd6b65" name="aa206fed80157f2ec09b8c258631f2ca0a5b47c6e9161d1459fff9c7087acd6b65"></a>NETWORK_STATE_CONNECTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7" name="aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7"></a>NETWORK_STATE_ERROR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00199">199</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -379,11 +417,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00346">346</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00447">447</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00164">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00167">led_module_state::acquiring_timeout</a>, and <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -447,11 +485,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00218">218</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00272">272</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00051">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00050">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00188">led_on_state</a>, <a class="el" href="led_8c_source.html#l00052">led_pattern::period</a>, <a class="el" href="led_8c_source.html#l00049">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00204">set_led_color()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00064">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00063">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00240">led_on_state</a>, <a class="el" href="led_8c_source.html#l00066">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00062">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>, and <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -467,17 +505,21 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="led_8c_a9ea5c5c308aac2a915ad8c9e3c1417f0_icgraph.png" border="0" usemap="#aled_8c_a9ea5c5c308aac2a915ad8c9e3c1417f0_icgraph" loading="lazy" alt=""/></div>
 <map name="aled_8c_a9ea5c5c308aac2a915ad8c9e3c1417f0_icgraph" id="aled_8c_a9ea5c5c308aac2a915ad8c9e3c1417f0_icgraph">
-<area shape="rect" title="Apply LED pattern." alt="" coords="779,5,917,31"/>
-<area shape="rect" href="led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="200,31,291,56"/>
-<area shape="poly" title=" " alt="" coords="765,17,570,14,454,18,339,27,291,35,290,30,338,22,454,13,570,9,765,11"/>
-<area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="583,31,731,56"/>
-<area shape="poly" title=" " alt="" coords="765,32,731,36,731,31,765,26"/>
-<area shape="rect" href="led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,31,152,56"/>
-<area shape="poly" title=" " alt="" coords="186,46,152,46,152,41,186,41"/>
-<area shape="poly" title=" " alt="" coords="568,46,291,46,291,41,568,41"/>
-<area shape="rect" href="led_8c.html#ae613b5b31048eaf65592097c7b06ba22" title="Acquiring timeout handler." alt="" coords="339,81,535,107"/>
-<area shape="poly" title=" " alt="" coords="588,62,493,84,492,79,587,57"/>
-<area shape="poly" title=" " alt="" coords="374,80,290,58,292,53,375,75"/>
+<area shape="rect" title="Apply LED pattern." alt="" coords="808,52,947,78"/>
+<area shape="rect" href="led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="200,99,291,124"/>
+<area shape="poly" title=" " alt="" coords="822,51,728,29,606,11,539,8,471,11,404,20,340,38,315,51,292,67,259,101,255,97,289,63,312,46,338,33,403,15,471,5,539,3,607,6,729,24,823,46"/>
+<area shape="rect" href="led_8c.html#a740f3c8edd1420560cb1c2de21b4e61d" title="Minimum display time timeout handler." alt="" coords="601,45,760,85"/>
+<area shape="poly" title=" " alt="" coords="794,68,760,68,760,62,794,62"/>
+<area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="607,110,755,135"/>
+<area shape="poly" title=" " alt="" coords="821,84,726,112,724,107,819,79"/>
+<area shape="rect" href="led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,99,152,124"/>
+<area shape="poly" title=" " alt="" coords="186,114,152,114,152,109,186,109"/>
+<area shape="rect" href="led_8c.html#aa930483accfc13b7d56d7e2d55a7b25c" title=" " alt="" coords="339,48,553,74"/>
+<area shape="poly" title=" " alt="" coords="587,66,553,66,553,60,587,61"/>
+<area shape="poly" title=" " alt="" coords="593,123,291,115,291,110,593,118"/>
+<area shape="rect" href="led_8c.html#ae613b5b31048eaf65592097c7b06ba22" title="Acquiring timeout handler." alt="" coords="348,150,544,175"/>
+<area shape="poly" title=" " alt="" coords="593,140,521,152,521,147,592,135"/>
+<area shape="poly" title=" " alt="" coords="381,149,291,126,292,121,382,144"/>
 </map>
 </div>
 
@@ -541,11 +583,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>LED status priority to display </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00245">245</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00311">311</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00164">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00163">led_module_state::cloud_ready</a>, <a class="el" href="led_8c_source.html#l00165">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00166">led_module_state::fota_error</a>, <a class="el" href="led_8h_source.html#l00032">LED_STATUS_ACQUIRING</a>, <a class="el" href="led_8h_source.html#l00033">LED_STATUS_CLOUD_ERROR</a>, <a class="el" href="led_8h_source.html#l00037">LED_STATUS_FOTA</a>, <a class="el" href="led_8h_source.html#l00034">LED_STATUS_FOTA_ERROR</a>, <a class="el" href="led_8h_source.html#l00030">LED_STATUS_IDLE</a>, <a class="el" href="led_8h_source.html#l00036">LED_STATUS_NETWORK_ERROR</a>, <a class="el" href="led_8h_source.html#l00029">LED_STATUS_WAIT</a>, <a class="el" href="led_8c_source.html#l00161">led_module_state::modem_initialized</a>, and <a class="el" href="led_8c_source.html#l00162">led_module_state::network_connected</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00210">led_module_state::cloud_ready</a>, <a class="el" href="led_8c_source.html#l00212">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00213">led_module_state::fota_error</a>, <a class="el" href="led_8h_source.html#l00033">LED_STATUS_ACQUIRING</a>, <a class="el" href="led_8h_source.html#l00034">LED_STATUS_CLOUD_ERROR</a>, <a class="el" href="led_8h_source.html#l00030">LED_STATUS_CONNECTING</a>, <a class="el" href="led_8h_source.html#l00037">LED_STATUS_FOTA</a>, <a class="el" href="led_8h_source.html#l00036">LED_STATUS_FOTA_ERROR</a>, <a class="el" href="led_8h_source.html#l00031">LED_STATUS_IDLE</a>, <a class="el" href="led_8h_source.html#l00035">LED_STATUS_NETWORK_ERROR</a>, <a class="el" href="led_8h_source.html#l00029">LED_STATUS_WAIT</a>, <a class="el" href="led_8c_source.html#l00208">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00202">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00201">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00203">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -620,7 +662,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -669,7 +711,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a25a6f9b64bf80b8969dfdc6c988138b7" name="a25a6f9b64bf80b8969dfdc6c988138b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25a6f9b64bf80b8969dfdc6c988138b7">&#9670;&#160;</a></span>K_WORK_DELAYABLE_DEFINE()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a6f9b64bf80b8969dfdc6c988138b7">&#9670;&#160;</a></span>K_WORK_DELAYABLE_DEFINE() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -695,7 +737,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00315">ledblink_handler()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -706,6 +748,51 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="220,15,254,15,254,21,220,21"/>
 <area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="447,5,555,31"/>
 <area shape="poly" title=" " alt="" coords="399,15,433,15,433,21,399,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa930483accfc13b7d56d7e2d55a7b25c" name="aa930483accfc13b7d56d7e2d55a7b25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa930483accfc13b7d56d7e2d55a7b25c">&#9670;&#160;</a></span>K_WORK_DELAYABLE_DEFINE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_WORK_DELAYABLE_DEFINE </td>
+          <td>(</td>
+          <td class="paramtype">work_min_display_timeout</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a740f3c8edd1420560cb1c2de21b4e61d">min_display_timeout_handler</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="led_8c_aa930483accfc13b7d56d7e2d55a7b25c_cgraph.png" border="0" usemap="#aled_8c_aa930483accfc13b7d56d7e2d55a7b25c_cgraph" loading="lazy" alt=""/></div>
+<map name="aled_8c_aa930483accfc13b7d56d7e2d55a7b25c_cgraph" id="aled_8c_aa930483accfc13b7d56d7e2d55a7b25c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,13,220,38"/>
+<area shape="rect" href="led_8c.html#a740f3c8edd1420560cb1c2de21b4e61d" title="Minimum display time timeout handler." alt="" coords="268,5,427,45"/>
+<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
+<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="475,13,613,38"/>
+<area shape="poly" title=" " alt="" coords="427,23,461,23,461,28,427,28"/>
+<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="661,13,769,38"/>
+<area shape="poly" title=" " alt="" coords="613,23,648,23,648,28,613,28"/>
 </map>
 </div>
 
@@ -738,9 +825,9 @@ Here is the call graph for this function:</div>
 <p>Verifies LED PWM device is ready.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, negative errno on error </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00576">576</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00762">762</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00182">led_pwm</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00232">led_pwm</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#aa191d41e412c90cbed1c529fb2415d23">SYS_INIT()</a>.</p>
 <div class="dynheader">
@@ -782,9 +869,9 @@ Here is the caller graph for this function:</div>
 <p>Main LED thread. </p>
 <p>Processes ZBUS messages and updates LED pattern based on system state. </p>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00482">482</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00666">666</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00167">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00346">acquiring_timeout_handler()</a>, <a class="el" href="led_8c_source.html#l00218">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00189">current_status</a>, <a class="el" href="led_8c_source.html#l00056">led_patterns</a>, <a class="el" href="cloud_8c_source.html#l00070">MAX_MSG_SIZE</a>, <a class="el" href="cloud__zbus_8h_source.html#l00024">MSG_TO_CLOUD_MSG_PTR</a>, <a class="el" href="fota__zbus_8h_source.html#l00030">MSG_TO_FOTA_MSG_PTR</a>, <a class="el" href="network__zbus_8h_source.html#l00024">MSG_TO_NETWORK_MSG_PTR</a>, <a class="el" href="trigger__zbus_8h_source.html#l00024">MSG_TO_TRIGGER_MSG_PTR</a>, <a class="el" href="led_8c_source.html#l00395">process_cloud_msg()</a>, <a class="el" href="led_8c_source.html#l00438">process_fota_msg()</a>, <a class="el" href="led_8c_source.html#l00370">process_network_msg()</a>, <a class="el" href="led_8c_source.html#l00413">process_trigger_msg()</a>, <a class="el" href="app_8c_source.html#l00063">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, and <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00447">acquiring_timeout_handler()</a>, <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="cloud_8c_source.html#l00070">MAX_MSG_SIZE</a>, <a class="el" href="cloud__zbus_8h_source.html#l00024">MSG_TO_CLOUD_MSG_PTR</a>, <a class="el" href="fota__zbus_8h_source.html#l00030">MSG_TO_FOTA_MSG_PTR</a>, <a class="el" href="network__zbus_8h_source.html#l00024">MSG_TO_NETWORK_MSG_PTR</a>, <a class="el" href="trigger__zbus_8h_source.html#l00024">MSG_TO_TRIGGER_MSG_PTR</a>, <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00579">process_cloud_msg()</a>, <a class="el" href="led_8c_source.html#l00622">process_fota_msg()</a>, <a class="el" href="led_8c_source.html#l00512">process_network_msg()</a>, <a class="el" href="led_8c_source.html#l00597">process_trigger_msg()</a>, <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a35d73a63d1b0b2489149fa82e345c43e">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -874,9 +961,9 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00315">315</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00413">413</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00051">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00189">current_status</a>, <a class="el" href="led_8c_source.html#l00050">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00188">led_on_state</a>, <a class="el" href="led_8c_source.html#l00056">led_patterns</a>, <a class="el" href="led_8c_source.html#l00052">led_pattern::period</a>, <a class="el" href="led_8c_source.html#l00049">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00204">set_led_color()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00064">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00063">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00240">led_on_state</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00066">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00062">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a25a6f9b64bf80b8969dfdc6c988138b7">K_WORK_DELAYABLE_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -923,6 +1010,68 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a740f3c8edd1420560cb1c2de21b4e61d" name="a740f3c8edd1420560cb1c2de21b4e61d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740f3c8edd1420560cb1c2de21b4e61d">&#9670;&#160;</a></span>min_display_timeout_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void min_display_timeout_handler </td>
+          <td>(</td>
+          <td class="paramtype">struct k_work *</td>          <td class="paramname"><span class="paramname"><em>work</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Minimum display time timeout handler. </p>
+<p>Called when minimum display time expires. If a new status is pending, apply it now. This ensures quick status changes are still visible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">work</td><td>Pointer to work item </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00467">467</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+
+<p class="reference">References <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00048">led_status_names</a>, <a class="el" href="led_8c_source.html#l00243">min_display_active</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00242">pending_status</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#aa930483accfc13b7d56d7e2d55a7b25c">K_WORK_DELAYABLE_DEFINE()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="led_8c_a740f3c8edd1420560cb1c2de21b4e61d_cgraph.png" border="0" usemap="#aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_cgraph" loading="lazy" alt=""/></div>
+<map name="aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_cgraph" id="aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_cgraph">
+<area shape="rect" title="Minimum display time timeout handler." alt="" coords="5,5,164,45"/>
+<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="212,13,351,38"/>
+<area shape="poly" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="399,13,507,38"/>
+<area shape="poly" title=" " alt="" coords="351,23,385,23,385,28,351,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="led_8c_a740f3c8edd1420560cb1c2de21b4e61d_icgraph.png" border="0" usemap="#aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_icgraph" loading="lazy" alt=""/></div>
+<map name="aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_icgraph" id="aled_8c_a740f3c8edd1420560cb1c2de21b4e61d_icgraph">
+<area shape="rect" title="Minimum display time timeout handler." alt="" coords="268,5,427,45"/>
+<area shape="rect" href="led_8c.html#aa930483accfc13b7d56d7e2d55a7b25c" title=" " alt="" coords="5,13,220,38"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a02aff220c118271ed22cef5a1276921c" name="a02aff220c118271ed22cef5a1276921c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a02aff220c118271ed22cef5a1276921c">&#9670;&#160;</a></span>process_cloud_msg()</h2>
 
@@ -959,11 +1108,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00395">395</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00579">579</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="cloud__zbus_8h_source.html#l00053">cloud_is_not_ready()</a>, <a class="el" href="cloud__zbus_8h_source.html#l00048">cloud_is_ready()</a>, and <a class="el" href="led_8c_source.html#l00163">led_module_state::cloud_ready</a>.</p>
+<p class="reference">References <a class="el" href="cloud__zbus_8h_source.html#l00053">cloud_is_not_ready()</a>, <a class="el" href="cloud__zbus_8h_source.html#l00048">cloud_is_ready()</a>, and <a class="el" href="led_8c_source.html#l00210">led_module_state::cloud_ready</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1028,11 +1177,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00438">438</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00622">622</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00165">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00166">led_module_state::fota_error</a>, <a class="el" href="fota__zbus_8h_source.html#l00015">FOTA_STATUS_DOWNLOADING</a>, <a class="el" href="fota__zbus_8h_source.html#l00018">FOTA_STATUS_ERROR</a>, <a class="el" href="fota__zbus_8h_source.html#l00014">FOTA_STATUS_IDLE</a>, <a class="el" href="fota__zbus_8h_source.html#l00017">FOTA_STATUS_READY</a>, and <a class="el" href="fota__zbus_8h_source.html#l00025">fota_msg::status</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00212">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00213">led_module_state::fota_error</a>, <a class="el" href="fota__zbus_8h_source.html#l00015">FOTA_STATUS_DOWNLOADING</a>, <a class="el" href="fota__zbus_8h_source.html#l00018">FOTA_STATUS_ERROR</a>, <a class="el" href="fota__zbus_8h_source.html#l00014">FOTA_STATUS_IDLE</a>, <a class="el" href="fota__zbus_8h_source.html#l00017">FOTA_STATUS_READY</a>, and <a class="el" href="fota__zbus_8h_source.html#l00025">fota_msg::status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1079,16 +1228,25 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>Pointer to module state </td></tr>
+    <tr><td class="paramname">msg</td><td>Pointer to network message</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Process network status message</p>
+<p>Updates LED pattern based on network connection state. Implements network state machine with 120s timeout for CONNECTING → ERROR.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Pointer to module state </td></tr>
     <tr><td class="paramname">msg</td><td>Pointer to network message </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00370">370</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00512">512</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00164">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00167">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00161">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00162">led_module_state::network_connected</a>, <a class="el" href="network__zbus_8h_source.html#l00051">network_is_connected()</a>, <a class="el" href="network__zbus_8h_source.html#l00056">network_is_disconnected()</a>, and <a class="el" href="network__zbus_8h_source.html#l00061">network_is_modem_initialized()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00215">led_module_state::disconnect_timestamp</a>, <a class="el" href="led_8c_source.html#l00208">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00209">led_module_state::network_connected</a>, <a class="el" href="network__zbus_8h_source.html#l00051">network_is_connected()</a>, <a class="el" href="network__zbus_8h_source.html#l00056">network_is_disconnected()</a>, <a class="el" href="network__zbus_8h_source.html#l00061">network_is_modem_initialized()</a>, <a class="el" href="led_8c_source.html#l00202">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00201">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00203">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1155,11 +1313,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00413">413</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00597">597</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00164">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00167">led_module_state::acquiring_timeout</a>, and <a class="el" href="trigger__zbus_8h_source.html#l00033">trigger_msg::timestamp_ms</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, and <a class="el" href="trigger__zbus_8h_source.html#l00033">trigger_msg::timestamp_ms</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1217,33 +1375,37 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00204">204</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00258">258</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00044">LED_COLOR_BLU</a>, <a class="el" href="led_8c_source.html#l00043">LED_COLOR_GRN</a>, <a class="el" href="led_8c_source.html#l00042">LED_COLOR_RED</a>, and <a class="el" href="led_8c_source.html#l00182">led_pwm</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00044">LED_COLOR_BLU</a>, <a class="el" href="led_8c_source.html#l00043">LED_COLOR_GRN</a>, <a class="el" href="led_8c_source.html#l00042">LED_COLOR_RED</a>, and <a class="el" href="led_8c_source.html#l00232">led_pwm</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00218">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00315">ledblink_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="led_8c_a672d2a127bddf4b2c21225cbe7e602a2_icgraph.png" border="0" usemap="#aled_8c_a672d2a127bddf4b2c21225cbe7e602a2_icgraph" loading="lazy" alt=""/></div>
 <map name="aled_8c_a672d2a127bddf4b2c21225cbe7e602a2_icgraph" id="aled_8c_a672d2a127bddf4b2c21225cbe7e602a2_icgraph">
-<area shape="rect" title="Set LED hardware to specific colors." alt="" coords="1032,58,1140,83"/>
-<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="845,32,984,58"/>
-<area shape="poly" title=" " alt="" coords="1018,63,984,58,985,53,1019,58"/>
-<area shape="rect" href="led_8c.html#a46fc132b34af140f29fecf3f938c616c" title="LED blink work handler." alt="" coords="849,82,980,107"/>
-<area shape="poly" title=" " alt="" coords="1019,82,981,88,980,82,1018,77"/>
-<area shape="rect" href="led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="200,32,291,58"/>
-<area shape="poly" title=" " alt="" coords="853,32,797,22,668,11,568,9,468,15,339,29,291,37,290,32,338,24,467,10,568,3,669,6,798,17,854,27"/>
-<area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="616,32,764,58"/>
-<area shape="poly" title=" " alt="" coords="831,48,764,48,764,42,831,42"/>
-<area shape="rect" href="led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,32,152,58"/>
-<area shape="poly" title=" " alt="" coords="186,48,152,48,152,42,186,42"/>
-<area shape="poly" title=" " alt="" coords="602,48,291,48,291,42,602,42"/>
-<area shape="rect" href="led_8c.html#ae613b5b31048eaf65592097c7b06ba22" title="Acquiring timeout handler." alt="" coords="339,83,535,108"/>
-<area shape="poly" title=" " alt="" coords="613,63,501,86,500,80,612,58"/>
-<area shape="poly" title=" " alt="" coords="374,82,290,59,292,54,375,77"/>
-<area shape="rect" href="led_8c.html#a25a6f9b64bf80b8969dfdc6c988138b7" title=" " alt="" coords="583,82,797,107"/>
-<area shape="poly" title=" " alt="" coords="836,97,798,97,798,92,836,92"/>
+<area shape="rect" title="Set LED hardware to specific colors." alt="" coords="1051,82,1159,108"/>
+<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="864,42,1003,68"/>
+<area shape="poly" title=" " alt="" coords="1037,82,988,70,989,65,1038,77"/>
+<area shape="rect" href="led_8c.html#a46fc132b34af140f29fecf3f938c616c" title="LED blink work handler." alt="" coords="868,106,999,132"/>
+<area shape="poly" title=" " alt="" coords="1038,107,1000,112,999,107,1037,102"/>
+<area shape="rect" href="led_8c.html#a0a682841982ef69386fb7d358ce5b1a6" title="Main LED thread." alt="" coords="200,74,291,100"/>
+<area shape="poly" title=" " alt="" coords="895,39,857,23,816,11,729,8,569,9,339,13,315,26,292,43,259,76,255,72,289,39,312,21,338,8,568,3,729,3,816,6,859,18,897,34"/>
+<area shape="rect" href="led_8c.html#a740f3c8edd1420560cb1c2de21b4e61d" title="Minimum display time timeout handler." alt="" coords="629,20,788,60"/>
+<area shape="poly" title=" " alt="" coords="850,52,788,48,788,43,850,47"/>
+<area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="635,85,783,110"/>
+<area shape="poly" title=" " alt="" coords="853,73,777,87,776,82,852,68"/>
+<area shape="rect" href="led_8c.html#a35d73a63d1b0b2489149fa82e345c43e" title=" " alt="" coords="5,74,152,100"/>
+<area shape="poly" title=" " alt="" coords="186,90,152,90,152,84,186,84"/>
+<area shape="rect" href="led_8c.html#aa930483accfc13b7d56d7e2d55a7b25c" title=" " alt="" coords="339,24,553,49"/>
+<area shape="poly" title=" " alt="" coords="616,41,554,41,554,35,616,36"/>
+<area shape="poly" title=" " alt="" coords="621,98,291,91,291,85,621,93"/>
+<area shape="rect" href="led_8c.html#ae613b5b31048eaf65592097c7b06ba22" title="Acquiring timeout handler." alt="" coords="348,125,544,150"/>
+<area shape="poly" title=" " alt="" coords="622,113,530,128,529,122,621,108"/>
+<area shape="poly" title=" " alt="" coords="381,124,291,101,292,96,382,119"/>
+<area shape="rect" href="led_8c.html#a25a6f9b64bf80b8969dfdc6c988138b7" title=" " alt="" coords="601,134,816,160"/>
+<area shape="poly" title=" " alt="" coords="855,131,811,137,810,132,854,126"/>
 </map>
 </div>
 
@@ -1273,7 +1435,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00576">led_init()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00762">led_init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1314,9 +1476,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00139">139</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00178">178</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00063">task_wdt_callback()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1362,11 +1524,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00290">290</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00366">366</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00218">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00189">current_status</a>, <a class="el" href="led_8c_source.html#l00245">determine_led_status()</a>, and <a class="el" href="led_8c_source.html#l00056">led_patterns</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00311">determine_led_status()</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00048">led_status_names</a>, <a class="el" href="led_8c_source.html#l00243">min_display_active</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00242">pending_status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00346">acquiring_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00482">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00447">acquiring_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1543,9 +1705,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00189">189</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00241">241</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>, <a class="el" href="led_8c_source.html#l00315">ledblink_handler()</a>, and <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1569,9 +1731,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00188">188</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00240">240</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00218">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00315">ledblink_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
 
 </div>
 </div>
@@ -1595,9 +1757,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00056">56</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00071">71</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00482">led_thread()</a>, <a class="el" href="led_8c_source.html#l00315">ledblink_handler()</a>, and <a class="el" href="led_8c_source.html#l00290">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1621,9 +1783,107 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00182">182</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00232">232</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00576">led_init()</a>, and <a class="el" href="led_8c_source.html#l00204">set_led_color()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00762">led_init()</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
+
+</div>
+</div>
+<a id="ad83297d67ac268d0d67481607a85b1bb" name="ad83297d67ac268d0d67481607a85b1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad83297d67ac268d0d67481607a85b1bb">&#9670;&#160;</a></span>led_status_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* led_status_names[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a>] = <span class="stringliteral">&quot;WAIT&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db">LED_STATUS_CONNECTING</a>] = <span class="stringliteral">&quot;CONNECTING&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea">LED_STATUS_IDLE</a>] = <span class="stringliteral">&quot;IDLE&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9">LED_STATUS_CLOUD_TX</a>] = <span class="stringliteral">&quot;CLOUD_TX&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83">LED_STATUS_ACQUIRING</a>] = <span class="stringliteral">&quot;ACQUIRING&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446">LED_STATUS_CLOUD_ERROR</a>] = <span class="stringliteral">&quot;CLOUD_ERROR&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450">LED_STATUS_NETWORK_ERROR</a>] = <span class="stringliteral">&quot;NETWORK_ERROR&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516">LED_STATUS_FOTA_ERROR</a>] = <span class="stringliteral">&quot;FOTA_ERROR&quot;</span>,</div>
+<div class="line">    [<a class="code hl_enumvalue" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff">LED_STATUS_FOTA</a>] = <span class="stringliteral">&quot;FOTA&quot;</span>,</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a002a2e34bb3d031794ec74cd777f9446">LED_STATUS_CLOUD_ERROR</a></div><div class="ttdeci">@ LED_STATUS_CLOUD_ERROR</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00034">led.h:34</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a></div><div class="ttdeci">@ LED_STATUS_WAIT</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00029">led.h:29</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a23157a7afd2faecc2331849841e3a450">LED_STATUS_NETWORK_ERROR</a></div><div class="ttdeci">@ LED_STATUS_NETWORK_ERROR</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00035">led.h:35</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a231755b09317016a844ec5d034de4c83">LED_STATUS_ACQUIRING</a></div><div class="ttdeci">@ LED_STATUS_ACQUIRING</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00033">led.h:33</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a920f77655270be91e9a69cf0bb70b6ff">LED_STATUS_FOTA</a></div><div class="ttdeci">@ LED_STATUS_FOTA</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00037">led.h:37</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aae1a2dc7086244d484da146a7b8996db">LED_STATUS_CONNECTING</a></div><div class="ttdeci">@ LED_STATUS_CONNECTING</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00030">led.h:30</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5ab4c7ab466a53f29df5d233d4989528f9">LED_STATUS_CLOUD_TX</a></div><div class="ttdeci">@ LED_STATUS_CLOUD_TX</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00032">led.h:32</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea">LED_STATUS_IDLE</a></div><div class="ttdeci">@ LED_STATUS_IDLE</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00031">led.h:31</a></div></div>
+<div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516">LED_STATUS_FOTA_ERROR</a></div><div class="ttdeci">@ LED_STATUS_FOTA_ERROR</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00036">led.h:36</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00048">48</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+
+</div>
+</div>
+<a id="abe2066a80ad65e86eb3fb178613eaf65" name="abe2066a80ad65e86eb3fb178613eaf65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2066a80ad65e86eb3fb178613eaf65">&#9670;&#160;</a></span>min_display_active</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool min_display_active = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00243">243</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+
+</div>
+</div>
+<a id="a0371d46af554b5871e8764ea8b8d9e29" name="a0371d46af554b5871e8764ea8b8d9e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0371d46af554b5871e8764ea8b8d9e29">&#9670;&#160;</a></span>pending_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group__led.html#gaa0d9fa15febb4e4b1d6fdc2f2bdb94f5">led_status_priority</a> pending_status = <a class="el" href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5a18fe12cfe05e55e3675adf4bbf2292ea">LED_STATUS_WAIT</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00242">242</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
 
 </div>
 </div>
