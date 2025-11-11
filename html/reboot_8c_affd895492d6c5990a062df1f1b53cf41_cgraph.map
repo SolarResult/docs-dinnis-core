@@ -4,6 +4,10 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,186,41,186,46,152,46"/>
 <area shape="rect" id="Node000003" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="366,5,509,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="313,33,352,27,352,33,314,38"/>
-<area shape="rect" id="Node000004" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,55,513,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="314,48,348,53,347,58,313,53"/>
+<area shape="rect" id="Node000006" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,55,513,80"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="314,48,348,53,347,58,313,53"/>
+<area shape="rect" id="Node000004" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="561,5,736,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="509,15,548,15,548,21,509,21"/>
+<area shape="rect" id="Node000005" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="784,5,936,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="736,15,770,15,770,21,736,21"/>
 </map>

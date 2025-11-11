@@ -1,5 +1,11 @@
 <map id="sync_time" name="sync_time">
-<area shape="rect" id="Node000001" title="Synchronize time with external unix epoch source." alt="" coords="217,5,307,31"/>
-<area shape="rect" id="Node000002" href="$message__queue_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for OPERATIONAL state." alt="" coords="5,5,169,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,21,170,21,170,15,204,15"/>
+<area shape="rect" id="Node000001" title="Synchronize time with external unix epoch source." alt="" coords="645,31,735,56"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#a78d6852f1bd08d95552028c935535196" title="Date/time event handler callback." alt="" coords="425,5,597,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="631,38,597,33,598,28,632,33"/>
+<area shape="rect" id="Node000005" href="$message__queue_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for OPERATIONAL state." alt="" coords="429,55,593,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="632,54,594,59,593,54,631,48"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#ab4b89d883393468f3d4629a61ed0b07a" title="Main message queue thread." alt="" coords="200,5,377,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,21,377,21,377,15,411,15"/>
+<area shape="rect" id="Node000004" href="$message__queue_8c.html#a8466a00a75815de095e483573fba1617" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,21,152,21,152,15,186,15"/>
 </map>

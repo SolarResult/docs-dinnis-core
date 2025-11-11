@@ -114,120 +114,86 @@ $(function(){initNavTree('app_doc.html','',''); });
 <div class="textblock"><p><a class="anchor" id="md_modules_2app_2app__doc"></a></p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-🔗 Navigatie</h1>
+1. Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Sectie  </th><th class="markdownTableHeadNone">Link  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">📚 <b>API Referentie</b>  </td><td class="markdownTableBodyNone"><a class="el" href="group__app.html">App - API Referentie</a> - Module groep met alle functies, structs, en macros  </td></tr>
+<td class="markdownTableBodyNone">📚 <b>API Referentie</b>  </td><td class="markdownTableBodyNone"><a class="el" href="group__app.html">App - API Referentie</a> - Module groep met alle functies, structs, en macros.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">📄 <b>Source Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="app_8c.html">app.c</a> - Implementatie  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="trigger__zbus_8h.html">trigger_zbus.h</a> - ZBUS trigger channel  </td></tr>
+<td class="markdownTableBodyNone">📄 <b>Source File</b>  </td><td class="markdownTableBodyNone"><a class="el" href="app_8c.html">app.c</a> - Implementatie van de module.  </td></tr>
 </table>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Waarom</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Hardware Watchdog als Safety Mechanism</h2>
-<p>De Application Module fungeert als <b>minimale coördinator</b> met één primaire verantwoordelijkheid: het initialiseren en voeden van de hardware watchdog. Dit is een bewuste design keuze om system crashes te voorkomen zonder onnodige complexiteit in de main thread.</p>
-<p><b>Rationale:</b></p><ul>
-<li><b>Scheiding van Concerns:</b> Business logic zit in gespecialiseerde modules (p_one, energy_pulse, cloud), niet in <span class="tt">main()</span></li>
-<li><b>Fail-Safe Design:</b> Als alle andere modules vastlopen, zorgt de watchdog voor automatische reboot</li>
-<li><b>Minimale Overhead:</b> De app thread doet niets anders dan watchdog feeding - geen message processing, geen state machines</li>
-<li><b>Centraal Foutpunt:</b> Watchdog timeout callback loggeert thread ID van vastgelopen module voor debugging</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-TRIGGER_CHAN als Coördinatie Mechanisme</h2>
-<p>De module definieert <span class="tt">TRIGGER_CHAN</span> als <b>eigenaar</b> van het trigger-moment, hoewel de trigger zelf door de Timing Module wordt gepubliceerd.</p>
-<p><b>Rationale voor Channel Ownership:</b></p><ul>
-<li><b>Declaratie Locatie:</b> Andere modules moeten <span class="tt">TRIGGER_CHAN</span> kunnen declaren zonder afhankelijkheid van timing module</li>
-<li><b>Losere Koppeling:</b> Modules subscriben op een "trigger event", niet specifiek op "timing module output"</li>
-<li><b>Future-Proof:</b> Als trigger logica verandert (bijv. externe interrupt), blijft de channel interface stabiel</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-Wat</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
-Functionaliteit</h2>
-<p>De Application Module heeft twee taken:</p>
+2. Doel en Verantwoordelijkheden</h1>
+<p>De <b>App module</b> fungeert als de <b>systeemsupervisor</b>. Het is een minimale module met twee cruciale verantwoordelijkheden die de algehele robuustheid van het systeem garanderen:</p>
 <ol type="1">
-<li><b>Hardware Watchdog Initialisatie</b> (SYS_INIT fase)<ul>
-<li>Initialiseert Task Watchdog systeem met hardware watchdog device</li>
-<li>Slechts <b>één keer</b> tijdens boot, POST_KERNEL prioriteit</li>
-<li>Faalt met assertion als initialisatie mislukt (niet recoverable)</li>
-</ul>
-</li>
-<li><b>Watchdog Feeding Loop</b> (Runtime thread)<ul>
-<li>Voegt eigen channel toe aan task watchdog</li>
-<li>Sleept <span class="tt">CONFIG_APP_MODULE_WATCHDOG_TIMEOUT_SECONDS / 2</span> tussen feeds</li>
-<li>Loggeert error en stopt thread bij feed failure (triggers watchdog reboot)</li>
-</ul>
-</li>
+<li><b>Hardware Watchdog Management</b>: De module initialiseert en beheert het <span class="tt">task_wdt</span> (Task Watchdog) systeem. Het voedt niet alleen zijn eigen watchdog-kanaal, maar fungeert ook als de <b>centrale afhandelaar</b> voor timeouts van <em>alle</em> andere modules. Als een module vastloopt, zorgt de App module voor een gecontroleerde herstart.</li>
+<li><b>System-wide ZBUS Monitoring</b>: Voor debug-doeleinden bevat de module een ZBUS-monitor die luistert naar <b>alle</b> berichten op de ZBUS. Dit biedt een complete trace van de systeemactiviteit, wat essentieel is voor het opsporen van problemen in de communicatie tussen modules.</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
-ZBUS Interface</h2>
-<p><b>Published Channels:</b></p><ul>
-<li><b>TRIGGER_CHAN:</b> Bevat <span class="tt">struct <a class="el" href="structtrigger__msg.html" title="Trigger channel message type.">trigger_msg</a></span> met <span class="tt">timestamp_ms</span> field<ul>
-<li><b>Ownership:</b> App module definieert de channel (<span class="tt">ZBUS_CHAN_DEFINE</span>)</li>
-<li><b>Publisher:</b> Timing Module publiceert naar deze channel (niet de App module!)</li>
-<li><b>Content:</b> Timestamp van trigger moment (in milliseconds)</li>
-<li><b>Subscribers:</b> p_one, energy_pulse, message_queue (data acquisition modules)</li>
-</ul>
-</li>
-</ul>
-<p><b>Rationale voor Channel Ownership zonder Publishing:</b> Dit lijkt contra-intuïtief, maar is een <b>architecturale keuze</b>:</p><ul>
-<li>App module is de <b>eigenaar</b> van de channel (definieert de interface)</li>
-<li>Timing module is de <b>producer</b> van trigger events (publiceert data)</li>
-<li>Hierdoor kunnen subscribers <span class="tt">TRIGGER_CHAN</span> declaren zonder <a class="el" href="timing__zbus_8h.html">timing_zbus.h</a> include</li>
-<li>Zie Timing Module documentatie voor trigger publicatie mechanisme</li>
-</ul>
-<p><b>Subscribed Channels:</b></p><ul>
-<li><b>Geen:</b> App module luistert niet naar andere modules</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
-Hoe</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
-Architectuur</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
-Thread Model</h3>
-<p><b>Eén thread:</b> <span class="tt">app_thread</span></p><ul>
-<li><b>Prioriteit:</b> <span class="tt">CONFIG_APP_THREAD_PRIORITY_APP</span> (laagste prioriteit in systeem)</li>
-<li><b>Stack Size:</b> <span class="tt">CONFIG_APP_MODULE_THREAD_STACK_SIZE</span> bytes</li>
-<li><b>Execution Model:</b> Simpele <span class="tt">while(true)</span> loop, geen ZBUS listeners, geen state machine</li>
-</ul>
-<p><b>Rationale voor Lage Prioriteit:</b></p><ul>
-<li>Watchdog feeding is niet time-critical (timeout is meerdere seconden)</li>
-<li>Andere modules (p_one UART, cloud network) hebben hogere prioriteit nodig</li>
-<li>Geen preemption risk voor critical operations</li>
-</ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Initialisatie Volgorde</h3>
-<ol type="1">
-<li><b>SYS_INIT fase (POST_KERNEL):</b> <span class="tt"><a class="el" href="app_8c.html#a77f632fe498946ff94d869ff8acdd21c" title="Initialize hardware watchdog.">watchdog_init()</a></span> configureert hardware watchdog</li>
-<li><b>Thread Start (K_THREAD_DEFINE):</b> <span class="tt">app_thread</span> begint onmiddellijk na kernel start</li>
-<li><b>Runtime Loop:</b> Thread voegt zich toe aan task watchdog en begint feeding cycle</li>
-</ol>
-<p><b>Timing Afhankelijkheid:</b> De app thread start <b>altijd vóór</b> de Timing Module publiceert naar <span class="tt">TRIGGER_CHAN</span>. Dit is geen probleem omdat:</p><ul>
-<li>App module publiceert zelf <b>niet</b> naar TRIGGER_CHAN</li>
-<li>Channel wordt alleen gedefinieerd (lege initialisatie: <span class="tt">ZBUS_MSG_INIT(0)</span>)</li>
-<li>Eerste publish gebeurt pas na Timing Module initialisatie (later in boot sequence)</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
-Configuratie</h2>
-<p>Kconfig opties in <span class="tt">Kconfig.app</span>:</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+3. Functionaliteit</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+3.1 Hardware Watchdog</h2>
 <ul>
-<li><b>CONFIG_APP_MODULE_WATCHDOG_TIMEOUT_SECONDS:</b> Watchdog timeout in seconden<ul>
-<li><b>Feed Interval:</b> Helft van timeout waarde (safety margin)</li>
-<li><b>Voorbeeld:</b> 60s timeout → feed elke 30s</li>
-</ul>
+<li><b>Initialisatie</b>: Tijdens de <span class="tt">SYS_INIT</span> fase wordt de hardware watchdog geconfigureerd met een centrale callback-functie (<span class="tt">task_wdt_callback</span>).</li>
+<li><b>Feeding Loop</b>: De <span class="tt">app_thread</span> is een eenvoudige, laag-prioriteit thread die periodiek zijn eigen watchdog-kanaal voedt. Dit bevestigt dat de applicatie-loop nog draait.</li>
+<li><b>Centrale Timeout Handler</b>: De <span class="tt">task_wdt_callback</span> wordt aangeroepen als <b>enige</b> module in het systeem zijn watchdog niet op tijd voedt. Deze functie:<ol type="1">
+<li>Logt een foutmelding met de naam van de vastgelopen thread.</li>
+<li>Publiceert een bericht op de <span class="tt">reboot_chan</span> om een graceful shutdown aan te vragen.</li>
+<li>Als een tweede timeout optreedt voordat de herstart is voltooid, wordt een geforceerde, directe herstart van het systeem uitgevoerd.</li>
+</ol>
 </li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+3.2 ZBUS Monitor</h2>
+<ul>
+<li>De module definieert een <span class="tt">ZBUS_LISTENER</span> (<span class="tt">zbus_monitor</span>) zonder specifieke kanalen, waardoor deze naar <b>alle</b> ZBUS-kanalen luistert.</li>
+<li>De <span class="tt">zbus_monitor_callback</span> functie logt de naam van elk kanaal waarop een bericht wordt gepubliceerd.</li>
+<li>Dit is een krachtig diagnostisch hulpmiddel dat standaard is ingeschakeld in de debug-build.</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+4. ZBUS Interface</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+4.1 Gepubliceerde Kanalen</h2>
+<ul>
+<li><b>Geen</b>. De App module publiceert zelf geen berichten.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+4.2 Geobserveerde Kanalen</h2>
+<ul>
+<li>De <span class="tt">zbus_monitor</span> luistert naar <b>alle</b> kanalen voor logging.</li>
+<li>De module heeft geen functionele afhankelijkheden van andere kanalen.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+4.3 Legacy Kanalen</h2>
+<ul>
+<li><span class="tt">TRIGGER_CHAN</span>: Dit kanaal wordt nog steeds gedefinieerd in <span class="tt"><a class="el" href="app_8c.html">app.c</a></span> om compatibiliteit met andere modules te behouden die het declareren. Het is echter <b>verouderd</b> en wordt nergens meer gebruikt. De functionaliteit is vervangen door <span class="tt">timing_chan</span>.</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+5. Architectuur</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+5.1 Thread Model</h2>
+<ul>
+<li><b>Eén thread</b>: <span class="tt">app_thread</span>.</li>
+<li><b>Prioriteit</b>: Draait op de laagste applicatieprioriteit (<span class="tt">CONFIG_APP_THREAD_PRIORITY_APP</span>). Dit is een bewuste keuze omdat het voeden van de watchdog niet tijd-kritisch is en geen andere, belangrijkere taken mag verstoren.</li>
+<li><b>Executie</b>: Een simpele <span class="tt">while(true)</span> loop die elke <span class="tt">CONFIG_APP_MODULE_WATCHDOG_TIMEOUT_SECONDS / 2</span> seconden de watchdog voedt.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+5.2 Configuratie</h2>
+<p>De module wordt geconfigureerd via <span class="tt">Kconfig.app</span>:</p><ul>
+<li><span class="tt">CONFIG_APP_MODULE_WATCHDOG_TIMEOUT_SECONDS</span>: De timeout-periode voor de watchdog van de App module zelf. De feed-interval is de helft van deze waarde.</li>
+<li><span class="tt">CONFIG_APP_MODULE_LOG_LEVEL</span>: Bepaalt het log-niveau voor de module.</li>
 <li><b>CONFIG_APP_MODULE_THREAD_STACK_SIZE:</b> Stack size voor app thread<ul>
 <li><b>Minimum:</b> Klein (&lt; 1KB), thread heeft minimale stack usage</li>
 </ul>
 </li>
 <li><b>CONFIG_APP_MODULE_LOG_LEVEL:</b> Log level voor debug output</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 Watchdog Callback Behavior</h2>
 <p>Bij watchdog timeout (= app thread hangt):</p>
 <ol type="1">
@@ -244,7 +210,7 @@ Watchdog Callback Behavior</h2>
 <li>Productie versie moet automatische reboot triggeren via Reboot Module</li>
 <li>Zie Reboot Module documentatie voor graceful shutdown mechanisme</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Native Sim Handling</h2>
 <p>Voor <span class="tt">native_sim</span> board (desktop testing):</p><ul>
 <li><span class="tt">HW_WDT_DEV</span> wordt <span class="tt">NULL</span> (geen echte hardware watchdog)</li>

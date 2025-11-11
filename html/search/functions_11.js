@@ -7,7 +7,7 @@ var searchData=
   ['set_5fled_5fcolor_4',['set_led_color',['../led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2',1,'led.c']]],
   ['settings_5fstatic_5fhandler_5fdefine_5',['SETTINGS_STATIC_HANDLER_DEFINE',['../energy__pulse_8c.html#aa7a2e9b92b7d0c72236951d33195aca3',1,'energy_pulse.c']]],
   ['setup_5fpulse_5fgpio_6',['setup_pulse_gpio',['../energy__pulse_8c.html#a3baee71ff88d13304ea1b5ae214150cf',1,'energy_pulse.c']]],
-  ['shell_5fcmd_5fregister_7',['SHELL_CMD_REGISTER',['../network__shell_8c.html#aa4f33e6f50ba1698fb81d29080980cf5',1,'network_shell.c']]],
+  ['shell_5fcmd_5fregister_7',['SHELL_CMD_REGISTER',['../network__shell_8c.html#afab65107c6f634f293eaf398cda20306',1,'network_shell.c']]],
   ['shell_5fstatic_5fsubcmd_5fset_5fcreate_8',['SHELL_STATIC_SUBCMD_SET_CREATE',['../network__shell_8c.html#aaa01f246478f17fd6fbbf4092816ee8a',1,'network_shell.c']]],
   ['shutdown_5facknowledge_5fpublish_9',['shutdown_acknowledge_publish',['../group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650',1,'shutdown_acknowledge_publish(const struct zbus_observer *observer):&#160;reboot_zbus.c'],['../group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650',1,'shutdown_acknowledge_publish(const struct zbus_observer *observer):&#160;reboot_zbus.c']]],
   ['shutdown_5frequest_5fpublish_10',['shutdown_request_publish',['../group__reboot.html#ga144a9553ccae4736b90989bc4388dc74',1,'shutdown_request_publish(void):&#160;reboot_zbus.c'],['../group__reboot.html#ga144a9553ccae4736b90989bc4388dc74',1,'shutdown_request_publish(void):&#160;reboot_zbus.c']]],

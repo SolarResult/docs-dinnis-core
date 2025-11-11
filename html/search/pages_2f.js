@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['📊_20call_20graphs_0',['📊 Call Graphs',['../index.html#autotoc_md320',1,'']]],
-  ['📊_20data_20verwerking_1',['📊 Data Verwerking',['../index.html#autotoc_md309',1,'']]],
-  ['📊_20publish_20statistics_20elke_2010_20minuten_2',['📊 Publish Statistics (elke 10 minuten)',['../index.html#autotoc_md302',1,'']]]
+  ['📋_20filosofie_0',['📋 Filosofie',['../doxygen_guidelines.html#autotoc_md431',1,'']]],
+  ['📋_20overzicht_1',['📋 Overzicht',['../index.html#autotoc_md177',1,'']]]
 ];

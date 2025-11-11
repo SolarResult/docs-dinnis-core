@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['🎨_20styling_20branding_0',['🎨 Styling &amp;amp; Branding',['../doxygen_guidelines.html#autotoc_md596',1,'']]]
+  ['🏗️_20architectuur_0',['🏗️ Architectuur',['../index.html#autotoc_md179',1,'']]],
+  ['🏗️_20project_20layout_1',['🏗️ Project Layout',['../doxygen_guidelines.html#autotoc_md435',1,'']]]
 ];

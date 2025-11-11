@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🌐_20externe_20resources_0',['🌐 Externe Resources',['../index.html#autotoc_md325',1,'']]]
+  ['🎨_20styling_20branding_0',['🎨 Styling &amp;amp; Branding',['../doxygen_guidelines.html#autotoc_md439',1,'']]]
 ];

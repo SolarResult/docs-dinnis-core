@@ -1,0 +1,7 @@
+<map id="date_time_evt_handler" name="date_time_evt_handler">
+<area shape="rect" id="Node000001" title="Date/time event handler callback." alt="" coords="425,5,597,31"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#ab4b89d883393468f3d4629a61ed0b07a" title="Main message queue thread." alt="" coords="200,5,377,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="411,21,377,21,377,15,411,15"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#a8466a00a75815de095e483573fba1617" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,21,152,21,152,15,186,15"/>
+</map>

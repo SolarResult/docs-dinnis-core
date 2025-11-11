@@ -1,17 +1,15 @@
 <map id="state_operational_run" name="state_operational_run">
-<area shape="rect" id="Node000001" title="Run function for OPERATIONAL state." alt="" coords="5,129,169,155"/>
-<area shape="rect" id="Node000002" href="$message__queue_8c.html#adca8ee032108f348cf8ea3936481854d" title="Get number of messages currently in queue." alt="" coords="251,5,387,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,127,148,84,181,60,216,40,236,32,238,36,219,44,184,65,151,88,103,131"/>
-<area shape="rect" id="Node000003" href="$group__network.html#gaf90ab11a76c35273f82a9d3c481b65f6" title=" " alt="" coords="235,55,402,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,127,216,89,244,81,245,86,218,94,119,132"/>
-<area shape="rect" id="Node000004" href="$group__network.html#ga99da4717bbc3745cae62e8887228d15b" title=" " alt="" coords="217,104,420,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,130,203,127,204,132,170,136"/>
-<area shape="rect" id="Node000005" href="$message__queue_8c.html#afce6fe5cf4d8a9bab120bf9ed2bb7571" title="Synchronize time with external unix epoch source." alt="" coords="274,153,363,179"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="170,148,261,157,260,163,170,153"/>
-<area shape="rect" id="Node000006" href="$message__queue_8c.html#a783d99eacfd7ec5f415842d7a928e52f" title="Check if time re&#45;sync is needed (periodic drift compensation)" alt="" coords="245,203,393,228"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,152,218,187,250,197,249,202,217,193,119,157"/>
-<area shape="rect" id="Node000007" href="$message__queue_8c.html#a97890684bfa65f65e530be570155ef6e" title="Update cloud readiness status." alt="" coords="241,252,397,277"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="103,153,152,194,184,217,218,237,239,245,237,250,216,242,181,222,149,199,100,157"/>
-<area shape="rect" id="Node000008" href="$group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="468,252,587,277"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="397,262,454,262,454,267,397,267"/>
+<area shape="rect" id="Node000001" title="Run function for OPERATIONAL state." alt="" coords="5,104,169,129"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#adca8ee032108f348cf8ea3936481854d" title="Get number of messages currently in queue." alt="" coords="233,5,369,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,102,155,71,216,40,235,32,237,37,218,44,158,76,109,106"/>
+<area shape="rect" id="Node000003" href="$group__network.html#gaf90ab11a76c35273f82a9d3c481b65f6" title=" " alt="" coords="217,55,384,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,101,231,81,232,86,144,107"/>
+<area shape="rect" id="Node000004" href="$message__queue_8c.html#afce6fe5cf4d8a9bab120bf9ed2bb7571" title="Synchronize time with external unix epoch source." alt="" coords="256,104,345,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,114,242,114,242,119,170,119"/>
+<area shape="rect" id="Node000005" href="$message__queue_8c.html#a783d99eacfd7ec5f415842d7a928e52f" title="Check if time re&#45;sync is needed (periodic drift compensation)" alt="" coords="227,153,375,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="144,127,232,148,231,153,142,132"/>
+<area shape="rect" id="Node000006" href="$message__queue_8c.html#a97890684bfa65f65e530be570155ef6e" title="Update cloud readiness status." alt="" coords="223,203,379,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="109,127,158,157,218,188,240,196,238,201,216,192,155,161,107,132"/>
+<area shape="rect" id="Node000007" href="$group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="432,203,551,228"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="379,213,418,213,418,218,379,218"/>
 </map>

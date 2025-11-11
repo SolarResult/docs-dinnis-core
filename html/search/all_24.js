@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['µs_0',['Frame-Level Timing (87 µs)',['../p_one_doc.html#autotoc_md222',1,'']]]
+  ['⚙️_20belangrijke_20features_0',['⚙️ Belangrijke Features',['../index.html#autotoc_md193',1,'']]],
+  ['⚙️_20doxyfile_20configuratie_1',['⚙️ Doxyfile Configuratie',['../doxygen_guidelines.html#autotoc_md437',1,'']]]
 ];

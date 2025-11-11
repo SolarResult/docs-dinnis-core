@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_3a_0',[':',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md545',1,'✅ CORRECT (geverifieerd):'],['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md544',1,'❗ FOUT (verzonnen content):']]]
+  ['_5fdoc_20md_0',['Structuur van &lt;span class=&quot;tt&quot;&gt;&amp;lt;module&amp;gt;_doc.md&lt;/span&gt;',['../doxygen_guidelines.html#autotoc_md444',1,'']]]
 ];

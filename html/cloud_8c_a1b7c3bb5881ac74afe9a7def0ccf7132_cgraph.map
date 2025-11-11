@@ -1,7 +1,12 @@
 <map id="cloud_thread" name="cloud_thread">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,31,112,56"/>
-<area shape="rect" id="Node000002" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="165,5,307,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,33,150,28,151,33,113,38"/>
-<area shape="rect" id="Node000003" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="160,55,312,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,48,147,53,146,58,112,53"/>
+<area shape="rect" id="Node000002" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="360,5,535,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,28,160,15,256,9,347,9,347,15,256,14,160,21,101,33"/>
+<area shape="rect" id="Node000004" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="165,31,307,56"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="112,41,151,41,151,46,112,46"/>
+<area shape="rect" id="Node000005" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="160,80,312,105"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="106,53,177,74,175,79,104,59"/>
+<area shape="rect" id="Node000003" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="583,5,735,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="535,15,569,15,569,21,535,21"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="307,32,346,27,347,33,308,37"/>
 </map>

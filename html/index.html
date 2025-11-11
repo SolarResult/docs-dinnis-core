@@ -11,7 +11,7 @@
 <!-- END opengraph metadata -->
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="solar_result_white.svg">
-<title>SolarResult Dinnis Core: SolarResult Dinnis Core - Firmware Documentatie</title>
+<title>SolarResult Dinnis Core: SolarResult Energy Core - Firmware Documentatie</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,123 +108,118 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">SolarResult Dinnis Core - Firmware Documentatie </div></div>
+  <div class="headertitle"><div class="title">SolarResult Energy Core - Firmware Documentatie </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md292"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md177"></a>
 📋 Overzicht</h1>
-<p>Welkom bij de API documentatie van <b>SolarResult Dinnis Core</b> - de embedded firmware voor de Dinnis Rev1.0.0 slimme meter gateway.</p>
-<p>Deze firmware draait op een <b>Nordic nRF9161</b> microcontroller en is gebouwd met <b>Zephyr RTOS v4.2.0</b> en <b>nRF Connect SDK v3.1.1</b>. Het apparaat leest energiedata van P1 DSMR slimme meters en puls-tellers, en verstuurt deze naar nRF Cloud.</p>
+<p>Welkom bij de API documentatie van <b>SolarResult Energy Core</b> - de embedded firmware voor de SolarResult energy gateway boards.</p>
+<p>Deze firmware draait op een <b>Nordic nRF9161</b> microcontroller en is gebouwd met <b>Zephyr RTOS</b> en de <b>nRF Connect SDK</b>. De exacte versies zijn gespecificeerd in <span class="tt">application/west.yml</span>. Het apparaat leest energiedata van P1 DSMR slimme meters en puls-tellers, en verstuurt deze naar nRF Cloud.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md294"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
 🏗️ Architectuur</h1>
-<p>De firmware is opgebouwd uit modulaire componenten die communiceren via <b>ZBUS</b> (Zephyr Bus). Elke module heeft zijn eigen thread en state machine voor robuuste operatie.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md295"></a>
+<p>De firmware is opgebouwd uit modulaire componenten die communiceren via <b>ZBUS</b> (Zephyr Bus). Elke kritieke module draait in zijn eigen thread voor robuuste, parallelle operaties.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
 Kernmodules</h2>
-<p>Klik op een module voor de volledige documentatie inclusief design rationale, implementatie details en use cases.</p>
+<p>Klik op een module voor de volledige documentatie inclusief design rationale en implementatie details.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Module  </th><th class="markdownTableHeadNone">Beschrijving  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="p_one_doc.html">P1 DSMR</a>  </td><td class="markdownTableBodyNone">DSMR slimme meter uitlezing via UART  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="app_doc.html">Application</a>  </td><td class="markdownTableBodyNone">Hoofdapplicatie, state machine en initialisatie.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="energy_pulse_doc.html">Energy Pulse</a>  </td><td class="markdownTableBodyNone">Puls-teller monitoring via GPIO  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="p_one_doc.html">P1 DSMR</a>  </td><td class="markdownTableBodyNone">Leest, parset en valideert data van DSMR slimme meters.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="message_queue_doc.html">Message Queue</a>  </td><td class="markdownTableBodyNone">Data buffering en verzending  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="energy_pulse_doc.html">Energy Pulse</a>  </td><td class="markdownTableBodyNone">Telt pulsen van externe meters (water, gas) via GPIO.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="cloud_doc.html">Cloud</a>  </td><td class="markdownTableBodyNone">nRF Cloud connectiviteit  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="cloud_doc.html">Cloud</a>  </td><td class="markdownTableBodyNone">Beheert nRF Cloud connectiviteit, dataverzending en FOTA updates. Gebruikt een interne <b>message queue</b> om data te bufferen.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="network_doc.html">Network</a>  </td><td class="markdownTableBodyNone">LTE-M/NB-IoT modem beheer  </td></tr>
+<td class="markdownTableBodyNone">Network  </td><td class="markdownTableBodyNone">Beheert de LTE-M/NB-IoT modem en netwerkverbinding.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="timing_doc.html">Timing</a>  </td><td class="markdownTableBodyNone">Periodieke triggers en scheduling  </td></tr>
+<td class="markdownTableBodyNone">Timing  </td><td class="markdownTableBodyNone">Genereert periodieke events voor data acquisitie en publicatie.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="led_doc.html">LED</a>  </td><td class="markdownTableBodyNone">Visuele status indicatie  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="led_doc.html">LED</a>  </td><td class="markdownTableBodyNone">Geeft visuele feedback over de systeemstatus.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="reboot_doc.html">Reboot</a>  </td><td class="markdownTableBodyNone">Graceful shutdown en herstarten  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="app_doc.html">Application</a>  </td><td class="markdownTableBodyNone">Main application entry point  </td></tr>
+<td class="markdownTableBodyNone">Reboot  </td><td class="markdownTableBodyNone">Coördineert een graceful shutdown en herstart van het systeem.  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md297"></a>
-🔄 Data Flow &amp; Module Interacties</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md298"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md182"></a>
+🔄 Data Flow &amp; ZBUS Architectuur</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md183"></a>
 Visueel Overzicht</h2>
-<div class="fragment"><div class="line">                 ┌───────────────────────────────────────────────────┐</div>
-<div class="line">                 │              ZBUS Message Bus                     │</div>
-<div class="line">                 └───────────────────────────────────────────────────┘</div>
+<p>Het diagram hieronder toont de informatiestroom tussen de modules via ZBUS-kanalen en directe functie-aanroepen.</p>
+<div class="fragment"><div class="line">                                ZBUS Message Bus</div>
 <div class="line">                                       │</div>
-<div class="line">     ┌─────────────────────────────────┼─────────────────────────────────┐</div>
-<div class="line">     │                                 │                                 │</div>
-<div class="line">┌────▼─────┐    DATA_ACQUISITION   ┌──▼───┐    P_ONE_CHAN    ┌─────────▼─────┐</div>
-<div class="line">│ Timing   │────TRIGGER_CHAN───────▶│ P1   │─────────────────▶│ Message Queue │</div>
-<div class="line">│  Module  │                        └──────┘                  │               │</div>
-<div class="line">└────┬─────┘    DATA_PUBLISH           │                      │   (Buffer)    │</div>
-<div class="line">     │          REQUEST_CHAN            │                      └───────┬───────┘</div>
-<div class="line">     │          ──────────────┐         │                              │</div>
-<div class="line">     │                        │         │  ENERGY_PULSE_CHAN           │</div>
-<div class="line">     │          DATA_SEND     ▼         │  ─────────────────┐          │</div>
-<div class="line">     │          REQUEST_CHAN  │     ┌───▼────────┐          │          │</div>
-<div class="line">     └────────────────────────┼────▶│   Energy   │──────────┘          │</div>
-<div class="line">                              │     │   Pulse    │                     │</div>
-<div class="line">     ┌────────────────────────┘     └────────────┘                     │</div>
-<div class="line">     │                                                                  │</div>
-<div class="line">     │                                                        CLOUD_CHAN│</div>
-<div class="line">     │                              NETWORK_CHAN            ┌───────────▼────┐</div>
-<div class="line">     │                      ┌──────────────────────────────▶│     Cloud      │</div>
-<div class="line">     │                      │                               │   (nRF Cloud)  │</div>
-<div class="line">┌────▼─────┐          ┌────┴────┐                          └────────┬───────┘</div>
-<div class="line">│   LED    │◀─────────│ Network │                                   │</div>
-<div class="line">│  Module  │          │ (Modem) │                         FOTA_CHAN │</div>
-<div class="line">└────▲─────┘          └─────────┘                         ──────────┘</div>
-<div class="line">     │                     │                                    │</div>
-<div class="line">     │   TRIGGER_CHAN      │                                    │</div>
-<div class="line">     │◀────────────────────┘                                    ▼</div>
-<div class="line">     │                                                      ┌─────────┐</div>
-<div class="line">     │   FOTA_CHAN                           REBOOT_CHAN   │ Reboot  │</div>
-<div class="line">     └◀────────────────────────────────────────────────────┤ Module  │</div>
-<div class="line">                                                            └─────────┘</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
+<div class="line">      ┌────────────────────────────────┼────────────────────────────────┐</div>
+<div class="line">      │                                │                                │</div>
+<div class="line">┌─────▼─────┐                      ┌───▼──┐                         ┌───▼──┐</div>
+<div class="line">│  Network  │─ ─ ─ network_chan ─ ▶│ LED  │◀ ─ ─ ─ led_chan ─ ─ ─ ─ │ App  │</div>
+<div class="line">└─────┬─────┘                      └───▲──┘                         └───┬──┘</div>
+<div class="line">      │                              │                              │</div>
+<div class="line">      │                              │ cloud_chan / fota_chan         │</div>
+<div class="line">      │                              │                              │</div>
+<div class="line">┌─────▼─────┐  timing_chan     ┌─────┴──────┐                     ┌───▼──┐</div>
+<div class="line">│   Cloud   │◀- - - - - - - - -│   Timing   │- - - timing_chan - ▶│  P1  │</div>
+<div class="line">└─────┬─────┘                  └────────────┘                     └───┬──┘</div>
+<div class="line">      │                                                             │</div>
+<div class="line">      │       ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐       │</div>
+<div class="line">      │       │ Direct call: cloud_enqueue_p1(data)           │       │</div>
+<div class="line">      └───────◀ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘       │</div>
+<div class="line">      │                                                               │</div>
+<div class="line">┌─────▼─────┐                                                       ┌─▼───┐</div>
+<div class="line">│  Message  │                                                       │Pulse│</div>
+<div class="line">│   Queue   │&lt;──────────────────────────────────────────────────────┘     │</div>
+<div class="line">│ (Internal)│       │ Direct call: cloud_enqueue_pulse(data)        │     │</div>
+<div class="line">└───────────┘       └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘     │</div>
+<div class="line">      ▲                                                                   │</div>
+<div class="line">      │                                                                   │</div>
+<div class="line">┌─────┴─────┐                                                       ┌─▼───┐</div>
+<div class="line">│  Reboot   │─ ─ ─ reboot_chan ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ▶│ ... │</div>
+<div class="line">└───────────┘                                                       └─────┘</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md184"></a>
 ZBUS Channel Overzicht</h2>
-<p>De firmware modules communiceren via <b>11 ZBUS channels</b>. Hieronder een compleet overzicht:</p>
+<p>De modules communiceren via 8 ZBUS-kanalen.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Channel  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Publisher  </th><th class="markdownTableHeadNone">Subscribers  </th><th class="markdownTableHeadNone">Doel  </th></tr>
+<th class="markdownTableHeadNone">Channel  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Publisher(s)  </th><th class="markdownTableHeadNone">Subscriber(s)  </th><th class="markdownTableHeadNone">Doel  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>DATA_ACQUISITION_TRIGGER_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">timing_event_msg</span>  </td><td class="markdownTableBodyNone">Timing  </td><td class="markdownTableBodyNone">P1  </td><td class="markdownTableBodyNone">Trigger P1 om nieuwe data op te halen (30s interval)  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">timing_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">timing_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Timing</span>  </td><td class="markdownTableBodyNone"><span class="tt">P1</span>, <span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone">Periodieke triggers voor data-acquisitie en data-verzending.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>DATA_PUBLISH_REQUEST_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">timing_event_msg</span>  </td><td class="markdownTableBodyNone">Timing  </td><td class="markdownTableBodyNone">Message Queue, P1, Energy Pulse  </td><td class="markdownTableBodyNone">Request modules om statistics te publishen (10 min)  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">p1_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">p1_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">P1</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone">Publiceert geparste P1-telegram data.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>DATA_SEND_REQUEST_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">timing_event_msg</span>  </td><td class="markdownTableBodyNone">Timing  </td><td class="markdownTableBodyNone">Message Queue  </td><td class="markdownTableBodyNone">Verzoek om gebufferde messages naar cloud te sturen (30 min)  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">pulse_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">pulse_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Pulse</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone">Publiceert getelde pulsen.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>P_ONE_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">p_one_msg</span>  </td><td class="markdownTableBodyNone">P1  </td><td class="markdownTableBodyNone">Message Queue  </td><td class="markdownTableBodyNone">P1 meter data met statistics  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">network_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">network_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Network</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>, <span class="tt">LED</span>  </td><td class="markdownTableBodyNone">Status van de modem en netwerkverbinding.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>ENERGY_PULSE_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">energy_pulse_msg</span>  </td><td class="markdownTableBodyNone">Energy Pulse  </td><td class="markdownTableBodyNone">Message Queue  </td><td class="markdownTableBodyNone">Puls-teller data (Wh per kanaal)  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">cloud_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">cloud_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone"><span class="tt">LED</span>  </td><td class="markdownTableBodyNone">Status van de nRF Cloud-verbinding.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>NETWORK_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">network_msg</span>  </td><td class="markdownTableBodyNone">Network  </td><td class="markdownTableBodyNone">Cloud, LED  </td><td class="markdownTableBodyNone">Modem connectivity status (CONNECTED/DISCONNECTED)  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">fota_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">fota_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone"><span class="tt">LED</span>, <span class="tt">Reboot</span>  </td><td class="markdownTableBodyNone">Status en voortgang van FOTA-updates.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>CLOUD_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">cloud_msg</span>  </td><td class="markdownTableBodyNone">Cloud  </td><td class="markdownTableBodyNone">Message Queue, Cloud, LED  </td><td class="markdownTableBodyNone">nRF Cloud connectie status  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">reboot_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">reboot_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">Reboot</span>  </td><td class="markdownTableBodyNone"><span class="tt">Cloud</span>, <span class="tt">Pulse</span>  </td><td class="markdownTableBodyNone">Coördineert een graceful shutdown.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>FOTA_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">fota_msg</span>  </td><td class="markdownTableBodyNone">Cloud  </td><td class="markdownTableBodyNone">LED  </td><td class="markdownTableBodyNone">FOTA download progress en status  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>REBOOT_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">reboot_msg</span>  </td><td class="markdownTableBodyNone">Reboot  </td><td class="markdownTableBodyNone">Cloud, Energy Pulse  </td><td class="markdownTableBodyNone">Graceful shutdown coordinatie  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>TRIGGER_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">trigger_msg</span>  </td><td class="markdownTableBodyNone"><em>(unused)</em>  </td><td class="markdownTableBodyNone">LED  </td><td class="markdownTableBodyNone">⚠️ Gedefinieerd door App, maar nooit gepubliceerd  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>PRIV_CLOUD_CHAN</b>  </td><td class="markdownTableBodyNone"><span class="tt">int</span>  </td><td class="markdownTableBodyNone">Cloud  </td><td class="markdownTableBodyNone">Cloud (self)  </td><td class="markdownTableBodyNone">Interne async callback → state machine communicatie  </td></tr>
+<td class="markdownTableBodyNone"><b><span class="tt">led_chan</span></b>  </td><td class="markdownTableBodyNone"><span class="tt">led_msg</span>  </td><td class="markdownTableBodyNone"><span class="tt">App</span>, <span class="tt">Cloud</span>  </td><td class="markdownTableBodyNone"><span class="tt">LED</span>  </td><td class="markdownTableBodyNone">Stuurt de status van de LEDs aan.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md185"></a>
 Message Flow Scenarios</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
-📥 Normal Data Collection (elke 30 seconden)</h3>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md186"></a>
+📥 Data Acquisitie &amp; Buffering</h3>
 <ol type="1">
-<li><b>Timing</b> publiceert <span class="tt">DATA_ACQUISITION_TRIGGER_CHAN</span></li>
-<li><b>P1</b> start UART data request naar slimme meter</li>
-<li><b>P1</b> ontvangt telegram, parsed OBIS codes, berekent rolling statistics</li>
-<li><b>P1</b> publiceert <span class="tt">P_ONE_CHAN</span> naar Message Queue</li>
+<li><b><span class="tt">Timing</span></b> publiceert periodiek een bericht op <span class="tt">timing_chan</span> om data-acquisitie te starten.</li>
+<li><b><span class="tt">P1</span></b> en <b><span class="tt">Pulse</span></b> luisteren naar <span class="tt">timing_chan</span>.</li>
+<li><b><span class="tt">P1</span></b> leest de slimme meter uit, parset de data en publiceert deze op <span class="tt">p1_chan</span>.</li>
+<li><b><span class="tt">Pulse</span></b> leest de pulstellers en publiceert de data op <span class="tt">pulse_chan</span>.</li>
+<li><b><span class="tt">Cloud</span></b> luistert naar <span class="tt">p1_chan</span> en <span class="tt">pulse_chan</span> en plaatst de ontvangen berichten in zijn interne <b>message queue</b> (buffer).</li>
+</ol>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md187"></a>
+� Data Verzending naar de Cloud</h3>
+<ol type="1">
+<li><b><span class="tt">Timing</span></b> publiceert periodiek een bericht op <span class="tt">timing_chan</span> om data-verzending te triggeren.</li>
+<li><b><span class="tt">Cloud</span></b> luistert naar <span class="tt">timing_chan</span> en start het proces om de gebufferde berichten uit de <b>message queue</b> te versturen naar nRF Cloud.</li>
+<li>De <b><span class="tt">Cloud</span></b> module publiceert de status van de verbinding op <span class="tt">cloud_chan</span>, waar de <b><span class="tt">LED</span></b> module naar luistert om de juiste visuele feedback te geven.</li>
 <li><b>Message Queue</b> buffert data voor volgende publish cycle</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md188"></a>
 📊 Publish Statistics (elke 10 minuten)</h3>
 <ol type="1">
 <li><b>Timing</b> publiceert <span class="tt">DATA_PUBLISH_REQUEST_CHAN</span></li>
@@ -233,7 +228,7 @@ Message Flow Scenarios</h2>
 <li><b>Message Queue</b> combineert P1 + Pulse data, queued message met timestamp</li>
 <li>Data blijft in queue tot <span class="tt">DATA_SEND_REQUEST_CHAN</span></li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md189"></a>
 ☁️ Cloud Transmission (elke 30 minuten)</h3>
 <ol type="1">
 <li><b>Timing</b> publiceert <span class="tt">DATA_SEND_REQUEST_CHAN</span></li>
@@ -242,7 +237,7 @@ Message Flow Scenarios</h2>
 <li>Bij failure: messages blijven in queue voor volgende cycle</li>
 <li>Queue gebruikt drop-oldest strategie bij overflow (FIFO)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md190"></a>
 🔄 Startup Sequence</h3>
 <ol type="1">
 <li><b>Network</b> initialiseert modem, wacht op <span class="tt">L4_CONNECTED</span> event</li>
@@ -252,7 +247,7 @@ Message Flow Scenarios</h2>
 <li><b>Message Queue</b> start sending queued data (indien aanwezig)</li>
 <li><b>LED</b> toont CLOUD_CONNECTED pattern (groene pulse)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md191"></a>
 🛑 Graceful Shutdown</h3>
 <ol type="1">
 <li><b>Cloud</b> ontvangt FOTA complete → publiceert <span class="tt">REBOOT_CHAN</span> met <span class="tt">REBOOT_REQ</span></li>
@@ -262,9 +257,9 @@ Message Flow Scenarios</h2>
 <li><b>Reboot</b> roept <span class="tt">sys_reboot()</span> aan via work queue (non-blocking)</li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md193"></a>
 ⚙️ Belangrijke Features</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md194"></a>
 🔌 Hardware Ondersteuning</h2>
 <ul>
 <li><b>Nordic nRF9161</b> - Cellular IoT SiP met Arm Cortex-M33</li>
@@ -274,7 +269,7 @@ Message Flow Scenarios</h2>
 <li><b>RGB LED</b> voor status indicatie</li>
 <li><b>Hardware Watchdog</b> voor robuustheid</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md195"></a>
 📊 Data Verwerking</h2>
 <ul>
 <li><b>DSMR 5.0 / ESMR 5.0</b> parser met CRC validatie</li>
@@ -283,7 +278,7 @@ Message Flow Scenarios</h2>
 <li><b>Timestamp synchronisatie</b> met slimme meter</li>
 <li><b>Queue-based buffering</b> voor betrouwbare data delivery</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md196"></a>
 ☁️ Cloud Integratie</h2>
 <ul>
 <li><b>nRF Cloud MQTT</b> met TLS/DTLS</li>
@@ -291,7 +286,7 @@ Message Flow Scenarios</h2>
 <li><b>Message queueing</b> tijdens offline perioden</li>
 <li><b>Device shadow</b> synchronisatie</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md197"></a>
 🛡️ Robustness Features</h2>
 <ul>
 <li><b>State machines</b> (SMF) voor gedetermineerd gedrag</li>
@@ -301,28 +296,28 @@ Message Flow Scenarios</h2>
 <li><b>Error recovery</b> met automatic retry</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md199"></a>
 🚀 Aan de Slag</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md200"></a>
 Build Systeem</h2>
 <p>De firmware gebruikt <b>West</b> (Zephyr's meta-tool) als build systeem:</p>
 <div class="fragment"><div class="line"># Configureer build</div>
 <div class="line">west config build.cmake-args &quot; -DBOARD_ROOT=../&quot;</div>
-<div class="line">west config build.board &quot;dinnis_rev1_0_0/nrf9161/ns&quot;</div>
+<div class="line">west config build.board &quot;dinnis@1.0.0/nrf9161/ns&quot;</div>
 <div class="line">west config build.build-dir &quot;build&quot;</div>
 <div class="line"> </div>
 <div class="line"># Build firmware</div>
 <div class="line">west build application</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
 Custom Board Definition</h2>
-<p>De Dinnis Rev1.0.0 board definitie bevindt zich in: </p><div class="fragment"><div class="line">boards/solarresult/dinnis_rev1_0_0/</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
+<p>De Dinnis Rev1.0.0 board definitie bevindt zich in: </p><div class="fragment"><div class="line">boards/solarresult/dinnis/</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md202"></a>
 Configuratie</h2>
 <p>Belangrijke Kconfig opties zijn gedocumenteerd in elke module's README.md.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md204"></a>
 📚 Documentatie Structuur</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md205"></a>
 📄 API Referentie</h2>
 <ul>
 <li><b>Files</b> - Alle source en header files met inline documentatie</li>
@@ -330,13 +325,13 @@ Configuratie</h2>
 <li><b>Functions</b> - Functie prototypes met parameters en return values</li>
 <li><b>Variables</b> - Globale variabelen en constanten</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md206"></a>
 📊 Call Graphs</h2>
 <p>Voor elke functie zijn er gedetailleerde grafieken:</p><ul>
 <li><b>Call Graph</b> - Welke functies roept deze functie aan?</li>
 <li><b>Caller Graph</b> - Welke functies roepen deze functie aan?</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
 📁 Module README's</h2>
 <p>Elke module heeft een <span class="tt">README.md</span> met:</p><ul>
 <li><b>Waarom?</b> - Probleem, motivatie en design rationale</li>
@@ -345,23 +340,23 @@ Configuratie</h2>
 <li><b>Resultaat</b> - Impact cijfers en verificatie</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md323"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md209"></a>
 🔗 Belangrijke Links</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md324"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md210"></a>
 📚 Handleidingen</h2>
 <ul>
-<li><a class="el" href="provisioning.html">Provisioning and Onboarding</a> - Complete stap-voor-stap gids voor het provisioneren van devices</li>
+<li>Provisioning and Onboarding - Complete stap-voor-stap gids voor het provisioneren van devices</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md325"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md211"></a>
 🌐 Externe Resources</h2>
 <ul>
-<li><b>Project Repository</b>: <a href="https://github.com/SolarResult">GitHub - SolarResult/fw-dinnis-core</a></li>
+<li><b>Project Repository</b>: <a href="https://github.com/SolarResult">GitHub - SolarResult/fw-energy-core</a></li>
 <li><b>Zephyr Documentation</b>: <a href="https://docs.zephyrproject.org/">Zephyr Project Docs</a></li>
 <li><b>nRF Connect SDK</b>: <a href="https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk">Nordic Semiconductor</a></li>
 <li><b>nRF Cloud</b>: <a href="https://nrfcloud.com/">nRF Cloud Portal</a></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md327"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md213"></a>
 📞 Contact</h1>
 <p><b>SolarResult B.V.</b> <br  />
  Slimme energie monitoring oplossingen</p>
@@ -370,7 +365,7 @@ Configuratie</h2>
 <li>📧 Email: <a href="#" onclick="location.href='mai'+'lto:'+'inf'+'o@'+'sol'+'ar'+'res'+'ul'+'t.n'+'l'; return false;">info@<span class="obfuscator">.nosp@m.</span>sola<span class="obfuscator">.nosp@m.</span>rresu<span class="obfuscator">.nosp@m.</span>lt.n<span class="obfuscator">.nosp@m.</span>l</a></li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md329"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md215"></a>
 📄 Licentie</h1>
 <p>Copyright © 2025 SolarResult B.V. <br  />
  Alle rechten voorbehouden.</p>

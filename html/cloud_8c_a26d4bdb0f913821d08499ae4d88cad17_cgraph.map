@@ -6,6 +6,10 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,33,474,29,475,34,441,38"/>
 <area shape="rect" id="Node000004" href="$cloud_8c.html#af84d16e7434b6698c0d2066ff14fa34c" title=" " alt="" coords="495,55,653,95"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="441,56,482,61,481,66,440,61"/>
-<area shape="rect" id="Node000005" href="$cloud_8c.html#a7344c0632d89afdb1bfccce502a6566b" title=" " alt="" coords="708,55,865,95"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="653,73,694,73,694,78,653,78"/>
+<area shape="rect" id="Node000005" href="$cloud_8c.html#a7344c0632d89afdb1bfccce502a6566b" title=" " alt="" coords="717,26,874,66"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="653,62,703,56,704,61,653,68"/>
+<area shape="rect" id="Node000006" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="708,91,883,116"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="653,83,695,88,694,93,653,88"/>
+<area shape="rect" id="Node000007" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="931,91,1083,116"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="883,101,917,101,917,106,883,106"/>
 </map>

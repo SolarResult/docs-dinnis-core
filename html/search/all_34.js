@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📞_20contact_0',['📞 Contact',['../index.html#autotoc_md327',1,'']]]
+  ['📥_20data_20acquisitie_20buffering_0',['📥 Data Acquisitie &amp;amp; Buffering',['../index.html#autotoc_md186',1,'']]]
 ];

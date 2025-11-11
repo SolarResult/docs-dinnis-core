@@ -113,7 +113,7 @@ $(function(){initNavTree('energy_pulse_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2energy__pulse_2energy__pulse__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md69"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -126,42 +126,19 @@ $(function(){initNavTree('energy_pulse_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="energy__pulse__zbus_8h.html">energy_pulse_zbus.h</a> - Public API en data structures  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md71"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Overzicht</h1>
-<p>De Energy Pulse module monitort externe puls-tellers via GPIO interrupts en houdt persistente energie-tellers bij. Elke puls representeert 1 Wh (Watt-uur) energieverbruik of -productie.</p>
-<p>Het systeem ondersteunt twee kanalen voor flexibele configuratie (bijv. één voor zonnepanelen opwek, één voor warmtepomp verbruik).</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md73"></a>
-Waarom? (Probleem &amp; Motivatie)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md74"></a>
-Persistente Energietellers</h2>
-<p><b>Probleem</b>: Puls-tellers zoals S0-meters tellen alleen pulsen, niet absolute energie. Bij een reboot of stroomuitval zou de absolute energiestand verloren gaan.</p>
-<p><b>Oplossing</b>: De module gebruikt Zephyr Settings subsystem om de teller-standen persistent op te slaan in flash. Elke update wordt direct weggeschreven, waardoor geen data verloren gaat bij een reboot.</p>
-<p><b>Use Case</b>:</p><ul>
-<li>Warmtepomp verbruikt 5 kWh per dag</li>
-<li>Bij stroomuitval om 14:00 (3 kWh al verbruikt)</li>
-<li>Na herstart telt de meter verder vanaf 3 kWh</li>
-<li>Geen data loss, accurate dagelijkse totalen</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md75"></a>
-GPIO Interrupt Gedreven</h2>
-<p><b>Design Rationale</b>: Puls-tellers genereren relatief weinig events (bijv. 1 Wh per puls = 8000 pulsen per dag bij 8 kWh verbruik). Polling zou inefficiënt zijn.</p>
-<p><b>Oplossing</b>:</p><ul>
-<li>GPIO interrupts met edge detection (rising edge)</li>
-<li>Atomic counter increment in interrupt context (&lt; 1 µs)</li>
-<li>Flag set om nieuwe data te markeren</li>
-<li>Settings save gebeurt ALLEEN bij publish (elke 10 min) of reboot</li>
-<li>Optimization: Skip save als geen nieuwe pulsen sinds vorige save</li>
-</ul>
-<p><b>Voordeel</b>:</p><ul>
-<li>CPU kan slapen tussen pulsen (power efficiency)</li>
-<li>Minimale flash writes (verlengt flash levensduur)</li>
-<li>Data loss window maximaal 10 minuten (acceptabel voor energie metingen)</li>
+<p>De <span class="tt">energy_pulse</span> module is verantwoordelijk voor het monitoren van twee digitale ingangen waarop energiemeters met een puls-uitgang aangesloten kunnen worden. De module telt de pulsen, converteert deze naar een energiewaarde (in Wh) en slaat de cumulatieve waarden persistent op in flashgeheugen.</p>
+<p>De belangrijkste functionaliteiten zijn:</p><ul>
+<li><b>Puls Tellen</b>: Detecteert pulsen op twee GPIO-pinnen (<span class="tt">pulse_one</span> en <span class="tt">pulse_two</span>) via interrupts.</li>
+<li><b>Data Conversie</b>: Converteert het aantal pulsen naar Wh op basis van een configureerbare factor (<span class="tt">CONFIG_APP_ENERGY_PULSE_WH_PER_PULSE</span>).</li>
+<li><b>Persistente Opslag</b>: Gebruikt het Zephyr Settings subsysteem om de pulstellers veilig op te slaan in flash. Dit gebeurt alleen wanneer er nieuwe pulsen zijn geteld om onnodige schrijfacties te voorkomen.</li>
+<li><b>ZBUS Interface</b>: Publiceert de verzamelde energiedata op het <span class="tt">ENERGY_PULSE_CHAN</span> en reageert op events van andere modules.</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md77"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md78"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
 Kanaal Configuratie</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -172,7 +149,7 @@ Kanaal Configuratie</h2>
 <td class="markdownTableBodyNone"><b>CH2</b>  </td><td class="markdownTableBodyNone">DT: <span class="tt">pulses/pulse_two</span>  </td><td class="markdownTableBodyNone">S0 puls input  </td><td class="markdownTableBodyNone">Warmtepomp verbruik  </td></tr>
 </table>
 <p><b>Puls specificatie</b>: 1 puls = 1 Wh (0.001 kWh)</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md79"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 Data Flow</h2>
 <div class="fragment"><div class="line">Externe puls-teller          Energy Pulse Module         Persistente opslag</div>
 <div class="line">     (S0 output)                                              (Flash)</div>
@@ -217,7 +194,7 @@ Data Flow</h2>
 <div class="line">         │                                                         │</div>
 <div class="line">         └────────────────► Save counters (if new pulses) ───────►│</div>
 <div class="line">                            Acknowledge shutdown                   │</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md80"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 ZBUS Interfaces</h2>
 <p><b>Subscribed Channels</b>:</p><ul>
 <li><span class="tt">DATA_PUBLISH_REQUEST_CHAN</span> - Trigger om huidige tellerstand te publiceren (elke 10 min)</li>
@@ -232,9 +209,9 @@ ZBUS Interfaces</h2>
 </li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md82"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md83"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
 Initialisatie Sequence</h2>
 <div class="fragment"><div class="line">Boot/Power-on</div>
 <div class="line">    │</div>
@@ -261,7 +238,7 @@ Initialisatie Sequence</h2>
 <div class="line">    │</div>
 <div class="line">    └─► Main loop</div>
 <div class="line">        └─ ZBUS message loop (zbus_sub_wait_msg)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md84"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
 Runtime Gedrag</h2>
 <p><b>Normal Operation</b>: </p><div class="fragment"><div class="line">t=0s:      Boot → Load counters: CH1=1245 Wh, CH2=8732 Wh</div>
 <div class="line">t=45s:     Pulse CH1 → Interrupt → counter++, set flag</div>
@@ -286,7 +263,7 @@ Runtime Gedrag</h2>
 <div class="line">t=300s:    ⚡ Power loss (ungraceful)</div>
 <div class="line">t=301s:    Boot → Load: CH1=1245 Wh, CH2=8732 Wh</div>
 <div class="line">           ❗ Data loss: 1 Wh CH1 + 1 Wh CH2 (max 10 min window)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md85"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
 Error Handling</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -302,7 +279,7 @@ Error Handling</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Power loss (ungraceful)  </td><td class="markdownTableBodyNone">Data loss sinds laatste save  </td><td class="markdownTableBodyNone">Max 10 min window (acceptabel voor energie metingen)  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md86"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 Configuratie (Kconfig)</h2>
 <div class="fragment"><div class="line">CONFIG_APP_ENERGY_PULSE_MODULE_LOG_LEVEL=&lt;level&gt;</div>
 <div class="line">CONFIG_APP_ENERGY_PULSE_MODULE_WATCHDOG_TIMEOUT_SECONDS=&lt;seconds&gt;</div>
@@ -312,9 +289,9 @@ Configuratie (Kconfig)</h2>
 <div class="line">CONFIG_APP_THREAD_PRIORITY_ENERGY_PULSE=&lt;priority&gt;</div>
 </div><!-- fragment --><p><b>Opmerking</b>: GPIO pins worden geconfigureerd via Device Tree (<span class="tt">pulses/pulse_one</span> en <span class="tt">pulses/pulse_two</span> nodes).</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md88"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
 Resultaten &amp; Impact</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md89"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md51"></a>
 Geheugen &amp; Performance</h2>
 <ul>
 <li><b>RAM</b>: ~400 bytes (atomic counters, GPIO callbacks, thread stack)</li>
@@ -324,7 +301,7 @@ Geheugen &amp; Performance</h2>
 <li><b>Settings write</b>: ~5-10 ms per save (only at publish/reboot, not per pulse!)</li>
 <li><b>Flash write frequency</b>: Max 1× per 10 minuten (144× per dag)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md90"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
 Betrouwbaarheid</h2>
 <ul>
 <li><b>Data persistentie</b>: Guaranteed bij graceful reboot/shutdown</li>
@@ -332,7 +309,7 @@ Betrouwbaarheid</h2>
 <li><b>Interrupt safety</b>: Atomic operations, geen race conditions</li>
 <li><b>Flash lifetime</b>: Optimized door skip save bij geen nieuwe pulsen (typisch 100K+ write cycles = jaren)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md91"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md53"></a>
 Design Trade-offs</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -346,7 +323,7 @@ Design Trade-offs</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Data loss window  </td><td class="markdownTableBodyNone">Max 10 minuten  </td><td class="markdownTableBodyNone">Acceptabel voor energie metingen (dagelijkse resolutie)  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md92"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
 Toekomstige Uitbreidingen</h2>
 <ul>
 <li>⏳ <b>Configureerbare Wh per puls</b> - Ondersteuning voor 10 Wh, 100 Wh meters</li>
@@ -356,7 +333,7 @@ Toekomstige Uitbreidingen</h2>
 <li>⏳ <b>Configureerbare save interval</b> - Trade-off tussen data loss window en flash writes</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md56"></a>
 Zie Ook</h1>
 <ul>
 <li><a class="el" href="energy__pulse_8c.html">energy_pulse.c</a> - Implementatie</li>

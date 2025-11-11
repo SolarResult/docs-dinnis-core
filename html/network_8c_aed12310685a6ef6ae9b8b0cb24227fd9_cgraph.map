@@ -1,7 +1,11 @@
 <map id="l4_event_handler" name="l4_event_handler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,140,31"/>
-<area shape="rect" id="Node000002" href="$network_8c.html#a4fea152205e6b87e6931de3f5cacd814" title=" " alt="" coords="188,5,364,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,15,174,15,174,21,140,21"/>
-<area shape="rect" id="Node000003" href="$network_8c.html#a07b1f840ca1e37d4090ab8621d8ad41c" title=" " alt="" coords="412,5,579,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,15,398,15,398,21,364,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,140,56"/>
+<area shape="rect" id="Node000002" href="$network_8c.html#a4fea152205e6b87e6931de3f5cacd814" title=" " alt="" coords="188,31,364,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,41,174,41,174,46,140,46"/>
+<area shape="rect" id="Node000003" href="$network_8c.html#a07b1f840ca1e37d4090ab8621d8ad41c" title=" " alt="" coords="416,5,583,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,31,402,26,403,32,365,36"/>
+<area shape="rect" id="Node000004" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="412,55,587,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="365,50,398,54,398,59,364,55"/>
+<area shape="rect" id="Node000005" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="635,55,787,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="587,65,621,65,621,70,587,70"/>
 </map>

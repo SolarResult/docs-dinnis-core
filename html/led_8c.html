@@ -115,12 +115,14 @@ $(function(){initNavTree('led_8c.html','',''); });
 <code>#include &lt;zephyr/drivers/led.h&gt;</code><br />
 <code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/logging/log.h&gt;</code><br />
+<code>#include &lt;zephyr/sys/reboot.h&gt;</code><br />
 <code>#include &lt;zephyr/zbus/zbus.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="cloud__zbus_8h_source.html">cloud_zbus.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="fota__zbus_8h_source.html">fota_zbus.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="modules__common_8h_source.html">modules_common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="reboot__zbus_8h_source.html">reboot_zbus.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="task__wdt__util_8h_source.html">task_wdt_util.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="trigger__zbus_8h_source.html">trigger_zbus.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -128,44 +130,54 @@ Include dependency graph for led.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="led_8c__incl.png" border="0" usemap="#amodules_2led_2led_8c" loading="lazy" alt=""/></div>
 <map name="amodules_2led_2led_8c" id="amodules_2led_2led_8c">
-<area shape="rect" title=" " alt="" coords="737,5,874,31"/>
+<area shape="rect" title=" " alt="" coords="667,5,805,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,131,104"/>
-<area shape="poly" title=" " alt="" coords="737,27,480,47,144,81,144,76,480,42,736,21"/>
+<area shape="poly" title=" " alt="" coords="667,28,439,49,145,81,144,76,439,43,667,22"/>
 <area shape="rect" title=" " alt="" coords="155,79,306,104"/>
-<area shape="poly" title=" " alt="" coords="737,30,320,81,320,76,736,25"/>
-<area shape="rect" title=" " alt="" coords="1043,159,1165,185"/>
-<area shape="poly" title=" " alt="" coords="874,18,954,22,1042,32,1118,49,1148,62,1167,77,1173,87,1175,97,1168,118,1152,137,1134,153,1130,149,1148,133,1163,115,1169,97,1168,89,1163,80,1145,66,1117,54,1041,37,954,28,874,23"/>
-<area shape="rect" title=" " alt="" coords="452,79,607,104"/>
-<area shape="poly" title=" " alt="" coords="762,33,588,78,587,73,760,28"/>
-<area shape="rect" title=" " alt="" coords="665,159,812,185"/>
-<area shape="poly" title=" " alt="" coords="744,33,703,51,686,64,672,80,667,98,675,117,690,134,709,149,706,154,686,138,670,119,662,99,667,77,682,60,700,46,741,28"/>
-<area shape="rect" href="cloud__zbus_8h.html" title=" " alt="" coords="820,79,927,104"/>
-<area shape="poly" title=" " alt="" coords="818,29,855,67,851,70,815,33"/>
-<area shape="rect" href="fota__zbus_8h.html" title=" " alt="" coords="330,79,427,104"/>
-<area shape="poly" title=" " alt="" coords="737,33,441,81,440,76,736,27"/>
-<area shape="rect" href="led_8h.html" title=" " alt="" coords="951,79,1006,104"/>
-<area shape="poly" title=" " alt="" coords="834,28,939,71,937,76,832,33"/>
-<area shape="rect" href="modules__common_8h.html" title=" " alt="" coords="1229,79,1384,104"/>
-<area shape="poly" title=" " alt="" coords="875,26,1216,75,1215,80,874,32"/>
-<area shape="rect" href="network__zbus_8h.html" title=" " alt="" coords="1030,79,1154,104"/>
-<area shape="poly" title=" " alt="" coords="852,28,1033,73,1032,78,851,33"/>
-<area shape="rect" href="task__wdt__util_8h.html" title=" " alt="" coords="1409,79,1530,104"/>
-<area shape="poly" title=" " alt="" coords="874,22,1101,43,1395,76,1395,81,1101,49,874,28"/>
-<area shape="rect" href="trigger__zbus_8h.html" title=" " alt="" coords="681,79,796,104"/>
-<area shape="poly" title=" " alt="" coords="796,33,761,70,757,67,792,29"/>
-<area shape="poly" title=" " alt="" coords="908,101,1058,152,1056,157,906,107"/>
-<area shape="poly" title=" " alt="" coords="855,106,772,155,769,150,852,102"/>
-<area shape="poly" title=" " alt="" coords="428,101,674,154,673,159,427,106"/>
-<area shape="poly" title=" " alt="" coords="1278,106,1147,157,1145,152,1276,102"/>
-<area shape="rect" title=" " alt="" coords="1202,159,1379,185"/>
-<area shape="poly" title=" " alt="" coords="1307,105,1298,146,1293,145,1302,104"/>
-<area shape="poly" title=" " alt="" coords="1096,104,1103,146,1098,146,1091,105"/>
-<area shape="poly" title=" " alt="" coords="1041,107,804,159,803,154,1040,101"/>
-<area shape="poly" title=" " alt="" coords="1416,107,1191,155,1171,159,1169,154,1190,149,1415,101"/>
-<area shape="rect" title=" " alt="" coords="1403,152,1565,192"/>
-<area shape="poly" title=" " alt="" coords="1474,104,1481,138,1475,139,1469,105"/>
-<area shape="poly" title=" " alt="" coords="792,101,1038,154,1037,159,791,107"/>
-<area shape="poly" title=" " alt="" coords="741,104,741,145,736,145,736,104"/>
+<area shape="poly" title=" " alt="" coords="668,32,320,80,319,75,667,26"/>
+<area shape="rect" title=" " alt="" coords="1095,159,1217,185"/>
+<area shape="poly" title=" " alt="" coords="805,20,922,27,1055,39,1170,55,1209,65,1231,77,1238,87,1239,98,1230,119,1211,138,1189,154,1186,150,1208,134,1225,116,1233,97,1232,89,1227,81,1207,70,1169,60,1055,44,922,33,805,25"/>
+<area shape="rect" title=" " alt="" coords="207,159,361,185"/>
+<area shape="poly" title=" " alt="" coords="667,25,610,31,544,42,475,58,409,81,380,96,352,115,308,151,304,147,349,110,377,92,407,76,474,53,543,36,609,26,667,20"/>
+<area shape="rect" title=" " alt="" coords="386,159,537,185"/>
+<area shape="poly" title=" " alt="" coords="667,25,598,31,524,41,461,57,437,68,422,80,416,96,419,113,428,131,441,147,437,150,424,134,414,115,411,95,418,77,435,64,459,52,523,36,597,25,667,20"/>
+<area shape="rect" title=" " alt="" coords="728,159,875,185"/>
+<area shape="poly" title=" " alt="" coords="689,33,654,45,624,61,613,71,607,80,606,91,611,102,630,117,660,131,735,153,733,159,658,136,627,122,607,106,601,92,602,79,609,67,621,57,652,40,688,28"/>
+<area shape="rect" href="cloud__zbus_8h.html" title=" " alt="" coords="963,79,1069,104"/>
+<area shape="poly" title=" " alt="" coords="782,28,958,73,957,78,780,33"/>
+<area shape="rect" href="fota__zbus_8h.html" title=" " alt="" coords="622,79,719,104"/>
+<area shape="poly" title=" " alt="" coords="727,33,692,70,689,67,723,29"/>
+<area shape="rect" href="led_8h.html" title=" " alt="" coords="883,79,938,104"/>
+<area shape="poly" title=" " alt="" coords="765,28,872,71,870,76,763,33"/>
+<area shape="rect" href="modules__common_8h.html" title=" " alt="" coords="1293,79,1448,104"/>
+<area shape="poly" title=" " alt="" coords="805,24,1275,76,1280,77,1279,82,1274,81,805,29"/>
+<area shape="rect" href="network__zbus_8h.html" title=" " alt="" coords="1094,79,1218,104"/>
+<area shape="poly" title=" " alt="" coords="804,28,1081,75,1080,80,803,33"/>
+<area shape="rect" href="reboot__zbus_8h.html" title=" " alt="" coords="433,79,546,104"/>
+<area shape="poly" title=" " alt="" coords="697,33,543,77,542,72,696,28"/>
+<area shape="rect" href="task__wdt__util_8h.html" title=" " alt="" coords="1473,79,1594,104"/>
+<area shape="poly" title=" " alt="" coords="805,21,1086,40,1459,76,1459,81,1086,46,805,26"/>
+<area shape="rect" href="trigger__zbus_8h.html" title=" " alt="" coords="744,79,859,104"/>
+<area shape="poly" title=" " alt="" coords="749,29,783,67,780,70,745,33"/>
+<area shape="poly" title=" " alt="" coords="1038,102,1125,150,1122,155,1035,107"/>
+<area shape="poly" title=" " alt="" coords="986,107,846,157,844,152,984,102"/>
+<area shape="poly" title=" " alt="" coords="691,102,772,150,769,154,689,106"/>
+<area shape="poly" title=" " alt="" coords="1340,107,1201,157,1199,152,1339,102"/>
+<area shape="rect" title=" " alt="" coords="1266,159,1443,185"/>
+<area shape="poly" title=" " alt="" coords="1371,105,1362,146,1357,145,1366,104"/>
+<area shape="poly" title=" " alt="" coords="1159,104,1159,145,1153,145,1153,104"/>
+<area shape="poly" title=" " alt="" coords="1105,107,867,159,866,154,1104,101"/>
+<area shape="poly" title=" " alt="" coords="546,97,1081,159,1081,165,546,102"/>
+<area shape="poly" title=" " alt="" coords="460,107,328,157,326,152,459,102"/>
+<area shape="poly" title=" " alt="" coords="488,105,473,147,468,145,483,103"/>
+<area shape="poly" title=" " alt="" coords="535,101,743,153,742,159,534,107"/>
+<area shape="rect" title=" " alt="" coords="561,152,703,192"/>
+<area shape="poly" title=" " alt="" coords="512,102,587,143,584,148,509,107"/>
+<area shape="poly" title=" " alt="" coords="1479,107,1225,159,1223,154,1478,101"/>
+<area shape="rect" title=" " alt="" coords="1467,152,1629,192"/>
+<area shape="poly" title=" " alt="" coords="1538,104,1545,138,1539,139,1533,105"/>
+<area shape="poly" title=" " alt="" coords="853,101,1092,154,1091,159,852,107"/>
+<area shape="poly" title=" " alt="" coords="804,104,804,145,799,145,799,104"/>
 </map>
 </div>
 </div>
@@ -277,7 +289,7 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="cloud_8c.html#ac9283cac5c939b94ce902cdf54042b7b">ZBUS_CHAN_ADD_OBS</a>(_chan, led_subscriber, 0);</div>
 <div class="ttc" id="acloud_8c_html_ac9283cac5c939b94ce902cdf54042b7b"><div class="ttname"><a href="cloud_8c.html#ac9283cac5c939b94ce902cdf54042b7b">ZBUS_CHAN_ADD_OBS</a></div><div class="ttdeci">ZBUS_CHAN_ADD_OBS(NETWORK_CHAN, cloud_subscriber, 0)</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00166">166</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00168">168</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -301,10 +313,10 @@ Variables</h2></td></tr>
 <div class="line">    X(TRIGGER_CHAN, <span class="keyword">struct</span> <a class="code hl_struct" href="structtrigger__msg.html">trigger_msg</a>)</div>
 <div class="ttc" id="astructcloud__msg_html"><div class="ttname"><a href="structcloud__msg.html">cloud_msg</a></div><div class="ttdef"><b>Definition</b> <a href="cloud__zbus_8h_source.html#l00039">cloud_zbus.h:39</a></div></div>
 <div class="ttc" id="astructfota__msg_html"><div class="ttname"><a href="structfota__msg.html">fota_msg</a></div><div class="ttdoc">FOTA message structure.</div><div class="ttdef"><b>Definition</b> <a href="fota__zbus_8h_source.html#l00024">fota_zbus.h:24</a></div></div>
-<div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00045">network_zbus.h:45</a></div></div>
+<div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00042">network_zbus.h:42</a></div></div>
 <div class="ttc" id="astructtrigger__msg_html"><div class="ttname"><a href="structtrigger__msg.html">trigger_msg</a></div><div class="ttdoc">Trigger channel message type.</div><div class="ttdef"><b>Definition</b> <a href="trigger__zbus_8h_source.html#l00032">trigger_zbus.h:32</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00156">156</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00158">158</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -320,7 +332,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00038">38</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00040">40</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -336,7 +348,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00163">163</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00165">165</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -358,7 +370,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134" name="a8785874f85756c2b2671417c4bed203aa3d37292fa40618e3260e047e72aee134"></a>LED_COLOR_BLU&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00041">41</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00043">43</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -380,7 +392,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7" name="aa206fed80157f2ec09b8c258631f2ca0aa8e0eda7a216aa1b0e6c9820f4a37aa7"></a>NETWORK_STATE_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00199">199</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00205">205</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
 </div>
 </div>
@@ -417,11 +429,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00447">447</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00453">453</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00217">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00222">led_module_state::acquiring_timeout</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -485,11 +497,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00272">272</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00278">278</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00064">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00063">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00240">led_on_state</a>, <a class="el" href="led_8c_source.html#l00066">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00062">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00066">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00246">led_on_state</a>, <a class="el" href="led_8c_source.html#l00068">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00064">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00264">set_led_color()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>, <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -583,11 +595,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>LED status priority to display </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00311">311</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00317">317</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00210">led_module_state::cloud_ready</a>, <a class="el" href="led_8c_source.html#l00212">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00213">led_module_state::fota_error</a>, <a class="el" href="led_8h_source.html#l00033">LED_STATUS_ACQUIRING</a>, <a class="el" href="led_8h_source.html#l00034">LED_STATUS_CLOUD_ERROR</a>, <a class="el" href="led_8h_source.html#l00030">LED_STATUS_CONNECTING</a>, <a class="el" href="led_8h_source.html#l00037">LED_STATUS_FOTA</a>, <a class="el" href="led_8h_source.html#l00036">LED_STATUS_FOTA_ERROR</a>, <a class="el" href="led_8h_source.html#l00031">LED_STATUS_IDLE</a>, <a class="el" href="led_8h_source.html#l00035">LED_STATUS_NETWORK_ERROR</a>, <a class="el" href="led_8h_source.html#l00029">LED_STATUS_WAIT</a>, <a class="el" href="led_8c_source.html#l00208">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00202">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00201">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00203">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00217">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::cloud_ready</a>, <a class="el" href="led_8c_source.html#l00218">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00219">led_module_state::fota_error</a>, <a class="el" href="led_8h_source.html#l00033">LED_STATUS_ACQUIRING</a>, <a class="el" href="led_8h_source.html#l00034">LED_STATUS_CLOUD_ERROR</a>, <a class="el" href="led_8h_source.html#l00030">LED_STATUS_CONNECTING</a>, <a class="el" href="led_8h_source.html#l00037">LED_STATUS_FOTA</a>, <a class="el" href="led_8h_source.html#l00036">LED_STATUS_FOTA_ERROR</a>, <a class="el" href="led_8h_source.html#l00031">LED_STATUS_IDLE</a>, <a class="el" href="led_8h_source.html#l00035">LED_STATUS_NETWORK_ERROR</a>, <a class="el" href="led_8h_source.html#l00029">LED_STATUS_WAIT</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00220">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00208">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00207">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00209">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00206">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -662,7 +674,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -675,8 +687,8 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="247,206,258,174,276,132,302,87,337,48,359,34,362,38,340,52,306,90,280,134,263,176,253,207"/>
 <area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="619,56,767,81"/>
 <area shape="poly" title=" " alt="" coords="250,205,281,152,306,122,337,98,370,83,404,72,474,58,544,53,606,55,605,61,544,59,475,63,405,77,372,88,340,103,310,126,285,155,255,208"/>
-<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="864,105,1003,131"/>
-<area shape="poly" title=" " alt="" coords="256,204,289,172,312,155,338,142,405,121,475,106,545,97,615,93,745,94,851,103,850,109,745,100,615,98,546,103,475,112,406,126,340,147,315,160,293,176,259,208"/>
+<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="864,107,1003,132"/>
+<area shape="poly" title=" " alt="" coords="256,204,289,172,312,155,338,142,405,121,475,107,545,98,615,93,745,95,851,104,850,110,745,100,615,99,546,103,475,112,406,126,340,147,315,160,293,176,259,208"/>
 <area shape="rect" href="led_8c.html#a02aff220c118271ed22cef5a1276921c" title="Process cloud status message." alt="" coords="362,157,511,183"/>
 <area shape="poly" title=" " alt="" coords="290,204,338,191,369,183,371,189,339,197,292,209"/>
 <area shape="rect" href="led_8c.html#a2d4ae4630b56180f0e16b1462da1f642" title="Process FOTA message." alt="" coords="367,207,507,232"/>
@@ -686,15 +698,15 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="led_8c.html#ab9fc1065d6a56a8dd9482eb39863b471" title="Process trigger message." alt="" coords="358,305,515,331"/>
 <area shape="poly" title=" " alt="" coords="261,230,295,260,340,290,359,299,357,303,337,295,292,265,257,234"/>
 <area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="365,355,508,380"/>
-<area shape="poly" title=" " alt="" coords="255,231,286,285,310,315,340,341,354,349,351,353,337,346,307,319,282,288,250,233"/>
+<area shape="poly" title=" " alt="" coords="255,231,286,284,311,314,340,340,354,348,351,352,337,344,307,318,282,287,250,234"/>
 <area shape="rect" href="task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,404,513,429"/>
 <area shape="poly" title=" " alt="" coords="252,231,262,264,279,307,305,352,321,373,340,391,350,397,347,401,337,395,317,377,300,355,274,310,257,266,247,233"/>
 <area shape="poly" title=" " alt="" coords="503,28,615,51,614,56,502,33"/>
-<area shape="poly" title=" " alt="" coords="756,79,858,100,857,105,755,84"/>
+<area shape="poly" title=" " alt="" coords="755,79,860,101,859,106,754,84"/>
 <area shape="rect" href="led_8c.html#a14a710a391b5d39b26baab06d0a5c120" title="Determine LED status based on current system state." alt="" coords="852,56,1015,81"/>
 <area shape="poly" title=" " alt="" coords="768,66,838,66,838,71,768,71"/>
-<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="1063,105,1171,131"/>
-<area shape="poly" title=" " alt="" coords="1003,115,1049,115,1049,121,1003,121"/>
+<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="1063,107,1171,132"/>
+<area shape="poly" title=" " alt="" coords="1003,117,1049,117,1049,122,1003,122"/>
 <area shape="rect" href="group__cloud.html#gae1725b97cb0278f661d2b056962f53be" title=" " alt="" coords="620,157,767,183"/>
 <area shape="poly" title=" " alt="" coords="511,167,606,167,606,173,511,173"/>
 <area shape="rect" href="group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="634,207,753,232"/>
@@ -704,7 +716,11 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="group__network.html#gad0a6f2be62aea4dfb98871fce50c04be" title=" " alt="" coords="600,305,787,331"/>
 <area shape="poly" title=" " alt="" coords="504,279,614,300,613,305,503,284"/>
 <area shape="rect" href="group__network.html#ga731127276feb6cc724b0abc39331a3e8" title=" " alt="" coords="583,355,804,380"/>
-<area shape="poly" title=" " alt="" coords="511,279,536,290,552,303,561,317,569,329,584,341,597,348,595,352,581,346,566,333,556,320,548,307,533,295,508,284"/>
+<area shape="poly" title=" " alt="" coords="510,279,536,290,552,303,561,316,570,328,584,340,601,348,598,352,581,344,566,332,556,319,548,307,533,295,508,284"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="606,404,781,429"/>
+<area shape="poly" title=" " alt="" coords="504,377,614,399,613,404,503,383"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="857,404,1009,429"/>
+<area shape="poly" title=" " alt="" coords="781,414,844,414,844,419,781,419"/>
 </map>
 </div>
 
@@ -737,7 +753,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00419">ledblink_handler()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -780,7 +796,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -825,9 +841,9 @@ Here is the call graph for this function:</div>
 <p>Verifies LED PWM device is ready.</p>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, negative errno on error </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00762">762</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00768">768</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00232">led_pwm</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00238">led_pwm</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#aa191d41e412c90cbed1c529fb2415d23">SYS_INIT()</a>.</p>
 <div class="dynheader">
@@ -869,9 +885,9 @@ Here is the caller graph for this function:</div>
 <p>Main LED thread. </p>
 <p>Processes ZBUS messages and updates LED pattern based on system state. </p>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00666">666</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00672">672</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00447">acquiring_timeout_handler()</a>, <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="cloud_8c_source.html#l00070">MAX_MSG_SIZE</a>, <a class="el" href="cloud__zbus_8h_source.html#l00024">MSG_TO_CLOUD_MSG_PTR</a>, <a class="el" href="fota__zbus_8h_source.html#l00030">MSG_TO_FOTA_MSG_PTR</a>, <a class="el" href="network__zbus_8h_source.html#l00024">MSG_TO_NETWORK_MSG_PTR</a>, <a class="el" href="trigger__zbus_8h_source.html#l00024">MSG_TO_TRIGGER_MSG_PTR</a>, <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00579">process_cloud_msg()</a>, <a class="el" href="led_8c_source.html#l00622">process_fota_msg()</a>, <a class="el" href="led_8c_source.html#l00512">process_network_msg()</a>, <a class="el" href="led_8c_source.html#l00597">process_trigger_msg()</a>, <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00222">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00453">acquiring_timeout_handler()</a>, <a class="el" href="led_8c_source.html#l00278">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00247">current_status</a>, <a class="el" href="led_8c_source.html#l00073">led_patterns</a>, <a class="el" href="cloud_8c_source.html#l00071">MAX_MSG_SIZE</a>, <a class="el" href="cloud__zbus_8h_source.html#l00024">MSG_TO_CLOUD_MSG_PTR</a>, <a class="el" href="fota__zbus_8h_source.html#l00030">MSG_TO_FOTA_MSG_PTR</a>, <a class="el" href="network__zbus_8h_source.html#l00024">MSG_TO_NETWORK_MSG_PTR</a>, <a class="el" href="trigger__zbus_8h_source.html#l00024">MSG_TO_TRIGGER_MSG_PTR</a>, <a class="el" href="led_8c_source.html#l00206">NETWORK_STATE_NEVER_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00585">process_cloud_msg()</a>, <a class="el" href="led_8c_source.html#l00628">process_fota_msg()</a>, <a class="el" href="led_8c_source.html#l00518">process_network_msg()</a>, <a class="el" href="led_8c_source.html#l00603">process_trigger_msg()</a>, <a class="el" href="app_8c_source.html#l00081">task_wdt_callback()</a>, <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a35d73a63d1b0b2489149fa82e345c43e">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -884,8 +900,8 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="53,206,63,174,81,132,107,87,142,48,165,34,168,38,146,52,111,90,86,134,68,176,58,207"/>
 <area shape="rect" href="led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="425,56,573,81"/>
 <area shape="poly" title=" " alt="" coords="55,205,86,152,112,122,143,98,175,83,209,72,280,58,349,53,411,55,411,61,349,59,280,63,211,77,177,88,145,103,115,126,91,155,60,208"/>
-<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="669,105,808,131"/>
-<area shape="poly" title=" " alt="" coords="61,204,95,172,118,155,143,142,210,121,280,106,351,97,420,93,551,94,656,103,655,109,550,100,421,98,351,103,281,112,211,126,145,147,120,160,98,176,65,208"/>
+<area shape="rect" href="led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="669,107,808,132"/>
+<area shape="poly" title=" " alt="" coords="61,204,95,172,118,155,143,142,210,121,280,107,351,98,421,93,551,95,656,104,656,110,550,100,421,99,351,103,281,112,211,126,145,147,120,160,98,176,65,208"/>
 <area shape="rect" href="led_8c.html#a02aff220c118271ed22cef5a1276921c" title="Process cloud status message." alt="" coords="167,157,317,183"/>
 <area shape="poly" title=" " alt="" coords="96,204,143,191,175,183,176,189,145,197,97,209"/>
 <area shape="rect" href="led_8c.html#a2d4ae4630b56180f0e16b1462da1f642" title="Process FOTA message." alt="" coords="172,207,312,232"/>
@@ -895,15 +911,15 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="led_8c.html#ab9fc1065d6a56a8dd9482eb39863b471" title="Process trigger message." alt="" coords="163,305,321,331"/>
 <area shape="poly" title=" " alt="" coords="66,230,100,260,145,290,165,299,163,303,143,295,97,265,63,234"/>
 <area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="171,355,313,380"/>
-<area shape="poly" title=" " alt="" coords="60,231,91,285,116,315,146,341,159,349,157,353,142,346,112,319,87,288,55,233"/>
+<area shape="poly" title=" " alt="" coords="60,231,92,284,116,314,146,340,159,348,157,352,142,344,112,318,87,287,56,234"/>
 <area shape="rect" href="task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="166,404,318,429"/>
 <area shape="poly" title=" " alt="" coords="58,231,67,264,84,307,110,352,127,373,146,391,155,397,152,401,142,395,123,377,106,355,79,310,62,266,52,233"/>
 <area shape="poly" title=" " alt="" coords="308,28,421,51,420,56,307,33"/>
-<area shape="poly" title=" " alt="" coords="562,79,663,100,662,105,561,84"/>
+<area shape="poly" title=" " alt="" coords="560,79,665,101,664,106,559,84"/>
 <area shape="rect" href="led_8c.html#a14a710a391b5d39b26baab06d0a5c120" title="Determine LED status based on current system state." alt="" coords="657,56,820,81"/>
 <area shape="poly" title=" " alt="" coords="573,66,643,66,643,71,573,71"/>
-<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="868,105,976,131"/>
-<area shape="poly" title=" " alt="" coords="808,115,854,115,854,121,808,121"/>
+<area shape="rect" href="led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="868,107,976,132"/>
+<area shape="poly" title=" " alt="" coords="808,117,854,117,854,122,808,122"/>
 <area shape="rect" href="group__cloud.html#gae1725b97cb0278f661d2b056962f53be" title=" " alt="" coords="425,157,572,183"/>
 <area shape="poly" title=" " alt="" coords="317,167,412,167,412,173,317,173"/>
 <area shape="rect" href="group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="439,207,558,232"/>
@@ -913,7 +929,11 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="group__network.html#gad0a6f2be62aea4dfb98871fce50c04be" title=" " alt="" coords="405,305,592,331"/>
 <area shape="poly" title=" " alt="" coords="309,279,419,300,418,305,308,284"/>
 <area shape="rect" href="group__network.html#ga731127276feb6cc724b0abc39331a3e8" title=" " alt="" coords="388,355,609,380"/>
-<area shape="poly" title=" " alt="" coords="316,279,341,290,357,303,366,317,375,329,389,341,403,348,400,352,387,346,371,333,362,320,353,307,339,295,314,284"/>
+<area shape="poly" title=" " alt="" coords="315,279,341,290,357,303,366,316,375,328,389,340,406,348,404,352,387,344,371,332,362,319,353,307,339,295,313,284"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="411,404,586,429"/>
+<area shape="poly" title=" " alt="" coords="309,377,419,399,418,404,308,383"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="663,404,815,429"/>
+<area shape="poly" title=" " alt="" coords="586,414,649,414,649,419,586,419"/>
 </map>
 </div>
 <div class="dynheader">
@@ -961,9 +981,9 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00413">413</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00419">419</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00064">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00063">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00240">led_on_state</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00066">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00062">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00066">led_pattern::blue</a>, <a class="el" href="led_8c_source.html#l00247">current_status</a>, <a class="el" href="led_8c_source.html#l00065">led_pattern::green</a>, <a class="el" href="led_8c_source.html#l00246">led_on_state</a>, <a class="el" href="led_8c_source.html#l00073">led_patterns</a>, <a class="el" href="led_8c_source.html#l00068">led_pattern::period_off</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::period_on</a>, <a class="el" href="led_8c_source.html#l00064">led_pattern::red</a>, and <a class="el" href="led_8c_source.html#l00264">set_led_color()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a25a6f9b64bf80b8969dfdc6c988138b7">K_WORK_DELAYABLE_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -1042,9 +1062,9 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00467">467</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00473">473</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00048">led_status_names</a>, <a class="el" href="led_8c_source.html#l00243">min_display_active</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00242">pending_status</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00278">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00247">current_status</a>, <a class="el" href="led_8c_source.html#l00073">led_patterns</a>, <a class="el" href="led_8c_source.html#l00050">led_status_names</a>, <a class="el" href="led_8c_source.html#l00249">min_display_active</a>, <a class="el" href="led_8c_source.html#l00069">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00248">pending_status</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#aa930483accfc13b7d56d7e2d55a7b25c">K_WORK_DELAYABLE_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -1108,11 +1128,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00579">579</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00585">585</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="cloud__zbus_8h_source.html#l00053">cloud_is_not_ready()</a>, <a class="el" href="cloud__zbus_8h_source.html#l00048">cloud_is_ready()</a>, and <a class="el" href="led_8c_source.html#l00210">led_module_state::cloud_ready</a>.</p>
+<p class="reference">References <a class="el" href="cloud__zbus_8h_source.html#l00053">cloud_is_not_ready()</a>, <a class="el" href="cloud__zbus_8h_source.html#l00048">cloud_is_ready()</a>, and <a class="el" href="led_8c_source.html#l00216">led_module_state::cloud_ready</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1177,11 +1197,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00622">622</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00628">628</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00212">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00213">led_module_state::fota_error</a>, <a class="el" href="fota__zbus_8h_source.html#l00015">FOTA_STATUS_DOWNLOADING</a>, <a class="el" href="fota__zbus_8h_source.html#l00018">FOTA_STATUS_ERROR</a>, <a class="el" href="fota__zbus_8h_source.html#l00014">FOTA_STATUS_IDLE</a>, <a class="el" href="fota__zbus_8h_source.html#l00017">FOTA_STATUS_READY</a>, and <a class="el" href="fota__zbus_8h_source.html#l00025">fota_msg::status</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00218">led_module_state::fota_active</a>, <a class="el" href="led_8c_source.html#l00219">led_module_state::fota_error</a>, <a class="el" href="fota__zbus_8h_source.html#l00015">FOTA_STATUS_DOWNLOADING</a>, <a class="el" href="fota__zbus_8h_source.html#l00018">FOTA_STATUS_ERROR</a>, <a class="el" href="fota__zbus_8h_source.html#l00014">FOTA_STATUS_IDLE</a>, <a class="el" href="fota__zbus_8h_source.html#l00017">FOTA_STATUS_READY</a>, and <a class="el" href="fota__zbus_8h_source.html#l00025">fota_msg::status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1242,11 +1262,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00512">512</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00518">518</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00215">led_module_state::disconnect_timestamp</a>, <a class="el" href="led_8c_source.html#l00208">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00209">led_module_state::network_connected</a>, <a class="el" href="network__zbus_8h_source.html#l00054">network_is_connected()</a>, <a class="el" href="network__zbus_8h_source.html#l00059">network_is_disconnected()</a>, <a class="el" href="network__zbus_8h_source.html#l00064">network_is_modem_initialized()</a>, <a class="el" href="led_8c_source.html#l00202">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00201">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00203">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00200">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00217">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00222">led_module_state::acquiring_timeout</a>, <a class="el" href="led_8c_source.html#l00221">led_module_state::disconnect_timestamp</a>, <a class="el" href="led_8c_source.html#l00214">led_module_state::modem_initialized</a>, <a class="el" href="led_8c_source.html#l00220">led_module_state::net_state</a>, <a class="el" href="led_8c_source.html#l00215">led_module_state::network_connected</a>, <a class="el" href="network__zbus_8h_source.html#l00051">network_is_connected()</a>, <a class="el" href="network__zbus_8h_source.html#l00056">network_is_disconnected()</a>, <a class="el" href="network__zbus_8h_source.html#l00061">network_is_modem_initialized()</a>, <a class="el" href="led_8c_source.html#l00208">NETWORK_STATE_CONNECTED</a>, <a class="el" href="led_8c_source.html#l00207">NETWORK_STATE_CONNECTING</a>, <a class="el" href="led_8c_source.html#l00209">NETWORK_STATE_ERROR</a>, and <a class="el" href="led_8c_source.html#l00206">NETWORK_STATE_NEVER_CONNECTED</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1313,11 +1333,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00597">597</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00603">603</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00211">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00216">led_module_state::acquiring_timeout</a>, and <a class="el" href="trigger__zbus_8h_source.html#l00033">trigger_msg::timestamp_ms</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00217">led_module_state::acquiring</a>, <a class="el" href="led_8c_source.html#l00222">led_module_state::acquiring_timeout</a>, and <a class="el" href="trigger__zbus_8h_source.html#l00033">trigger_msg::timestamp_ms</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1375,11 +1395,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00258">258</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00264">264</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00044">LED_COLOR_BLU</a>, <a class="el" href="led_8c_source.html#l00043">LED_COLOR_GRN</a>, <a class="el" href="led_8c_source.html#l00042">LED_COLOR_RED</a>, and <a class="el" href="led_8c_source.html#l00232">led_pwm</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00046">LED_COLOR_BLU</a>, <a class="el" href="led_8c_source.html#l00045">LED_COLOR_GRN</a>, <a class="el" href="led_8c_source.html#l00044">LED_COLOR_RED</a>, and <a class="el" href="led_8c_source.html#l00238">led_pwm</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00278">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00419">ledblink_handler()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1435,7 +1455,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00762">led_init()</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00768">led_init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1476,17 +1496,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00178">178</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00180">180</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>.</p>
+<p class="reference">References <a class="el" href="reboot__zbus_8c_source.html#l00063">reboot_request_publish()</a>, <a class="el" href="reboot__zbus_8h_source.html#l00064">REBOOT_TYPE_ERROR</a>, and <a class="el" href="app_8c_source.html#l00081">task_wdt_callback()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="led_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph.png" border="0" usemap="#aled_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph" loading="lazy" alt=""/></div>
 <map name="aled_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph" id="aled_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,148,31"/>
-<area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="196,5,339,31"/>
-<area shape="poly" title=" " alt="" coords="148,15,183,15,183,21,148,21"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="387,5,561,31"/>
+<area shape="poly" title=" " alt="" coords="148,15,373,15,373,21,148,21"/>
+<area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="196,31,339,56"/>
+<area shape="poly" title=" " alt="" coords="148,25,183,29,182,35,148,30"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="609,5,761,31"/>
+<area shape="poly" title=" " alt="" coords="561,15,595,15,595,21,561,21"/>
+<area shape="poly" title=" " alt="" coords="339,32,373,28,373,33,339,37"/>
 </map>
 </div>
 
@@ -1524,11 +1549,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00366">366</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00372">372</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">References <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00241">current_status</a>, <a class="el" href="led_8c_source.html#l00311">determine_led_status()</a>, <a class="el" href="led_8c_source.html#l00071">led_patterns</a>, <a class="el" href="led_8c_source.html#l00048">led_status_names</a>, <a class="el" href="led_8c_source.html#l00243">min_display_active</a>, <a class="el" href="led_8c_source.html#l00067">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00242">pending_status</a>.</p>
+<p class="reference">References <a class="el" href="led_8c_source.html#l00278">apply_led_pattern()</a>, <a class="el" href="led_8c_source.html#l00247">current_status</a>, <a class="el" href="led_8c_source.html#l00317">determine_led_status()</a>, <a class="el" href="led_8c_source.html#l00073">led_patterns</a>, <a class="el" href="led_8c_source.html#l00050">led_status_names</a>, <a class="el" href="led_8c_source.html#l00249">min_display_active</a>, <a class="el" href="led_8c_source.html#l00069">led_pattern::min_display_time_ms</a>, and <a class="el" href="led_8c_source.html#l00248">pending_status</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00447">acquiring_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00666">led_thread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00453">acquiring_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00672">led_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1637,7 +1662,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="cloud_8c_source.html#l00073">ADD_OBSERVERS</a>.</p>
+<p class="reference">References <a class="el" href="cloud_8c_source.html#l00074">ADD_OBSERVERS</a>.</p>
 
 </div>
 </div>
@@ -1705,9 +1730,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00241">241</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00247">247</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>, <a class="el" href="led_8c_source.html#l00419">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1731,9 +1756,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00240">240</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00246">246</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00272">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00278">apply_led_pattern()</a>, and <a class="el" href="led_8c_source.html#l00419">ledblink_handler()</a>.</p>
 
 </div>
 </div>
@@ -1757,9 +1782,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00071">71</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00073">73</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="led_8c_source.html#l00413">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>, <a class="el" href="led_8c_source.html#l00419">ledblink_handler()</a>, <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1783,9 +1808,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00232">232</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00238">238</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00762">led_init()</a>, and <a class="el" href="led_8c_source.html#l00258">set_led_color()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00768">led_init()</a>, and <a class="el" href="led_8c_source.html#l00264">set_led_color()</a>.</p>
 
 </div>
 </div>
@@ -1829,9 +1854,9 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5adc5ad36f829f77781f408974725106ea">LED_STATUS_IDLE</a></div><div class="ttdeci">@ LED_STATUS_IDLE</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00031">led.h:31</a></div></div>
 <div class="ttc" id="agroup__led_html_ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516"><div class="ttname"><a href="group__led.html#ggaa0d9fa15febb4e4b1d6fdc2f2bdb94f5aeec0865318f05325795d85e610ce2516">LED_STATUS_FOTA_ERROR</a></div><div class="ttdeci">@ LED_STATUS_FOTA_ERROR</div><div class="ttdef"><b>Definition</b> <a href="led_8h_source.html#l00036">led.h:36</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00048">48</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00050">50</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1855,9 +1880,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00243">243</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00249">249</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1881,9 +1906,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00242">242</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="led_8c_source.html#l00248">248</a> of file <a class="el" href="led_8c_source.html">led.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00467">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00366">update_led_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00473">min_display_timeout_handler()</a>, and <a class="el" href="led_8c_source.html#l00372">update_led_pattern()</a>.</p>
 
 </div>
 </div>

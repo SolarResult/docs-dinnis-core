@@ -148,7 +148,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a72e7c29e088e55addf81b3023ea4565e" id="r_a72e7c29e088e55addf81b3023ea4565e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72e7c29e088e55addf81b3023ea4565e">cmd_connect</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
 <tr class="memitem:aabe9b4146224f08febb903da64076515" id="r_aabe9b4146224f08febb903da64076515"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabe9b4146224f08febb903da64076515">cmd_disconnect</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
 <tr class="memitem:aaa01f246478f17fd6fbbf4092816ee8a" id="r_aaa01f246478f17fd6fbbf4092816ee8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa01f246478f17fd6fbbf4092816ee8a">SHELL_STATIC_SUBCMD_SET_CREATE</a> (sub_cmds, SHELL_CMD(connect, NULL, &quot;Connect to LTE&quot;, <a class="el" href="#a72e7c29e088e55addf81b3023ea4565e">cmd_connect</a>), SHELL_CMD(disconnect, NULL, &quot;Disconnect from LTE&quot;, <a class="el" href="#aabe9b4146224f08febb903da64076515">cmd_disconnect</a>), SHELL_SUBCMD_SET_END)</td></tr>
-<tr class="memitem:aa4f33e6f50ba1698fb81d29080980cf5" id="r_aa4f33e6f50ba1698fb81d29080980cf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4f33e6f50ba1698fb81d29080980cf5">SHELL_CMD_REGISTER</a> (app_network, &amp;sub_cmds, &quot;SolarResult Dinnis Firmware Network CMDs&quot;, NULL)</td></tr>
+<tr class="memitem:afab65107c6f634f293eaf398cda20306" id="r_afab65107c6f634f293eaf398cda20306"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afab65107c6f634f293eaf398cda20306">SHELL_CMD_REGISTER</a> (app_network, &amp;sub_cmds, &quot;SolarResult Energy Firmware Network CMDs&quot;, NULL)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a72e7c29e088e55addf81b3023ea4565e" name="a72e7c29e088e55addf81b3023ea4565e"></a>
@@ -272,8 +272,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aa4f33e6f50ba1698fb81d29080980cf5" name="aa4f33e6f50ba1698fb81d29080980cf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4f33e6f50ba1698fb81d29080980cf5">&#9670;&#160;</a></span>SHELL_CMD_REGISTER()</h2>
+<a id="afab65107c6f634f293eaf398cda20306" name="afab65107c6f634f293eaf398cda20306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab65107c6f634f293eaf398cda20306">&#9670;&#160;</a></span>SHELL_CMD_REGISTER()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +291,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;SolarResult Dinnis Firmware Network CMDs&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">&quot;SolarResult Energy Firmware Network CMDs&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

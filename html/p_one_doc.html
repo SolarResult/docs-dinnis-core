@@ -113,7 +113,7 @@ $(function(){initNavTree('p_one_doc.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_modules_2p__one_2p__one__doc"></a></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md189"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
 🔗 Navigatie</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -126,12 +126,12 @@ $(function(){initNavTree('p_one_doc.html','',''); });
 <td class="markdownTableBodyNone">📄 <b>Header Files</b>  </td><td class="markdownTableBodyNone"><a class="el" href="p__one__zbus_8h.html">p_one_zbus.h</a> - Public API en data structures  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md191"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md96"></a>
 Overzicht</h1>
 <p>De P1 module vormt de kern van de energiemeting in Dinnis. Via de P1 poort van DSMR slimme meters leest de module elektriciteits- en gasverbruiksdata uit, parsed deze, en publiceert geaggregeerde statistieken voor cloud upload. Deze module draait continu in een dedicated thread en moet robuust omgaan met verschillende UART situaties, timing requirements, en data validatie.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md192"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md97"></a>
 Functionaliteit</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md193"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md98"></a>
 Data Acquisitie van DSMR Meters</h2>
 <p>DSMR slimme meters publiceren elke seconde een telegram via de P1 poort - een seriële UART verbinding (115200 baud, 8N1, no flow control). Een telegram is een ASCII bestand bestaande uit OBIS codes (Object Identification System) die energie metingen representeren. De module luistert naar deze telegrams en extract relevante metingen:</p>
 <p><b>Elektriciteit:</b></p><ul>
@@ -150,7 +150,7 @@ Data Acquisitie van DSMR Meters</h2>
 <div class="line">1-0:1.7.0(00.342*kW)       → Actueel verbruik: 342W</div>
 <div class="line">0-1:24.2.3(241022130000W)(00456.789*m3)  → Gas: 456.789 m³ @ timestamp</div>
 </div><!-- fragment --><p>De parser converteert deze fixed-point decimale waarden (6 decimalen precisie) direct naar integer milliwatt/milliwattuur representatie. Geen floating point conversies - de OBIS data is intern al integer fixed-point, dus door dit te behouden elimineren we FPU overhead volledig.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md194"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md99"></a>
 UART Async API &amp; Timing</h2>
 <p>De module gebruikt Zephyr's UART Async API met RX timeout detectie. Dit is cruciaal omdat DSMR telegrams variabel van lengte zijn (500-1500 bytes) en niet op een voorspelbare tijd eindigen. De UART events die we verwerken:</p>
 <p><b>UART_RX_RDY</b>: Data beschikbaar in buffer</p><ul>
@@ -178,7 +178,7 @@ UART Async API &amp; Timing</h2>
 <li>Timeout is betrouwbaarder (werkt ook bij corrupte <span class="tt">!</span> marker)</li>
 <li>Zephyr UART Async timeout is hardware-assisted (efficient)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md195"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md100"></a>
 UART Timing Calculations - Fundamentals</h2>
 <p>De timing parameters zijn niet arbitrair gekozen - ze zijn nauwkeurig berekend gebaseerd op UART hardware karakteristieken en DSMR specificaties. Hier is de volledige uitwerking:</p>
 <p><b>UART Frame Timing (8N1 format)</b>:</p><ul>
@@ -245,7 +245,63 @@ UART Timing Calculations - Fundamentals</h2>
 <li><b>Telegram timeout</b>: <b>784 ms</b> (max telegram + 10% margin)</li>
 <li><b>Total timeout</b>: <b>10.8s</b> (P1 delay + telegram)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md196"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md101"></a>
+GPIO Data Request Pin &amp; Inverterende Buffer</h2>
+<p>De P1 DSMR interface gebruikt een <b>Data Request</b> pin om telegrammen op te vragen. De hardware implementatie op Dinnis gebruikt een <b>inverterende buffer</b> tussen de nRF9161 GPIO en de P1 meter.</p>
+<p><b>Hardware Signal Path</b>: </p><div class="fragment"><div class="line">nRF9161 GPIO (P0.26) → [Inverterende Buffer] → P1 Meter Data Request</div>
+</div><!-- fragment --><p><b>DSMR P1 Specificatie Requirement</b>:</p>
+<p>Volgens DSMR 5.0.2 specificatie verwacht de P1 poort een <b>HIGH (3.3V)</b> signaal om een data request te activeren:</p><ul>
+<li><b>HIGH level</b>: Data request actief → meter stuurt telegram</li>
+<li><b>LOW level</b>: Idle state → geen data request</li>
+</ul>
+<p><b>Inverterende Buffer Compensatie</b>:</p>
+<p>De hardware bevat een inverterende buffer die het GPIO signaal omkeert voordat het naar de P1 meter gaat. Dit betekent dat de firmware moet compenseren voor deze inversie.</p>
+<p><b>GPIO Configuratie: <span class="tt">GPIO_ACTIVE_LOW</span></b></p>
+<p>In de device tree (<span class="tt">dinnis_nrf9161_ns.dts</span>): </p><div class="fragment"><div class="line">datarequest: data_request {</div>
+<div class="line">    gpios = &lt;&amp;gpio0 26 GPIO_ACTIVE_LOW&gt;;  /* Inverting buffer compensation */</div>
+<div class="line">    label = &quot;Data Request&quot;;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p><b>Signaal Flow met <span class="tt">GPIO_ACTIVE_LOW</span></b>:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Firmware API Call  </th><th class="markdownTableHeadNone">Logische State  </th><th class="markdownTableHeadNone">GPIO Pin (fysiek)  </th><th class="markdownTableHeadNone">Buffer Output  </th><th class="markdownTableHeadNone">P1 Meter Ziet  </th><th class="markdownTableHeadNone">Resultaat  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">gpio_pin_set_dt(..., 0)</span>  </td><td class="markdownTableBodyNone">Deasserted  </td><td class="markdownTableBodyNone"><b>HIGH (3.3V)</b>  </td><td class="markdownTableBodyNone"><b>LOW (0V)</b>  </td><td class="markdownTableBodyNone">LOW  </td><td class="markdownTableBodyNone">✅ Idle (geen request)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">gpio_pin_set_dt(..., 1)</span>  </td><td class="markdownTableBodyNone">Asserted  </td><td class="markdownTableBodyNone"><b>LOW (0V)</b>  </td><td class="markdownTableBodyNone"><b>HIGH (3.3V)</b>  </td><td class="markdownTableBodyNone">HIGH  </td><td class="markdownTableBodyNone">✅ Data request actief!  </td></tr>
+</table>
+<p><b>Waarom <span class="tt">GPIO_ACTIVE_LOW</span> Correct Is</b>:</p>
+<ol type="1">
+<li><b>P1 Specificatie</b>: P1 meter verwacht HIGH voor data request</li>
+<li><b>Hardware Inversie</b>: Inverterende buffer draait signaal om</li>
+<li><b>Firmware Compensatie</b>: <span class="tt">GPIO_ACTIVE_LOW</span> compenseert automatisch</li>
+<li><b>Clean Code</b>: <span class="tt">gpio_pin_set_dt(&amp;pin, 1)</span> betekent logisch "assert request"</li>
+</ol>
+<p>De Zephyr GPIO API handelt de inversie automatisch af wanneer <span class="tt">GPIO_ACTIVE_LOW</span> is geconfigureerd. De firmware code blijft clean en leesbaar:</p>
+<div class="fragment"><div class="line"><span class="comment">/* Initialize: deasserted state (no request) */</span></div>
+<div class="line">gpio_pin_set_dt(&amp;<a class="code hl_variable" href="p__one_8c.html#a0e069e17511aca163f32accb3c5f625c">p_one_data_request</a>, 0);  </div>
+<div class="line"><span class="comment">/* → GPIO=HIGH → Buffer=LOW → P1=Idle ✓ */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Request telegram: asserted state */</span></div>
+<div class="line">gpio_pin_set_dt(&amp;<a class="code hl_variable" href="p__one_8c.html#a0e069e17511aca163f32accb3c5f625c">p_one_data_request</a>, 1);  </div>
+<div class="line"><span class="comment">/* → GPIO=LOW → Buffer=HIGH → P1=Active ✓ */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Deassert after reception */</span></div>
+<div class="line">gpio_pin_set_dt(&amp;<a class="code hl_variable" href="p__one_8c.html#a0e069e17511aca163f32accb3c5f625c">p_one_data_request</a>, 0);  </div>
+<div class="line"><span class="comment">/* → GPIO=HIGH → Buffer=LOW → P1=Idle ✓ */</span></div>
+<div class="ttc" id="ap__one_8c_html_a0e069e17511aca163f32accb3c5f625c"><div class="ttname"><a href="p__one_8c.html#a0e069e17511aca163f32accb3c5f625c">p_one_data_request</a></div><div class="ttdeci">const struct gpio_dt_spec p_one_data_request</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00218">p_one.c:218</a></div></div>
+</div><!-- fragment --><p><b>Alternatief zonder <span class="tt">GPIO_ACTIVE_LOW</span></b>:</p>
+<p>Als de pin <span class="tt">GPIO_ACTIVE_HIGH</span> was geconfigureerd, zou de code verwarrend worden: </p><div class="fragment"><div class="line">gpio_pin_set_dt(&amp;pin, 1);  <span class="comment">/* Set HIGH → Buffer inverts → P1 sees LOW → WRONG! */</span></div>
+<div class="line">gpio_pin_set_dt(&amp;pin, 0);  <span class="comment">/* Set LOW → Buffer inverts → P1 sees HIGH → Request?? */</span></div>
+</div><!-- fragment --><p>Met <span class="tt">GPIO_ACTIVE_LOW</span> blijft de code intuïtief: <span class="tt">1</span> = "assert request", <span class="tt">0</span> = "deassert request", ongeacht de hardware inversie.</p>
+<p><b>Hardware Design Rationale</b>:</p>
+<p>De inverterende buffer dient mogelijk voor:</p><ul>
+<li><b>Level shifting</b> tussen verschillende voltage domains</li>
+<li><b>Signal conditioning</b> voor betere EMC eigenschappen</li>
+<li><b>ESD protection</b> met geïntegreerde clamp circuits</li>
+<li><b>Current buffering</b> om GPIO pin te beschermen</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
 OBIS Parsing &amp; Data Conversie</h2>
 <p>Elk OBIS veld wordt geparsed door een dedicated parser functie. De parsers zijn type-specifiek:</p>
 <p><b>Fixed-point numerieke waarden</b>:</p>
@@ -269,13 +325,22 @@ OBIS Parsing &amp; Data Conversie</h2>
 <li>Extract timestamp string: "241022130000"</li>
 <li>Parse componenten: Jaar=24, Maand=10, Dag=22, Uur=13, Min=00, Sec=00</li>
 <li>Converteer naar Unix epoch seconds via <span class="tt">timeutil_timegm64()</span> (Zephyr time utilities)</li>
+<li><b>Normalisatie</b>: Pas DST-indicator toe (zie hieronder)</li>
 <li>Opslag intern: <span class="tt">timestamp_epoch_localtime_s</span> (uint64_t, <b>seconds</b>)</li>
 <li>Output conversie: × 1000 → <span class="tt">timestamp_epoch_ms</span> (int64_t, <b>milliseconds</b>)</li>
 </ol>
+<p><b>Timestamp Normalisatie</b>:</p>
+<p>De P1-meter levert lokale tijd met een DST-indicator ('S'/'W'). De firmware normaliseert deze naar een consistent formaat:</p>
+<ul>
+<li><b>Zomertijd ('S')</b>: Trek 1 uur (3600 seconden) af</li>
+<li><b>Wintertijd ('W')</b>: Geen aanpassing</li>
+</ul>
+<p><b>Resultaat</b>: Output timestamp is altijd genormaliseerd naar "wintertijd-niveau". De firmware heeft geen kennis van tijdzones - verdere conversie naar UTC is de verantwoordelijkheid van de server</p>
 <p><b>Field Naming Convention</b>:</p><ul>
-<li><span class="tt">timestamp_epoch_localtime_s</span>: Internal storage (seconds, local time with DST)</li>
-<li><span class="tt">timestamp_epoch_ms</span>: Output to message queue (milliseconds, Unix epoch)</li>
+<li><span class="tt">timestamp_epoch_localtime_s</span>: Internal storage (seconds, normalized local time)</li>
+<li><span class="tt">timestamp_epoch_ms</span>: Output to message queue (milliseconds, normalized local time)</li>
 <li><span class="tt">_epoch_s</span> / <span class="tt">_epoch_ms</span> suffix indicates unit AND time base (vs <span class="tt">uptime_ms</span> for system uptime)</li>
+<li><b>⚠️ "epoch" in naam impliceert NIET UTC</b> - dit is genormaliseerde lokale tijd</li>
 </ul>
 <p><b>Peak Timestamps</b> (power statistics):</p><ul>
 <li>Stored: <span class="tt">consumed_max_timestamp_epoch_s</span>, <span class="tt">delivered_max_timestamp_epoch_s</span> (int64_t, <b>seconds</b>)</li>
@@ -286,20 +351,14 @@ OBIS Parsing &amp; Data Conversie</h2>
 <li>Gas updates elk <b>uur</b> (niet elke seconde zoals elektriciteit)</li>
 <li>Timestamp geeft tijdstip van <b>deze gas meting</b></li>
 <li>Parser: Extractie identiek aan telegram timestamp (YYMMDDHHmmssX formaat)</li>
-</ul>
-<p><b>Design Rationale</b>:</p><ul>
-<li>✅ <b>Accurate</b>: Meter klok synced door DSO, nauwkeuriger dan device oscillator</li>
-<li>✅ <b>Offline capable</b>: Timestamps beschikbaar zonder netwerk verbinding</li>
-<li>✅ <b>DST handling</b>: Suffix <span class="tt">W</span>/<span class="tt">S</span> indicates winter/summer time</li>
-<li>✅ <b>Seconds internally</b>: P1 specs geven seconde resolutie, conversie naar ms bij output</li>
-<li>✅ <b>Consistent naming</b>: <span class="tt">_epoch_s</span> / <span class="tt">_epoch_ms</span> suffixen maken unit en basis duidelijk</li>
+<li><b>Normalisatie</b>: Gas timestamps volgen dezelfde DST normalisatie als telegram timestamps</li>
 </ul>
 <p><b>Strings</b>:</p><ul>
 <li>Gebruikt voor versie nummers, meter ID's (future use)</li>
 <li>Direct string copy zonder conversie</li>
 </ul>
 <p>Alle parsers valideren input via sanity check: minimaal 10 karakters, bevat <span class="tt">(</span>, <span class="tt">*</span>, <span class="tt">)</span>. Dit voorkomt crashes op corrupte data.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md197"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md103"></a>
 Rolling Statistics &amp; Sampling</h2>
 <p>Hier wordt het interessant. We willen niet elke seconde data naar de cloud sturen (te veel data verkeer, kosten, energie). In plaats daarvan verzamelen we samples over een periode en berekenen statistieken.</p>
 <p><b>Sampling flow</b> (voorbeeld met 30s interval): </p><div class="fragment"><div class="line">t=0s:   ACQ_TRIGGER → Meet vermogen → Sample 1 (bijv. 342W verbruik)</div>
@@ -339,7 +398,7 @@ Rolling Statistics &amp; Sampling</h2>
 <li>Publish naar <a class="el" href="structp__one__msg.html" title="P_ONE module message structure.">p_one_msg</a></li>
 <li>Reset alle rolling stats voor nieuwe periode</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md198"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md104"></a>
 Gas Meting Acquisitie</h2>
 <p>Gas is speciaal: DSMR meters updaten gas slechts elk uur (niet elke seconde zoals elektriciteit). Het OBIS veld bevat zowel de gas waarde als een timestamp.</p>
 <p>Voorbeeld OBIS gas field: <span class="tt">0-1:24.2.3(241022130000W)(00456.789*m3)</span> bevat timestamp EN gas meterstand.</p>
@@ -347,7 +406,7 @@ Gas Meting Acquisitie</h2>
 <li><span class="tt">gas_consumed_m3</span>: Cumulatieve meterstand (int32_t, in milli-m³)</li>
 <li>Gas timestamp: Wanneer deze meting gedaan is</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md199"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
 ZBUS Integratie</h1>
 <p>De module communiceert via ZBUS channels:</p>
 <p><b>Subscribed Channels:</b></p><ul>
@@ -357,7 +416,7 @@ ZBUS Integratie</h1>
 <p><b>Published Channels:</b></p><ul>
 <li><span class="tt">P_ONE_CHAN</span> (naar message queue) - Gepubliceerde statistieken na elke publish cycle</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md200"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
 ACQ_TRIGGER Flow</h2>
 <p>Bij ontvangst van <span class="tt">DATA_ACQUISITION_TRIGGER_CHAN</span>:</p><ol type="1">
 <li>Assert Data Request GPIO pin → meter start telegram verzenden</li>
@@ -369,26 +428,31 @@ ACQ_TRIGGER Flow</h2>
 <li>Deassert Data Request pin</li>
 <li>Feed watchdog</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
 PUBLISH Flow</h2>
 <p>Bij ontvangst van <span class="tt">DATA_PUBLISH_REQUEST_CHAN</span>:</p><ol type="1">
-<li>Bereken finale statistieken uit accumulators (avg = sum/count)</li>
+<li><b>Validatie</b>: Controleer of er geldige samples zijn verzameld (<span class="tt">p1_stats.sample_count &gt; 0</span>).<ul>
+<li><b>Indien nee</b>: Log een foutmelding en sla de publicatie over. Dit voorkomt het verzenden van lege of verouderde data. De statistieken worden wel gereset.</li>
+<li><b>Indien ja</b>: Ga door naar de volgende stap.</li>
+</ul>
+</li>
+<li>Bereken finale statistieken uit accumulators (avg = sum/count).</li>
 <li>Vul <span class="tt"><a class="el" href="structp__one__msg.html" title="P_ONE module message structure.">p_one_msg</a></span> struct:<ul>
 <li>Timestamp (huidige tijd in UNIX ms)</li>
 <li>Energie totalen (4 velden: consumed/delivered × tarief1/2, in Wh)</li>
-<li>Gas totaal + gas timestamp (in milli-m³)</li>
+<li>Gas totaal + gas timestamp (in <b>dm³</b>, oftewel liters)</li>
 <li>Vermogen statistieken consumed (avg/max/min in W + timestamps)</li>
 <li>Vermogen statistieken delivered (avg/max/min in W + timestamps)</li>
 </ul>
 </li>
-<li>Publiceer naar <span class="tt">P_ONE_CHAN</span> → message queue ontvangt dit</li>
-<li>Reset alle rolling stats voor nieuwe periode</li>
-<li>Feed watchdog</li>
+<li>Publiceer naar <span class="tt">P_ONE_CHAN</span> → message queue ontvangt dit.</li>
+<li>Reset alle rolling stats voor nieuwe periode.</li>
+<li>Feed watchdog.</li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md202"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
 Architectuur</h1>
 <p>De P1 module gebruikt <b>GEEN state machine</b>. In plaats daarvan werkt de module volledig <b>event-driven</b> via twee mechanismen:</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md203"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
 1. UART Callbacks (Asynchrone Data Ontvangst)</h2>
 <p>De module registreert een UART callback handler die interrupt-driven UART events verwerkt:</p>
 <ul>
@@ -401,7 +465,7 @@ Architectuur</h1>
 <li><b>RX timeout</b>: 392ms (berekend: 4.5× max telegram tijd)</li>
 <li><b>Buffer size</b>: 8191 bytes (nRF91 UART limit)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md204"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 2. ZBUS Message Handling (Periodieke Triggers)</h2>
 <p>De thread loop luistert naar ZBUS events met <span class="tt">zbus_sub_wait()</span>:</p>
 <p><b><span class="tt">DATA_ACQUISITION_TRIGGER_CHAN</span></b> (elke 30s via timing module):</p><ol type="1">
@@ -417,7 +481,7 @@ Architectuur</h1>
 <li>Reset alle rolling stats (avg/min/max)</li>
 <li>Feed watchdog</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md205"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 Thread Loop Structuur</h2>
 <div class="fragment"><div class="line"><span class="keywordflow">while</span> (1) {</div>
 <div class="line">    zbus_sub_wait(&amp;chan, msg_buf, timeout);</div>
@@ -431,9 +495,9 @@ Thread Loop Structuur</h2>
 <div class="line">    task_wdt_feed(task_wdt_id);</div>
 <div class="line">}</div>
 </div><!-- fragment --><p><b>Robuustheid</b>: De module heeft geen expliciete "sync" state. Bij boot kan de UART midden in een telegram starten, maar de CRC check zorgt ervoor dat corrupt data wordt verworpen. Het eerste <b>valide</b> telegram (na boot of na error) synchroniseert automatisch.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md206"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
 Technische Diepgang</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
 Waarom Integer Fixed-Point?</h2>
 <p><b>Probleem</b>: DSMR OBIS data is fixed-point decimaal (6 cijfers precisie). Embedded systeem heeft beperkt RAM.</p>
 <p><b>Design Keuze</b>: Direct string→int32_t parsing in plaats van floating point conversie.</p>
@@ -446,7 +510,7 @@ Waarom Integer Fixed-Point?</h2>
 <li>Behoud precisie (6 decimalen = 1 µWh nauwkeurigheid, voldoende voor kWh metingen)</li>
 </ul>
 <p><b>Implementatie</b>: <span class="tt">obis_fixed_point_to_milli()</span> gebruikt string manipulatie om decimale punt te verwijderen.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md208"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 CRC16 Validatie</h2>
 <p>DSMR telegrams eindigen met CRC16 checksum: </p><div class="fragment"><div class="line">/ISK5\2M550T-1012</div>
 <div class="line"> </div>
@@ -460,7 +524,7 @@ CRC16 Validatie</h2>
 <li>Vergelijk: <span class="tt">if (calculated != parsed) → ERROR</span></li>
 </ol>
 <p>Als CRC faalt → discard telegram, wacht op volgende. Geen retry logic (meter stuurt elk seconde nieuw telegram anyway).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md209"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 Edge Cases &amp; Robuustheid</h2>
 <p><b>Scenario 1: UART Error tijdens ontvangst</b> <br  />
  → Event: <span class="tt">UART_RX_DISABLED</span> met error code <br  />
@@ -482,7 +546,7 @@ Edge Cases &amp; Robuustheid</h2>
  → Detectie: Zelfde timestamp als vorige sample <br  />
  → Actie: Gebruik cached waarde, skip statistics update <br  />
  → Impact: Gas stats blijven stabiel (gas update is elk uur, niet elk sample)</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md210"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Timing &amp; Watchdog</h2>
 <p>De module registreert zich bij Task Watchdog. Feed interval wordt berekend op basis van Kconfig:</p>
 <div class="fragment"><div class="line">Feed interval = WATCHDOG_TIMEOUT - MSG_PROCESSING_TIME</div>
@@ -493,7 +557,7 @@ Timing &amp; Watchdog</h2>
 </ul>
 <p>Build-time assertion valideert: <span class="tt">WATCHDOG_TIMEOUT &gt; MSG_PROCESSING_TIME + UART_TOTAL_TIMEOUT</span></p>
 <p>Dit voorkomt watchdog reset tijdens valide UART operatie. De UART timeout (10.8s) moet ruim binnen watchdog budget vallen.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md211"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
 Configuratie</h1>
 <p>Kconfig opties (prefix: <span class="tt">CONFIG_APP_P_ONE_MODULE_</span>):</p>
 <ul>
@@ -503,7 +567,7 @@ Configuratie</h1>
 <li><span class="tt">THREAD_STACK_SIZE</span>: Thread stack size in bytes</li>
 </ul>
 <p><b>Opmerking</b>: De module heeft geen runtime configuratie via Settings subsystem. Alle configuratie gebeurt via Kconfig tijdens compile-time. UART parameters (baudrate 115200, device uart3) zijn hardcoded volgens DSMR spec.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md212"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 Data Output</h1>
 <p>De <span class="tt"><a class="el" href="structp__one__msg.html" title="P_ONE module message structure.">p_one_msg</a></span> struct bevat:</p>
 <p><b>Timestamp</b>: Publicatie tijdstip (UNIX ms)</p>
@@ -512,7 +576,7 @@ Data Output</h1>
 <li><span class="tt">energy_delivered_wh_tariff1/2</span>: Totaal teruglevering naar net</li>
 </ul>
 <p><b>Gas (cumulatief + timestamp):</b></p><ul>
-<li><span class="tt">gas_consumed_m3</span>: Totaal gasverbruik (milli-m³)</li>
+<li><span class="tt">gas_consumed_dm3</span>: Totaal gasverbruik (in <b>dm³</b>, oftewel liters)</li>
 <li>Gas timestamp embedded in OBIS data (voor staleness detectie)</li>
 </ul>
 <p><b>Vermogen statistieken (over sample periode, in W):</b></p>
@@ -532,12 +596,12 @@ Data Output</h1>
 </ul>
 <p>Deze data wordt geconsumeerd door Message Queue module (combineert met pulse data) en uiteindelijk geüpload naar nRF Cloud voor analyse en visualisatie.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md214"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
 📐 Appendix A: UART Timing Analyse</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md215"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
 Overzicht</h2>
 <p>De P1 DSMR module implementeert een robuuste multi-layer timing strategie voor data acquisitie van slimme meters. Deze sectie legt exact uit hoe alle timing values berekend zijn en waarom elk timeout cruciaal is voor betrouwbare operatie.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md216"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
 UART Frame Timing Fundamentals</h2>
 <p><b>Basic UART Frame Structure (8N1)</b>:</p><ul>
 <li>1 start bit + 8 data bits + 1 stop bit = <b>10 bits per byte</b></li>
@@ -548,9 +612,9 @@ UART Frame Timing Fundamentals</h2>
 <div class="line"><span class="preprocessor">#define P_ONE_UART_FRAME_DURATION_USEC \</span></div>
 <div class="line"><span class="preprocessor">    (unsigned long)(1000 * 1000 / (P_ONE_UART_BAUD_RATE / 10) + 1)</span></div>
 <div class="line"><span class="comment">// Result: (1,000,000 / (115200 / 10)) + 1 = 86.8 + 1 = ~87 µs</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md217"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
 Critical Timing Calculations</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md218"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
 1. Maximum Telegram Transmission Time</h3>
 <p><b>DSMR v5.0.2 specifies maximum telegram size: 8191 bytes</b></p>
 <p><b>Base calculation</b>:</p><ul>
@@ -563,7 +627,7 @@ Critical Timing Calculations</h2>
 <div class="line"><span class="preprocessor">#define P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC \</span></div>
 <div class="line"><span class="preprocessor">    (P_ONE_UART_MAX_TELEGRAM_SIZE * P_ONE_UART_FRAME_DURATION_USEC * 1.1)</span></div>
 <div class="line"><span class="comment">// Result: 8191 × 87 × 1.1 = ~783,879 µs</span></div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md219"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
 2. UART RX Timeout (Inter-byte timeout)</h3>
 <p><b>Purpose</b>: Detect end of telegram when no more data arrives</p>
 <p><b>Calculation</b>: 50% of maximum telegram time</p><ul>
@@ -572,16 +636,16 @@ Critical Timing Calculations</h2>
 <div class="fragment"><div class="line"><span class="comment">// Used in uart_rx_enable():</span></div>
 <div class="line">uart_rx_enable(<a class="code hl_variable" href="p__one_8c.html#a660f23134aaae43c9ff2c6096fa59342">uart_dev</a>, <a class="code hl_variable" href="p__one_8c.html#a225d537524678c83d06f5fbbbbc3588f">p_one_uart_rx_buf</a>, <a class="code hl_define" href="p__one_8c.html#a1f25fe45d891de244a8135ae02fc9265">UART_RX_BUF_SIZE</a>,</div>
 <div class="line">               <a class="code hl_define" href="p__one_8c.html#ad20309c579792abe59be2c8c7bb0fd68">P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</a> * 0.5);</div>
-<div class="ttc" id="ap__one_8c_html_a1f25fe45d891de244a8135ae02fc9265"><div class="ttname"><a href="p__one_8c.html#a1f25fe45d891de244a8135ae02fc9265">UART_RX_BUF_SIZE</a></div><div class="ttdeci">#define UART_RX_BUF_SIZE</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00069">p_one.c:69</a></div></div>
-<div class="ttc" id="ap__one_8c_html_a225d537524678c83d06f5fbbbbc3588f"><div class="ttname"><a href="p__one_8c.html#a225d537524678c83d06f5fbbbbc3588f">p_one_uart_rx_buf</a></div><div class="ttdeci">static uint8_t p_one_uart_rx_buf[(8191)]</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00223">p_one.c:223</a></div></div>
-<div class="ttc" id="ap__one_8c_html_a660f23134aaae43c9ff2c6096fa59342"><div class="ttname"><a href="p__one_8c.html#a660f23134aaae43c9ff2c6096fa59342">uart_dev</a></div><div class="ttdeci">static const struct device * uart_dev</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00220">p_one.c:220</a></div></div>
-<div class="ttc" id="ap__one_8c_html_ad20309c579792abe59be2c8c7bb0fd68"><div class="ttname"><a href="p__one_8c.html#ad20309c579792abe59be2c8c7bb0fd68">P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</a></div><div class="ttdeci">#define P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00047">p_one.c:47</a></div></div>
+<div class="ttc" id="ap__one_8c_html_a1f25fe45d891de244a8135ae02fc9265"><div class="ttname"><a href="p__one_8c.html#a1f25fe45d891de244a8135ae02fc9265">UART_RX_BUF_SIZE</a></div><div class="ttdeci">#define UART_RX_BUF_SIZE</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00071">p_one.c:71</a></div></div>
+<div class="ttc" id="ap__one_8c_html_a225d537524678c83d06f5fbbbbc3588f"><div class="ttname"><a href="p__one_8c.html#a225d537524678c83d06f5fbbbbc3588f">p_one_uart_rx_buf</a></div><div class="ttdeci">static uint8_t p_one_uart_rx_buf[(8191)]</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00225">p_one.c:225</a></div></div>
+<div class="ttc" id="ap__one_8c_html_a660f23134aaae43c9ff2c6096fa59342"><div class="ttname"><a href="p__one_8c.html#a660f23134aaae43c9ff2c6096fa59342">uart_dev</a></div><div class="ttdeci">static const struct device * uart_dev</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00222">p_one.c:222</a></div></div>
+<div class="ttc" id="ap__one_8c_html_ad20309c579792abe59be2c8c7bb0fd68"><div class="ttname"><a href="p__one_8c.html#ad20309c579792abe59be2c8c7bb0fd68">P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</a></div><div class="ttdeci">#define P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00049">p_one.c:49</a></div></div>
 </div><!-- fragment --><p><b>Why 50%?</b> This ensures the timeout is:</p><ul>
 <li>Long enough to avoid false triggers during normal transmission</li>
 <li>Short enough to quickly detect end-of-telegram</li>
 <li>Covers worst-case inter-byte delays in P1 devices</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md220"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
 3. Total Response Timeout</h3>
 <p><b>DSMR specification</b>: P1 device may take up to <b>10 seconds</b> to respond after Data Request</p>
 <p><b>Total timeout calculation</b>:</p><ul>
@@ -592,69 +656,69 @@ Critical Timing Calculations</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#define P_ONE_DATA_REQUEST_RESPONSE_TIMEOUT_MSEC \</span></div>
 <div class="line"><span class="preprocessor">    (10000 + P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC / 1000)</span></div>
 <div class="line"><span class="comment">// Result: 10000 + 783.9 = 10,783.9 ms</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md221"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
 Why These Specific Timeouts Matter</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md222"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
 Frame-Level Timing (87 µs)</h3>
 <ul>
 <li><b>Too short</b>: Miss bytes due to processing overhead</li>
 <li><b>Too long</b>: Inefficient, delays error detection</li>
 <li><b>87 µs</b>: Matches exact UART hardware timing</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md223"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md129"></a>
 Inter-byte Timeout (392 ms)</h3>
 <ul>
 <li><b>Too short</b>: False end-of-telegram detection during valid transmission</li>
 <li><b>Too long</b>: Slow error recovery, delayed processing</li>
 <li><b>392 ms</b>: Balances reliability vs responsiveness</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md224"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
 Telegram Timeout (784 ms)</h3>
 <ul>
 <li><b>Too short</b>: Truncate valid long telegrams</li>
 <li><b>Too long</b>: Slow detection of stuck/corrupted transmission</li>
 <li><b>784 ms</b>: Covers maximum DSMR telegram + safety margin</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md225"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
 Response Timeout (10.8s)</h3>
 <ul>
 <li><b>Too short</b>: Fail on slow P1 devices (spec allows 10s)</li>
 <li><b>Too long</b>: Slow error recovery, high power consumption</li>
 <li><b>10.8s</b>: Covers worst-case P1 response + full telegram</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md226"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md132"></a>
 Edge Case Scenarios</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md227"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
 Scenario 1: Slow P1 Device Response</h3>
 <div class="fragment"><div class="line">Time 0ms:    Assert Data Request</div>
 <div class="line">Time 9999ms: P1 device starts transmission (just within 10s spec)</div>
 <div class="line">Time 10783ms: Transmission complete (784ms later)</div>
 <div class="line">Result:      Success - within 10.8s timeout</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md228"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md134"></a>
 Scenario 2: Maximum Length Telegram</h3>
 <div class="fragment"><div class="line">8191 bytes × 87 µs/byte = 712.6ms base transmission time</div>
 <div class="line">+ 10% margin = 783.9ms total allowed</div>
 <div class="line">+ P1 response delay = up to 10 seconds</div>
 <div class="line">= Total budget: 10.784 seconds</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md229"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
 Scenario 3: Inter-byte Timeout Trigger</h3>
 <div class="fragment"><div class="line">Bytes arriving normally at 87 µs intervals</div>
 <div class="line">Gap &gt; 392ms detected → End of telegram assumed</div>
 <div class="line">UART_RX_DISABLED event triggered</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md230"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
 Critical Dependencies</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md231"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
 Watchdog Relationship</h3>
 <div class="fragment"><div class="line"><a class="code hl_function" href="p__one_8c.html#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT</a>((<a class="code hl_define" href="p__one_8c.html#ad20309c579792abe59be2c8c7bb0fd68">P_ONE_UART_MAX_TELEGRAM_TIMEOUT_USEC</a> / 1000) &lt;</div>
 <div class="line">             (CONFIG_APP_P_ONE_MODULE_WATCHDOG_TIMEOUT_SECONDS * 1000),</div>
 <div class="line">             <span class="stringliteral">&quot;UART timeout must be less than watchdog timeout&quot;</span>);</div>
 <div class="ttc" id="ap__one_8c_html_a3f48fcbc19fe59b24bda25731cea5c00"><div class="ttname"><a href="p__one_8c.html#a3f48fcbc19fe59b24bda25731cea5c00">BUILD_ASSERT</a></div><div class="ttdeci">BUILD_ASSERT(((8191 *(unsigned long)(1000 *1000/(DT_PROP(DT_NODELABEL(uart3), current_speed)/10)+1) *1.1)/1000)&lt;(CONFIG_APP_P_ONE_MODULE_WATCHDOG_TIMEOUT_SECONDS *1000), &quot;UART timeout must be less than watchdog timeout&quot;)</div></div>
 </div><!-- fragment --><p> <b>Why</b>: Prevents watchdog reset during valid telegram reception</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
 Buffer Size Constraint</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#define UART_MAX_BUF_SIZE_NRF91 8191  </span><span class="comment">// Nordic hardware limitation</span></div>
 </div><!-- fragment --><p> <b>Why</b>: nRF91 UART peripheral maximum buffer size limitation</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md233"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
 Key Timing Parameters Summary</h2>
 <ul>
 <li><b>Baudrate</b>: 115200 bps (8N1 format)</li>
@@ -665,7 +729,7 @@ Key Timing Parameters Summary</h2>
 <li><b>Telegram timeout</b>: <b>784 ms</b> (max telegram + 10% margin)</li>
 <li><b>Total timeout</b>: <b>10.8 seconds</b> (P1 delay + telegram time)</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md234"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
 Multi-Layer Timeout Strategy</h2>
 <p>The implementation uses multiple layers of timeout protection with precise calculations:</p>
 <ol type="1">

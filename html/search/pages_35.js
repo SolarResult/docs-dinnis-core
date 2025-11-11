@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['📥_20normal_20data_20collection_20elke_2030_20seconden_0',['📥 Normal Data Collection (elke 30 seconden)',['../index.html#autotoc_md301',1,'']]]
+  ['🔄_20data_20flow_20zbus_20architectuur_0',['🔄 Data Flow &amp;amp; ZBUS Architectuur',['../index.html#autotoc_md182',1,'']]],
+  ['🔄_20startup_20sequence_1',['🔄 Startup Sequence',['../index.html#autotoc_md190',1,'']]]
 ];

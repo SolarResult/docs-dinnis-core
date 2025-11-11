@@ -11,7 +11,7 @@
 <!-- END opengraph metadata -->
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="solar_result_white.svg">
-<title>SolarResult Dinnis Core: Overzicht</title>
+<title>SolarResult Dinnis Core: &lt;!--</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -43,7 +43,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="solar_result_black.svg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="solar_result_white.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SolarResult Dinnis Core
    </div>
@@ -108,305 +108,185 @@ $(function(){initNavTree('md_modules_2reboot_2reboot__doc.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Overzicht </div></div>
+  <div class="headertitle"><div class="title"></div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md92"></a></p>
-<p>De Reboot module implementeert graceful shutdown en reboot functionaliteit. Het coördineert een gecontroleerde shutdown waarbij alle modules de kans krijgen om data op te slaan en verbindingen netjes af te sluiten voordat het systeem herstart.</p>
-<p>Dit voorkomt data loss en half-open connecties bij system reboot.</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
-Waarom? (Probleem &amp; Motivatie)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md95"></a>
-Graceful Shutdown</h2>
-<p><b>Probleem zonder coördinatie</b>: </p><div class="fragment"><div class="line">sys_reboot() aangeroepen</div>
-<div class="line">    │</div>
-<div class="line">    ├─ P1 module: UART RX buffer half vol → data loss ❌</div>
-<div class="line">    ├─ Cloud module: TCP connectie open → server ziet timeout ❌  </div>
-<div class="line">    ├─ Settings: Pending write in cache → flash corruptie ❌</div>
-<div class="line">    └─ System reboot → dirty state</div>
-</div><!-- fragment --><p><b>Oplossing met Reboot module</b>: </p><div class="fragment"><div class="line">REBOOT_REQUEST gepubliceerd</div>
-<div class="line">    │</div>
-<div class="line">    ├─► P1: Flush UART buffer, save state ✅</div>
-<div class="line">    ├─► Cloud: Send disconnect, close socket ✅</div>
-<div class="line">    ├─► Settings: Commit pending writes ✅</div>
-<div class="line">    ├─► Network: Deactivate modem ✅</div>
-<div class="line">    │</div>
-<div class="line">    └─► Wait for all SHUTDOWN_ACK</div>
-<div class="line">         │</div>
-<div class="line">         ▼</div>
-<div class="line">    Clean system reboot ✅</div>
-</div><!-- fragment --><p><b>Voordeel</b>:</p><ul>
-<li>Geen data loss</li>
-<li>Snellere reconnect (geen TCP timeout aan server kant)</li>
-<li>Geen flash corruptie risico</li>
+<div class="textblock"><p>title: Reboot Module parent: Modules </p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
+grand_parent: Design</h1>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
+Reboot Module</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
+Inhoudsopgave</h2>
+<ul>
+<li>Overzicht</li>
+<li>Waarom een Reboot Module?</li>
+<li>Functionaliteit</li>
+<li>Shutdown Protocol</li>
+<li>Architectuur en Gedrag</li>
+<li>Betrouwbaarheid</li>
+<li>Implementatie Vereisten voor Modules</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md96"></a>
-Reboot Reason Tracking</h2>
-<p><b>Use Case</b>: Troubleshooting in productie </p><div class="fragment"><div class="line">Klant: &quot;Apparaat heeft gerebooted, waarom?&quot;</div>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+Overzicht</h2>
+<p>De <span class="tt">reboot</span> module orkestreert een <em>graceful shutdown</em> en herstart van het systeem. Het zorgt ervoor dat alle andere modules de kans krijgen om hun taken netjes af te ronden, data op te slaan en verbindingen te sluiten voordat het systeem daadwerkelijk herstart. Dit voorkomt dataverlies, corrupte state en problemen bij het herverbinden met de cloud.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+Waarom een Reboot Module?</h2>
+<p>Een directe aanroep van <span class="tt">sys_reboot()</span> kan leiden tot een "dirty" shutdown, met diverse problemen tot gevolg:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Probleem  </th><th class="markdownTableHeadNone">Gevolg  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Dataverlies</b>  </td><td class="markdownTableBodyNone">De <span class="tt">p_one</span> module heeft een half-ontvangen P1-telegram in zijn buffer.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Verbindingsproblemen</b>  </td><td class="markdownTableBodyNone">De <span class="tt">cloud</span> module heeft een open TCP-socket; de server ziet een trage timeout.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Flash Corruptie</b>  </td><td class="markdownTableBodyNone">De <span class="tt">settings</span> module heeft data in de cache die nog niet naar flash is geschreven.  </td></tr>
+</table>
+<p>De <span class="tt">reboot</span> module lost dit op door een gecoördineerd shutdown-protocol af te dwingen, wat resulteert in een "clean" reboot.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+Functionaliteit</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
+Reboot Types</h3>
+<p>De module handelt twee soorten reboot-verzoeken af, die beide dezelfde graceful shutdown procedure starten:</p>
+<ul>
+<li><b><span class="tt">REBOOT_TYPE_FOTA</span></b>: Wordt aangevraagd na een succesvolle download van een firmware-update.</li>
+<li><b><span class="tt">REBOOT_TYPE_ERROR</span></b>: Wordt aangevraagd door een module die een kritieke, maar mogelijk herstelbare, fout detecteert die een herstart vereist.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
+ZBUS Protocol</h3>
+<p>De module gebruikt één ZBUS-kanaal, <span class="tt">REBOOT_CHAN</span>, voor alle communicatie, met drie verschillende berichttypes:</p>
+<ol type="1">
+<li><b><span class="tt">REBOOT_REQ</span></b><ul>
+<li><b>Gepubliceerd door</b>: Elke module die een herstart wil initiëren (bv. <span class="tt">cloud</span> na FOTA, of een module die een fatale fout detecteert).</li>
+<li><b>Inhoud</b>: <span class="tt"><a class="el" href="group__reboot.html#gac6444349816e68cc7912753237f2b1dc" title="Reboot types.">reboot_type</a></span> (<span class="tt">REBOOT_TYPE_FOTA</span> of <span class="tt">REBOOT_TYPE_ERROR</span>).</li>
+<li><b>Actie</b>: Start de graceful shutdown sequentie in de <span class="tt">reboot</span> module.</li>
+</ul>
+</li>
+<li><b><span class="tt">SHUTDOWN_REQ</span></b><ul>
+<li><b>Gepubliceerd door</b>: De <span class="tt">reboot</span> module zelf, als reactie op een <span class="tt">REBOOT_REQ</span>.</li>
+<li><b>Actie</b>: Een broadcast naar alle andere modules om hun shutdown-procedures te starten.</li>
+</ul>
+</li>
+<li><b><span class="tt">SHUTDOWN_ACK</span></b><ul>
+<li><b>Gepubliceerd door</b>: Elke module, nadat deze zijn cleanup-taken heeft voltooid.</li>
+<li><b>Inhoud</b>: Een pointer naar de ZBUS-observer van de module (<span class="tt">observer</span>).</li>
+<li><b>Actie</b>: De <span class="tt">reboot</span> module gebruikt dit om bij te houden welke modules klaar zijn.</li>
+</ul>
+</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
+Shutdown Protocol</h2>
+<p>De graceful shutdown volgt een strikt protocol dat wordt gemedieerd door ZBUS.</p>
+<div class="fragment"><div class="line">sequenceDiagram</div>
+<div class="line">    participant Andere Module</div>
+<div class="line">    participant ZBUS</div>
+<div class="line">    participant Reboot Module</div>
+<div class="line">    participant Work Queue</div>
+<div class="line">    participant System</div>
 <div class="line"> </div>
-<div class="line">Check logs:</div>
-<div class="line">- REBOOT_REASON_USER → Handmatige reboot via nRF Cloud ✅</div>
-<div class="line">- REBOOT_REASON_WATCHDOG → Software hang, check task_wdt logs ⚠️</div>
-<div class="line">- REBOOT_REASON_UPDATE → Firmware update, verwacht gedrag ✅</div>
-<div class="line">- REBOOT_REASON_ERROR → Critical error, check error logs 🔴</div>
-</div><!-- fragment --><p><b>Voordeel</b>: Root cause analysis voor onverwachte reboots.</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md98"></a>
-Wat? (Functionaliteit &amp; Data Flow)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md99"></a>
-Reboot Types</h2>
-<p><b>REBOOT_TYPE_FOTA</b> (Firmware Over-The-Air update reboot):</p><ul>
-<li>Publish REBOOT_REQUEST naar alle modules</li>
-<li>Wait voor SHUTDOWN_ACK van alle modules (max 10s timeout)</li>
-<li>sys_reboot() call</li>
-<li>Gebruikt na successful firmware download</li>
-</ul>
-<p><b>REBOOT_TYPE_ERROR</b> (Error recovery reboot):</p><ul>
-<li>Publish REBOOT_REQUEST naar alle modules</li>
-<li>Wait voor SHUTDOWN_ACK van alle modules (max 10s timeout)</li>
-<li>sys_reboot() call</li>
-<li>Gebruikt bij recoverable errors die reboot vereisen</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md100"></a>
-Reboot Redenen</h2>
-<p>Verschillende reboot redenen worden getrackt voor diagnostics:</p><ul>
-<li>UNKNOWN: Default na boot</li>
-<li>USER: User requested (nRF Cloud command)</li>
-<li>UPDATE: Firmware update</li>
-<li>WATCHDOG: Task watchdog timeout</li>
-<li>ERROR: Critical error</li>
-<li>NETWORK: Network recovery</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md101"></a>
-ZBUS Protocol</h2>
-<p><b>Published Channels</b>:</p>
+<div class="line">    Andere Module-&gt;&gt;+ZBUS: Publish(REBOOT_CHAN, {type: REBOOT_REQ})</div>
+<div class="line">    ZBUS--&gt;&gt;-Reboot Module: Ontvangt REBOOT_REQ</div>
+<div class="line">    </div>
+<div class="line">    Reboot Module-&gt;&gt;+Work Queue: Schedule reboot_work (met lange timeout)</div>
+<div class="line">    Reboot Module-&gt;&gt;+ZBUS: Publish(REBOOT_CHAN, {type: SHUTDOWN_REQ})</div>
+<div class="line">    </div>
+<div class="line">    ZBUS--&gt;&gt;Andere Module: Ontvangt SHUTDOWN_REQ</div>
+<div class="line">    Note right of Andere Module: Start cleanup: &lt;br/&gt;- Stop timers/interrupts&lt;br/&gt;- Sla data op&lt;br/&gt;- Sluit verbindingen</div>
+<div class="line">    Andere Module-&gt;&gt;+ZBUS: Publish(REBOOT_CHAN, {type: SHUTDOWN_ACK})</div>
+<div class="line">    </div>
+<div class="line">    ZBUS--&gt;&gt;-Reboot Module: Ontvangt SHUTDOWN_ACK</div>
+<div class="line">    Reboot Module-&gt;&gt;Reboot Module: Disables observer, telt resterende ACKs</div>
+<div class="line">    </div>
+<div class="line">    Note over Reboot Module: Herhaalt voor elke module...</div>
+<div class="line">    </div>
+<div class="line">    Reboot Module-&gt;&gt;Reboot Module: Alle ACKs ontvangen!</div>
+<div class="line">    Reboot Module-&gt;&gt;+Work Queue: Reschedule reboot_work (met korte timeout, bv. 3s)</div>
+<div class="line">    </div>
+<div class="line">    Work Queue--&gt;&gt;-Reboot Module: Voert reboot_work_fn uit</div>
+<div class="line">    Reboot Module-&gt;&gt;System: sys_reboot()</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
+Architectuur en Gedrag</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
+State Machine</h3>
+<p>De module heeft een uiterst minimale state machine met slechts één state: <span class="tt">STATE_OPERATIONAL</span>. Alle logica wordt afgehandeld binnen de <span class="tt">run</span> functie van deze state. De timing en de uiteindelijke reboot-actie worden gedelegeerd aan een work queue, waardoor de state machine zelf eenvoudig en niet-blokkerend blijft.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md152"></a>
+Acknowledgement (ACK) Tracking</h3>
+<p>De module gebruikt een slim mechanisme om bij te houden welke modules hun shutdown hebben bevestigd, zonder een expliciete teller-variabele te gebruiken.</p>
 <ol type="1">
-<li><b>REBOOT_CHAN</b> - Reboot request broadcast<ul>
-<li>Bevat: type (REBOOT_TYPE_FOTA/REBOOT_TYPE_ERROR), reason (waarom reboot), delay_ms (wachttijd)</li>
-</ul>
-</li>
-<li><b>SHUTDOWN_REQUEST_CHAN</b> - Request modules to shutdown<ul>
-<li>Empty message trigger</li>
-</ul>
-</li>
+<li>Wanneer de <span class="tt">reboot</span> module een <span class="tt">SHUTDOWN_REQ</span> uitzendt, zijn alle relevante modules actieve observers op <span class="tt">REBOOT_CHAN</span>.</li>
+<li>Wanneer een module een <span class="tt">SHUTDOWN_ACK</span> stuurt, voegt hij een pointer naar zijn eigen ZBUS-observer toe aan het bericht.</li>
+<li>De <span class="tt">reboot</span> module ontvangt de ACK en deactiveert de observer van de zendende module met <span class="tt">zbus_obs_set_enable(observer, false)</span>.</li>
+<li>Vervolgens telt de <span class="tt">reboot</span> module het aantal nog actieve observers op het kanaal met een lokale helper-functie <span class="tt"><a class="el" href="reboot_8c.html#af8dc2f56ec10b29d09795b6316eb91f0" title="Count enabled observers on a ZBUS channel.">zbus_chan_enabled_obs_count()</a></span>.</li>
+<li>Zodra het aantal actieve observers <span class="tt">1</span> is (alleen de <span class="tt">reboot</span> module zelf is nog actief), zijn alle ACKs ontvangen.</li>
 </ol>
-<p><b>Subscribed Channels</b>:</p>
+<p>Dit patroon is robuust, thread-safe en past zich dynamisch aan de modules die in de firmware zijn ingeschakeld.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
+Work Queue en Timeout Mechanisme</h3>
+<p>De daadwerkelijke <span class="tt">sys_reboot()</span> aanroep is blokkerend en mag nooit rechtstreeks vanuit een ZBUS-callback worden uitgevoerd. Daarom wordt deze taak gedelegeerd aan een <span class="tt">k_work_delayable</span> item.</p>
+<p>Dit patroon fungeert tevens als een <b>watchdog voor het shutdown-proces</b>:</p>
 <ol type="1">
-<li><b>SHUTDOWN_ACK_CHAN</b> - Acknowledgement from modules<ul>
-<li>Bevat: module_name string identifier ("p_one", "cloud", etc.)</li>
-</ul>
-</li>
+<li><b>Bij <span class="tt">REBOOT_REQ</span></b>: De reboot-taak wordt ingepland met een ruime timeout (bv. 60 seconden, geconfigureerd via Kconfig <span class="tt">CONFIG_APP_REBOOT_MODULE_ERROR_TIMEOUT_SECONDS</span>).</li>
+<li><b>Bij alle ACKs ontvangen</b>: De taak wordt <em>vervroegd</em> en opnieuw ingepland met een korte vertraging (bv. 3 seconden), wat een snelle, gecontroleerde herstart mogelijk maakt.</li>
+<li><b>Indien niet alle ACKs binnen de timeout worden ontvangen</b>: De oorspronkelijk ingeplande taak wordt alsnog uitgevoerd. Dit forceert een herstart en voorkomt dat het systeem oneindig blijft hangen als een module niet reageert.</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
-Shutdown Sequence</h2>
-<div class="fragment"><div class="line">┌─────────────┐</div>
-<div class="line">│ Reboot      │  1. Reboot trigger (user command, watchdog, etc.)</div>
-<div class="line">│ Module      │</div>
-<div class="line">└──────┬──────┘</div>
-<div class="line">       │</div>
-<div class="line">       │ 2. Publish REBOOT_REQUEST (reason, type)</div>
-<div class="line">       ▼</div>
-<div class="line">┌─────────────────────────────────────────┐</div>
-<div class="line">│         ZBUS: REBOOT_CHAN               │</div>
-<div class="line">└─────────┬───────────────────────────────┘</div>
-<div class="line">          │</div>
-<div class="line">          ├──────────────┬──────────────┬──────────────┐</div>
-<div class="line">          ▼              ▼              ▼              ▼</div>
-<div class="line">    ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐</div>
-<div class="line">    │ P1      │    │ Cloud   │    │ Network │    │ Pulse   │</div>
-<div class="line">    │ Module  │    │ Module  │    │ Module  │    │ Module  │</div>
-<div class="line">    └────┬────┘    └────┬────┘    └────┬────┘    └────┬────┘</div>
-<div class="line">         │              │              │              │</div>
-<div class="line">         │ 3. Cleanup: flush buffer, save state, close connections</div>
-<div class="line">         │              │              │              │</div>
-<div class="line">         ▼              ▼              ▼              ▼</div>
-<div class="line">    ┌────────────────────────────────────────────────────┐</div>
-<div class="line">    │     ZBUS: SHUTDOWN_ACK_CHAN (per module)           │</div>
-<div class="line">    └────────────────────┬───────────────────────────────┘</div>
-<div class="line">                         │</div>
-<div class="line">                         ▼</div>
-<div class="line">                   ┌─────────────┐</div>
-<div class="line">                   │ Reboot      │  4. Wait for all ACKs (max 10s)</div>
-<div class="line">                   │ Module      │</div>
-<div class="line">                   └──────┬──────┘</div>
-<div class="line">                          │</div>
-<div class="line">                          │ 5. All ACKs received OR timeout</div>
-<div class="line">                          ▼</div>
-<div class="line">                   ┌─────────────┐</div>
-<div class="line">                   │ sys_reboot()│  6. System reboot</div>
-<div class="line">                   └─────────────┘</div>
-</div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md104"></a>
-Hoe? (Architectuur &amp; Gedrag)</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
-State Machine</h2>
-<div class="fragment"><div class="line">┌──────────────┐</div>
-<div class="line">│ OPERATIONAL  │</div>
-<div class="line">│ (idle state) │</div>
-<div class="line">└──────┬───────┘</div>
-<div class="line">       │</div>
-<div class="line">       │ reboot_request_publish()</div>
-<div class="line">       │</div>
-<div class="line">┌──────▼───────┐</div>
-<div class="line">│ REBOOTING    │</div>
-<div class="line">│              │</div>
-<div class="line">│ - Publish    │</div>
-<div class="line">│   SHUTDOWN_  │</div>
-<div class="line">│   REQUEST    │</div>
-<div class="line">│ - Wait ACKs  │</div>
-<div class="line">│ - Timeout    │</div>
-<div class="line">│   10s        │</div>
-<div class="line">└──────┬───────┘</div>
-<div class="line">       │</div>
-<div class="line">       │ All ACKs OR timeout</div>
-<div class="line">       │</div>
-<div class="line">       ▼</div>
-<div class="line">   sys_reboot()</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
-Acknowledgement Tracking</h2>
-<p><b>Completion Check</b>: Module compares aantal ontvangen ACKs met aantal observers van SHUTDOWN_REQUEST_CHAN.</p>
-<p><b>Logic</b>:</p><ul>
-<li>Query ZBUS voor enabled observer count van SHUTDOWN_REQUEST_CHAN</li>
-<li>Compare met aantal ontvangen SHUTDOWN_ACK messages</li>
-<li>Als <span class="tt">ack_count &gt;= observer_count</span> → alle modules hebben gerespondeerd → safe to reboot</li>
-</ul>
-<p><b>Waarom observer count?</b>:</p><ul>
-<li>Telt hoeveel modules subscribed zijn op SHUTDOWN_REQUEST</li>
-<li>Als module disabled is (Kconfig), wordt deze niet meegeteld</li>
-<li>Dynamic: Werkt met elke module configuratie</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
-Timeout Mechanisme</h2>
-<p><b>Probleem</b>: Module kan hangen tijdens shutdown (bijv. UART read blocked)</p>
-<p><b>Oplossing</b>: Watchdog timer van 10 seconden start bij shutdown request. Als niet alle ACKs ontvangen binnen timeout, force reboot anyway.</p>
-<p><b>Timeout handler gedrag</b>:</p><ul>
-<li>Log WARNING met aantal missing ACKs</li>
-<li>Submit reboot work (force shutdown)</li>
-</ul>
-<p><b>Trade-off</b>:</p><ul>
-<li>✅ Voorkomt indefinite hang bij module failure</li>
-<li>⚠️ Risk: Module data loss als shutdown niet af is binnen 10s</li>
-<li>Balance: 10s is ruim (normale shutdown &lt; 2s)</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
-Work Queue Pattern</h2>
-<p><b>Probleem</b>: sys_reboot() is blocking call, mag niet in ZBUS callback uitvoeren (deadlock risk).</p>
-<p><b>Oplossing</b>: Schedule reboot via dedicated work queue item.</p>
-<p><b>Rationale</b>:</p><ul>
-<li>ZBUS callbacks moeten snel return (non-blocking requirement)</li>
-<li>sys_reboot() blokkeert indefinite (geen return)</li>
-<li>Work queue draait in eigen thread context (geen ZBUS blocking)</li>
-<li>Delay parameter (delay_ms) kan via k_work_schedule() timing</li>
-</ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
-Shutdown Betrouwbaarheid</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
-Graceful Shutdown Gedrag</h2>
-<p><b>Normale situatie</b> (alle modules healthy):</p><ul>
-<li>Shutdown request → alle modules ACK binnen 2s</li>
-<li>Total shutdown time: ~2 seconden</li>
-<li>Data loss risk: minimaal (alle modules hebben tijd voor cleanup)</li>
-</ul>
-<p><b>Module failure scenario</b>:</p><ul>
-<li>Shutdown request → 1 module hangt (geen ACK)</li>
-<li>Timeout na 10s → force reboot</li>
-<li>Data loss: alleen van hangende module (andere modules wel clean shutdown)</li>
-</ul>
-<p><b>Reboot type gebruik</b>:</p><ul>
-<li>REBOOT_TYPE_FOTA: Na firmware update download complete</li>
-<li>REBOOT_TYPE_ERROR: Bij recoverable errors (bijv. persistent network failure)</li>
-<li>Beide types wachten op graceful shutdown van alle modules</li>
-</ul>
-<hr  />
+<p>De work queue draait op <span class="tt">K_HIGHEST_APPLICATION_THREAD_PRIO</span> om te garanderen dat de reboot-procedure voorrang krijgt op andere applicatietaken.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
+Betrouwbaarheid</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
+Fatale Foutafhandeling</h3>
+<p>De <span class="tt">reboot</span> module zelf is essentieel voor de stabiliteit van het systeem. Als er binnen deze module een onherstelbare fout optreedt (bv. de eigen watchdog van de module wordt getriggerd, of het inplannen van de reboot-taak mislukt), wordt de <span class="tt"><a class="el" href="reboot_8c.html#a2c4433540d1e262b8927b4ac7d676fdb">REBOOT_MODULE_FATAL_ERROR_HANDLE()</a></span> macro aangeroepen. Deze macro:</p><ol type="1">
+<li>Logt een paniekbericht.</li>
+<li>Wacht 10 seconden om de logs te laten verwerken.</li>
+<li>Forceert een onmiddellijke, "warme" herstart (<span class="tt">sys_reboot(SYS_REBOOT_WARM)</span>).</li>
+</ol>
+<p>Dit is het laatste redmiddel om het systeem te herstellen.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
+Graceful vs. Geforceerde Shutdown</h3>
 <ul>
-<li>Graceful shutdowns: 1238 (99.3%)</li>
-<li>Timeout triggered: 9 (0.7%)<ul>
-<li>Analysis: Network module slow disconnect (8s) bij zwak signaal</li>
+<li><b>Normaal scenario</b>: Alle modules sturen een ACK. De totale shutdown-tijd is kort (bv. ~5 seconden) en het risico op dataverlies is minimaal.</li>
+<li><b>Foutscenario</b>: Eén module reageert niet. De shutdown-timeout wordt bereikt en de reboot wordt geforceerd. Alleen de niet-reagerende module loopt risico op dataverlies; de andere modules hebben hun cleanup al voltooid.</li>
 </ul>
-</li>
-</ul>
-<p><b>Verbeteringen na implementatie</b>:</p><ul>
-<li>Data loss incidents: 12 → 0 (voor vs na)</li>
-<li>TCP reconnect time: ~60s → ~5s (server timeout vs clean disconnect)</li>
-<li>Flash corruption events: 3 → 0 </li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
-Toekomstige Uitbreidingen</h2>
-<ul>
-<li>⏳ <b>Persistent reboot count</b> - Track total reboots in Settings</li>
-<li>⏳ <b>Reboot reason history</b> - Ring buffer van laatste 10 reboots</li>
-<li>⏳ <b>Scheduled reboots</b> - Weekly maintenance reboot (bijv. zondag 03:00)</li>
-<li>⏳ <b>Module priority</b> - Critical modules eerst shutdown (database commit voor network close)</li>
-<li>⏳ <b>Reboot analytics</b> - Send reason + uptime naar cloud voor remote monitoring</li>
-</ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
-Module Shutdown Implementatie Vereisten</h1>
-<p><b>Wat modules moeten doen bij shutdown</b>:</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
+Implementatie Vereisten voor Modules</h2>
+<p>Elke module die een schone shutdown vereist, moet het volgende implementeren:</p>
 <ol type="1">
-<li><b>Stop actieve operaties</b><ul>
-<li>Disable UART/GPIO interrupts</li>
-<li>Cancel pending timers</li>
-<li>Stop background threads (waar mogelijk)</li>
-</ul>
-</li>
-<li><b>Persist kritieke state</b><ul>
-<li>Save rolling statistics naar flash (Settings API)</li>
-<li>Commit database transactions</li>
-<li>Flush pending writes</li>
-</ul>
-</li>
-<li><b>Cleanup resources</b><ul>
-<li>Free allocated memory (waar applicable)</li>
-<li>Clear sensitive buffers</li>
-<li>Close open connections (network sockets)</li>
-</ul>
-</li>
-<li><b>Send ACK</b><ul>
-<li>Publish SHUTDOWN_ACK met module naam</li>
-<li>Timing: binnen 10 seconden (shutdown timeout)</li>
-</ul>
-</li>
+<li><b>Abonneren op <span class="tt">REBOOT_CHAN</span></b>.</li>
+<li>Een handler implementeren voor het <span class="tt">SHUTDOWN_REQ</span> bericht. In deze handler: a. Stop alle actieve operaties (timers, interrupts, etc.). b. Sla kritieke data op (bv. via de <span class="tt">settings</span> API). c. Sluit externe verbindingen (bv. netwerk-sockets). d. Roep <span class="tt">shutdown_acknowledge_publish(&amp;jouw_subscriber)</span> aan om de ACK te versturen.</li>
 </ol>
-<p><b>Voorbeeld flow</b> (P1 module):</p><ul>
-<li>Stop UART reception</li>
-<li>Save rolling stats naar Settings + commit</li>
-<li>Clear RX buffers</li>
-<li>Publish ACK("p1")</li>
-<li>Total time: ~500ms</li>
-</ul>
-<hr  />
-<p><b>Checklist</b> voor nieuwe modules:</p><ul class="check">
-<li class="unchecked">Subscribe to REBOOT_CHAN</li>
-</ul>
-<ul class="check">
-<li class="unchecked">Implement cleanup handler</li>
-</ul>
-<ul class="check">
-<li class="unchecked">Flush buffers</li>
-</ul>
-<ul class="check">
-<li class="unchecked">Save persistent state</li>
-</ul>
-<ul class="check">
-<li class="unchecked">Close connections</li>
+<p><b>Voorbeeld (conceptueel):</b> </p><div class="fragment"><div class="line"><span class="comment">// In de ZBUS message handler van een module</span></div>
+<div class="line"><span class="keywordflow">if</span> (msg-&gt;type == <a class="code hl_enumvalue" href="group__reboot.html#gga6417bb61a172b5e66ccab23d1e3990cba099372a286bc803fd7191811bf6a4323">SHUTDOWN_REQ</a>) {</div>
+<div class="line">    <span class="comment">// 1. Stop operaties</span></div>
+<div class="line">    k_timer_stop(&amp;my_timer);</div>
+<div class="line">    uart_rx_disable(<a class="code hl_variable" href="p__one_8c.html#a660f23134aaae43c9ff2c6096fa59342">uart_dev</a>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 2. Sla state op</span></div>
+<div class="line">    settings_save(<span class="stringliteral">&quot;my_module/my_value&quot;</span>, &amp;<a class="code hl_variable" href="p__one_8c.html#a354b99b030bdfe136490f848c05d4788">value</a>, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="p__one_8c.html#a354b99b030bdfe136490f848c05d4788">value</a>));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// 3. Stuur ACK</span></div>
+<div class="line">    <a class="code hl_function" href="group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650">shutdown_acknowledge_publish</a>(&amp;my_subscriber);</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__reboot_html_gac92d45e2bf7302d8b7691195e0d23650"><div class="ttname"><a href="group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650">shutdown_acknowledge_publish</a></div><div class="ttdeci">void shutdown_acknowledge_publish(const struct zbus_observer *observer)</div><div class="ttdoc">Publish shutdown acknowledgment to ZBUS.</div><div class="ttdef"><b>Definition</b> <a href="reboot__zbus_8c_source.html#l00088">reboot_zbus.c:88</a></div></div>
+<div class="ttc" id="agroup__reboot_html_gga6417bb61a172b5e66ccab23d1e3990cba099372a286bc803fd7191811bf6a4323"><div class="ttname"><a href="group__reboot.html#gga6417bb61a172b5e66ccab23d1e3990cba099372a286bc803fd7191811bf6a4323">SHUTDOWN_REQ</a></div><div class="ttdeci">@ SHUTDOWN_REQ</div><div class="ttdef"><b>Definition</b> <a href="reboot__zbus_8h_source.html#l00055">reboot_zbus.h:55</a></div></div>
+<div class="ttc" id="ap__one_8c_html_a354b99b030bdfe136490f848c05d4788"><div class="ttname"><a href="p__one_8c.html#a354b99b030bdfe136490f848c05d4788">value</a></div><div class="ttdeci">obis_fixed_point_t value</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00256">p_one.c:256</a></div></div>
+<div class="ttc" id="ap__one_8c_html_a660f23134aaae43c9ff2c6096fa59342"><div class="ttname"><a href="p__one_8c.html#a660f23134aaae43c9ff2c6096fa59342">uart_dev</a></div><div class="ttdeci">static const struct device * uart_dev</div><div class="ttdef"><b>Definition</b> <a href="p__one_8c_source.html#l00222">p_one.c:222</a></div></div>
+</div><!-- fragment --><p>Een <b>checklist</b> voor elke nieuwe module:</p><ul class="check">
+<li class="unchecked">Geabonneerd op <span class="tt">REBOOT_CHAN</span>?</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Send SHUTDOWN_ACK</li>
+<li class="unchecked">Handler voor <span class="tt">SHUTDOWN_REQ</span> geïmplementeerd?</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Test: shutdown completes &lt; 10s</li>
+<li class="unchecked">Worden alle resources (timers, verbindingen) opgeschoond?</li>
 </ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
-Zie Ook</h1>
-<ul>
-<li><a class="el" href="reboot_8c.html">reboot.c</a> - Implementatie</li>
-<li><a class="el" href="reboot__zbus_8c.html">reboot_zbus.c</a> - ZBUS helper functies</li>
-<li><a class="el" href="reboot__zbus_8h.html">reboot_zbus.h</a> - Public API</li>
-<li>Alle modules - Shutdown handlers </li>
+<ul class="check">
+<li class="unchecked">Wordt kritieke state opgeslagen?</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Wordt <span class="tt"><a class="el" href="group__reboot.html#gac92d45e2bf7302d8b7691195e0d23650" title="Publish shutdown acknowledgment to ZBUS.">shutdown_acknowledge_publish()</a></span> aangeroepen?</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Is de shutdown-procedure getest en voltooit deze binnen de Kconfig-timeout? --&gt; </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

@@ -113,27 +113,39 @@ $(function(){initNavTree('app_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &lt;zephyr/logging/log.h&gt;</code><br />
+<code>#include &lt;zephyr/sys/reboot.h&gt;</code><br />
 <code>#include &lt;zephyr/task_wdt/task_wdt.h&gt;</code><br />
 <code>#include &lt;zephyr/zbus/zbus.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="reboot__zbus_8h_source.html">reboot_zbus.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="trigger__zbus_8h_source.html">trigger_zbus.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for app.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="app_8c__incl.png" border="0" usemap="#amodules_2app_2app_8c" loading="lazy" alt=""/></div>
 <map name="amodules_2app_2app_8c" id="amodules_2app_2app_8c">
-<area shape="rect" title=" " alt="" coords="214,5,359,31"/>
-<area shape="rect" title=" " alt="" coords="125,167,248,192"/>
-<area shape="poly" title=" " alt="" coords="214,28,156,35,97,46,47,61,29,70,17,80,9,94,10,107,17,118,29,129,68,147,113,161,112,166,66,152,27,133,13,122,4,108,4,93,12,77,26,66,45,56,95,41,155,30,213,22"/>
-<area shape="rect" title=" " alt="" coords="26,86,181,111"/>
-<area shape="poly" title=" " alt="" coords="261,33,144,83,142,78,259,28"/>
-<area shape="rect" title=" " alt="" coords="206,79,367,119"/>
-<area shape="poly" title=" " alt="" coords="289,31,289,65,284,65,284,31"/>
-<area shape="rect" title=" " alt="" coords="422,167,569,192"/>
-<area shape="poly" title=" " alt="" coords="360,26,455,45,495,59,521,77,529,96,528,117,513,156,508,154,523,116,524,97,516,80,493,64,454,50,359,31"/>
-<area shape="rect" href="trigger__zbus_8h.html" title=" " alt="" coords="392,86,506,111"/>
-<area shape="poly" title=" " alt="" coords="311,28,414,78,412,83,309,33"/>
-<area shape="poly" title=" " alt="" coords="412,114,238,165,237,160,410,109"/>
-<area shape="poly" title=" " alt="" coords="458,110,484,153,479,156,454,113"/>
+<area shape="rect" title=" " alt="" coords="397,5,542,31"/>
+<area shape="rect" title=" " alt="" coords="527,174,649,199"/>
+<area shape="poly" title=" " alt="" coords="499,28,533,48,563,77,575,97,582,119,590,160,584,161,577,121,570,100,559,80,530,52,496,33"/>
+<area shape="rect" title=" " alt="" coords="5,174,160,199"/>
+<area shape="poly" title=" " alt="" coords="397,32,313,50,269,64,226,81,192,100,159,123,106,166,103,162,156,119,189,96,224,76,267,59,312,45,396,27"/>
+<area shape="rect" title=" " alt="" coords="185,174,335,199"/>
+<area shape="poly" title=" " alt="" coords="397,31,303,50,264,64,241,80,233,99,233,120,239,141,248,160,243,163,234,143,228,121,228,98,237,77,262,59,301,45,396,26"/>
+<area shape="rect" title=" " alt="" coords="389,79,550,119"/>
+<area shape="poly" title=" " alt="" coords="472,31,472,65,467,65,467,31"/>
+<area shape="rect" title=" " alt="" coords="673,174,820,199"/>
+<area shape="poly" title=" " alt="" coords="543,22,603,29,666,40,720,55,740,65,754,77,764,97,767,120,759,162,754,161,761,120,759,99,750,80,737,70,718,60,665,45,603,34,542,27"/>
+<area shape="rect" href="reboot__zbus_8h.html" title=" " alt="" coords="251,86,365,111"/>
+<area shape="poly" title=" " alt="" coords="447,33,345,83,342,78,445,28"/>
+<area shape="rect" href="trigger__zbus_8h.html" title=" " alt="" coords="625,86,740,111"/>
+<area shape="poly" title=" " alt="" coords="501,28,640,79,638,84,499,33"/>
+<area shape="poly" title=" " alt="" coords="347,109,538,167,537,172,345,114"/>
+<area shape="poly" title=" " alt="" coords="279,114,127,171,125,166,277,109"/>
+<area shape="poly" title=" " alt="" coords="304,113,276,163,271,160,299,110"/>
+<area shape="poly" title=" " alt="" coords="347,109,377,116,456,132,519,141,662,164,684,169,683,174,661,169,518,147,455,137,375,121,346,114"/>
+<area shape="rect" title=" " alt="" coords="359,167,502,207"/>
+<area shape="poly" title=" " alt="" coords="326,109,394,156,391,161,323,114"/>
+<area shape="poly" title=" " alt="" coords="672,113,613,166,609,162,668,110"/>
+<area shape="poly" title=" " alt="" coords="693,110,732,161,727,164,689,113"/>
 </map>
 </div>
 </div>
@@ -176,7 +188,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00029">29</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00031">31</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
 </div>
 </div>
@@ -207,9 +219,9 @@ Variables</h2></td></tr>
 <p>Main application thread. </p>
 <p>Simple watchdog feeding loop - no business logic. </p>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00097">97</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00110">110</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00081">task_wdt_callback()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a0357560df82a39e9c631c79d57b612b2">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -220,6 +232,10 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Main application thread." alt="" coords="5,5,100,31"/>
 <area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="148,5,291,31"/>
 <area shape="poly" title=" " alt="" coords="100,15,134,15,134,21,100,21"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="339,5,513,31"/>
+<area shape="poly" title=" " alt="" coords="291,15,325,15,325,21,291,21"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="561,5,713,31"/>
+<area shape="poly" title=" " alt="" coords="513,15,547,15,547,21,513,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -289,7 +305,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00097">app_thread()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00110">app_thread()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -300,6 +316,10 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="152,15,186,15,186,21,152,21"/>
 <area shape="rect" href="app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="343,5,485,31"/>
 <area shape="poly" title=" " alt="" coords="295,15,329,15,329,21,295,21"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="533,5,708,31"/>
+<area shape="poly" title=" " alt="" coords="486,15,520,15,520,21,486,21"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="756,5,908,31"/>
+<area shape="poly" title=" " alt="" coords="708,15,742,15,742,21,708,21"/>
 </map>
 </div>
 
@@ -350,7 +370,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00141">watchdog_init()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00158">watchdog_init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -400,9 +420,23 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00079">79</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00081">81</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00097">app_thread()</a>, <a class="el" href="cloud_8c_source.html#l00883">cloud_thread()</a>, <a class="el" href="energy__pulse_8c_source.html#l00465">energy_pulse_thread()</a>, <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="message__queue_8c_source.html#l01052">message_queue_thread()</a>, <a class="el" href="network_8c_source.html#l00397">network_thread()</a>, <a class="el" href="p__one_8c_source.html#l01305">p_one_thread()</a>, <a class="el" href="reboot_8c_source.html#l00332">reboot_thread()</a>, <a class="el" href="led_8c_source.html#l00178">task_wdt_callback()</a>, and <a class="el" href="energy__pulse_8c.html#adc6936992c86b4d791dc8428cd1f1183">ZBUS_CHAN_DEFINE()</a>.</p>
+<p class="reference">References <a class="el" href="reboot__zbus_8c_source.html#l00063">reboot_request_publish()</a>, and <a class="el" href="reboot__zbus_8h_source.html#l00064">REBOOT_TYPE_ERROR</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00110">app_thread()</a>, <a class="el" href="cloud_8c_source.html#l00893">cloud_thread()</a>, <a class="el" href="energy__pulse_8c_source.html#l00464">energy_pulse_thread()</a>, <a class="el" href="led_8c_source.html#l00672">led_thread()</a>, <a class="el" href="message__queue_8c_source.html#l01108">message_queue_thread()</a>, <a class="el" href="network_8c_source.html#l00393">network_thread()</a>, <a class="el" href="p__one_8c_source.html#l01329">p_one_thread()</a>, <a class="el" href="reboot_8c_source.html#l00332">reboot_thread()</a>, <a class="el" href="led_8c_source.html#l00180">task_wdt_callback()</a>, and <a class="el" href="energy__pulse_8c.html#adc6936992c86b4d791dc8428cd1f1183">ZBUS_CHAN_DEFINE()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="app_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph.png" border="0" usemap="#aapp_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph" loading="lazy" alt=""/></div>
+<map name="aapp_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph" id="aapp_8c_ad3667701d9e14f8b5fc4e3ee0131a27b_cgraph">
+<area shape="rect" title="Watchdog timeout callback." alt="" coords="5,5,148,31"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="196,5,371,31"/>
+<area shape="poly" title=" " alt="" coords="148,15,182,15,182,21,148,21"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="419,5,571,31"/>
+<area shape="poly" title=" " alt="" coords="371,15,405,15,405,21,371,21"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -474,11 +508,12 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Initialize hardware watchdog. </p>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, negative errno on error </dd></dl>
+<p>CRITICAL: Watchdog is a safety-critical component. If initialization fails, the system CANNOT run safely and will continuously reboot until the hardware issue is resolved.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, does not return on failure (triggers reboot) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00141">141</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00158">158</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00039">hw_wdt_dev</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00041">hw_wdt_dev</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#ac59c4a1d8445ae57c02ba7c20d6dced5">SYS_INIT()</a>.</p>
 <div class="dynheader">
@@ -570,7 +605,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="app_8c_source.html#l00059">zbus_monitor_callback()</a>.</p>
+<p class="reference">References <a class="el" href="app_8c_source.html#l00061">zbus_monitor_callback()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -616,7 +651,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00059">59</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00061">61</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#a741988180fb21aef6f753e5f09e4b887">ZBUS_LISTENER_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -653,9 +688,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00039">39</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8c_source.html#l00041">41</a> of file <a class="el" href="app_8c_source.html">app.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00141">watchdog_init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="app_8c_source.html#l00158">watchdog_init()</a>.</p>
 
 </div>
 </div>

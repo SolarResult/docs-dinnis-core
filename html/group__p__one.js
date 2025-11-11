@@ -5,7 +5,7 @@ var group__p__one =
       [ "energy_consumed_wh_tariff2", "structp__one__msg.html#ae6a3181581575838ed01d72b1f5f1053", null ],
       [ "energy_delivered_wh_tariff1", "structp__one__msg.html#a708cd525fbc51e289dd4d070cb038c60", null ],
       [ "energy_delivered_wh_tariff2", "structp__one__msg.html#ab02fbd8039fbc65dffdadcce8822ee45", null ],
-      [ "gas_consumed_m3", "structp__one__msg.html#afb8226a2ab2ab6f50ec759e17b76f7f3", null ],
+      [ "gas_consumed_dm3", "structp__one__msg.html#a59d5b648565fc2df3025f6654db6ab7a", null ],
       [ "power_consumed_avg_w", "structp__one__msg.html#a8dba508eda2087b72feecf747cdcee31", null ],
       [ "power_consumed_max_timestamp_epoch_ms", "structp__one__msg.html#acfecbec6ba3087478cd7ced937818ae4", null ],
       [ "power_consumed_max_w", "structp__one__msg.html#a92f0129dc1e0cb50161399b48b3851fb", null ],

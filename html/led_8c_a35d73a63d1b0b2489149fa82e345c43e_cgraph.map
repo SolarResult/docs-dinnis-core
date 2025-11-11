@@ -5,9 +5,9 @@
 <area shape="rect" id="Node000003" href="$led_8c.html#ae613b5b31048eaf65592097c7b06ba22" title="Acquiring timeout handler." alt="" coords="339,5,535,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="247,206,258,174,276,132,302,87,337,48,359,34,362,38,340,52,306,90,280,134,263,176,253,207"/>
 <area shape="rect" id="Node000004" href="$led_8c.html#ad1dd4a0bbe33effd0dfa3cdc2ce2584e" title="Update LED pattern based on current system state." alt="" coords="619,56,767,81"/>
-<area shape="poly" id="edge19_Node000002_Node000004" title=" " alt="" coords="250,205,281,152,306,122,337,98,370,83,404,72,474,58,544,53,606,55,605,61,544,59,475,63,405,77,372,88,340,103,310,126,285,155,255,208"/>
-<area shape="rect" id="Node000005" href="$led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="864,105,1003,131"/>
-<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="256,204,289,172,312,155,338,142,405,121,475,106,545,97,615,93,745,94,851,103,850,109,745,100,615,98,546,103,475,112,406,126,340,147,315,160,293,176,259,208"/>
+<area shape="poly" id="edge21_Node000002_Node000004" title=" " alt="" coords="250,205,281,152,306,122,337,98,370,83,404,72,474,58,544,53,606,55,605,61,544,59,475,63,405,77,372,88,340,103,310,126,285,155,255,208"/>
+<area shape="rect" id="Node000005" href="$led_8c.html#a9ea5c5c308aac2a915ad8c9e3c1417f0" title="Apply LED pattern." alt="" coords="864,107,1003,132"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="256,204,289,172,312,155,338,142,405,121,475,107,545,98,615,93,745,95,851,104,850,110,745,100,615,99,546,103,475,112,406,126,340,147,315,160,293,176,259,208"/>
 <area shape="rect" id="Node000008" href="$led_8c.html#a02aff220c118271ed22cef5a1276921c" title="Process cloud status message." alt="" coords="362,157,511,183"/>
 <area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="290,204,338,191,369,183,371,189,339,197,292,209"/>
 <area shape="rect" id="Node000011" href="$led_8c.html#a2d4ae4630b56180f0e16b1462da1f642" title="Process FOTA message." alt="" coords="367,207,507,232"/>
@@ -17,15 +17,15 @@
 <area shape="rect" id="Node000016" href="$led_8c.html#ab9fc1065d6a56a8dd9482eb39863b471" title="Process trigger message." alt="" coords="358,305,515,331"/>
 <area shape="poly" id="edge16_Node000002_Node000016" title=" " alt="" coords="261,230,295,260,340,290,359,299,357,303,337,295,292,265,257,234"/>
 <area shape="rect" id="Node000017" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="365,355,508,380"/>
-<area shape="poly" id="edge17_Node000002_Node000017" title=" " alt="" coords="255,231,286,285,310,315,340,341,354,349,351,353,337,346,307,319,282,288,250,233"/>
-<area shape="rect" id="Node000018" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,404,513,429"/>
-<area shape="poly" id="edge18_Node000002_Node000018" title=" " alt="" coords="252,231,262,264,279,307,305,352,321,373,340,391,350,397,347,401,337,395,317,377,300,355,274,310,257,266,247,233"/>
+<area shape="poly" id="edge17_Node000002_Node000017" title=" " alt="" coords="255,231,286,284,311,314,340,340,354,348,351,352,337,344,307,318,282,287,250,234"/>
+<area shape="rect" id="Node000020" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,404,513,429"/>
+<area shape="poly" id="edge20_Node000002_Node000020" title=" " alt="" coords="252,231,262,264,279,307,305,352,321,373,340,391,350,397,347,401,337,395,317,377,300,355,274,310,257,266,247,233"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="503,28,615,51,614,56,502,33"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="756,79,858,100,857,105,755,84"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="755,79,860,101,859,106,754,84"/>
 <area shape="rect" id="Node000007" href="$led_8c.html#a14a710a391b5d39b26baab06d0a5c120" title="Determine LED status based on current system state." alt="" coords="852,56,1015,81"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="768,66,838,66,838,71,768,71"/>
-<area shape="rect" id="Node000006" href="$led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="1063,105,1171,131"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1003,115,1049,115,1049,121,1003,121"/>
+<area shape="rect" id="Node000006" href="$led_8c.html#a672d2a127bddf4b2c21225cbe7e602a2" title="Set LED hardware to specific colors." alt="" coords="1063,107,1171,132"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1003,117,1049,117,1049,122,1003,122"/>
 <area shape="rect" id="Node000009" href="$group__cloud.html#gae1725b97cb0278f661d2b056962f53be" title=" " alt="" coords="620,157,767,183"/>
 <area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="511,167,606,167,606,173,511,173"/>
 <area shape="rect" id="Node000010" href="$group__cloud.html#gab80e1b04abd5e0e4e2664f8fc1969627" title=" " alt="" coords="634,207,753,232"/>
@@ -35,5 +35,9 @@
 <area shape="rect" id="Node000014" href="$group__network.html#gad0a6f2be62aea4dfb98871fce50c04be" title=" " alt="" coords="600,305,787,331"/>
 <area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="504,279,614,300,613,305,503,284"/>
 <area shape="rect" id="Node000015" href="$group__network.html#ga731127276feb6cc724b0abc39331a3e8" title=" " alt="" coords="583,355,804,380"/>
-<area shape="poly" id="edge15_Node000012_Node000015" title=" " alt="" coords="511,279,536,290,552,303,561,317,569,329,584,341,597,348,595,352,581,346,566,333,556,320,548,307,533,295,508,284"/>
+<area shape="poly" id="edge15_Node000012_Node000015" title=" " alt="" coords="510,279,536,290,552,303,561,316,570,328,584,340,601,348,598,352,581,344,566,332,556,319,548,307,533,295,508,284"/>
+<area shape="rect" id="Node000018" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="606,404,781,429"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="504,377,614,399,613,404,503,383"/>
+<area shape="rect" id="Node000019" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="857,404,1009,429"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="781,414,844,414,844,419,781,419"/>
 </map>

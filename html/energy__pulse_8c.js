@@ -4,7 +4,6 @@ var energy__pulse_8c =
     [ "CHANNEL_LIST", "energy__pulse_8c.html#a3b5933d01a8c2ba7a93b5e6aa71593b8", null ],
     [ "ENERGY_PULSE_CH1_KEY", "energy__pulse_8c.html#ae2f864d54384552d9169eabece94314a", null ],
     [ "ENERGY_PULSE_CH2_KEY", "energy__pulse_8c.html#a3ee7b56e5fcd98e9c0b388fccab79ea8", null ],
-    [ "ENERGY_PULSE_WH_PER_PULSE", "energy__pulse_8c.html#afb1fa121bca48a270e1823886d81b486", null ],
     [ "MAX_MSG_SIZE", "energy__pulse_8c.html#a17e333794ae761cd55ec6fd6fc0f1bac", null ],
     [ "PULSE_CH1_GPIO_NODE", "energy__pulse_8c.html#a35f5533ea197a21652ccbc05a9079ce3", null ],
     [ "PULSE_CH2_GPIO_NODE", "energy__pulse_8c.html#a1da2a7ebee05f5fce581d2e4ba6a2d28", null ],

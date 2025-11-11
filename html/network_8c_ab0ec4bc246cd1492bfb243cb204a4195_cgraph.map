@@ -2,8 +2,13 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,31,152,56"/>
 <area shape="rect" id="Node000002" href="$network_8c.html#ad426643c948e8f07ec615a11494b7bf6" title=" " alt="" coords="200,31,324,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,186,41,186,46,152,46"/>
-<area shape="rect" id="Node000003" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="377,5,519,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="324,32,363,27,363,32,325,38"/>
-<area shape="rect" id="Node000004" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="372,55,524,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="325,49,359,53,358,58,324,54"/>
+<area shape="rect" id="Node000003" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="572,5,747,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,28,372,15,468,9,559,10,559,15,468,15,372,21,308,33"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="377,31,519,56"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="324,41,363,41,363,46,324,46"/>
+<area shape="rect" id="Node000006" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="372,80,524,105"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="311,53,386,74,385,79,310,59"/>
+<area shape="rect" id="Node000004" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="795,5,947,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="747,15,781,15,781,21,747,21"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="519,32,558,27,559,33,520,37"/>
 </map>

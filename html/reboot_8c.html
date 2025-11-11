@@ -535,6 +535,10 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="313,33,352,27,352,33,314,38"/>
 <area shape="rect" href="task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="361,55,513,80"/>
 <area shape="poly" title=" " alt="" coords="314,48,348,53,347,58,313,53"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="561,5,736,31"/>
+<area shape="poly" title=" " alt="" coords="509,15,548,15,548,21,509,21"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="784,5,936,31"/>
+<area shape="poly" title=" " alt="" coords="736,15,770,15,770,21,736,21"/>
 </map>
 </div>
 
@@ -661,7 +665,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="reboot_8c_source.html#l00332">332</a> of file <a class="el" href="reboot_8c_source.html">reboot.c</a>.</p>
 
-<p class="reference">References <a class="el" href="reboot_8c_source.html#l00094">reboot_state_object::chan</a>, <a class="el" href="reboot_8c_source.html#l00095">reboot_state_object::msg_buf</a>, <a class="el" href="reboot_8c_source.html#l00036">REBOOT_MODULE_FATAL_ERROR_HANDLE</a>, <a class="el" href="cloud_8c_source.html#l00163">STATE_OPERATIONAL</a>, <a class="el" href="cloud_8c_source.html#l00172">states</a>, <a class="el" href="app_8c_source.html#l00079">task_wdt_callback()</a>, and <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>.</p>
+<p class="reference">References <a class="el" href="reboot_8c_source.html#l00094">reboot_state_object::chan</a>, <a class="el" href="reboot_8c_source.html#l00095">reboot_state_object::msg_buf</a>, <a class="el" href="reboot_8c_source.html#l00036">REBOOT_MODULE_FATAL_ERROR_HANDLE</a>, <a class="el" href="cloud_8c_source.html#l00164">STATE_OPERATIONAL</a>, <a class="el" href="cloud_8c_source.html#l00173">states</a>, <a class="el" href="app_8c_source.html#l00081">task_wdt_callback()</a>, and <a class="el" href="task__wdt__util_8c_source.html#l00016">task_wdt_util_setup()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#affd895492d6c5990a062df1f1b53cf41">K_THREAD_DEFINE()</a>.</p>
 <div class="dynheader">
@@ -674,6 +678,10 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="118,33,157,27,158,33,119,38"/>
 <area shape="rect" href="task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="167,55,319,80"/>
 <area shape="poly" title=" " alt="" coords="119,48,154,53,153,58,118,53"/>
+<area shape="rect" href="group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="367,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="314,15,353,15,353,21,314,21"/>
+<area shape="rect" href="reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="589,5,741,31"/>
+<area shape="poly" title=" " alt="" coords="541,15,575,15,575,21,541,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -907,7 +915,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="cloud_8c_source.html#l00073">ADD_OBSERVERS</a>.</p>
+<p class="reference">References <a class="el" href="cloud_8c_source.html#l00074">ADD_OBSERVERS</a>.</p>
 
 </div>
 </div>
@@ -1035,9 +1043,9 @@ Here is the caller graph for this function:</div>
 <div class="line">                                           NULL, </div>
 <div class="line">                                           NULL), </div>
 <div class="line">}</div>
-<div class="ttc" id="acloud_8c_html_a1960ea4ac2008ab8f4cab1059ab651ac"><div class="ttname"><a href="cloud_8c.html#a1960ea4ac2008ab8f4cab1059ab651ac">state_operational_entry</a></div><div class="ttdeci">static void state_operational_entry(void *o)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00652">cloud.c:652</a></div></div>
-<div class="ttc" id="acloud_8c_html_a2df95ca6d4273a301824e2d033bdc8faae76ec4894110475b8ecfcce46d09066d"><div class="ttname"><a href="cloud_8c.html#a2df95ca6d4273a301824e2d033bdc8faae76ec4894110475b8ecfcce46d09066d">STATE_OPERATIONAL</a></div><div class="ttdeci">@ STATE_OPERATIONAL</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00163">cloud.c:163</a></div></div>
-<div class="ttc" id="acloud_8c_html_a5894fe4ced254ada1ff0ec62e8c3dab9"><div class="ttname"><a href="cloud_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9">state_operational_run</a></div><div class="ttdeci">static void state_operational_run(void *o)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00665">cloud.c:665</a></div></div>
+<div class="ttc" id="acloud_8c_html_a1960ea4ac2008ab8f4cab1059ab651ac"><div class="ttname"><a href="cloud_8c.html#a1960ea4ac2008ab8f4cab1059ab651ac">state_operational_entry</a></div><div class="ttdeci">static void state_operational_entry(void *o)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00661">cloud.c:661</a></div></div>
+<div class="ttc" id="acloud_8c_html_a2df95ca6d4273a301824e2d033bdc8faae76ec4894110475b8ecfcce46d09066d"><div class="ttname"><a href="cloud_8c.html#a2df95ca6d4273a301824e2d033bdc8faae76ec4894110475b8ecfcce46d09066d">STATE_OPERATIONAL</a></div><div class="ttdeci">@ STATE_OPERATIONAL</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00164">cloud.c:164</a></div></div>
+<div class="ttc" id="acloud_8c_html_a5894fe4ced254ada1ff0ec62e8c3dab9"><div class="ttname"><a href="cloud_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9">state_operational_run</a></div><div class="ttdeci">static void state_operational_run(void *o)</div><div class="ttdef"><b>Definition</b> <a href="cloud_8c_source.html#l00674">cloud.c:674</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="reboot_8c_source.html#l00084">84</a> of file <a class="el" href="reboot_8c_source.html">reboot.c</a>.</p>
 

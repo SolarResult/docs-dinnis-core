@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['📁_20module_20readme_20s_0',['📁 Module README&apos;s',['../index.html#autotoc_md321',1,'']]]
+  ['📄_20api_20referentie_0',['📄 API Referentie',['../index.html#autotoc_md205',1,'']]],
+  ['📄_20licentie_1',['📄 Licentie',['../index.html#autotoc_md215',1,'']]]
 ];

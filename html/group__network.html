@@ -133,8 +133,6 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#gga1d388be7b8bc84c14c1c37a93d4e4c55aa6b528626e4460829069fc4e7d198c7c">NETWORK_DISCONNECTED</a>
 , <br />
 &#160;&#160;<a class="el" href="#gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e">NETWORK_CONNECTED</a>
-, <br />
-&#160;&#160;<a class="el" href="#gga1d388be7b8bc84c14c1c37a93d4e4c55a4d173ec94f3ecae9b9dcbf09619f906f">NETWORK_EVER_CONNECTED</a>
 <br />
  }</td></tr>
 </table><table class="memberdecls">
@@ -144,11 +142,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf90ab11a76c35273f82a9d3c481b65f6" id="r_gaf90ab11a76c35273f82a9d3c481b65f6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf90ab11a76c35273f82a9d3c481b65f6">network_is_connected</a> (const struct <a class="el" href="structnetwork__msg.html">network_msg</a> *msg)</td></tr>
 <tr class="memitem:gad0a6f2be62aea4dfb98871fce50c04be" id="r_gad0a6f2be62aea4dfb98871fce50c04be"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad0a6f2be62aea4dfb98871fce50c04be">network_is_disconnected</a> (const struct <a class="el" href="structnetwork__msg.html">network_msg</a> *msg)</td></tr>
 <tr class="memitem:ga731127276feb6cc724b0abc39331a3e8" id="r_ga731127276feb6cc724b0abc39331a3e8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga731127276feb6cc724b0abc39331a3e8">network_is_modem_initialized</a> (const struct <a class="el" href="structnetwork__msg.html">network_msg</a> *msg)</td></tr>
-<tr class="memitem:ga99da4717bbc3745cae62e8887228d15b" id="r_ga99da4717bbc3745cae62e8887228d15b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga99da4717bbc3745cae62e8887228d15b">network_is_ever_connected</a> (const struct <a class="el" href="structnetwork__msg.html">network_msg</a> *msg)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <p>Cellular modem and LTE connectivity management. </p>
-<p>For complete documentation, see <a class="el" href="network_doc.html">Network Module - Documentatie</a> </p>
+<p>For complete documentation, see network_doc </p>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ga3039bcfa8d98aa851c46c451ac970056" name="ga3039bcfa8d98aa851c46c451ac970056"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga3039bcfa8d98aa851c46c451ac970056">&#9670;&#160;</a></span>MSG_TO_NETWORK_MSG_PTR</h2>
@@ -165,11 +162,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((<span class="keyword">const</span> <span class="keyword">struct </span><a class="code hl_struct" href="structnetwork__msg.html">network_msg</a> *)(_msg))</div>
-<div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00045">network_zbus.h:45</a></div></div>
+<div class="ttc" id="astructnetwork__msg_html"><div class="ttname"><a href="structnetwork__msg.html">network_msg</a></div><div class="ttdef"><b>Definition</b> <a href="network__zbus_8h_source.html#l00042">network_zbus.h:42</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00024">24</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00666">led_thread()</a>, <a class="el" href="network_8c_source.html#l00374">state_connected_run()</a>, <a class="el" href="cloud_8c_source.html#l00720">state_disconnected_run()</a>, <a class="el" href="network_8c_source.html#l00337">state_disconnected_run()</a>, <a class="el" href="cloud_8c_source.html#l00665">state_operational_run()</a>, <a class="el" href="message__queue_8c_source.html#l00781">state_operational_run()</a>, <a class="el" href="network_8c_source.html#l00307">state_operational_run()</a>, and <a class="el" href="cloud_8c_source.html#l00690">state_waiting_for_modem_run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00672">led_thread()</a>, <a class="el" href="network_8c_source.html#l00370">state_connected_run()</a>, <a class="el" href="cloud_8c_source.html#l00730">state_disconnected_run()</a>, <a class="el" href="network_8c_source.html#l00342">state_disconnected_run()</a>, <a class="el" href="cloud_8c_source.html#l00674">state_operational_run()</a>, <a class="el" href="message__queue_8c_source.html#l00832">state_operational_run()</a>, <a class="el" href="network_8c_source.html#l00312">state_operational_run()</a>, and <a class="el" href="cloud_8c_source.html#l00699">state_waiting_for_modem_run()</a>.</p>
 
 </div>
 </div>
@@ -208,7 +205,6 @@ Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga1d388be7b8bc84c14c1c37a93d4e4c55af039d9a03ff6276357796b908f7cc493" name="gga1d388be7b8bc84c14c1c37a93d4e4c55af039d9a03ff6276357796b908f7cc493"></a>NETWORK_MODEM_INIT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="gga1d388be7b8bc84c14c1c37a93d4e4c55aa6b528626e4460829069fc4e7d198c7c" name="gga1d388be7b8bc84c14c1c37a93d4e4c55aa6b528626e4460829069fc4e7d198c7c"></a>NETWORK_DISCONNECTED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e" name="gga1d388be7b8bc84c14c1c37a93d4e4c55ad0d9cbede31a8edb50844d1c5558039e"></a>NETWORK_CONNECTED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="gga1d388be7b8bc84c14c1c37a93d4e4c55a4d173ec94f3ecae9b9dcbf09619f906f" name="gga1d388be7b8bc84c14c1c37a93d4e4c55a4d173ec94f3ecae9b9dcbf09619f906f"></a>NETWORK_EVER_CONNECTED&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00031">31</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
@@ -239,11 +235,11 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00054">54</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00051">51</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
 
-<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00039">NETWORK_CONNECTED</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00050">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00046">network_msg::type</a>.</p>
+<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00039">NETWORK_CONNECTED</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00047">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00043">network_msg::type</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00512">process_network_msg()</a>, <a class="el" href="cloud_8c_source.html#l00720">state_disconnected_run()</a>, <a class="el" href="network_8c_source.html#l00337">state_disconnected_run()</a>, <a class="el" href="message__queue_8c_source.html#l00781">state_operational_run()</a>, and <a class="el" href="network_8c_source.html#l00307">state_operational_run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00518">process_network_msg()</a>, <a class="el" href="cloud_8c_source.html#l00730">state_disconnected_run()</a>, <a class="el" href="network_8c_source.html#l00342">state_disconnected_run()</a>, <a class="el" href="message__queue_8c_source.html#l00832">state_operational_run()</a>, and <a class="el" href="network_8c_source.html#l00312">state_operational_run()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -294,11 +290,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00059">59</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00056">56</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
 
-<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00036">NETWORK_DISCONNECTED</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00050">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00046">network_msg::type</a>.</p>
+<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00036">NETWORK_DISCONNECTED</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00047">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00043">network_msg::type</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00512">process_network_msg()</a>, <a class="el" href="network_8c_source.html#l00374">state_connected_run()</a>, <a class="el" href="network_8c_source.html#l00337">state_disconnected_run()</a>, <a class="el" href="cloud_8c_source.html#l00665">state_operational_run()</a>, and <a class="el" href="network_8c_source.html#l00307">state_operational_run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00518">process_network_msg()</a>, <a class="el" href="network_8c_source.html#l00370">state_connected_run()</a>, <a class="el" href="network_8c_source.html#l00342">state_disconnected_run()</a>, <a class="el" href="cloud_8c_source.html#l00674">state_operational_run()</a>, and <a class="el" href="network_8c_source.html#l00312">state_operational_run()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -327,47 +323,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ga99da4717bbc3745cae62e8887228d15b" name="ga99da4717bbc3745cae62e8887228d15b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga99da4717bbc3745cae62e8887228d15b">&#9670;&#160;</a></span>network_is_ever_connected()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool network_is_ever_connected </td>
-          <td>(</td>
-          <td class="paramtype">const struct <a class="el" href="structnetwork__msg.html">network_msg</a> *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00069">69</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
-
-<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00042">NETWORK_EVER_CONNECTED</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00050">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00046">network_msg::type</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="message__queue_8c_source.html#l00781">state_operational_run()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__network_ga99da4717bbc3745cae62e8887228d15b_icgraph.png" border="0" usemap="#agroup__network_ga99da4717bbc3745cae62e8887228d15b_icgraph" loading="lazy" alt=""/></div>
-<map name="agroup__network_ga99da4717bbc3745cae62e8887228d15b_icgraph" id="agroup__network_ga99da4717bbc3745cae62e8887228d15b_icgraph">
-<area shape="rect" title=" " alt="" coords="217,5,420,31"/>
-<area shape="rect" href="message__queue_8c.html#a5894fe4ced254ada1ff0ec62e8c3dab9" title="Run function for OPERATIONAL state." alt="" coords="5,5,169,31"/>
-<area shape="poly" title=" " alt="" coords="204,21,170,21,170,15,204,15"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="ga731127276feb6cc724b0abc39331a3e8" name="ga731127276feb6cc724b0abc39331a3e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga731127276feb6cc724b0abc39331a3e8">&#9670;&#160;</a></span>network_is_modem_initialized()</h2>
 
@@ -391,11 +346,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00064">64</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="network__zbus_8h_source.html#l00061">61</a> of file <a class="el" href="network__zbus_8h_source.html">network_zbus.h</a>.</p>
 
-<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00033">NETWORK_MODEM_INIT</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00050">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00046">network_msg::type</a>.</p>
+<p class="reference">References <a class="el" href="network__zbus_8h_source.html#l00033">NETWORK_MODEM_INIT</a>, <a class="el" href="network__zbus_8h_source.html#l00028">NETWORK_STATUS</a>, <a class="el" href="network__zbus_8h_source.html#l00047">network_msg::status</a>, and <a class="el" href="network__zbus_8h_source.html#l00043">network_msg::type</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00512">process_network_msg()</a>, and <a class="el" href="cloud_8c_source.html#l00690">state_waiting_for_modem_run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="led_8c_source.html#l00518">process_network_msg()</a>, and <a class="el" href="cloud_8c_source.html#l00699">state_waiting_for_modem_run()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

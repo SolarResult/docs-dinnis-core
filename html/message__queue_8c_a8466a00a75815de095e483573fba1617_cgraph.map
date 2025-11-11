@@ -1,9 +1,18 @@
 <map id="K_THREAD_DEFINE" name="K_THREAD_DEFINE">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,152,56"/>
-<area shape="rect" id="Node000002" href="$message__queue_8c.html#ab4b89d883393468f3d4629a61ed0b07a" title="Main message queue thread." alt="" coords="200,31,377,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,41,186,41,186,46,153,46"/>
-<area shape="rect" id="Node000003" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="430,5,573,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,30,416,25,417,31,378,35"/>
-<area shape="rect" id="Node000004" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="425,55,577,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="378,51,412,55,411,60,378,56"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,152,107"/>
+<area shape="rect" id="Node000002" href="$message__queue_8c.html#ab4b89d883393468f3d4629a61ed0b07a" title="Main message queue thread." alt="" coords="200,81,377,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,91,186,91,186,97,153,97"/>
+<area shape="rect" id="Node000003" href="$message__queue_8c.html#a78d6852f1bd08d95552028c935535196" title="Date/time event handler callback." alt="" coords="425,5,597,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,79,459,33,461,38,328,84"/>
+<area shape="rect" id="Node000005" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="645,81,820,107"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="378,91,632,91,632,97,378,97"/>
+<area shape="rect" id="Node000007" href="$app_8c.html#ad3667701d9e14f8b5fc4e3ee0131a27b" title="Watchdog timeout callback." alt="" coords="440,107,583,132"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="378,101,427,107,426,112,377,107"/>
+<area shape="rect" id="Node000008" href="$task__wdt__util_8c.html#a3cd0fca4b68b6c6a7222cde37cf5b49f" title="Sets up a task watchdog channel for the calling thread." alt="" coords="435,156,587,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="323,104,426,142,450,149,448,155,424,147,321,109"/>
+<area shape="rect" id="Node000004" href="$message__queue_8c.html#afce6fe5cf4d8a9bab120bf9ed2bb7571" title="Synchronize time with external unix epoch source." alt="" coords="688,5,777,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="598,15,674,15,674,21,598,21"/>
+<area shape="rect" id="Node000006" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="868,81,1020,107"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="820,91,854,91,854,97,820,97"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="583,109,631,103,632,108,583,114"/>
 </map>

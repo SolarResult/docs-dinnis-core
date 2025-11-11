@@ -1,13 +1,19 @@
 var searchData=
 [
-  ['4_201_20taalgebruik_20red_20flags_0',['4.1 Taalgebruik Red Flags',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md571',1,'']]],
-  ['4_202_20structurele_20red_20flags_1',['4.2 Structurele Red Flags',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md572',1,'']]],
-  ['4_203_20feature_20consistency_20red_20flags_2',['4.3 Feature Consistency Red Flags',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md573',1,'']]],
-  ['4_20argumentaties_3',['4. Argumentaties',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md524',1,'']]],
-  ['4_20code_20verificatie_20en_20synchronisatie_20kritiek_20⚠️_4',['4. Code Verificatie en Synchronisatie (KRITIEK! ⚠️)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md538',1,'']]],
-  ['4_20modem_20shell_20mosh_20bouwen_5',['1.4 Modem Shell (MoSh) Bouwen',['../provisioning.html#autotoc_md342',1,'']]],
-  ['4_20timing_20behavior_20claims_6',['3.4 Timing &amp;amp; Behavior Claims',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md568',1,'']]],
-  ['4_20verification_20workflow_205_20fasen_7',['5.4 Verification Workflow (5 Fasen)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md575',1,'']]],
-  ['4_3a_20documentatie_20anti_20patterns_20red_20flags_8',['Fase 4: Documentatie Anti-Patterns (Red Flags)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2dinnis-core_2guidelines_2documentation.html#autotoc_md570',1,'']]],
-  ['4_3a_20imei_20schrijven_20via_20rtt_9',['Stap 4: IMEI Schrijven via RTT',['../provisioning.html#autotoc_md353',1,'']]]
+  ['5_201_20thread_20model_0',['5.1 Thread Model',['../app_doc.html#autotoc_md15',1,'']]],
+  ['5_201_20waarom_20dit_20protocol_1',['5.1 Waarom dit Protocol?',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md395',1,'']]],
+  ['5_202_20configuratie_2',['5.2 Configuratie',['../app_doc.html#autotoc_md16',1,'']]],
+  ['5_202_20fundamenteel_20principe_3a_20code_20first_20investigation_3',['5.2 Fundamenteel Principe: Code-First Investigation',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md397',1,'']]],
+  ['5_203_20systematische_20verificatie_20strategie_4',['5.3 Systematische Verificatie Strategie',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md399',1,'']]],
+  ['5_204_20verification_20workflow_205_20fasen_5',['5.4 Verification Workflow (5 Fasen)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md418',1,'']]],
+  ['5_205_20practical_20tools_20commands_6',['5.5 Practical Tools &amp;amp; Commands',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md420',1,'']]],
+  ['5_206_20checklist_3a_20voor_20documentatie_20review_20sessie_7',['5.6 Checklist: Voor Documentatie Review Sessie',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md425',1,'']]],
+  ['5_207_20key_20insights_20lessons_20learned_8',['5.7 Key Insights &amp;amp; Lessons Learned',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md427',1,'']]],
+  ['5_208_20samenvatting_20protocol_9',['5.8 Samenvatting Protocol',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md429',1,'']]],
+  ['5_20afwegingen_20trade_20offs_10',['5. Afwegingen (Trade-offs)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md368',1,'']]],
+  ['5_20ai_20agent_20documentatie_20verificatie_20protocol_11',['5. AI Agent Documentatie Verificatie Protocol',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md394',1,'']]],
+  ['5_20architectuur_12',['5. Architectuur',['../app_doc.html#autotoc_md14',1,'']]],
+  ['5_20configuratie_13',['5. Configuratie',['../cloud_doc.html#autotoc_md33',1,'']]],
+  ['5_20fasen_14',['5.4 Verification Workflow (5 Fasen)',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md418',1,'']]],
+  ['5_20practical_20tools_20commands_15',['5.5 Practical Tools &amp;amp; Commands',['../md__2home_2ruben_2Documents_2solarresult_2firmware_2fw-energy-core_2guidelines_2documentation.html#autotoc_md420',1,'']]]
 ];

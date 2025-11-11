@@ -2,4 +2,8 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,200,31"/>
 <area shape="rect" id="Node000002" href="$network_8c.html#a07968bc96c75adb39dae4d80ef151bbc" title=" " alt="" coords="248,5,432,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,15,235,15,235,21,200,21"/>
+<area shape="rect" id="Node000003" href="$group__reboot.html#ga87f85e14d0d9ee938e640881ee58b65c" title="Publish reboot request to ZBUS." alt="" coords="480,5,655,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,15,466,15,466,21,432,21"/>
+<area shape="rect" id="Node000004" href="$reboot__zbus_8c.html#ade3f3b087041c1ad9a0f490df51df19b" title="Get string representation of reboot type." alt="" coords="703,5,855,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="655,15,689,15,689,21,655,21"/>
 </map>
